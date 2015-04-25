@@ -1,0 +1,496 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.29)  5 NOV 2014 01:09
+entering extended mode
+**bare_conf.tex
+
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+bare_conf.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+IEEEtran.cls"
+Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 373.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen104
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen105
+\CLASSINFOnormalsizeunitybaselineskip=\dimen106
+\IEEEnormaljot=\dimen107
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
+\IEEEilabelindentA=\dimen108
+\IEEEilabelindentB=\dimen109
+\IEEEilabelindent=\dimen110
+\IEEEelabelindent=\dimen111
+\IEEEdlabelindent=\dimen112
+\IEEElabelindent=\dimen113
+\IEEEiednormlabelsep=\dimen114
+\IEEEiedmathlabelsep=\dimen115
+\IEEEiedtopsep=\skip41
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@IEEEsubequation=\count85
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count86
+\c@table=\count87
+\@IEEEeqnnumcols=\count88
+\@IEEEeqncolcnt=\count89
+\@IEEEtmpitemindent=\dimen116
+\c@IEEEbiography=\count90
+\@IEEEtranrubishbin=\box26
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+\lst@mode=\count91
+\lst@gtempboxa=\box27
+\lst@token=\toks16
+\lst@length=\count92
+\lst@currlwidth=\dimen117
+\lst@column=\count93
+\lst@pos=\count94
+\lst@lostspace=\dimen118
+\lst@width=\dimen119
+\lst@newlines=\count95
+\lst@lineno=\count96
+\lst@maxwidth=\dimen120
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count97
+\lst@skipnumbers=\count98
+\lst@framebox=\box28
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count99
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen123
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen124
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count100
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count101
+\leftroot@=\count102
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count103
+\DOTSCASE@=\count104
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen125
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count105
+\c@MaxMatrixCols=\count106
+\dotsspace@=\muskip10
+\c@parentequation=\count107
+\dspbrk@lvl=\count108
+\tag@help=\toks18
+\row@=\count109
+\column@=\count110
+\maxfields@=\count111
+\andhelp@=\toks19
+\eqnshift@=\dimen126
+\alignsep@=\dimen127
+\tagshift@=\dimen128
+\tagwidth@=\dimen129
+\totwidth@=\dimen130
+\lineht@=\dimen131
+\@envbody=\toks20
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+bare_conf.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 348.
+LaTeX Font Info:    ... okay on input line 348.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 348.
+LaTeX Font Info:    ... okay on input line 348.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 348.
+LaTeX Font Info:    ... okay on input line 348.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 348.
+LaTeX Font Info:    ... okay on input line 348.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 348.
+LaTeX Font Info:    ... okay on input line 348.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 348.
+LaTeX Font Info:    ... okay on input line 348.
+\c@lstlisting=\count112
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count113
+\scratchdimen=\dimen132
+\scratchbox=\box31
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen133
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks23
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 398.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 445.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 445.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 445.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 445.
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+] [2]
+<class_diagram.jpg, id=19, 740.0147pt x 483.30562pt>
+File: class_diagram.jpg Graphic file (type jpg)
+ <use class_diagram.jpg>
+Package pdftex.def Info: class_diagram.jpg used on input line 681.
+(pdftex.def)             Requested size: 236.80954pt x 154.66095pt.
+
+<shader_splash.png, id=20, 1180.41pt x 963.6pt>
+File: shader_splash.png Graphic file (type png)
+ <use shader_splash.png>
+Package pdftex.def Info: shader_splash.png used on input line 696.
+(pdftex.def)             Requested size: 141.64308pt x 115.627pt.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 726.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 5036) in paragraph at lines 731--738
+ \OT1/ptm/m/it/10 4) Shader: [][] \OT1/ptm/m/n/10 The Shader class reads, at-ta
+ches and
+ []
+
+[3 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IEE
+E/class_diagram.jpg> <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format
+_sbgames-latex/IEEE/shader_splash.png>]
+<shaders_impl.png, id=27, 448.67625pt x 839.38594pt>
+File: shaders_impl.png Graphic file (type png)
+ <use shaders_impl.png>
+Package pdftex.def Info: shaders_impl.png used on input line 741.
+(pdftex.def)             Requested size: 179.46732pt x 335.74843pt.
+
+<ios_class_diagram.jpg, id=28, 580.41844pt x 634.62094pt>
+File: ios_class_diagram.jpg Graphic file (type jpg)
+
+<use ios_class_diagram.jpg>
+Package pdftex.def Info: ios_class_diagram.jpg used on input line 764.
+(pdftex.def)             Requested size: 237.9731pt x 260.19626pt.
+
+<gouraud_ios.png, id=29, 271.76532pt x 527.72156pt>
+File: gouraud_ios.png Graphic file (type png)
+ <use gouraud_ios.png>
+Package pdftex.def Info: gouraud_ios.png used on input line 777.
+(pdftex.def)             Requested size: 67.94116pt x 131.93007pt.
+
+[4 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IEE
+E/shaders_impl.png> <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_
+sbgames-latex/IEEE/ios_class_diagram.jpg> <C:/Users/Al Campelo/Documents/UnB/Mo
+nografia/paper_format_sbgames-latex/IEEE/gouraud_ios.png>]
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+)
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+linhacomando.txt") <minquad_diag.jpg, id=35, 796.47563pt x 708.39656pt>
+File: minquad_diag.jpg Graphic file (type jpg)
+
+<use minquad_diag.jpg>
+Package pdftex.def Info: minquad_diag.jpg used on input line 845.
+(pdftex.def)             Requested size: 223.01166pt x 198.34967pt.
+
+<ios_minquad_render.jpg, id=36, 944.02687pt x 1884.28969pt>
+File: ios_minquad_render.jpg Graphic file (type jpg)
+
+<use ios_minquad_render.jpg>
+Package pdftex.def Info: ios_minquad_render.jpg used on input line 858.
+(pdftex.def)             Requested size: 217.12161pt x 433.37752pt.
+
+<vertex_minquad.png, id=37, 864.22874pt x 1059.96pt>
+File: vertex_minquad.png Graphic file (type png)
+ <use vertex_minquad.png>
+Package pdftex.def Info: vertex_minquad.png used on input line 871.
+(pdftex.def)             Requested size: 233.34488pt x 286.19302pt.
+
+<fragment_minquad.png, id=38, 925.20656pt x 1056.94875pt>
+File: fragment_minquad.png Graphic file (type png)
+
+<use fragment_minquad.png>
+Package pdftex.def Info: fragment_minquad.png used on input line 878.
+(pdftex.def)             Requested size: 240.54803pt x 274.80019pt.
+ <vertex_all.png, id=39, 870.25125pt x 472.76625pt>
+File: vertex_all.png Graphic file (type png)
+
+<use vertex_all.png>
+Package pdftex.def Info: vertex_all.png used on input line 902.
+(pdftex.def)             Requested size: 234.97098pt x 127.64859pt.
+ <fragment_all.png, id=40, 895.84688pt x 472.76625pt>
+File: fragment_all.png Graphic file (type png)
+
+<use fragment_all.png>
+Package pdftex.def Info: fragment_all.png used on input line 913.
+(pdftex.def)             Requested size: 197.08691pt x 104.0089pt.
+ <render_time_all.png, id=41, 937.25156pt x 480.29437pt>
+File: render_time_all.png Graphic file (type png)
+
+<use render_time_all.png>
+Package pdftex.def Info: render_time_all.png used on input line 920.
+(pdftex.def)             Requested size: 234.31232pt x 120.07329pt.
+ [5 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IE
+EE/minquad_diag.jpg>]
+<htc_render.png, id=45, 388.45125pt x 348.55219pt>
+File: htc_render.png Graphic file (type png)
+ <use htc_render.png>
+Package pdftex.def Info: htc_render.png used on input line 937.
+(pdftex.def)             Requested size: 233.07254pt x 209.1329pt.
+
+
+LaTeX Warning: Text page 6 contains only floats.
+
+[6 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IEE
+E/ios_minquad_render.jpg> <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_f
+ormat_sbgames-latex/IEEE/vertex_minquad.png> <C:/Users/Al Campelo/Documents/UnB
+/Monografia/paper_format_sbgames-latex/IEEE/fragment_minquad.png>]
+<ios_render_time.jpg, id=50, 752.8125pt x 892.08281pt>
+File: ios_render_time.jpg Graphic file (type jpg)
+
+<use ios_render_time.jpg>
+Package pdftex.def Info: ios_render_time.jpg used on input line 952.
+(pdftex.def)             Requested size: 203.26208pt x 240.86557pt.
+ [7 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IE
+EE/vertex_all.png> <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_s
+bgames-latex/IEEE/fragment_all.png> <C:/Users/Al Campelo/Documents/UnB/Monograf
+ia/paper_format_sbgames-latex/IEEE/render_time_all.png> <C:/Users/Al Campelo/Do
+cuments/UnB/Monografia/paper_format_sbgames-latex/IEEE/htc_render.png> <C:/User
+s/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IEEE/ios_rende
+r_time.jpg>]
+<vertex_devices_all.png, id=56, 874.01532pt x 477.28313pt>
+File: vertex_devices_all.png Graphic file (type png)
+
+<use vertex_devices_all.png>
+Package pdftex.def Info: vertex_devices_all.png used on input line 1071.
+(pdftex.def)             Requested size: 235.98729pt x 128.86816pt.
+
+<fragment_devices_all.png, id=57, 889.82437pt x 473.51906pt>
+File: fragment_devices_all.png Graphic file (type png)
+
+<use fragment_devices_all.png>
+Package pdftex.def Info: fragment_devices_all.png used on input line 1078.
+(pdftex.def)             Requested size: 240.25578pt x 127.85184pt.
+
+<render_time_devices.png, id=58, 936.49875pt x 478.78876pt>
+File: render_time_devices.png Graphic file (type png)
+
+<use render_time_devices.png>
+Package pdftex.def Info: render_time_devices.png used on input line 1085.
+(pdftex.def)             Requested size: 234.12411pt x 119.69688pt.
+ [8 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IE
+EE/vertex_devices_all.png> <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_
+format_sbgames-latex/IEEE/fragment_devices_all.png>]
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 1163.
+
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+vertex_proc.txt"
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 1.
+ [9 <C:/Users/Al Campelo/Documents/UnB/Monografia/paper_format_sbgames-latex/IE
+EE/render_time_devices.png>])
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+fragment_proc.txt"
+Overfull \hbox (2.09125pt too wide) in paragraph at lines 11--12
+[][][][][][][][][] 
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1215
+[]\OT1/ptm/m/n/10 This way, the func-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1215
+\OT1/pcr/m/n/10 executeFragShader(fragment) \OT1/ptm/m/n/10 as-signs to the
+ []
+
+
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+red_vs.txt")
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+bare_conf.bbl"
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no £ in font ptmr7t!
+)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[10]
+("C:\Users\Al Campelo\Documents\UnB\Monografia\paper_format_sbgames-latex\IEEE\
+bare_conf.aux") ) 
+Here is how much of TeX's memory you used:
+ 4087 strings out of 493921
+ 61044 string characters out of 3144860
+ 151124 words of memory out of 3000000
+ 7327 multiletter control sequences out of 15000+200000
+ 44689 words of font info for 83 fonts, out of 3000000 for 9000
+ 844 hyphenation exceptions out of 8191
+ 28i,15n,52p,466b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r
+.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/ur
+w/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utm
+bi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on bare_conf.pdf (10 pages, 2772159 bytes).
+PDF statistics:
+ 131 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+

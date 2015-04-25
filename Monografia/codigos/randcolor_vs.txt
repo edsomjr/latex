@@ -1,0 +1,21 @@
+uniform mat4 uMVPMatrix;
+attribute vec4 aPosition; 
+varying vec4 color;
+
+float random( vec2 v){
+	// e^pi (Gelfond's constant)
+	const vec2 r = vec2(23.1406926327792690,
+	// 2^sqrt(2) (Gelfond–Schneider constant)  
+			    2.6651441426902251);  
+return mod( 123456789., 1e-7 + 256. * dot(v,r) );
+}
+
+void main()
+{	
+   vec2 r = vec2(aPosition.x, aPosition.z);
+   vec2 g = vec2(aPosition.y, aPosition.x);
+   vec2 b = vec2(aPosition.z, aPosition.y);
+   color = vec4(random(r),random(g),random(b),1.0);
+   gl_Position = uMVPMatrix * aPosition;
+
+}

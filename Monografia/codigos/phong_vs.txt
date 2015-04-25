@@ -1,0 +1,24 @@
+uniform mat4 uMVPMatrix;
+uniform mat4 normalMatrix;
+uniform vec3 eyePos;
+attribute vec4 aPosition;
+attribute vec3 aNormal; 
+uniform vec4 lightPos;
+uniform vec4 lightColor;
+uniform vec4 matAmbient;
+uniform vec4 matDiffuse;
+uniform vec4 matSpecular;
+uniform float matShininess;
+varying vec3 vNormal;
+varying vec3 EyespaceNormal;
+varying vec3 lightDir, eyeVec;
+
+void main() {
+	
+	EyespaceNormal = vec3(normalMatrix * vec4(aNormal, 1.0));
+	vec4 position = uMVPMatrix * aPosition; 
+	lightDir = lightPos.xyz - position.xyz;
+	eyeVec = -position.xyz;
+	
+	gl_Position = uMVPMatrix * aPosition; 
+}

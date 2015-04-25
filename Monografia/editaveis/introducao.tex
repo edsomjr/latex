@@ -1,0 +1,42 @@
+\chapter[Introdução]{Introdução}
+\label{introduc}
+
+\section{Contextualização e Justificativa}
+
+	Conforme apontado em \cite{graphicsprog}, em jogos os gráficos são um fator tão importante que podem determinar o seu sucesso ou fracasso. O aspecto visual é um dos pontos principais na hora da compra, juntamente com o \textit{gameplay} (maneira que o jogador interage com o jogo). Assim, os gráficos estão progredindo na direção próxima dos efeitos visuais dos filmes, porém o poder computacional para atingir tal meta ainda há de ser atingido.
+
+	 Neste contexto, o desempenho gráfico é um fator chave para o desempenho total de um sistema, principalmente na área de jogos, que também possui outros pontos que consomem recursos, como inteligência artificial, \textit{networking}, áudio, detecção de eventos de entrada e resposta, física, entre outros. E isto faz com que o desenvolvimento de efeitos visuais mais complexos se tornem mais difíceis ainda.
+
+	O recente crescimento do desempenho de dispositivos móveis tornou-os capazes de suportar aplicações cada vez mais complexas. Além disso, segundo \cite{teapot}, dispositivos como \textit{smartphones} e \textit{tablets} têm sido amplamente adotados, emergindo como uma das tecnologias mais rapidamente propagadas. Dentro deste contexto, segundo o CEO da \textit{Apple}, Tim Cook\footnote{\textit{http://www.theverge.com/2014/6/2/5772344/apple-wwdc-2014-stats-update}}, mais de 800 milhões de aparelhos utilizando a plataforma \textit{iOS} já foram vendidos e a ativação diária de aparelhos na plataforma \textit{Android}, de acordo com \cite{android2013}, é de aproximadamente 1,5 milhões, sendo uns dos sistemas operacionais para dispositivos móveis mais utilizados.
+
+	 Porém, de acordo com \cite{x3d}, a renderização gráfica para dispositivos móveis ainda é um desafio devido a limitações, quando comparada à renderização em um computador,  relacionadas a CPU (\textit{Central Processing Unit}), desempenho dos aceleradores gráficos e consumo de energia. Os autores \cite{teapot} mostram estudos prévios que evidenciam que os maiores consumidores de energia em um \textit{smartphone} são a  GPU (\textit{Graphics Processing Unit}) e a tela, sendo a GPU responsável por realizar o processo de renderização.
+
+	Assim, é possível analisar o desempenho do processo de renderização feito pela GPU -- no qual diferentes \textit{shaders} (responsáveis pela criação dos efeitos visuais) são aplicados -- por meio da complexidade assintótica. Além disso, a análise do desempenho dos \textit{shaders} é uma área pouco explorada, tornando o tema abordado neste trabalho relevante. 
+
+	Então, o tema consiste no desenvolvimento de \textit{shaders} aplicados em objetos tridimensionais -- com número de polígonos variável -- que permitam a coleta de medições relacionadas ao desempenho de um dispositivo em relação à renderização feita pela GPU. Desta forma, é possível variar a quantidade de polígonos de um objeto e traçar um gráfico da quantidade de polígonos \textit{versus} métrica de desempenho, utilizando um determinado \textit{shader}. E assim, é possível identificar qual curva melhor aproxima e, consequentemente, determinar a complexidade assintótica do \textit{shader} em um determinado dispositivo.  
+
+\section{Objetivos Gerais}
+
+O objetivo geral deste trabalho é a análise da complexidade assintótica de \textit{shaders} para diferentes dispositivos móveis, tanto para todo o processo de renderização quanto para somente parte dele (\textit{vertex} e \textit{fragment shaders}).
+
+\section{Objetivos Específicos}
+
+Os objetivos específicos do trabalho são:
+
+\begin{itemize}
+ \item Configurar os ambientes de desenvolvimento para a plataforma \textit{Android} e \textit{iOS};
+ \item Implementar os \textit{shaders} para a plataforma \textit{Android} e \textit{iOS};
+\item Procurar ferramentas de coleta da medição de desempenho para o \textit{device} utilizado;
+\item Identificar qual métrica será utilizada para a análise de complexidade;
+\item Coletar as medições estabelecidas;
+\item Automatizar o cálculo dos ajustes das curvas e plotagem dos gráficos;
+\item Estimar a complexidade assintótica de \textit{shaders}, de acordo com as curvas obtidas.
+\end{itemize}
+
+\section{Organização do Trabalho}
+
+	No próximo capítulo serão apresentados os conceitos teóricos necessários para o entendimento do trabalho, como, por exemplo, definição de \textit{shaders} e sua função no processo de renderização, a biblioteca gráfica utilizada,  a fundamentação teórica matemática para implementação dos \textit{shaders}, complexidade assintótica, método dos mínimos quadrados, entre outros. 
+
+	No desenvolvimento, os passos seguidos ao longo do trabalho são descritos, enfatizando como foi feita a configuração do ambiente, quais equipamentos foram utilizados, como foram feitas as implementações dos \textit{shaders} e a automatização dos cálculos e plotagem dos gráficos.
+
+	Nos resultados são descritos os resultados obtidos através da análise da complexidade assintótica dos \textit{shaders} implementados, seguido das conclusões do trabalho realizado, onde são apresentadas as contribuições obtidas.   

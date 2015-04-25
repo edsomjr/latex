@@ -1,0 +1,12 @@
+triangleStream = Mesh.triangles;
+
+for(int i = 0; i < triangleStream.length; i++)
+{
+	fragmentStream = triangleStream[i].fragments;
+
+	for(int j = 0; j < fragmentStream.length;j++)
+	{
+		executeFragmentShader(fragmentStream[i]);
+	}
+
+}

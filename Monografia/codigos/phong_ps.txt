@@ -1,0 +1,26 @@
+precision mediump float;
+varying vec3 vNormal;
+varying vec3 EyespaceNormal;
+uniform vec4 lightPos;
+uniform vec4 lightColor;
+uniform vec4 matAmbient;
+uniform vec4 matDiffuse;
+uniform vec4 matSpecular;
+uniform float matShininess;
+uniform vec3 eyePos;
+varying vec3 lightDir, eyeVec;
+
+void main() {
+    vec3 N = normalize(EyespaceNormal);
+    vec3 E = normalize(eyeVec);     
+    vec3 L = normalize(lightDir);    
+    vec3 reflectV = reflect(-L, N);    
+    vec4 ambientTerm;
+    ambientTerm = matAmbient * lightColor;    	
+    vec4 diffuseTerm = matDiffuse * max(dot(N, L), 0.0);
+    vec4 specularTerm = matSpecular * 
+	pow(max(dot(reflectV, E), 0.0), matShininess);
+    
+    gl_FragColor =  ambientTerm + diffuseTerm + specularTerm;
+	
+}

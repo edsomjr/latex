@@ -1,0 +1,26 @@
+\select@language {brazil}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {1}{\ignorespaces Linguagens de programa\IeC {\c c}\IeC {\~a}o para \textit {shaders}}}{22}{table.2.1}
+\contentsline {table}{\numberline {2}{\ignorespaces GLSL: tipos de dados}}{22}{table.2.2}
+\contentsline {table}{\numberline {3}{\ignorespaces GLSL: qualificadores}}{23}{table.2.3}
+\contentsline {table}{\numberline {4}{\ignorespaces Vers\IeC {\~o}es da plataforma \textit {Android}}}{24}{table.2.4}
+\contentsline {table}{\numberline {5}{\ignorespaces Vers\IeC {\~o}es da plataforma \textit {Android}}}{25}{table.2.5}
+\contentsline {table}{\numberline {6}{\ignorespaces Valores mais comuns de complexidade assint\IeC {\'o}tica}}{30}{table.2.6}
+\addvspace {10pt}
+\contentsline {table}{\numberline {7}{\ignorespaces Dispositivos m\IeC {\'o}veis utilizados}}{35}{table.3.7}
+\addvspace {10pt}
+\contentsline {table}{\numberline {8}{\ignorespaces Equa\IeC {\c c}\IeC {\~o}es relacionadas ao \textit {vertex shader} e \textit {fragment shader}}}{73}{table.4.8}
+\contentsline {table}{\numberline {9}{\ignorespaces Equa\IeC {\c c}\IeC {\~o}es relacionadas ao tempo do processo de renderiza\IeC {\c c}\IeC {\~a}o}}{74}{table.4.9}
+\contentsline {table}{\numberline {10}{\ignorespaces Exemplo de estimativa para 170.000 pol\IeC {\'\i }gonos}}{74}{table.4.10}
+\contentsline {table}{\numberline {11}{\ignorespaces Equa\IeC {\c c}\IeC {\~o}es do processo de renderiza\IeC {\c c}\IeC {\~a}o do \textit {Gouraud Shader}}}{74}{table.4.11}
+\contentsline {table}{\numberline {12}{\ignorespaces Equa\IeC {\c c}\IeC {\~o}es do\textit {vertex} e \textit {fragment shaders} para o \textit {Gouraud Shader}}}{75}{table.4.12}
+\contentsline {table}{\numberline {13}{\ignorespaces Polin\IeC {\^o}mios de segundo grau relacionados ao \textit {fragment shader}}}{76}{table.4.13}
+\contentsline {table}{\numberline {14}{\ignorespaces Polin\IeC {\^o}mios de segundo grau relacionados ao tempo do processo de renderiza\IeC {\c c}\IeC {\~a}o}}{76}{table.4.14}
+\contentsline {table}{\numberline {15}{\ignorespaces Equa\IeC {\c c}\IeC {\~o}es do processo de renderiza\IeC {\c c}\IeC {\~a}o do \textit {Gouraud Shader}}}{76}{table.4.15}
+\contentsline {table}{\numberline {16}{\ignorespaces Equa\IeC {\c c}\IeC {\~o}es do\textit {vertex} e \textit {fragment shaders} para o \textit {Gouraud Shader}}}{76}{table.4.16}
+\contentsline {table}{\numberline {17}{\ignorespaces Estimativa de \textit {FPS}}}{77}{table.4.17}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {18}{\ignorespaces Palavras-chave do formato obj}}{89}{table.anexochapback.2.18}

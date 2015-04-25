@@ -1,0 +1,4 @@
+$ python shaderComplexity.py gouraud 
+  render_time
+$ python shaderComplexity.py gouraud 
+  vertex_fragment

@@ -1,0 +1,9 @@
+uniform mat4 uMVPMatrix;
+attribute vec4 aPosition; 
+attribute vec2 textCoord;
+varying vec2 tCoord;
+
+void main() {
+	tCoord = textCoord;
+	gl_Position = uMVPMatrix * aPosition; 
+}

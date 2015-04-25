@@ -1,0 +1,78 @@
+\begin{thebibliography}{\protect\citename{Sinthanayothin et~al\mbox{.} }2012}
+
+\bibitem[\protect\citename{Arnau et~al\mbox{.} }2013]{teapot}
+{\sc Arnau, J., Parcerisa, J., and Xekalakis, P.}
+\newblock 2013.
+\newblock Teapot: A toolset for evaluating performance, power and image quality
+  on mobile graphics systems.
+\newblock {\em International Conference on Supercomputing\/} (June), 37--46.
+
+\bibitem[\protect\citename{Com }1999]{compaq}
+{\sc Compaq Computer Corporation}.
+\newblock 1999.
+\newblock {\em Graphics Performance: Measures, Metrics and Meaning}.
+
+\bibitem[\protect\citename{Drozdek }2002]{complexidade}
+{\sc Drozdek, A.}
+\newblock 2002.
+\newblock {\em Estrutura de Dados e Algoritmos em C++}, 2~ed.
+\newblock Cengage Learning, Sao Paulo, Sao Paulo.
+
+\bibitem[\protect\citename{Evangelista and Silva }2007]{sbgames2}
+{\sc Evangelista, B., and Silva, A.}
+\newblock 2007.
+\newblock Criando efeitos fotorealistas e não- fotorealistas para jogos.
+\newblock {\em SBGames\/}.
+
+\bibitem[\protect\citename{Guha }2011]{guha2011}
+{\sc Guha, S.}
+\newblock 2011.
+\newblock {\em Computer Graphics Through OpenGL}, 1~ed.
+\newblock CRC Press, Boca Raton, Florida.
+
+\bibitem[\protect\citename{Leithold }1994]{calculo}
+{\sc Leithold, L.}
+\newblock 1994.
+\newblock {\em O Calculo com Geometria Analitica}, 3~ed.
+\newblock Harbra, Sao Paulo, Sao Paulo.
+
+\bibitem[\protect\citename{Moller et~al\mbox{.} }2008]{realtime}
+{\sc Moller, T.~A., Haines, E., and Hoffman, N.}
+\newblock 2008.
+\newblock {\em Real-Time Rendering}, 2~ed.
+\newblock CRC Press, Boca Raton, Florida.
+
+\bibitem[\protect\citename{Nunes et~al\mbox{.} }2011]{sbgames}
+{\sc Nunes, G., Braga, R., Valdetaro, A., Raposo, A., and Feijo, B.}
+\newblock 2011.
+\newblock Ganho de performance e economia de largura de banda com o uso do
+  tessellator.
+\newblock {\em SBGames\/}.
+
+\bibitem[\protect\citename{Rorres }2001]{minq}
+{\sc Rorres, A.}
+\newblock 2001.
+\newblock {\em Algebra Linear com Aplicacoes}, 8~ed.
+\newblock Bookman, Porto Alegre, Rio Grande do Sul.
+
+\bibitem[\protect\citename{Sandberg and Rollins }2013]{android2013}
+{\sc Sandberg, R., and Rollins, M.}
+\newblock 2013.
+\newblock {\em The Business of Android Apps Development}, 2~ed.
+\newblock Apress, New York, New York.
+
+\bibitem[\protect\citename{Sherrod }2011]{graphicsprog}
+{\sc Sherrod, A.}
+\newblock 2011.
+\newblock {\em Game Graphics Programming}, 1~ed.
+\newblock Course Technology, Boston, Massachusetts.
+
+\bibitem[\protect\citename{Sinthanayothin et~al\mbox{.} }2012]{mobileRend}
+{\sc Sinthanayothin, C., Wongwean, N., and Bholsithi, W.}
+\newblock 2012.
+\newblock Interactive virtual 3d gallery using motion detection of mobile
+  device.
+\newblock {\em International Journal of Advancements in Computing Technology
+  4}, 7, 239--250.
+
+\end{thebibliography}

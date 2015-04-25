@@ -1,0 +1,107 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.8 }
+
+\bibitem[Arnau, Parcerisa e Xekalakis 2013]{teapot}
+\abntrefinfo{Arnau, Parcerisa e Xekalakis}{ARNAU; PARCERISA; XEKALAKIS}{2013}
+{ARNAU, J.; PARCERISA, J.; XEKALAKIS, P. Teapot: A toolset for evaluating
+  performance, power and image quality on mobile graphics systems.
+27th Int. Conf. on Supercomputing, p. 37--46, 2013.}
+
+\bibitem[Brothaler 2013]{vbo}
+\abntrefinfo{Brothaler}{BROTHALER}{2013}
+{BROTHALER, K. \emph{OpenGL ES 2 for Android}: A quick-start guide. 1. ed.
+  Dallas, Texas: The Pragmatic Bookshelf, 2013.}
+
+\bibitem[Buck 2012]{buck2012}
+\abntrefinfo{Buck}{BUCK}{2012}
+{BUCK, E. \emph{Learning OpenGL ES for iOS}: A hands-on guide to modern 3d
+  graphics programming. 1. ed. Crawfordsville, Indiana: Pearson, 2012.}
+
+\bibitem[Drozdek 2002]{complexidade}
+\abntrefinfo{Drozdek}{DROZDEK}{2002}
+{DROZDEK, A. \emph{Estrutura de Dados e Algoritmos em C++}. 2. ed. São Paulo,
+  São Paulo: Cengage Learning, 2002.}
+
+\bibitem[Evangelista e Silva 2007]{sbgames}
+\abntrefinfo{Evangelista e Silva}{EVANGELISTA; SILVA}{2007}
+{EVANGELISTA, B.; SILVA, A. Creating photorealistic and non-photorealistic
+  effects for games.
+Brazilian Symposium on Games and Digital Entertainment - SBGames 2007 Unisinos,
+  2007.}
+
+\bibitem[Guha 2011]{guha2011}
+\abntrefinfo{Guha}{GUHA}{2011}
+{GUHA, S. \emph{Computer Graphics Through OpenGL}: From theory to experience.
+  1. ed. Boca Raton, Florida: CRC Press, 2011.}
+
+\bibitem[Jackson 2013]{androidsdkmanager}
+\abntrefinfo{Jackson}{JACKSON}{2013}
+{JACKSON, W. \emph{Learn Android App Development}. 1. ed. New York, New York:
+  Apress, 2013.}
+
+\bibitem[Leithold 1994]{calculo}
+\abntrefinfo{Leithold}{LEITHOLD}{1994}
+{LEITHOLD, L. \emph{O Cálculo com Geometria Analítica}. 3. ed. São Paulo,
+  São Paulo: Harbra, 1994.}
+
+\bibitem[Moller, Haines e Hoffman 2008]{realtime}
+\abntrefinfo{Moller, Haines e Hoffman}{MOLLER; HAINES; HOFFMAN}{2008}
+{MOLLER, T.~A.; HAINES, E.; HOFFMAN, N. \emph{Real-Time Rendering}. 2. ed. Boca
+  Raton, Florida: CRC Press, 2008.}
+
+\bibitem[Nadalutti, Chittaro e Buttussi 2006]{x3d}
+\abntrefinfo{Nadalutti, Chittaro e Buttussi}{NADALUTTI; CHITTARO;
+  BUTTUSSI}{2006}
+{NADALUTTI, D.; CHITTARO, L.; BUTTUSSI, F. Rendering of x3d content on mobile
+  devices with opengl es.
+Proc. Of 3D technologies for the World Wide Web, Seção Mobile devices, p.
+  19--26, 2006.}
+
+\bibitem[Neuburg 2013]{neub2013}
+\abntrefinfo{Neuburg}{NEUBURG}{2013}
+{NEUBURG, M. \emph{iOS 7 Programming Fundamentals}: Objective-c, xcode, and
+  cocoa basics. 1. ed. Sebastopol, California: O'Reilly, 2013.}
+
+\bibitem[Qualcomm 2013]{adp}
+\abntrefinfo{Qualcomm}{QUALCOMM}{2013}
+{QUALCOMM, D.~N. \emph{Mobile Gamimg and Graphics Optimization (Adreno) Tools
+  and Resources}. 2013. Disponível em: <
+  \url{https://developer.qualcomm.com/mobile-development/mobile-technologies/gaming-graphics-optimization-adreno/tools-and-resources}
+  >.
+Acessado em: 16 out. 2013.}
+
+\bibitem[Rorres 2001]{minq}
+\abntrefinfo{Rorres}{RORRES}{2001}
+{RORRES, A. \emph{Álgebra Linear com Aplicações}. 8. ed. Porto Alegre, Rio
+  Grande do Sul: Bookman, 2001.}
+
+\bibitem[Sandberg e Rollins 2013]{android2013}
+\abntrefinfo{Sandberg e Rollins}{SANDBERG; ROLLINS}{2013}
+{SANDBERG, R.; ROLLINS, M. \emph{The Business of Android Apps Development}. 2.
+  ed. New York, New York: Apress, 2013.}
+
+\bibitem[Sedgewick 1990]{complexidade2}
+\abntrefinfo{Sedgewick}{SEDGEWICK}{1990}
+{SEDGEWICK, R. \emph{Algorithms in C}. 1. ed. Westford,Massachusetts:
+  Addison-Wesley, 1990.}
+
+\bibitem[Sherrod 2011]{graphicsprog}
+\abntrefinfo{Sherrod}{SHERROD}{2011}
+{SHERROD, A. \emph{Game Graphics Programming}. 1. ed. Boston, Massachusetts:
+  Course Technology, 2011.}
+
+\bibitem[Smithwick e Verma 2012]{opengles2012}
+\abntrefinfo{Smithwick e Verma}{SMITHWICK; VERMA}{2012}
+{SMITHWICK, M.; VERMA, M. \emph{Pro OpenGL ES for Android}. 1. ed. New York,
+  New York: Apress, 2012.}
+
+\bibitem[Wright et al. 2008]{opengl2011}
+\abntrefinfo{Wright et al.}{WRIGHT et al.}{2008}
+{WRIGHT, R.~S. et al. \emph{OpenGL SuperBible}: Comprehensive tutorial and
+  reference. 5. ed. Boston, Massachusetts: Pearson, 2008.}
+
+\end{thebibliography}

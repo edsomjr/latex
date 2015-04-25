@@ -1,0 +1,614 @@
+\documentclass[a4paper]{sbgames}               % final
+%\usepackage[scaled=.92]{helvet}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tabularx}
+\renewcommand{\lstlistingname}{Code}
+%% use this for zero \parindent and non-zero \parskip, intelligently.
+\usepackage{parskip}
+
+%% the 'caption' package provides a nicer-looking replacement
+\usepackage[labelfont=bf,textfont=it]{caption}
+
+\usepackage{url}
+
+%% Paper title.
+\title{Experimental Approach of the Asymptotic Computational Complexity of Shaders for Mobile Devices with OpenGL ES}
+
+%% Author and Affiliation (multiple authors). Use: and between authors
+
+\author{Alex S. Campelo\\ University of Brasilia 
+        \and Edson A. Costa\\ University of Brasilia
+}
+\contactinfo{\{campelo.al1,prof.edson.alves.costa\}@gmail.com \\
+            
+}
+%% Keywords that describe your work.
+\keywords{Android, iOS, shaders, mobile devices, computer graphics, games, asymptotic complexity. }
+
+%% Start of the paper
+% Attention: As you need to insert EPS images in Postscript, 
+% you need to insert PDF images into PDFs. 
+% In the text, extensions cancbe omitted (latex use .eps, pdflatex get .pdf) 
+% To convert them: epstopdf myimage.eps
+\begin{document}
+
+
+\teaser{
+  \includegraphics[width=\linewidth]{capa.png}
+  \caption{Gouraud shading analysis}
+}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``\begin{document}'' command. It prepares and prints the title block.
+
+\maketitle
+
+%% Abstract section.
+
+\begin{abstract}
+
+  The usage of mobile devices and increasingly realistic graphics is emerging, but the graphics performance is still a critical factor in games. There's  
+  more hardware restriction on mobile devices than on  a computer. 
+  Thus, this paper proposes an experimental approximation of the 
+  asymptotic computational complexity of miscellaneous vertex and fragment shaders for Android and iOS 
+  platforms. The asymptotic complexities of the shaders will be analyzed based on number of instructions per second and rendering 
+  time metrics, depending on the number of polygons rendered. By means of the adjusted curves is also possible to compare the performance of the devices used in this work, which are
+  the Nexus 4, HTC One, iPhone 5s and iPad Air. Besides, an automatic tool -- that plots the data and uses the method of least squares to 
+  adjust the values obtained -- will be presented, being able to estimate which curve has better approximation to the sampled data.  
+\end{abstract}
+
+%% The ``\keywordlist'' command prints out the keywords.
+\keywordlist
+\contactlist
+
+\section{Introduction}
+
+Graphics in games are so important that can determine the game's failure or success,
+and thus, they are becoming even more realistic. However, there're hardware
+restrictions, especially in mobile devices. Rendering graphics for mobile devices is still a challenge due 
+to limitations, when compared to a computer, related to CPU (Central Processing
+Unit), GPU (Graphics Processor Unit) and power consumption.  
+
+\hspace{0.5 cm} In this context, graphics performance is a key factor for the overall performance 
+of the system, mainly in games, which also has other factors that consume
+resources, such as artificial intelligence, networking, audio, input events, physics, among
+others.
+
+\hspace{0.5 cm} But the recent growing of mobile devices made them able to support 
+applications even more complex. Devices like smartphones and tablet computers
+have been widely adopted, emerging as one of the most propagated technologies.
+Within this context, the most commonly used mobile operating systems are iOS 
+and Android platforms.
+
+\hspace{0.5 cm} This way, it's possible to analyze the performance of the rendering process done
+by the GPU -- in which different shaders (responsible for the creation of
+visual effects) are applied. Then, the goal of this work is to analyze the asymptotic computational
+complexity of shaders for mobile devices, both for the whole rendering process
+and for only part of it (vertex and fragment shaders).
+
+
+\section{Related Work}
+\label{sec:related-work}
+
+\section{Background Information}
+
+This section gives some brief background information that is needed to
+understand certain parts of the work. It describes the definition of shader,
+asymptotic complexity and the least squares method.
+\subsection{Shader}
+
+Shading is the process of using an equation for computing the surface
+behavior of an object. Shader algorithms are written by the programmer
+to override the predefined functionality of the rendering process performed
+by the GPU, by the usage of graphic libraries such as OpenGL ES.
+
+\hspace{0.5 cm} Before the shaders were created, the rendering pipeline was completely fixed.
+But with the introduction of the shaders, it's possible to customize part
+of this process, like the vertex and fragment processing (vertex and fragment
+shaders).
+
+\subsection{Asymptotic Complexity }
+
+Asymptotic complexity is a way to compare the efficiency of an algorithm,
+in terms of time, memory or processing, by example. To not depend on the
+platform nor programming language, the asymptotic complexity is based on
+a function (logic measure). It expresses a relationship between the amount
+of data and time required to process them. Thus, it's possible to calculate
+the asymptotic complexity of a code in a theoretical and experimental way.
+
+\subsection{Least Squares Method}
+
+The least squares method is used to adjust a set of point ($x$,$y$) to a
+determined curve. This way, it's possible to generate a curve varying
+the number of inputs and collecting the associated measure to performance
+and adjust it to a known curve, like linear, by example.
+\section{Development}
+\label{sec:development}
+
+This section describes the steps taken in this work, showing since the
+equipment used until the implementation, collection and analysis of data.
+
+
+\subsection{Equipment Used}
+\label{equip}
+The computer used for development on Android platform was an Alienware M14x
+manufactured by Dell with Intel Core i7 processor, 2GB of GeForce GTX as GPU
+and 8 GB of RAM. For the development on iOS platform, a Macbook Pro 11.1 was used, with Intel
+Core i5 processor and 8GB of RAM.
+
+ \hspace{0.5 cm} The Table \ref{equipamentos} shows the used devices, which are equipments with different
+resolutions and hardware configurations. The benchmark app called
+3D Mark was used to compared the different performances of these devices.
+It runs several graphical tests, in order to 
+stress the GPU and to give a final punctuation related to the performance. 
+The higher the score, the better the performance. This score is shown
+in the Table \ref{bench}
+
+\begin{table}[ht]
+	\centering
+	\caption{Mobile devices}
+	\begin{tabular}{lccc}
+		\textbf{Device} & \textbf{Platform}  & \textbf{Resolution} & \textbf{GPU}  \\
+		\textit{Nexus} 4 &  \textit{Android} & 768 x 1280 &  \textit{Adreno} 320 \\
+		\textit{HTC One} &  \textit{Android} & 1080 x 1920 &  \textit{Adreno} 320 \\ 
+		\textit{iPad Air} &  \textit{iOS} & 2048 x 1536  &  PowerVR G6430 \\
+		\textit{iPhone} 5s &  \textit{iOS} & 1136 x 640  &  PowerVR G6430 \\
+	\end{tabular}
+	\label{equipamentos}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\caption{Benchmark}
+	\begin{tabular}{lc}
+		\textbf{Device} & \textbf{Score} \\
+		\textit{Nexus} 4 & 7.106\\
+		\textit{HTC One} & 10.184\\ 
+		\textit{iPad Air} & 14.952\\
+		\textit{iPhone} 5s & 14.750\\
+	\end{tabular}
+	\label{bench}
+\end{table}
+
+\subsection{Android Implementation}
+\label{sec:android}
+
+To make the asymptotic computational complexity analysis possible, firstly
+was necessary to implement the shaders on Android platform. This was done
+using the graphics library called OpenGL ES. The object-oriented paradigm was 
+used and the Figure \ref{class_diagram} shows the class diagram and how the code was structured. 
+This diagram presents a set of classes and their relationships, being the central diagram
+of object-oriented modeling.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.32]{class_diagram.jpg}
+	\caption{Android implementation: class diagram}
+	\label{class_diagram}
+	\end{figure}
+
+\subsubsection{Front-end Screen}
+
+The front-end screen is responsible for the interaction with the user, 
+passing the input information to the back-end. The Android platform
+uses the term Activity to describe the application's front-end screen. It has 
+design elements like text, buttons, graphics, among others. In this work,
+there're two Activity classes: Shader Activity and Splash Activity (Figure \ref{shader_splash}).
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.12]{shader_splash.png}
+	\caption{Shader Activity and Splash Activity}
+	\label{shader_splash}
+	\end{figure}
+	
+\hspace{0.5 cm} The Splash Activity is responsible for the visualization of the loading screen
+while the necessary resources -- like the tridimensional objects and textures --
+are loaded by a thread. This resources are managed by the Resources class , that
+uses the project pattern called Singleton. This pattern ensures that there's
+only one instance class, which will be accessed later. 
+
+\hspace{0.5 cm} The Shader Activity is responsible for creating an instance of the Renderer 
+class, which renders the tridimensional objects. Besides, it controls the
+touch events, that allows scaling and rotating these objects. It also shows
+the buttons that increase and decrease the number of polygons.  
+
+\subsubsection{Tridimensional Object}
+
+The tridimensional object is represented by the composition of the 3DObject and
+Texture classes. The 3DObject class is responsible for reading and interpreting the
+obj files, that contains the information about the object. After this, the position, 
+normal and texture vertices are stored into a buffer. The Texture class generates the textures, used by some shaders, from images.
+Those images are created for each tridimensional model, using the UV Mapping 
+technique. It maps the texture coordinates to an image, like is shown on 
+Figure \ref{uvmap}.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.25]{uvmap.jpg}
+	\caption{UV Mapping technique}
+	\label{uvmap}
+	\end{figure}
+
+\subsubsection{Renderer}
+	
+The Renderer class works like a controller, being responsible for the 
+rendering. It is the main class for the calls from the view (Shader Activity)
+and model (3DObject, Shader and Timer) classes. This class implements the 
+functions from the OpenGL ES library \texttt{onSurfaceCreated()}, 
+\texttt{onDrawFrame()} and \texttt{onSurfaceChanged()}.
+
+\subsubsection{Shader}
+
+The Shader class reads, attaches and links the vertex and fragment shaders.
+Furthermore, it has the abstract methods \texttt{getParamsLocation()} and
+\texttt{initShaderParams(Hashtable params)}. The first method stores the 
+location of each variabel specified in the shader. The second method initializes
+these variables based on a hash, which contains the values for each variable. This way, 
+every shader inherits from the Shader class and must implement these abstract methods.
+The implemented shaders can be seen on Figure \ref{shaders_impl}.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.4]{shaders_impl.png}
+	\caption{Implemented Shaders}
+	\label{shaders_impl}
+	\end{figure}
+
+\subsubsection{Calculation of Rendering Time}
+\label{time}
+The Timer class measures the rendering time in nanoseconds. Each measurement is
+done using the C language and the OpenGL ES extension called 
+\texttt{GL\_EXT\_disjoint\_timer\_query}. The integration between the code in C 
+language and the code in Java is done by the class called NativeLib. If the
+extension is not available for the device, an alert is issued.
+
+\subsection{iOS Implementation}
+\label{sec:ios}
+
+The structure of the code on iOS platform is similar to the Android, as is 
+shown in Figure \ref{ios_diag}. It follows the Model-View-Controller pattern, which the
+controller is responsible for the integration between the Shader, 3DObject
+classes and the view RendererView. 
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.42]{ios_class_diagram.jpg}
+	\caption{iOS implementation: class diagram}
+	\label{ios_diag}
+	\end{figure}
+
+\hspace{0.5 cm} The 3DObject class interprets the obj file to the format accept by OpenGL ES. The Shader class, as in Android platform, reads, attaches and links the vertex
+and fragment shaders. 
+
+\hspace{0.5 cm} The Gouraud Shader was chosen to be implemented and posteriorly to do the
+comparisons between the different devices on distinct platforms. The result is seen on Figure \ref{gouraud_ios}
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.25]{gouraud_ios.png}
+	\caption{Gouraud Shader on iOS platform }
+	\label{gouraud_ios}
+	\end{figure}
+	
+\subsection{Experimental Estimation of Asymptotic Complexity}
+\label{sec:assy}
+
+The experimental estimation of asymptotic complexity of each shader
+was done by diverse measurements for each polygon counting (represented by each tridimensional model). The
+asymptotic complexity was analyzed by two points of view: related to the
+entire rendering process and only related to the vertex and fragment shaders.
+
+\subsubsection{Rendering Process}
+
+In Android platform, as mentioned in \ref{time}, an OpenGL ES extension
+was used to get the rendering process time, done by the \texttt{glDrawArrays()}
+function. In iOS platform, the module -- from Xcode development tool -- called Instruments was used, 
+which informs the elapsed time of each OpenGL ES function in microseconds.
+
+\hspace{0.5 cm} This way, the measures were gathered for the devices Nexus 4, iPhone 5s and
+iPad Air. It wasn't possible to collect for the HTC One, because the extension
+wasn't available for this Android device.
+
+\subsection{Vertex and Fragment Shaders}
+
+The vertex and fragment shaders measurements were only possible to do in
+Android devices, because the Instruments module of Xcode doesn't exhibit
+any information about them. Then, the tool used to collect the measures was the
+Adreno Profile, because the GPU of the devices used is Adreno. 
+
+\hspace{0.5 cm} The chosen metrics were instructions per second per vertex and instruction
+per second per fragment. These metrics were gathered for each polygon counting,
+being exported in CSV (Comma-Separated Values) format.
+
+\subsection{Plot}
+
+After the measurements were done, the charts were plotted both for the 
+rendering process, as for the vertex and fragment shaders. The first set of charts is related to the time, 
+in nanoseconds, versus the polygon count. The second is related to the number of instructions per second
+per vertex (or fragment) versus the polygon count. 
+
+\subsection{Automation of Curves Adjustments}
+
+To do the curve adjustment, was used the least squares method to linear,
+quadratic, cubic and exponential functions. The errors associated to each
+adjustment were also calculated, in order to determine which function had
+a better approximation to the original measures.
+
+\hspace{0.5 cm} A program in Python was created to automate this calculation process. It reads
+CSV or txt files, calculates the average of the measures, plots the charts and
+does the curve adjustment (also plotting the data). The program is command-line
+based, having as parameters, the shader name and the measurement used (if it's
+related to the whole rendering process or just to the vertex and fragment shaders).
+
+\hspace{0.5 cm} The Code \ref{linhacomando} shows two command-lines examples, the first is related
+to the rendering process of the Gouraud shader and the second is related
+only to the vertex and fragment shaders.
+
+\lstinputlisting[language=C, numbers=none,label = {linhacomando}, caption = {Command-lines}]{linhacomando.txt}
+
+\hspace{0.5 cm} The Figure \ref{python} shows how this program is structured.
+The ReadCSV and ReadTxt classes are responsible for reading the CSV and .txt 
+files. The PlotChart class plots the original and adjusted datas and the 
+LeastSquares calculates these adjustments and their errors.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.28]{minquad_diag.jpg}
+	\caption{Tool implementation: class diagram}
+	\label{python}
+	\end{figure}
+
+\hspace{0.5 cm} In Figure \ref{tool_result} the result of the tool for
+the rendering process is presented, which are four screens. 
+The first one (top-left) is the plot of the linear adjustment, the second 
+(top-right) is the exponential adjustment, the third is (bottom-left) the quadratic 
+adjustment and the last one is the cubic adjustment. 
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.2]{ios_minquad_render.jpg}
+	\caption{Automatic Adjustments: rendering process}
+	\label{tool_result}
+	\end{figure}
+
+\hspace{0.5 cm} In Figure \ref{tool_result2} the result of the tool for
+the vertex and fragment shaders is presented, which are four screens as well. 
+The first one (topdown) is the plot of the linear adjustment, the second 
+is the quadratic adjustment, the third is the exponential 
+adjustment and the last one is the cubic adjustment.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.16]{reflectionlinear.png}
+	\caption{Automatic Adjustments: vertex and fragment shaders}
+	\label{tool_result2}
+	\end{figure}
+\section{Results}
+\label{sec:generating-pdf-file}
+
+For each shader were plotted the charts related to the entire rendering
+process and to the vertex and fragment shaders for different devices.
+After these plots, it was noticed that the charts for all shaders and devices
+had similar curves for each measure type (rendering process, vertex and fragment shader).  
+
+\subsection{Android Devices}
+
+With the Nexus 4 device was possible to plot the charts related to the rendering
+process and to the vertex and fragment shaders. The charts about the 
+vertex shader visually resulted in a linear function (with different slopes).
+The Figure \ref{vertex_all} shows the charts related to the vertex shader of all implemented shaders.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.27]{vertex_all.png}
+	\caption{Vertex shader: curves comparison}
+	\label{vertex_all}
+	\end{figure}
+	
+\hspace{0.5 cm} The curves related to the rendering process and to the fragment shader had similar shapes,
+but it wasn't possible to determine the exact curve only by visual
+inspection. These curves are shown in the Figure \ref{fragment_all} and Figure \ref{render_all}. 
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.27]{fragment_all.png}
+	\caption{Fragment shader: curves comparison}
+	\label{fragment_all}
+	\end{figure}
+	
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.25]{render_time_all.png}
+	\caption{Rendering process: curves comparison}
+	\label{render_all}
+	\end{figure}
+	
+\hspace{0.5 cm} Then, the adjustments to the predefined curves were done by the automated tool
+and plotted for each shader. The smallest errors were also determined, in order
+to discover which curve had the best approximation. By this analysis, all the shaders had better 
+approximation to a third degree curve, both for the fragment shader as for the rendering process.
+
+\hspace{0.5 cm} For the HTC One device was only possible to measure the performance
+related to the vertex and fragment shader. The results were the same as
+in the Nexus 4, which the vertex shader had a linear behavior and 
+the fragment shader, a cubic behavior (Figure \ref{htc_one}). 
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.3]{htc_render.png}
+	\caption{HTC One device}
+	\label{htc_one}
+	\end{figure}
+	
+\subsection{iOS Devices}
+
+With the iOS devices, it was only possible to plot the charts related
+to the rendering process. The shapes of the obtained curves are
+similar to the obtained curves in Nexus 4, and the best approximations
+were also to a third degree curve. The Figure \ref{ios_devices} shows these curves 
+for the iPhone 5s and for the iPad Air.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.23]{ios_render_time.jpg}
+	\caption{iOS devices}
+	\label{ios_devices}
+	\end{figure}
+
+\subsection{Analysis of the Equations}
+
+With the automated tool, it was also possible to calculate the equations
+of the adjusted curves, for each shader of the 
+Nexus 4. They are shown in Table \ref{equation_nexus_vertex}, Table \ref{equation_nexus_fragment} and
+Table \ref{eqrender}. Although the 
+curves are of the same family, their coefficients are not identical.
+The shaders relatively more complexes had steeper slopes 
+compared to the simple shaders and had greater $x^2$ and $x^3$ terms. 
+
+	
+\begin{table}[ht]
+\centering
+\caption{Equations related to the vertex shader}
+\begin{tabular}{lc}
+	\hline
+	\textbf{Shader Name} & \textbf{Vertex Instructions per Second} \\
+	\hline
+	Gouraud & $y = 40,16 \times 10^6 + 7486,43n$  \\
+	Phong &  $y = 14,95 \times 10^6 + 5211,02n$  \\
+	Red & $y = 8,02 \times 10^6 + 4545,69n$ \\
+	Toon & $y = 10,17 \times 10^6 + 4673,96n$ \\
+	Flat & $y = 7,65 \times 10^6 + 3738,61n$ \\
+	Random Color & $y = 20,58 \times 10^6 + 5640,13n$ \\
+	Simple Texture & $y = 8,80 \times 10^6 + 4540,32n$ \\
+	CubeMap & $y = 8,67 \times 10^6 + 4540,40n$ \\
+	Reflection & $y = 18,03 \times 10^6 + 5470,95n$ \\
+	\hline
+\end{tabular}
+\label{equation_nexus_vertex}
+\end{table}
+
+\begin{table}[ht]
+\caption{Equations related to the vertex shader}
+\begin{tabular}{ll}
+	\hline
+	\textbf{Shader Name} & \textbf{Fragment Instructions per Second}  \\
+	\hline
+	\textit{Gouraud} & \begin{tabular}{@{}c@{}}$y = 19,43 \times 10 ^8 + 297,00n - 0,0065n^2 $ \\ $+ 0,50 \times 10^{-7}n^3 $\end{tabular}\\ [2ex]
+	\textit{Phong}  & \begin{tabular}{@{}c@{}}$y = 19,84 \times 10^8 + 1752,43n - 0,0389n^2$ \\ $+ 3,32 \times 10^{-7}n^3$ \end{tabular}  \\ [2ex]
+	\textit{Red} &  \begin{tabular}{@{}c@{}}$y = 19,39 \times 10 ^8 + 64,34n - 0,00090n^2$ \\ $+ 0,05 \times 10^{-7}n^3$\end{tabular}\\ [2ex]
+	\textit{Toon} & \begin{tabular}{@{}c@{}}$y = 19,44 \times 10 ^8 + 268,89n - 0,0044n^2$ \\ $+ 0,30 \times 10^{-7}n^3$\end{tabular} \\ [2ex]
+	\textit{Flat} & \begin{tabular}{@{}c@{}}$y = 19,39 \times 10 ^8 + 74,94n - 0,0013n^2 $ \\ $+ 0,08 \times 10^{-7}n^3$\end{tabular} \\ [2ex]
+	\textit{Random Color} & \begin{tabular}{@{}c@{}}$y = 19,43 \times 10 ^8 + 250,33n - 0,0050n^2 $ \\ $+ 0,37 \times 10^{-7}n^3$\end{tabular} \\ [2ex]
+	\textit{Simple Texture} & \begin{tabular}{@{}c@{}}$y = 19,41 \times 10 ^8 + 160,00n - 0,0030n^2 $ \\ $+ 0,22 \times 10^{-7}n^3$\end{tabular}\\ [2ex]
+	\textit{CubeMap} & \begin{tabular}{@{}c@{}}$y = 19,43 \times 10 ^8 + 245,89n - 0,0047n^2 $ \\ $+ 0,37 \times 10^{-7}n^3$\end{tabular} \\ [2ex]
+	\textit{Reflection} & \begin{tabular}{@{}c@{}}$y = 19,59 \times 10 ^8 + 698,57n - 0,0094n^2 $ \\ $+ 0,47 \times 10^{-7}n^3$\end{tabular} \\ [2ex]
+
+	\hline
+\end{tabular}
+\label{equation_nexus_fragment}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Equations related to the rendering process}	
+\begin{tabular}{lc}
+	\hline
+	\textbf{Shader Name} & \textbf{Rendering Process Time (ns)}  \\
+	\hline
+	Gouraud & \begin{tabular}{@{}c@{}}$y = 24,31 \times 10^4 + 48,89n + 7,60 \times 10^{-5}n^2 $ \\ $- 1,19 \times 10^{-9}n^3$\end{tabular}  \\[2ex]
+	Phong & \begin{tabular}{@{}c@{}}$y = 31,25 \times 10^4 + 49,28n + 0,12 \times 10^{-5}n^2 $ \\ $- 1,43 \times 10^{-9}n^3$\end{tabular}\\[2ex]
+	Red &  \begin{tabular}{@{}c@{}}$y = 30,37 \times 10^4 + 32,92n + 0,26 \times 10^{-5}n^2 $ \\ $- 0.00019 \times 10^{-9}n^3$\end{tabular} \\[2ex]
+	Toon &  \begin{tabular}{@{}c@{}}$y = 27,28 \times 10^4 + 37,30n + 0,23 \times 10^{-5}n^2 $ \\ $- 1,93 \times 10^{-9}n^3$\end{tabular} \\[2ex]
+	Flat &  \begin{tabular}{@{}c@{}}$y = 32,82 \times 10^4 + 33,84n + 0,28 \times 10^{-5}n^2 $ \\ $- 2,15 \times 10^{-9}n^3$\end{tabular} \\[2ex]
+	Random Color & \begin{tabular}{@{}c@{}}$y = 26,25 \times 10^4 + 38,42n + 0,20 \times 10^{-5}n^2 $ \\ $- 1,76 \times 10^{-9}n^3$\end{tabular} \\[2ex]
+	Simple Texture & \begin{tabular}{@{}c@{}}$y = 24.51 \times 10^4 + 38,88n + 0,18 \times 10^{-5}n^2 $ \\ $- 1,65 \times 10^{-9}n^3$\end{tabular} \\[2ex]
+	CubeMap & \begin{tabular}{@{}c@{}}$y = 29,87 \times 10^4 + 44,70n + 0,11 \times 10^{-5}n^2 $ \\ $- 1,28 \times 10^{-9}n^3$\end{tabular}\\[2ex]
+	Reflection & \begin{tabular}{@{}c@{}}$y = 33,63 \times 10^4 + 57,31n - 9,18 \times 10^{-5}n^2 $ \\ $- 0,35\times 10^{-9}n^3$ \end{tabular}\\[2ex]
+	\hline
+\end{tabular}
+\label{eqrender}
+\end{table}
+
+\hspace{0.5 cm} Analyzing the equations, it's possible to see that the vertex shader that
+had better performance was the Flat Shader, which only determines the 
+$x$ and $y$ coordinates (since the $z$ is zero). The vertex shader that had worst performance was the 
+Gouraud Shader, which calculates the light components in the vertex shader.
+
+\hspace{0.5 cm} The shader with better performance -- related to the fragment shader -- was
+the Red Shader, in which only determines the fragment color to red. The fragment shader with worst performance was the Phong Shader, which
+does the same calculation as the Gouraud shading but in the fragment shader
+instead of the vertex shader.
+
+\hspace{0.5 cm} The shaders with better performance -- related to the rendering process -- 
+were the Flat, Toon and Red Shaders. The shaders with worst performance were 
+the Reflection and Gouraud Shaders.
+
+\hspace{0.5 cm} Besides, with the equations, it's possible to estimate
+the number of vertex or fragment instructions per second. Taking the Toon
+Shader as example, which its vertex shader equation is 
+$y(n) = 10.17 \times 10^6 + 4673.96n$, the estimated number of instructions 
+per second is for 60000 polygons is $29.06 \times 10^7$. With the tool Adreno 
+Profiler it was possible to see that this value is close
+to the measured ($28.49 \times 10^7$).
+
+\hspace{0.5 cm} Another relevant result is about the Gouraud and Phong Shaders. The first had
+the worst vertex shader performance and the second had the worst fragment 
+shader performance. But the shader that had the worst rendering process 
+performance was the Phong Shader. This result is consistent because the
+fragment shader, by this experiment, has computational complexity $O(n^3)$ and
+the vertex shader, $O(n)$, influencing this worst outcome.
+
+\subsubsection{Devices Comparison}
+
+With the obtained curves and equations, it was also possible to compare
+the devices. The Figure \ref{nexus_htc_vertex} and Figure \ref{nexus_htc_fragment} 
+shows the curves related to the
+vertex and fragment shaders for the Nexus 4 and HTC One devices. The
+Figure \ref{nexus_ios} compares the shaders related to the rendering process
+for the Nexus 4 and the iOS devices.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.27]{vertex_devices_all.png}
+	\caption{Nexus 4 and HTC One comparison: vertex shader}
+	\label{nexus_htc_vertex}
+	\end{figure}
+	
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.27]{fragment_devices_all.png}
+	\caption{Nexus 4 and HTC One comparison: fragment shader}
+	\label{nexus_htc_fragment}
+	\end{figure}
+	
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.27]{render_time_devices.png}
+	\caption{Nexus 4, iPhone 5s and iPad comparison: rendering process}
+	\label{nexus_htc_fragment}
+	\end{figure}	
+
+\hspace{0.5 cm} By the measurements and obtained equations, the device that had better
+performance, related to the rendering process, was the iPad Air, which is
+the device with better hardware configuration. And as it was shown in 
+Section \ref{equip}, the iPad Air was the device with better position in 
+the benchmarking app. The device with worst performance was the Nexus 4 and 
+this is consistent because it has the worst hardware configuration.
+
+\hspace{0.5 cm}For the vertex shader, the Nexus 4 had better performance than the HTC One.
+On the other hand, for the fragment shader, the HTC one had better performance
+than the Nexus 4.
+\subsubsection{Final Thoughts About the Equations}
+\subsection{Estimates in Production Environments}
+\subsection{Experimental Process of Estimation of Asymptotic Complexity}
+\section{Discussion and Future Work}
+\label{sec:how-submit}
+
+
+
+\bibliographystyle{sbgames}
+\bibliography{template}
+\end{document}

@@ -1,0 +1,80 @@
+\changetocdepth {3}
+\select@language {brazil}
+\contentsline {chapter}{\chapternumberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{17}{chapter.1}
+\contentsline {section}{\numberline {1.1}Contextualiza\IeC {\c c}\IeC {\~a}o e Justificativa}{17}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objetivos Gerais}{18}{section.1.2}
+\contentsline {section}{\numberline {1.3}Objetivos Espec\IeC {\'\i }ficos}{18}{section.1.3}
+\contentsline {section}{\numberline {1.4}Organiza\IeC {\c c}\IeC {\~a}o do Trabalho}{18}{section.1.4}
+\contentsline {chapter}{\chapternumberline {2}Fundamenta\IeC {\c c}\IeC {\~a}o Te\IeC {\'o}rica}{21}{chapter.2}
+\contentsline {section}{\numberline {2.1}\textit {Shaders}: \textit {pipelines} program\IeC {\'a}veis}{21}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Linguagens dos \textit {shaders}}{22}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Utiliza\IeC {\c c}\IeC {\~a}o dos \textit {shaders} em \textit {OpenGL}}{22}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}\textit {Shaders} em Plataformas M\IeC {\'o}veis}{23}{subsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.3.1}Plataforma \textit {Android}}{24}{subsubsection.2.1.3.1}
+\contentsline {subsubsection}{\numberline {2.1.3.2}Plataforma \textit {iOS}}{24}{subsubsection.2.1.3.2}
+\contentsline {subsubsection}{\numberline {2.1.3.3}\textit {OpenGL ES}}{25}{subsubsection.2.1.3.3}
+\contentsline {section}{\numberline {2.2}Fundamenta\IeC {\c c}\IeC {\~a}o Matem\IeC {\'a}tica e F\IeC {\'\i }sica para Implementa\IeC {\c c}\IeC {\~a}o de \textit {Shaders}}{25}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Renderiza\IeC {\c c}\IeC {\~a}o \textit {Flat}, \textit {Gouraud} e \textit {Phong}}{26}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Renderiza\IeC {\c c}\IeC {\~a}o de Efeito \textit {Cartoon}}{27}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Renderiza\IeC {\c c}\IeC {\~a}o de Efeito de Reflex\IeC {\~a}o}{28}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Complexidade Assint\IeC {\'o}tica}{29}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Abordagem Te\IeC {\'o}rica}{29}{subsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.1.1}Nota\IeC {\c c}\IeC {\~a}o \textit {Big-O}}{30}{subsubsection.2.3.1.1}
+\contentsline {subsection}{\numberline {2.3.2}Abordagem Experimental}{31}{subsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Ajuste Linear}{31}{subsubsection.2.3.2.1}
+\contentsline {subsubsection}{\numberline {2.3.2.2}Ajuste Exponencial}{31}{subsubsection.2.3.2.2}
+\contentsline {subsubsection}{\numberline {2.3.2.3}Ajuste para Polin\IeC {\^o}mio de Segundo e Terceiro Grau}{32}{subsubsection.2.3.2.3}
+\contentsline {subsubsection}{\numberline {2.3.2.4}C\IeC {\'a}lculo dos Erros dos Ajustes}{33}{subsubsection.2.3.2.4}
+\contentsline {chapter}{\chapternumberline {3}Desenvolvimento}{35}{chapter.3}
+\contentsline {section}{\numberline {3.1}Levantamento Bibliogr\IeC {\'a}fico}{35}{section.3.1}
+\contentsline {section}{\numberline {3.2}Equipamentos Utilizados}{35}{section.3.2}
+\contentsline {section}{\numberline {3.3}Configura\IeC {\c c}\IeC {\~a}o do Ambiente e Ferramentas}{36}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Plataforma \textit {Android}}{36}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Plataforma \textit {iOS}}{36}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Modelagem dos Objetos Tridimensionais}{37}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Coleta de Medi\IeC {\c c}\IeC {\~o}es}{37}{subsection.3.3.4}
+\contentsline {subsection}{\numberline {3.3.5}Automatiza\IeC {\c c}\IeC {\~a}o de C\IeC {\'a}lculo e Plotagem}{40}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}Controle de Versionamento}{40}{subsection.3.3.6}
+\contentsline {section}{\numberline {3.4}Implementa\IeC {\c c}\IeC {\~a}o na Plataforma \textit {Android}}{40}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Tela de \textit {Front-end}}{41}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Objeto Tridimensional}{43}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}C\IeC {\'a}lculo do Tempo de Renderiza\IeC {\c c}\IeC {\~a}o}{44}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Renderiza\IeC {\c c}\IeC {\~a}o}{45}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}\textit {Shaders}}{46}{subsection.3.4.5}
+\contentsline {subsubsection}{\numberline {3.4.5.1}\textit {Phong Shader}}{47}{subsubsection.3.4.5.1}
+\contentsline {subsubsection}{\numberline {3.4.5.2}\textit {Gouraud Shader}}{48}{subsubsection.3.4.5.2}
+\contentsline {subsubsection}{\numberline {3.4.5.3}\textit {Red Shader}}{50}{subsubsection.3.4.5.3}
+\contentsline {subsubsection}{\numberline {3.4.5.4}\textit {Toon Shader}}{50}{subsubsection.3.4.5.4}
+\contentsline {subsubsection}{\numberline {3.4.5.5}\textit {Flat Shader}}{51}{subsubsection.3.4.5.5}
+\contentsline {subsubsection}{\numberline {3.4.5.6}\textit {Random Color Shader}}{52}{subsubsection.3.4.5.6}
+\contentsline {subsubsection}{\numberline {3.4.5.7}\textit {Simple Texture Shader}}{53}{subsubsection.3.4.5.7}
+\contentsline {subsubsection}{\numberline {3.4.5.8}\textit {CubeMap Shader}}{54}{subsubsection.3.4.5.8}
+\contentsline {subsubsection}{\numberline {3.4.5.9}\textit {Reflection Shader}}{54}{subsubsection.3.4.5.9}
+\contentsline {section}{\numberline {3.5}Implementa\IeC {\c c}\IeC {\~a}o na Plataforma \textit {iOS}}{57}{section.3.5}
+\contentsline {section}{\numberline {3.6}Estimativa Experimental da Complexidade Algor\IeC {\'\i }tmica}{58}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Medi\IeC {\c c}\IeC {\~a}o do Processo de Renderiza\IeC {\c c}\IeC {\~a}o}{58}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Medi\IeC {\c c}\IeC {\~a}o do \textit {Vertex} e \textit {Fragment Shaders}}{59}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Plotagem}{59}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Automatiza\IeC {\c c}\IeC {\~a}o dos Ajustes das Curvas}{59}{subsection.3.6.4}
+\contentsline {chapter}{\chapternumberline {4}Resultados}{61}{chapter.4}
+\contentsline {section}{\numberline {4.1}Dispositivos \textit {Android}}{61}{section.4.1}
+\contentsline {section}{\numberline {4.2}Dispositivos \textit {iOS}}{71}{section.4.2}
+\contentsline {section}{\numberline {4.3}An\IeC {\'a}lise das Equa\IeC {\c c}\IeC {\~o}es Obtidas}{72}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Compara\IeC {\c c}\IeC {\~a}o das Equa\IeC {\c c}\IeC {\~o}es dos Dispositivos}{73}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Considera\IeC {\c c}\IeC {\~o}es Finais das Equa\IeC {\c c}\IeC {\~o}es}{75}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Estimativas em Ambientes de Produ\IeC {\c c}\IeC {\~a}o}{77}{section.4.4}
+\contentsline {section}{\numberline {4.5}Processo Experimental da Estima\IeC {\c c}\IeC {\~a}o da Complexidade Assint\IeC {\'o}tica}{78}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Conclus\IeC {\~a}o}{79}{chapter.5}
+\contentsline {chapter}{Refer\^encias}{81}{section*.8}
+\cftinsert {AAA}
+\renewcommand *{\cftappendixname }{ANEXO \space }
+\contentsline {part}{Anexos}{83}{section*.9}
+\contentsline {appendix}{\chapternumberline {A}Processo de Renderiza\IeC {\c c}\IeC {\~a}o}{85}{appendix.anexochapback.1}
+\contentsline {section}{\numberline {A.1}Processamento dos Dados dos V\IeC {\'e}rtices}{85}{section.anexochapback.1.1}
+\contentsline {section}{\numberline {A.2}Processamento dos V\IeC {\'e}rtices}{86}{section.anexochapback.1.2}
+\contentsline {section}{\numberline {A.3}P\IeC {\'o}s-processamento dos V\IeC {\'e}rtices}{86}{section.anexochapback.1.3}
+\contentsline {section}{\numberline {A.4}Montagem das Primitivas}{87}{section.anexochapback.1.4}
+\contentsline {section}{\numberline {A.5}Convers\IeC {\~a}o e Interpola\IeC {\c c}\IeC {\~a}o dos Par\IeC {\^a}metros das Primitivas}{87}{section.anexochapback.1.5}
+\contentsline {section}{\numberline {A.6}Processamento dos Fragmentos}{88}{section.anexochapback.1.6}
+\contentsline {section}{\numberline {A.7}Processamento das Amostras}{88}{section.anexochapback.1.7}
+\contentsline {appendix}{\chapternumberline {B}Representa\IeC {\c c}\IeC {\~a}o de Objetos Tridimensionais: Formato \textit {obj}}{89}{appendix.anexochapback.2}

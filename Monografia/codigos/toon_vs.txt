@@ -1,0 +1,11 @@
+uniform vec3 lightDir;
+uniform mat4 uMVPMatrix;
+attribute vec3 aNormal; 
+attribute vec4 aPosition;
+varying float intensity;
+
+void main()
+{
+	intensity = dot(lightDir,aNormal);
+	gl_Position = uMVPMatrix * aPosition;
+} 

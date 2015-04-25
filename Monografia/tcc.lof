@@ -1,0 +1,52 @@
+\select@language {brazil}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1}{\ignorespaces Processo de renderiza\IeC {\c c}\IeC {\~a}o da \textit {OpenGL}}}{21}{figure.2.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Utiliza\IeC {\c c}\IeC {\~a}o dos \textit {shaders}}}{23}{figure.2.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre as t\IeC {\'e}cnicas de \textit {shading}}}{27}{figure.2.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Exemplo de escolha dos tons}}{28}{figure.2.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces \textit {Environment Map}}}{29}{figure.2.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o da Complexidade Assint\IeC {\'o}tica}}{30}{figure.2.6}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {7}{\ignorespaces Ambiente de desenvolvimento \textit {Eclipse}}}{36}{figure.3.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Novo projeto de um aplicativo na ferramenta \textit {Xcode}}}{37}{figure.3.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Ferramenta de modelagem tridimensional}}{38}{figure.3.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Analisador de \textit {OpenGL ES}}}{38}{figure.3.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Ferramenta \textit {Adreno Profiler}: analisador de \textit {shaders}}}{39}{figure.3.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Ferramenta \textit {Adreno Profiler}: visualiza\IeC {\c c}\IeC {\~a}o de m\IeC {\'e}trica quadros por segundo}}{40}{figure.3.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Diagrama de Classe da Implementa\IeC {\c c}\IeC {\~a}o em \textit {Android}}}{41}{figure.3.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Detalhamento das classes \textit {Shader Activity}, \textit {Splash Activity} e \textit {Resources}}}{41}{figure.3.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Tela da \textit {Splash Activity}}}{42}{figure.3.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Tela da \textit {Shader Activity}}}{43}{figure.3.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Detalhamento das classes \textit {3DObject} e \textit {Texture}}}{43}{figure.3.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Ordem das coordenadas de posi\IeC {\c c}\IeC {\~a}o, normal e textura para um v\IeC {\'e}rtice}}{43}{figure.3.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces T\IeC {\'e}cnica de mapeamento de textura utilizada para cada modelo 3D}}{44}{figure.3.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Textura gerada a partir da t\IeC {\'e}cnica de mapeamento}}{45}{figure.3.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Detalhamento das classes \textit {Timer} e \textit {NativeLib}}}{45}{figure.3.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Detalhamento da classe \textit {Renderer}}}{46}{figure.3.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Detalhamento da classe \textit {Shader}}}{47}{figure.3.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces \textit {Shaders} Implementados}}{56}{figure.3.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Diagrama de Classes da Implementa\IeC {\c c}\IeC {\~a}o em \textit {iOS}}}{57}{figure.3.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces \textit {Gouraud Shader} na plataforma \textit {iOS}}}{58}{figure.3.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces Diagrama de Classes do \textit {script} de automatiza\IeC {\c c}\IeC {\~a}o}}{60}{figure.3.27}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {28}{\ignorespaces Gr\IeC {\'a}ficos: \textit {Red Shader}, \textit {Toon shader}, \textit {Gouraud Shader}, \textit {Phong Shader} e \textit {Flat Shader} para o \textit {Nexus 4}}}{63}{figure.4.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces Gr\IeC {\'a}ficos: \textit {Cubemap Shader}, \textit {Texture Shader}, \textit {Random Shader}, \textit {Reflection Shader} para o \textit {Nexus 4}}}{64}{figure.4.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Gr\IeC {\'a}ficos relacionados ao tempo de renderiza\IeC {\c c}\IeC {\~a}o em nanosegundos para o \textit {Nexus 4}}}{65}{figure.4.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Compara\IeC {\c c}\IeC {\~o}es entre as curvas dos \textit {shaders}: todo processo de renderiza\IeC {\c c}\IeC {\~a}o}}{66}{figure.4.31}
+\contentsline {figure}{\numberline {32}{\ignorespaces Compara\IeC {\c c}\IeC {\~o}es entre as curvas dos \textit {shaders}: \textit {vertex} e \textit {fragment shaders}}}{66}{figure.4.32}
+\contentsline {figure}{\numberline {33}{\ignorespaces Ajustes linear, segundo, terceiro graus e exponencial de cada tipo de \textit {shader} para o \textit {Nexus 4}}}{67}{figure.4.33}
+\contentsline {figure}{\numberline {34}{\ignorespaces Ajustes linear, segundo, terceiro graus e exponencial do processo de renderiza\IeC {\c c}\IeC {\~a}o para o \textit {Nexus 4}}}{68}{figure.4.34}
+\contentsline {figure}{\numberline {35}{\ignorespaces Gr\IeC {\'a}ficos do \textit {Gouraud Shader} para o \textit {HTC One}}}{68}{figure.4.35}
+\contentsline {figure}{\numberline {36}{\ignorespaces Ajustes linear, segundo, terceiro graus e exponencial de cada tipo de \textit {shader} para o \textit {HTC One}}}{69}{figure.4.36}
+\contentsline {figure}{\numberline {37}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre as curvas dos \textit {shaders}: \textit {Nexus 4} e \textit {HTC One}}}{70}{figure.4.37}
+\contentsline {figure}{\numberline {38}{\ignorespaces Gr\IeC {\'a}ficos relacionados ao tempo de renderiza\IeC {\c c}\IeC {\~a}o em nanosegundos para os dispositivos \textit {iOS}}}{71}{figure.4.38}
+\contentsline {figure}{\numberline {39}{\ignorespaces Ajustes linear, segundo, terceiro graus e exponencial do processo de renderiza\IeC {\c c}\IeC {\~a}o para dispositivo \textit {iOS}}}{71}{figure.4.39}
+\contentsline {figure}{\numberline {40}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre as curvas dos \textit {shaders}: \textit {Nexus 4}, \textit {iPhone 5s} e \textit {iPad Air}}}{72}{figure.4.40}
+\contentsline {figure}{\numberline {41}{\ignorespaces Processo da An\IeC {\'a}lise de Complexidade Algor\IeC {\'\i }tmica.}}{78}{figure.4.41}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {42}{\ignorespaces V\IeC {\'e}rtices do quadrado constitu\IeC {\'\i }do de dois tri\IeC {\^a}ngulos}}{85}{figure.anexochapback.1.42}
+\contentsline {figure}{\numberline {43}{\ignorespaces Antes do recorte (cubo de visualiza\IeC {\c c}\IeC {\~a}o esquerdo) e depois do recorte (cubo de visualiza\IeC {\c c}\IeC {\~a}o direito)}}{87}{figure.anexochapback.1.43}
+\contentsline {figure}{\numberline {44}{\ignorespaces Travessia de tri\IeC {\^a}ngulos: fragmentos sendo gerados}}{88}{figure.anexochapback.1.44}
+\addvspace {10pt}
