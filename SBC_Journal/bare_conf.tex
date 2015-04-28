@@ -120,7 +120,18 @@
 % http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
 % The documentation is contained in the cite.sty file itself.
 
+
+\usepackage{xcolor}
+\usepackage{textcomp}
 \usepackage{listings}
+\lstset{
+           basicstyle=\ttfamily\small,
+           keywordstyle=\color{blue}\ttfamily,
+           stringstyle=\color{red}\ttfamily,
+           commentstyle=\color{green}\ttfamily,
+	emph={uniform, varying, precision, mediump, samplerCube, vec3, vec4, mat4, sampler2D,attribute,mat3},emphstyle={\color{blue}}
+ }
+
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
@@ -501,6 +512,87 @@ is one of most popular API (Application Programming Interface) for graphics
 programming in mobile devices. It uses the GLSL (OpenGL Shading Language) 
 as shading language, that is based on the C language.
 
+\subsection{Fundamentals of Physics and Mathematics for Shaders Implementation}
+
+The visual effects - created through shaders - are representations of physical events and may assign different materials to objects and light effects, for instance.
+ Thus, this subsection presents some concepts necessary for understanding the implemented shaders.
+
+\subsubsection{Gouraud and Phong Shading}
+\label{phong}
+
+The computer calculations of the light at the vertices, followed by linear interpolation of the results is known as Gouraud shading, created by Henri Gouraud.
+Its vertex shader calculates the intensity of light at each vertex and the results are interpolated. Then, the fragment shader propagates this value for the next steps in the rendering process.
+
+In Phong shading, firstly, the normal values of the primitives are interpolated. Then, the light values are calculated for each fragment, using the interpolated normal values. 
+The light intensity on a surface point is calculated as shown in (\ref{eqphong}).
+
+	\begin{equation}
+		%I_ {total} = I_ {ambiente} +  \sum\limits_ {luzes} I_ {difusa} + I_ {especular}
+	I_ {T} = I_ {A} +  \sum I_ {D} + I_ {S}
+	\label{eqphong}
+	\end{equation}
+	where $I_{T}$ is the total illumination, $I_A$ is the ambient illumination, $I_D$ is the diffuse illumination and  $I_S$ is the specular illumination. 
+
+The ambient reflection intensity comes from all directions and when it reaches the surface, it also spreads out in all directions, having the same intensity for all points. It can be calculated according to ({\ref{eqamb}).
+
+	\begin{equation}
+		I_ {A} = K_ {A}L_ {A} 
+	\label{eqamb}
+	\end{equation}
+	where  $I_A$ is the intensity of ambient light, $K_ {A}$ is the surface's coefficient of ambient reflection and $L_ {A}$ is the component of the intensity of ambient light.
+
+The intensity of the diffuse reflection comes from one direction and when it reaches a surface, spreads equally in all directions. It can be calculated according to (\ref{eqdif}).
+
+	\begin{equation}
+		I_ {D} = K_ {D}L_ {D}( \vec{ l} \cdot \vec{ n}) 
+	\label{eqdif}
+	\end{equation}
+	 where $I_D$ is the intensity of the diffuse reflection, $K_ {D}$ is the diffuse reflection coefficient of the surface, $L_ {D}$ is the component of intensity of the diffuse light, $\vec{ l}$ is the light source and $\vec{ n}$ is the point of interest.
+
+The specular light comes from one direction and reflects like a mirror, which the incident angle is equal to the reflection angle. It can be calculated as shown in (\ref{eqesp}).
+
+	\begin{equation}
+		I_ {S} =K_ {S}L_ {S} (\vec{ r} \cdot \vec{ v})^s
+	\label{eqesp}
+	\end{equation}
+	where $ I_S$ is the intensity of the specular reflection, $ K_ {S} $ is the specular reflectance of the surface, $ L_ {S} $ is the intensity of the specular component of light, $\vec{ r}$ is the direction of the reflection, $\vec{ v}$  is the observer vector and $ s $ is the specular exponent.
+
+\subsubsection{Toon Shading}
+\label{toon}
+
+ The Toon shading aims to simulate the effect of a cartoon, whose main characteristic is the uniform appearance of colors on the surface of the objects.
+This can be done by mapping the light intensity ranges for specific colors, in order to give a less realistic lighting and nearest to the one used in cartoons.
+The light intensity can be calculated according to (\ref{eqtoon}).
+
+	\begin{equation}
+		I_ {L} = \frac{ \vec{l_{d}} \cdot \vec{n} } {\Vert \vec{l_{d}} \Vert  \Vert \vec{n} \Vert } 
+	\label{eqtoon}
+	\end{equation}
+	where $ I_L $ is the light intensity, $\vec{l_ {d}} $ is direction of the light's vector and $\vec {n} $ is the normal vector.
+
+Because $\vec{l_{d}}$ and $\vec{n}$  are normalized vectors, the calculation can be simplified according (\ref{eqtoons}).
+
+	\begin{equation}
+		I_ {L} =  \vec{l_{d}} \cdot \vec{n}  
+	\label{eqtoons}
+	\end{equation}
+
+\subsubsection{Reflection Shading}
+\label{reflection}
+
+The reflection effect is obtained by using the technique called cube mapping (a type of environment mapping), which uses the six faces of a cube as the map shape. 
+So this shader reflects this texture, and one example of a texture to be used for cube mapping is shown in Fig. \ref{environment}.
+
+	\begin{figure}[ht]
+	\centering
+		\includegraphics[keepaspectratio=true,scale=0.3]{envmap.jpg}
+	\caption{\textit{Cube Map}}
+	\label{environment}
+	\end{figure}
+
+So the idea is to get the reflected vector of the camera position to the object, based on the surface normal. 
+This vector is used to determine the color of the fragment, based on the texture.
+
 \subsection{Asymptotic Complexity }
 
 Asymptotic complexity is a way to compare the efficiency of an algorithm,
@@ -742,6 +834,85 @@ The implemented shaders can be seen on Fig. \ref{shaders_impl}.
 	\caption{Implemented Shaders}
 	\label{shaders_impl}
 	\end{figure}
+
+\subsubsection{Phong Shader}
+
+The vertex and fragment shaders of Phong shading implement the theory described on Section \ref{phong}, where the normal values of the primitives are interpolated on the vertex shader,
+ and then the lightining calculations are done in the fragment shader. The Listing \ref{codphongvs} and the Listing \ref{codphongfs} show the definitions of the vertex and fragment shaders, respectively.  
+
+	\lstinputlisting[language=C, label = {codphongvs}, caption = {Phong Shader: vertex shader}]{codes/phong_vs.txt}
+
+	\lstinputlisting[language=C, caption =  {Phong Shader: fragment shader}, label = {codphongfs}  ]{codes/phong_ps.txt}
+
+\subsubsection{Gouraud Shader}
+
+The Gouraud Shader, as the Phong Shader, also implements the theory described on Section \ref{phong}, except for the lightning calculations. 
+They are done on the vertex shader and the final values are interpolated and used by the fragment shader, as shown on Listing \ref{codgouraudvs} and Listing \ref{codgouraudfs}. 
+
+	\lstinputlisting[language=C, label = {codgouraudvs}, caption = {Gouraud Shader:  vertex shader}]{codes/gouraud_vs.txt}
+
+	\lstinputlisting[language=C, label = {codgouraudfs},  caption =  {Gouraud Shader: fragment shader} ]{codes/gouraud_ps.txt}
+
+\subsubsection{Red Shader}
+	
+	This is a simple shader that sets the vertex position and the fragment color to red, as shown on Listing \ref{codredvs} and Listing \ref{codredfs}. 
+	
+	\lstinputlisting[language=C, caption = {Red Shader: vertex shader}, label = {codredvs}]{codes/red_vs.txt}
+	
+	\lstinputlisting[language=C, caption = {Red Shader:  fragment shader}, label = {codredfs}]{codes/red_ps.txt}
+
+\subsubsection{Toon Shader}
+
+	The Toon shader calculates the lightning intensity  per vertex (as presented on Section \ref{toon}), to choose a pre-defined color. The Listing \ref{codtoonvs}  and Listing \ref{codtoonfs} show this calculation.
+
+	\lstinputlisting[language=C,label = {codtoonvs}, caption = {Toon Shader:  vertex shader} ]{codes/toon_vs.txt}
+  
+ 	\lstinputlisting[language=C, caption = {Toon Shader:  fragment shader}, label = {codtoonfs} ]{codes/toon_ps.txt}
+
+\subsubsection{Flat Shader}
+
+	The idea of the Flat Shader is to transform a three-dimensional object into a two-dimensional one. To do this, the $z$ coordinate is defined as zero, as shown on Listing \ref{codflatvs}. 
+Its fragment shader (Listing \ref{codflatfs}) just defines a color to the the fragment.
+
+	\lstinputlisting[language=C,label = {codflatvs}, caption = {Flat Shader:  vertex shader} ]{codes/flat_vs.txt}
+
+	\lstinputlisting[language=C, caption = {Flat Shader:  fragment shader}, label = {codflatfs} ]{codes/flat_ps.txt}
+
+\subsubsection{Random Color Shader}
+
+	The Random Color shader determines the color of the fragment randomly, based on a mathematical calculation. This calculation is done on the vertex shader (Listing \ref{codrandvs}) and the final value is given to the fragment shader. 
+Each color component is calculated using as parameter a coordinate ($x$, $y$ ou $z$) given to the function \texttt{random(vec2 v)}, which returns a random value based on the given coordinate. In the Listing \ref{codrandfs} the color of the fragment is set.
+
+	\lstinputlisting[language=C,label = {codrandvs}, caption = {Random Color Shader:  vertex shader} ]{codes/randcolor_vs.txt}
+ 
+	\lstinputlisting[language=C, caption = {Random Color Shader:  fragment shader}, label = {codrandfs} ]{codes/randcolor_ps.txt}
+
+
+\subsubsection{Simple Texture Shader}
+
+	The vertex shader of the Simple Texture Shader stores the texture coordinates into a variable (Listing \ref{codtexvs}),  and gives it to the fragment shader. On Listing \ref{codtexfs}, 
+the fragment shader uses these coordinates and applies it into a texture by using the function \texttt{texture2D()}.
+
+	\lstinputlisting[language=C, caption =  {Simple Texture Shader:  vertex shader}, label = {codtexvs} ]{codes/simple_tex_vs.txt}
+
+	\lstinputlisting[language=C, caption =  {Simple Texture Shader:  fragment shader}, label = {codtexfs} ]{codes/simple_tex_ps.txt}
+
+\subsubsection{CubeMap Shader}	
+
+ 	The vertex shader of the CubeMap Shader just defines the vertex position (Listing \ref{codcubemapvs}). The fragment shader (Listing \ref{codcubemapps}), uses the \texttt{textureCube( samplercube s, vec3 coord)} function,
+which receives as parameters the normal vector and the texture to be mapped.
+
+	\lstinputlisting[language=C, caption =  {CubeMap Shader:  vertex shader}, label = {codcubemapvs} ]{codes/cubemap_vs.txt}
+
+	\lstinputlisting[language=C, caption =  {CubeMap Shader:  fragment shader}, label = {codcubemapps} ]{codes/cubemap_ps.txt}
+
+\subsubsection{Reflection Shader}
+
+	The Reflection Shader implements the theory described on Section \ref{reflection}. Its vertex shader is responsible for defining the vertex position, as shown on Listing \ref{codreflvs}. Besides, it also declares two vectors of the type varying (which gives the variables' values to the fragment shader), that are related to the vector of the camera's direction and normal. In the fragment shader these vectors are used to find the reflection vector by the \texttt{reflect} function. The reflection vector is used on the  \texttt{textureCube(samplercube s, vec3 coord)}, which determines the fragment's color based on this vector and on an image. 
+
+	\lstinputlisting[language=C, caption = {Reflection Shader:  vertex shader}, label = {codreflvs}]{codes/reflection_vs.txt}. 
+
+	\lstinputlisting[language=C, caption = {Reflection Shader:  fragment shader}, label = {codreflfs}]{codes/reflection_ps.txt}
 
 \subsubsection{Calculation of Rendering Time}
 \label{time}
