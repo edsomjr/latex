@@ -1,5 +1,5 @@
 
-%% bare_conf.tex
+%% alex_edson_sbc_paper.tex
 %% V1.3
 %% 2007/01/11
 %% by Michael Shell
@@ -524,35 +524,35 @@ The computer calculations of the light at the vertices, followed by linear inter
 Its vertex shader calculates the intensity of light at each vertex and the results are interpolated. Then, the fragment shader propagates this value for the next steps in the rendering process.
 
 In Phong shading, firstly, the normal values of the primitives are interpolated. Then, the light values are calculated for each fragment, using the interpolated normal values. 
-The light intensity on a surface point is calculated as shown in (\ref{eqphong}).
+As said by \cite{guha2011}, the light intensity on a surface point is calculated as shown in Equation \ref{eqphong}
 
 	\begin{equation}
 		%I_ {total} = I_ {ambiente} +  \sum\limits_ {luzes} I_ {difusa} + I_ {especular}
-	I_ {T} = I_ {A} +  \sum I_ {D} + I_ {S}
+	I_ {T} = I_ {A} +  \sum I_ {D} + I_ {S},
 	\label{eqphong}
 	\end{equation}
 	where $I_{T}$ is the total illumination, $I_A$ is the ambient illumination, $I_D$ is the diffuse illumination and  $I_S$ is the specular illumination. 
 
-The ambient reflection intensity comes from all directions and when it reaches the surface, it also spreads out in all directions, having the same intensity for all points. It can be calculated according to ({\ref{eqamb}).
+The ambient reflection intensity comes from all directions and when it reaches the surface, it also spreads out in all directions, having the same intensity for all points. It can be calculated according to Equation {\ref{eqamb}
 
 	\begin{equation}
-		I_ {A} = K_ {A}L_ {A} 
+		I_ {A} = K_ {A}L_ {A} ,
 	\label{eqamb}
 	\end{equation}
 	where  $I_A$ is the intensity of ambient light, $K_ {A}$ is the surface's coefficient of ambient reflection and $L_ {A}$ is the component of the intensity of ambient light.
 
-The intensity of the diffuse reflection comes from one direction and when it reaches a surface, spreads equally in all directions. It can be calculated according to (\ref{eqdif}).
+The intensity of the diffuse reflection comes from one direction and when it reaches a surface, spreads equally in all directions. It can be calculated according to Equation \ref{eqdif}
 
 	\begin{equation}
-		I_ {D} = K_ {D}L_ {D}( \vec{ l} \cdot \vec{ n}) 
+		I_ {D} = K_ {D}L_ {D}( \vec{ l} \cdot \vec{ n}), 
 	\label{eqdif}
 	\end{equation}
 	 where $I_D$ is the intensity of the diffuse reflection, $K_ {D}$ is the diffuse reflection coefficient of the surface, $L_ {D}$ is the component of intensity of the diffuse light, $\vec{ l}$ is the light source and $\vec{ n}$ is the point of interest.
 
-The specular light comes from one direction and reflects like a mirror, which the incident angle is equal to the reflection angle. It can be calculated as shown in (\ref{eqesp}).
+The specular light comes from one direction and reflects like a mirror, which the incident angle is equal to the reflection angle. It can be calculated as shown in Equation \ref{eqesp}
 
 	\begin{equation}
-		I_ {S} =K_ {S}L_ {S} (\vec{ r} \cdot \vec{ v})^s
+		I_ {S} =K_ {S}L_ {S} (\vec{ r} \cdot \vec{ v})^s,
 	\label{eqesp}
 	\end{equation}
 	where $ I_S$ is the intensity of the specular reflection, $ K_ {S} $ is the specular reflectance of the surface, $ L_ {S} $ is the intensity of the specular component of light, $\vec{ r}$ is the direction of the reflection, $\vec{ v}$  is the observer vector and $ s $ is the specular exponent.
@@ -562,15 +562,15 @@ The specular light comes from one direction and reflects like a mirror, which th
 
  The Toon shading aims to simulate the effect of a cartoon, whose main characteristic is the uniform appearance of colors on the surface of the objects.
 This can be done by mapping the light intensity ranges for specific colors, in order to give a less realistic lighting and nearest to the one used in cartoons.
-The light intensity can be calculated according to (\ref{eqtoon}).
+The light intensity can be calculated according to Equation \ref{eqtoon}
 
 	\begin{equation}
-		I_ {L} = \frac{ \vec{l_{d}} \cdot \vec{n} } {\Vert \vec{l_{d}} \Vert  \Vert \vec{n} \Vert } 
+		I_ {L} = \frac{ \vec{l_{d}} \cdot \vec{n} } {\Vert \vec{l_{d}} \Vert  \Vert \vec{n} \Vert }, 
 	\label{eqtoon}
 	\end{equation}
 	where $ I_L $ is the light intensity, $\vec{l_ {d}} $ is direction of the light's vector and $\vec {n} $ is the normal vector.
 
-Because $\vec{l_{d}}$ and $\vec{n}$  are normalized vectors, the calculation can be simplified according (\ref{eqtoons}).
+Because $\vec{l_{d}}$ and $\vec{n}$  are normalized vectors, the calculation can be simplified according Equation \ref{eqtoons}.
 
 	\begin{equation}
 		I_ {L} =  \vec{l_{d}} \cdot \vec{n}  
@@ -585,7 +585,7 @@ So this shader reflects this texture, and one example of a texture to be used fo
 
 	\begin{figure}[ht]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.3]{envmap.jpg}
+		\includegraphics[keepaspectratio=true,scale=0.3]{figures/envmap.jpg}
 	\caption{\textit{Cube Map}}
 	\label{environment}
 	\end{figure}
@@ -604,13 +604,13 @@ of data and time required to process them.
 The calculation of the asymptotic complexity aims to model the behaviour
 of the algorithm performance, as the number of data increases. This way,
 the terms that doesn't affect the order of magnitude are eliminated,
-generating the approximation called asymptotic complexity. For instance, (\ref{example})
+generating the approximation called asymptotic complexity. For instance, the Equation \ref{example}
 
     \begin{equation}
 		y = n^{2} +10 n + 1000
 	\label{example}
 	\end{equation}
-could be approximated by (\ref{example2}).
+could be approximated by Equation \ref{example2}.
 
 \begin{equation}
 		y \approx  n^{2} 
@@ -625,10 +625,10 @@ In this situation, as said in \cite{minq}, it's impossible to find coefficients
 $a$ and $b$ that satisfy the system. Thus, the distances between those values
 to the line can be considered as error measures and the points are adjusted 
 by the same vector. This way, there's a linear least 
-squares adjustment to the data and its solution is given in (\ref{mineq1}).
+squares adjustment to the data and its solution is given in Equation \ref{mineq1}
 
 \begin{equation}
-		v =( M^{T}M)^{-1}M^{T}y
+		v =( M^{T}M)^{-1}M^{T}y,
 	\label{mineq1}
 	\end{equation}
 	where
@@ -653,7 +653,7 @@ squares adjustment to the data and its solution is given in (\ref{mineq1}).
 	\end{equation}
 	
 The adjustment to a second and third degree functions is similar, but the M matrix
-is redefined to (\ref{mineq2}) 
+is redefined to Equation \ref{mineq2} 
 \begin{equation}
 	M = \left[\begin{array}{ccc}
                	1 & x_{1} & x_{1}^{2} \\
@@ -663,7 +663,7 @@ is redefined to (\ref{mineq2})
           	         \end{array}\right] \quad
 	\label{mineq2}
 	\end{equation}
-	and (\ref{mineq3}), respectively. 
+	and to Equation \ref{mineq3}, respectively. 
 
 		\begin{equation}
 	M = \left[\begin{array}{cccc}
@@ -676,18 +676,18 @@ is redefined to (\ref{mineq2})
 	\end{equation}
 	
 The exponential adjustment is a little bit different. \cite{calculo} says
-that the exponential function can be represented as (\ref{mineq4}),
+that the exponential function can be represented as Equation \ref{mineq4},
 \begin{equation}
 	\label{mineq4}
 		y = ce^{-kt}
 	\end{equation}
 where $e$, $c$, $k$ are constants. Applying the logarithmic function on
-both sides, (\ref{mineq5}) is obtained \begin{equation}
+both sides, the Equation \ref{mineq5} is obtained \begin{equation}
 	\label{mineq5}
 		\ln{y} = \ln{c}  + \ln{e^{-kt}}
 	\end{equation}
 	and it can be simplified
-as (\ref{mineq6}) (where $\bar{b}$ is a new constant). 
+as Equation \ref{mineq6} (where $\bar{b}$ is a new constant). 
 \begin{equation}
 	\label{mineq6}
 		\bar{y} = \bar{a} + \bar{b}t
@@ -695,7 +695,7 @@ as (\ref{mineq6}) (where $\bar{b}$ is a new constant).
 This equation
 is equivalent to a linear equation and the linear least squares method can be applied.
 The final values of the $\bar{a}$ and $\bar{b}$ coefficients determine
-the $c$ and $k$ parameters through  the relationships shown in (\ref{mineq7})
+the $c$ and $k$ parameters through  the relationships shown in Equation \ref{mineq7}
 
 \begin{equation}
   \label{mineq7}
@@ -770,7 +770,7 @@ of object-oriented modeling.
 
 	\begin{figure}[!t]
 	\centering
-	\includegraphics[keepaspectratio=true,scale=0.32]{class_diagram.jpg}
+	\includegraphics[keepaspectratio=true,scale=0.32]{figures/class_diagram.jpg}
 	\caption{Android implementation: class diagram}
 	\label{class_diagram}
 	\end{figure}
@@ -785,7 +785,7 @@ there are two Activity classes: Shader Activity and Splash Activity (Fig. \ref{s
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.12]{shader_splash.png}
+		\includegraphics[keepaspectratio=true,scale=0.12]{figures/shader_splash.png}
 	\caption{Shader Activity and Splash Activity}
 	\label{shader_splash}
 	\end{figure}
@@ -830,7 +830,7 @@ The implemented shaders can be seen on Fig. \ref{shaders_impl}.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.4]{shaders_impl.png}
+		\includegraphics[keepaspectratio=true,scale=0.4]{figures/shaders_impl.png}
 	\caption{Implemented Shaders}
 	\label{shaders_impl}
 	\end{figure}
@@ -840,52 +840,52 @@ The implemented shaders can be seen on Fig. \ref{shaders_impl}.
 The vertex and fragment shaders of Phong shading implement the theory described on Section \ref{phong}, where the normal values of the primitives are interpolated on the vertex shader,
  and then the lightining calculations are done in the fragment shader. The Listing \ref{codphongvs} and the Listing \ref{codphongfs} show the definitions of the vertex and fragment shaders, respectively.  
 
-	\lstinputlisting[language=C, label = {codphongvs}, caption = {Phong Shader: vertex shader}]{codes/phong_vs.txt}
+	\lstinputlisting[language=C, label = {codphongvs}, frame = single, caption = {Phong Shader: vertex shader}]{codes/phong_vs.txt}
 
-	\lstinputlisting[language=C, caption =  {Phong Shader: fragment shader}, label = {codphongfs}  ]{codes/phong_ps.txt}
+	\lstinputlisting[language=C, frame = single, caption =  {Phong Shader: fragment shader}, label = {codphongfs}  ]{codes/phong_ps.txt}
 
 \subsubsection{Gouraud Shader}
 
 The Gouraud Shader, as the Phong Shader, also implements the theory described on Section \ref{phong}, except for the lightning calculations. 
 They are done on the vertex shader and the final values are interpolated and used by the fragment shader, as shown on Listing \ref{codgouraudvs} and Listing \ref{codgouraudfs}. 
 
-	\lstinputlisting[language=C, label = {codgouraudvs}, caption = {Gouraud Shader:  vertex shader}]{codes/gouraud_vs.txt}
+	\lstinputlisting[language=C, label = {codgouraudvs}, frame = single, caption = {Gouraud Shader:  vertex shader}]{codes/gouraud_vs.txt}
 
-	\lstinputlisting[language=C, label = {codgouraudfs},  caption =  {Gouraud Shader: fragment shader} ]{codes/gouraud_ps.txt}
+	\lstinputlisting[language=C, label = {codgouraudfs},   frame = single, caption =  {Gouraud Shader: fragment shader} ]{codes/gouraud_ps.txt}
 
 \subsubsection{Red Shader}
 	
 	This is a simple shader that sets the vertex position and the fragment color to red, as shown on Listing \ref{codredvs} and Listing \ref{codredfs}. 
 	
-	\lstinputlisting[language=C, caption = {Red Shader: vertex shader}, label = {codredvs}]{codes/red_vs.txt}
+	\lstinputlisting[language=C, caption = {Red Shader: vertex shader}, frame = single, label = {codredvs}]{codes/red_vs.txt}
 	
-	\lstinputlisting[language=C, caption = {Red Shader:  fragment shader}, label = {codredfs}]{codes/red_ps.txt}
+	\lstinputlisting[language=C, caption = {Red Shader:  fragment shader}, frame = single, label = {codredfs}]{codes/red_ps.txt}
 
 \subsubsection{Toon Shader}
 
 	The Toon shader calculates the lightning intensity  per vertex (as presented on Section \ref{toon}), to choose a pre-defined color. The Listing \ref{codtoonvs}  and Listing \ref{codtoonfs} show this calculation.
 
-	\lstinputlisting[language=C,label = {codtoonvs}, caption = {Toon Shader:  vertex shader} ]{codes/toon_vs.txt}
+	\lstinputlisting[language=C,label = {codtoonvs}, frame = single, caption = {Toon Shader:  vertex shader} ]{codes/toon_vs.txt}
   
- 	\lstinputlisting[language=C, caption = {Toon Shader:  fragment shader}, label = {codtoonfs} ]{codes/toon_ps.txt}
+ 	\lstinputlisting[language=C, caption = {Toon Shader:  fragment shader},  frame = single, label = {codtoonfs} ]{codes/toon_ps.txt}
 
 \subsubsection{Flat Shader}
 
 	The idea of the Flat Shader is to transform a three-dimensional object into a two-dimensional one. To do this, the $z$ coordinate is defined as zero, as shown on Listing \ref{codflatvs}. 
 Its fragment shader (Listing \ref{codflatfs}) just defines a color to the the fragment.
 
-	\lstinputlisting[language=C,label = {codflatvs}, caption = {Flat Shader:  vertex shader} ]{codes/flat_vs.txt}
+	\lstinputlisting[language=C,label = {codflatvs},  frame = single, caption = {Flat Shader:  vertex shader} ]{codes/flat_vs.txt}
 
-	\lstinputlisting[language=C, caption = {Flat Shader:  fragment shader}, label = {codflatfs} ]{codes/flat_ps.txt}
+	\lstinputlisting[language=C,  frame = single, caption = {Flat Shader:  fragment shader}, label = {codflatfs} ]{codes/flat_ps.txt}
 
 \subsubsection{Random Color Shader}
 
 	The Random Color shader determines the color of the fragment randomly, based on a mathematical calculation. This calculation is done on the vertex shader (Listing \ref{codrandvs}) and the final value is given to the fragment shader. 
 Each color component is calculated using as parameter a coordinate ($x$, $y$ ou $z$) given to the function \texttt{random(vec2 v)}, which returns a random value based on the given coordinate. In the Listing \ref{codrandfs} the color of the fragment is set.
 
-	\lstinputlisting[language=C,label = {codrandvs}, caption = {Random Color Shader:  vertex shader} ]{codes/randcolor_vs.txt}
+	\lstinputlisting[language=C,label = {codrandvs},  frame = single, caption = {Random Color Shader:  vertex shader} ]{codes/randcolor_vs.txt}
  
-	\lstinputlisting[language=C, caption = {Random Color Shader:  fragment shader}, label = {codrandfs} ]{codes/randcolor_ps.txt}
+	\lstinputlisting[language=C,  frame = single, caption = {Random Color Shader:  fragment shader}, label = {codrandfs} ]{codes/randcolor_ps.txt}
 
 
 \subsubsection{Simple Texture Shader}
@@ -893,26 +893,26 @@ Each color component is calculated using as parameter a coordinate ($x$, $y$ ou 
 	The vertex shader of the Simple Texture Shader stores the texture coordinates into a variable (Listing \ref{codtexvs}),  and gives it to the fragment shader. On Listing \ref{codtexfs}, 
 the fragment shader uses these coordinates and applies it into a texture by using the function \texttt{texture2D()}.
 
-	\lstinputlisting[language=C, caption =  {Simple Texture Shader:  vertex shader}, label = {codtexvs} ]{codes/simple_tex_vs.txt}
+	\lstinputlisting[language=C,  frame = single, caption =  {Simple Texture Shader:  vertex shader}, label = {codtexvs} ]{codes/simple_tex_vs.txt}
 
-	\lstinputlisting[language=C, caption =  {Simple Texture Shader:  fragment shader}, label = {codtexfs} ]{codes/simple_tex_ps.txt}
+	\lstinputlisting[language=C,  frame = single, caption =  {Simple Texture Shader:  fragment shader}, label = {codtexfs} ]{codes/simple_tex_ps.txt}
 
 \subsubsection{CubeMap Shader}	
 
  	The vertex shader of the CubeMap Shader just defines the vertex position (Listing \ref{codcubemapvs}). The fragment shader (Listing \ref{codcubemapps}), uses the \texttt{textureCube( samplercube s, vec3 coord)} function,
 which receives as parameters the normal vector and the texture to be mapped.
 
-	\lstinputlisting[language=C, caption =  {CubeMap Shader:  vertex shader}, label = {codcubemapvs} ]{codes/cubemap_vs.txt}
+	\lstinputlisting[language=C,  frame = single, caption =  {CubeMap Shader:  vertex shader}, label = {codcubemapvs} ]{codes/cubemap_vs.txt}
 
-	\lstinputlisting[language=C, caption =  {CubeMap Shader:  fragment shader}, label = {codcubemapps} ]{codes/cubemap_ps.txt}
+	\lstinputlisting[language=C,  frame = single, caption =  {CubeMap Shader:  fragment shader}, label = {codcubemapps} ]{codes/cubemap_ps.txt}
 
 \subsubsection{Reflection Shader}
 
 	The Reflection Shader implements the theory described on Section \ref{reflection}. Its vertex shader is responsible for defining the vertex position, as shown on Listing \ref{codreflvs}. Besides, it also declares two vectors of the type varying (which gives the variables' values to the fragment shader), that are related to the vector of the camera's direction and normal. In the fragment shader these vectors are used to find the reflection vector by the \texttt{reflect} function. The reflection vector is used on the  \texttt{textureCube(samplercube s, vec3 coord)}, which determines the fragment's color based on this vector and on an image. 
 
-	\lstinputlisting[language=C, caption = {Reflection Shader:  vertex shader}, label = {codreflvs}]{codes/reflection_vs.txt}. 
+	\lstinputlisting[language=C, frame = single, caption = {Reflection Shader:  vertex shader}, label = {codreflvs}]{codes/reflection_vs.txt}. 
 
-	\lstinputlisting[language=C, caption = {Reflection Shader:  fragment shader}, label = {codreflfs}]{codes/reflection_ps.txt}
+	\lstinputlisting[language=C, frame = single, caption = {Reflection Shader:  fragment shader}, label = {codreflfs}]{codes/reflection_ps.txt}
 
 \subsubsection{Calculation of Rendering Time}
 \label{time}
@@ -932,7 +932,7 @@ classes and the view RendererView.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.41]{ios_class_diagram.jpg}
+		\includegraphics[keepaspectratio=true,scale=0.41]{figures/ios_class_diagram.jpg}
 	\caption{iOS implementation: class diagram}
 	\label{ios_diag}
 	\end{figure}
@@ -945,7 +945,7 @@ comparisons between the different devices on distinct platforms. The result is s
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.25]{gouraud_ios.png}
+		\includegraphics[keepaspectratio=true,scale=0.25]{figures/gouraud_ios.png}
 	\caption{Gouraud Shader on iOS platform }
 	\label{gouraud_ios}
 	\end{figure}
@@ -1004,7 +1004,7 @@ related to the whole rendering process or just to the vertex and fragment shader
 to the rendering process of the Gouraud shader and the second is related
 only to the vertex and fragment shaders.
 
-\lstinputlisting[language=C, numbers=none,label = {linhacomando}, caption = {Command-lines}]{linhacomando.txt}
+\lstinputlisting[language=C, numbers=none, frame = single, label = {linhacomando}, caption = {Command-lines}]{codes/linhacomando.txt}
 
  The Fig. \ref{python} shows how this program is structured.
 The ReadCSV and ReadTxt classes are responsible for reading the CSV and TXT 
@@ -1013,7 +1013,7 @@ LeastSquares calculates these adjustments and their errors.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.28]{minquad_diag.jpg}
+		\includegraphics[keepaspectratio=true,scale=0.28]{figures/minquad_diag.jpg}
 	\caption{Tool implementation: class diagram}
 	\label{python}
 	\end{figure}
@@ -1026,7 +1026,7 @@ adjustment and the last one is the exponential adjustment.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.23]{ios_minquad_render.jpg}
+		\includegraphics[keepaspectratio=true,scale=0.23]{figures/ios_minquad_render.jpg}
 	\caption{Automatic Adjustments: rendering process}
 	\label{tool_result}
 	\end{figure}
@@ -1039,14 +1039,14 @@ and their errors.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.27]{vertex_minquad.png}
+		\includegraphics[keepaspectratio=true,scale=0.27]{figures/vertex_minquad.png}
 	\caption{Automatic Adjustments: vertex shader}
 	\label{tool_result2}
 	\end{figure}
 	
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.26]{fragment_minquad.png}
+		\includegraphics[keepaspectratio=true,scale=0.26]{figures/fragment_minquad.png}
 	\caption{Automatic Adjustments: fragment shader}
 	\label{tool_result3}
 	\end{figure}	
@@ -1070,7 +1070,7 @@ The Fig. \ref{vertex_all} shows the charts related to the vertex shader of all i
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.27]{vertex_all.png}
+		\includegraphics[keepaspectratio=true,scale=0.27]{figures/vertex_all.png}
 	\caption{Vertex shader: curves comparison}
 	\label{vertex_all}
 	\end{figure}
@@ -1081,14 +1081,14 @@ inspection. These curves are shown in the Fig. \ref{fragment_all} and Fig. \ref{
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.22]{fragment_all.png}
+		\includegraphics[keepaspectratio=true,scale=0.22]{figures/fragment_all.png}
 	\caption{Fragment shader: curves comparison}
 	\label{fragment_all}
 	\end{figure}
 	
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.25]{render_time_all.png}
+		\includegraphics[keepaspectratio=true,scale=0.25]{figures/render_time_all.png}
 	\caption{Rendering process: curves comparison}
 	\label{render_all}
 	\end{figure}
@@ -1105,7 +1105,7 @@ the fragment shader, a cubic behavior (Fig. \ref{htc_one}).
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.6]{htc_render.png}
+		\includegraphics[keepaspectratio=true,scale=0.6]{figures/htc_render.png}
 	\caption{HTC One device}
 	\label{htc_one}
 	\end{figure}
@@ -1120,7 +1120,7 @@ for the iPhone 5s and for the iPad Air.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.27]{ios_render_time.jpg}
+		\includegraphics[keepaspectratio=true,scale=0.27]{figures/ios_render_time.jpg}
 	\caption{iOS devices}
 	\label{ios_devices}
 	\end{figure}
@@ -1239,21 +1239,21 @@ for the Nexus 4 and the iOS devices.
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.27]{vertex_devices_all.png}
+		\includegraphics[keepaspectratio=true,scale=0.27]{figures/vertex_devices_all.png}
 	\caption{Nexus 4 and HTC One comparison: vertex shader}
 	\label{nexus_htc_vertex}
 	\end{figure}
 	
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.27]{fragment_devices_all.png}
+		\includegraphics[keepaspectratio=true,scale=0.27]{figures/fragment_devices_all.png}
 	\caption{Nexus 4 and HTC One comparison: fragment shader}
 	\label{nexus_htc_fragment}
 	\end{figure}
 	
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.25]{render_time_devices.png}
+		\includegraphics[keepaspectratio=true,scale=0.25]{figures/render_time_devices.png}
 	\caption{Nexus 4, iPhone 5s and iPad comparison: rendering process}
 	\label{nexus_ios}
 	\end{figure}	
@@ -1291,7 +1291,7 @@ In the gaming industry, the metric commonly used to determine the
 performance of a game is the FPS (Frames Per Second). This metric 
 represents the number of images rendered per second. This way,
 it's also possible to convert the obtained results in this work 
-to this metric, like is shown in (\ref{fps_eq}),
+to this metric, like is shown in Equation \ref{fps_eq},
 where $t$ is the time in seconds (the metric used for the rendering process).
 
 	\begin{equation}
@@ -1300,7 +1300,7 @@ where $t$ is the time in seconds (the metric used for the rendering process).
 	\end{equation}
 	
 It's also possible to obtain this time metric based on the number of instructions
-per second (the metric used for the vertex and fragment shaders). Equation (\ref{fps_eq2}) shows how to do this conversion, in which is necessary
+per second (the metric used for the vertex and fragment shaders). The Equation \ref{fps_eq2} shows how to do this conversion, in which is necessary
 to use the tool Adreno Profiler to get the number of instructions for one
 frame.
 
@@ -1357,7 +1357,7 @@ The process used in this work to estimate, empirically, the computational asympt
 
 	\begin{figure}[!t]
 	\centering
-		\includegraphics[keepaspectratio=true,scale=0.5]{processo.png}
+		\includegraphics[keepaspectratio=true,scale=0.5]{figures/processo.png}
 	\caption{Experimental Process}
 	\label{process}
 	\end{figure}
@@ -1380,13 +1380,13 @@ it can be seen that this result is consistent. The vertex shader program
 is used for each vertex, then its asymptotic complexity is linear, taking the number of vertices as input. So,
 the flow of the shader's execution can be represented by the Listing \ref{vertex_program}.
 
-\lstinputlisting[language=C,basicstyle=\ttfamily, caption = {Representation of the vertex shader execution}, label = {vertex_program}]{vertex_proc.txt}
+\lstinputlisting[language=C,basicstyle=\ttfamily, frame = single, caption = {Representation of the vertex shader execution}, label = {vertex_program}]{codes/vertex_proc.txt}
 
 The rendering process and the fragment shader tended to have as
 asymptotic complexity a polynomial of second degree. The Listing \ref{frag_program}
 shows a generic flow representation of the fragment shader execution.
 
-\lstinputlisting[language=C,basicstyle=\ttfamily, caption = {Representation of the fragment shader execution}, label = {frag_program}]{fragment_proc.txt}
+\lstinputlisting[language=C,basicstyle=\ttfamily, frame = single, caption = {Representation of the fragment shader execution}, label = {frag_program}]{codes/fragment_proc.txt}
 
 As explained in OpenGL's documentation
 \footnote{\textit{http://www.opengl.org/wiki/Fragment\_Shader}}
@@ -1405,7 +1405,7 @@ is analyzed it induces the programmer to think that its asymptotic complexity
 is constant, which this work showed that it isn't. An example of a simple 
 vertex shader is shown in Listing \ref{vertex_const}.
 
-\lstinputlisting[language=C,basicstyle=\ttfamily, caption = {Example of vertex shader}, label = {vertex_const}]{red_vs.txt}
+\lstinputlisting[language=C,basicstyle=\ttfamily, frame = single, caption = {Example of vertex shader}, label = {vertex_const}]{codes/red_vs.txt}
 
 Since all the shaders (of the same type) present the same asymptotic 
 complexity, a way to compare their performance is by their equations
@@ -1516,7 +1516,7 @@ interesting to implement more shaders, specially for iOS platform and also compa
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-\bibliography{IEEEabrv,template}
+\bibliography{IEEEabrv,references}
 
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
