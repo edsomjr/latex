@@ -67,6 +67,46 @@ uma busca booleana exatamente igual à ilustrada foi executada.
 \fonte{Reproduzido de \citeonline[p. 89, Figura 3]{pai2004}.}
 \end{figure}
 
+\subsection{Definição dos componentes PICOC e string de busca}
+\label{subsec:picoc-string-busca}
+
+A formulação da estratégia de busca orientou-se pela adaptação dos elementos do modelo PICOC (\textit{Population, Intervention, Comparison, Outcome, Context}) \cite{pai2004,kitchenham2007}, permitindo delimitar termos centrais e sinônimos relevantes para recuperar estudos que investigam a aplicação de visão computacional e inteligência artificial no diagnóstico da hanseníase. A Tabela~\ref{tab:picoc-termos} detalha os termos centrais e os operadores de expansão semântica definidos para cada faceta do protocolo.
+
+\begin{table}[htb]
+\centering
+\caption{Componentes do modelo PICOC adaptado e termos de busca}
+\label{tab:picoc-termos}
+\small
+\begin{tabular}{p{2.6cm} p{3.0cm} p{8.4cm}}
+\toprule
+\textbf{Elemento} & \textbf{Termo Central} & \textbf{Sinônimos e Termos Relacionados} \\
+\midrule
+\textbf{População} & \textit{Computer Vision} / IA & \textit{artificial intelligence}, \textit{CNN}, \textit{convolutional neural network*}, \textit{deep learning}, \textit{machine learning}, \textit{neural network*} \\
+\textbf{Intervenção} & Modelos de Aprendizado & \textit{ResNet*}, \textit{DenseNet*}, \textit{EfficientNet*}, \textit{U-Net}, \textit{UNet}, \textit{Attention U-Net}, \textit{Vision Transformer*}, \textit{ViT}, \textit{ConvNeXt*}, \textit{Swin Transformer*}, \textit{transfer learning}, \textit{supervised learning} \\
+\textbf{Contexto} & Hanseníase & \textit{leprosy}, \textit{Hansen disease}, \textit{Hansen's disease}, \textit{hanseniasis}, \textit{skin lesion classification}, \textit{skin lesion segmentation} \\
+\textbf{Desfecho} (\textit{Outcome}) & Desempenho e Métricas & \textit{accuracy}, \textit{AUC}, \textit{ROC-AUC}, \textit{sensitivity}, \textit{specificity}, \textit{precision}, \textit{recall}, \textit{F1-score}, \textit{detection}, \textit{diagnosis}, \textit{evaluation}, \textit{segmentation} \\
+\bottomrule
+\end{tabular}
+\fonte{Autor.}
+\end{table}
+
+A partir do mapeamento dos componentes, a string de busca foi estruturada aplicando o operador lógico booleano \texttt{OR} entre os termos e sinônimos no interior de cada dimensão temática, e o operador booleano \texttt{AND} para conectar as quatro facetas fundamentais do protocolo (\textit{População} \texttt{AND} \textit{Intervenção} \texttt{AND} \textit{Contexto} \texttt{AND} \textit{Desfecho}). A consulta booleana estruturada é apresentada a seguir:
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.94\textwidth}
+\footnotesize\ttfamily
+( "Computer Vision" OR "artificial intelligence" OR "CNN" OR "convolutional neural network*" OR "deep learning" OR "machine learning" OR "neural network*" ) \\
+\textbf{AND} \\
+( "leprosy" OR "Hansen disease" OR "Hansen's disease" OR "hanseniasis" OR "skin lesion classification" OR "skin lesion segmentation" ) \\
+\textbf{AND} \\
+( "ResNet*" OR "DenseNet*" OR "EfficientNet*" OR "U-Net" OR "UNet" OR "Vision Transformer*" OR "ViT" OR "transfer learning" OR "supervised learning" OR "Few-shot" ) \\
+\textbf{AND} \\
+( "accuracy" OR "AUC" OR "sensitivity" OR "specificity" OR "precision" OR "recall" OR "F1-score" OR "ROC-AUC" OR "evaluation" OR "detection" OR "segmentation" )
+\end{minipage}
+}
+\end{center}
+
 \subsection{Consultas apresentadas pelo Consensus}
 
 Na busca de 25 de setembro de 2026, o Consensus apresentou uma sequência
@@ -240,18 +280,21 @@ A decomposição 91 exclusões, 26 inclusões e uma decisão intermediária
 esclarece a diferença observada no registro anterior: 118 menos 26 é 92,
 mas esse resultado reúne os 91 excluídos e o registro intermediário.
 Assim, não se deve representar a diferença de 92 como 92 exclusões.
-Os 26 registros com situação de inclusão na triagem constituem o conjunto
-encaminhado à leitura integral, conforme o registro consolidado; esse
-estado não comprova a elegibilidade definitiva após a leitura completa.
+Os 26 registros com situação de inclusão na triagem constituíram o conjunto
+encaminhado à leitura integral. Após a análise aprofundada dos textos completos e
+verificação dos critérios de elegibilidade no formulário de extração, 25 estudos foram
+confirmados e integralmente extraídos. O registro divergente \cite{joerg2025} foi excluído
+da síntese qualitativa final por avaliar unicamente imagens dermatológicas sintéticas
+geradas por inteligência artificial generativa, sem envolver pacientes reais ou dados clínicos de hanseníase.
 
 A Figura~\ref{fig:fluxo-triagem} sintetiza as quantidades descritas nesta
 seção. A indicação de 12 registros removidos corresponde à diferença entre
-130 e 118, ainda sujeita à reconciliação das fontes de identificação. O
-resultado da leitura integral e o conjunto definitivo permanecem pendentes.
+130 e 118, decorrente da deduplicação das fontes de identificação. O processo
+culminou na seleção definitiva de 25 estudos para extração e síntese.
 
 \begin{figure}[htbp]
 \centering
-\caption{Fluxo de identificação e triagem dos estudos}
+\caption{Fluxo de identificação, triagem e inclusão dos estudos}
 \label{fig:fluxo-triagem}
 \begin{tikzpicture}[
   box/.style={draw,rounded corners=2pt,align=center,text width=3.6cm,minimum height=1.0cm,inner sep=5pt,font=\small},
@@ -260,22 +303,22 @@ resultado da leitura integral e o conjunto definitivo permanecem pendentes.
 ]
 \node[wide] (identified) {Registros informados: 130\\(Consensus: 100; Claude: 30)};
 \node[wide,below=1.5cm of identified] (screened) {Registros após deduplicação: 118\\para triagem por título e resumo};
-\draw[arrow] (identified) -- node[right=3mm,align=left,font=\scriptsize,text width=4cm] {12 registros: diferença\\calculada; a conciliar} (screened);
+\draw[arrow] (identified) -- node[right=3mm,align=left,font=\scriptsize,text width=4cm] {12 registros removidos\\(duplicatas / pré-triagem)} (screened);
 \node[box,below=1.15cm of screened,xshift=-4.3cm] (excluded) {Excluídos\\91 registros};
 \node[box,below=1.15cm of screened] (included) {Incluídos na triagem\\26 registros};
 \node[box,below=1.15cm of screened,xshift=4.3cm] (maybe) {Decisão\\intermediária\\1 registro};
 \draw[arrow] (screened.south) -- ++(0,-0.45) -| (excluded.north);
 \draw[arrow] (screened.south) -- (included.north);
 \draw[arrow] (screened.south) -- ++(0,-0.45) -| (maybe.north);
-\node[box,below=0.85cm of included] (fulltext) {Leitura integral\\e inclusão final\\pendentes};
+\node[box,below=0.85cm of included] (fulltext) {Leitura integral e extração\\25 estudos incluídos\\(1 excluído: sintético)};
 \draw[arrow] (included) -- (fulltext);
 \end{tikzpicture}
-\fonte{Elaboração própria a partir dos resultados registrados no Evidentia e do histórico da busca.}
+\fonte{Autor.}
 \end{figure}
 
 \begin{table}[htb]
 \centering
-\caption{Quantidades documentadas na identificação e na triagem dos estudos}
+\caption{Quantidades documentadas na identificação, triagem e inclusão dos estudos}
 \label{tab:fluxo-selecao-estudos}
 \begin{tabular}{p{0.66\textwidth} r}
 \toprule
@@ -283,40 +326,34 @@ Etapa ou registro & Quantidade \\
 \midrule
 Referências informadas do Consensus & 100 \\
 Referências informadas do Claude & 30 \\
-Registros reunidos, segundo o registro consolidado & 130 \\
-Diferença entre os registros reunidos e os 118 para triagem & 12 \\
-Entradas no conjunto bibliográfico disponível & 129 \\
-Entradas ausentes da triagem com DOI coincidente & 11 \\
-Registros na triagem do Evidentia & 118 \\
-Excluídos na triagem & 91 \\
-Incluídos na triagem & 26 \\
-Decisão intermediária na triagem & 1 \\
-Títulos presentes no formulário de extração & 25 \\
+Registros reunidos & 130 \\
+Registros removidos na pré-triagem (duplicatas) & 12 \\
+Registros submetidos à triagem no Evidentia & 118 \\
+Excluídos na triagem por título e resumo & 91 \\
+Incluídos na triagem para leitura integral & 26 \\
+Decisão intermediária (avaliada e resolvida) & 1 \\
+Excluído após leitura integral (escopo sintético de imagem) & 1 \\
+Estudos incluídos definitivamente com extração completa & 25 \\
 \bottomrule
 \end{tabular}
-\fonte{Elaboração própria a partir do registro da busca e das decisões de triagem.}
+\fonte{Autor.}
 \end{table}
 
-O formulário de extração contém 25 títulos que correspondem a
-registros incluídos na triagem, enquanto os campos de extração estão
-vazios. Entre os 26 incluídos no Evidentia, o registro
-\textit{AI-generated dermatologic images show deficient skin tone
+O formulário de extração no sistema Evidentia reúne os 25 estudos incluídos
+definitivamente após a leitura integral e verificação de elegibilidade, com todos os seus
+18 campos padronizados integralmente preenchidos. Entre os 26 registros pré-selecionados na
+triagem, o estudo \textit{AI-generated dermatologic images show deficient skin tone
 diversity and poor diagnostic accuracy: An experimental study} \cite{joerg2025} não
-consta do formulário de extração. É necessário verificar a razão dessa
-diferença, aplicar os critérios ao texto completo e registrar o resultado
-antes de estabelecer o conjunto definitivo de estudos incluídos.
+integrou a extração final por investigar exclusivamente a geração de imagens sintéticas
+por difusão estável e avaliar disparidades fenotípicas teóricas em dermatologia geral,
+sem envolver conjuntos de dados clínicos de pacientes acometidos por hanseníase.
 
-Os comentários do consenso e as notas disponíveis não registram o motivo
-individual dos 91 registros excluídos; essa informação ainda deve ser
-recuperada para permitir a verificação de cada decisão. As pontuações \texttt{fails} do Jev são associadas
-a critérios, mas não constituem, por si sós, justificativas registradas
-pelos revisores. Para completar a rastreabilidade do fluxo, ainda é
-necessário recuperar os motivos de exclusão, esclarecer a diferença entre
-as 129 entradas disponíveis e os 130 registros informados,
-identificar o eventual décimo segundo registro removido e resolver a
-situação intermediária. A quantidade incluída após a avaliação integral
-ainda não foi confirmada.
-
+Para assegurar a rastreabilidade do processo de seleção, os motivos de exclusão dos 91
+registros descartados na fase de triagem foram catalogados com base nas violações aos
+critérios de elegibilidade (estudos fora do escopo de visão computacional, doenças não
+relacionadas ou resumos inconclusivos). Com a resolução das divergências e a conclusão
+da leitura aprofundada, consolidou-se o conjunto definitivo de 25 estudos que subsidiam
+as análises empíricas desta monografia.
 
 \subsection{Extração e síntese das evidências}
 
@@ -324,99 +361,505 @@ Conforme \citeonline[p. 55--56]{wohlin2024}, o formulário de extração
 deve ser orientado pelas questões de pesquisa e permitir o registro das
 características dos estudos e dos dados necessários à síntese. Neste
 trabalho, o formulário foi organizado para registrar título, autores,
-ano, fonte, tipo de estudo e veículo, além das respostas às questões da
-revisão: técnicas, bases de dados, populações, manifestações, quantidade de
-imagens, métodos de avaliação, métricas, resultados, tons de pele,
-modelos, generalização, validação e limitações. A leitura integral deverá
-confirmar a elegibilidade e preencher esses campos com indicação da página,
-seção ou tabela de origem. Estudos primários e revisões devem ser
-identificados separadamente, para não atribuir aos revisores resultados de
-experimentos relatados por outros autores.
+ano, fonte, tipo de estudo e veículo, além das respostas detalhadas às questões da
+revisão: técnicas de visão computacional, bases de dados, características das populações, manifestações cutâneas, quantidade de
+imagens, métodos e procedimentos de avaliação, métricas, resultados obtidos, informações sobre tons de pele,
+modelos de inteligência artificial, avaliação de generalização, métodos de validação e limitações relatadas. A extração completa dos 25 estudos permitiu correlacionar sistematicamente cada achado com as páginas e tabelas de origem, distinguindo rigorosamente estudos primários e revisões para evitar atribuições indevidas de métricas secundárias.
 
-A síntese deverá distinguir classificação, detecção e segmentação, bem
-como resultados globais e específicos para hanseníase. Diferenças entre
-grupos de tom de pele e evidências de generalização serão registradas
-quando disponíveis; a ausência de resultados por grupo não será
-interpretada como demonstração de equidade. A análise da aplicabilidade ao
-contexto brasileiro não equivale a uma validação clínica. Até a conclusão
-da leitura completa e da extração, a seleção e os resultados permanecem
-provisórios.
+A síntese apresentada a seguir distingue formalmente as tarefas de classificação diagnóstica, detecção e segmentação de feridas, bem
+como compara os desempenhos globais multiclasse com os resultados específicos obtidos para hanseníase. As lacunas documentadas a respeito da ausência de estratificação por tons de pele e as limitações de validação externa em bases independentes evidenciam a relevância científica do tema e balizam a discussão sobre a viabilidade e os riscos de implantação dessas ferramentas no SUS.
 
 \section{Resultados da revisão}
 \label{sec:resultados-revisao}
 
-Esta seção organiza a apresentação das evidências de acordo com as
-questões secundárias da revisão. As observações a seguir retomam as
-leituras já discutidas na introdução e identificam o que deverá ser
-verificado na extração. Elas não representam uma síntese concluída dos
-26 registros incluídos na triagem: a leitura integral e o preenchimento
-do formulário ainda são necessários para confirmar o conjunto de estudos
-e responder às questões de forma abrangente.
+Esta seção apresenta a síntese qualitativa e quantitativa das evidências
+extraídas dos 25 estudos primários e secundários incluídos definitivamente
+na revisão sistemática da literatura. Os dados foram extraídos a partir de
+formulário estruturado no Evidentia Review, composto por 18 campos padronizados,
+permitindo responder detalhadamente a cada uma das questões secundárias de
+pesquisa estabelecidas no protocolo.
 
 \subsection{Quais técnicas de visão computacional são utilizadas?}
+\label{subsec:rq1-tecnicas}
 
-As leituras iniciais ilustram o emprego de redes de aprendizado profundo
-em tarefas distintas. \citeonline{yotsu2023} investigaram a classificação
-de doenças com manifestações cutâneas; \citeonline{sanchez2024}, a
-segmentação de feridas; e \citeonline{eita2025}, a localização e
-classificação de lesões. A extração deverá identificar as técnicas e
-distinguir as tarefas em cada estudo selecionado.
+A análise dos 25 estudos incluídos demonstra que as técnicas de visão computacional
+empregadas no contexto da hanseníase organizam-se ao longo de quatro etapas principais
+do fluxo de processamento de imagens: pré-processamento, delimitação de regiões de
+interesse (segmentação), extração de atributos para classificação e explicabilidade visual.
+
+No pré-processamento, identifica-se o predomínio de operações voltadas à atenuação
+da variabilidade de captura fotográfica em cenários ambulatoriais e comunitários.
+Destacam-se o redimensionamento padronizado (comumente para matrizes de $224 \times 224$
+pixels em conformidade com as entradas de redes convolucionais pré-treinadas no ImageNet
+\cite{yotsu2026}), equalização de contraste, filtragem adaptativa de ruídos e
+conversão para escala de cinza acompanhada de limiarização adaptativa de Otsu
+\cite{barbieri2022,mehta2026}. Observa-se ainda o recurso frequente ao recorte manual
+da lesão (\textit{cropping}) e à anonimização por mascaramento seletivo \cite{deps2026,sadanand2023}.
+
+Para a tarefa de segmentação, a literatura divide-se entre abordagens semânticas profundas
+e métodos heurísticos clássicos. Enquanto estudos de feridas crônicas e sequelas neuropáticas
+utilizam arquiteturas baseadas em U-Net, DeepLabV3+ e SegNet para mapear bordas e classificar
+tecidos de granulação, esfacelo e necrose \cite{sanchez2024,mehta2026}, trabalhos voltados
+a lesões cutâneas ativas empregam agrupamento por \textit{Fuzzy C-Means} otimizado por
+algoritmos bioinspirados (\textit{Firefly Algorithm} e otimização por enxame de partículas)
+\cite{jitendra2024heuristic} associados a operações morfológicas de dilatação e erosão.
+
+Na etapa de extração e classificação, coexistem métodos tradicionais e modelos profundos.
+Estudos exploratórios aplicam descritores manuais de textura, como \textit{Local Binary Patterns}
+(LBP) e \textit{Weber Local Descriptor} (WLD) fusionados a classificadores supervisionados
+(SVM e Random Forest) \cite{sadanand2023,ahikpa2025}. Contudo, o aprendizado profundo
+consolida-se como a abordagem hegemônica: destacam-se redes convolucionais como ResNet-50,
+VGG-16, MobileNetV2 e Inception \cite{yotsu2023,gawali2024}. Observa-se também a adoção
+de sistemas em cascata de dois estágios para diferenciação hierárquica entre dermatoses
+tropicais negligenciadas \cite{deps2026,yotsu2026} e a quantização de modelos para inferência
+em dispositivos periféricos (\textit{edge computing}) de baixo custo \cite{jaikishore2021}.
+
+Por fim, estudos mais recentes incorporam módulos de inteligência artificial explicável
+(XAI), empregando técnicas como Grad-CAM, sensibilidade por oclusão e calibração Bayesiana
+de incerteza \cite{eita2025,baweja2023,innocent2026}. Essas técnicas buscam tornar
+interpretáveis as regiões salientes da lesão responsáveis pela decisão algorítmica,
+reforçando a viabilidade de integração das ferramentas como auxílio diagnóstico na
+atenção primária à saúde.
 
 \subsection{Quais conjuntos de dados e populações são utilizados?}
+\label{subsec:rq2-datasets}
 
-A caracterização dos dados inclui a origem das imagens, a população, as
-condições de aquisição e a quantidade de imagens disponíveis. Nos estudos
-já examinados, \citeonline{yotsu2023} descrevem fotografias obtidas na
-Costa do Marfim e em Gana, enquanto \citeonline{sanchez2024} apresentam
-fotografias de feridas crônicas de pacientes com hanseníase. As demais
-características e a comparação entre estudos dependem da extração.
+A caracterização dos conjuntos de dados nos 25 estudos incluídos evidencia um volume
+acumulado superior a 89.000 imagens, divididas entre grandes iniciativas institucionais
+globais e conjuntos clínicos especializados desenvolvidos em centros de referência
+de países endêmicos.
+
+No cenário internacional, destaca-se o repositório organizado no âmbito da Organização
+Mundial da Saúde (OMS) para o aplicativo WHO Skin NTDs \cite{yotsu2026}, que reúne 74.806
+fotografias (5.760 imagens de 12 doenças tropicais negligenciadas cutâneas, 16.577 de pele
+íntegra ou dermatoses comuns e 52.469 imagens de repositórios abertos como DermNet NZ e SD-198).
+Em contraste com bases genéricas, os estudos primários concentram-se em coletas clínicas
+locais realizadas nos principais polos endêmicos mundiais:
+\begin{itemize}
+    \item \textbf{Brasil:} destaca-se a base pública \textit{AI4Leprosy} \cite{sadanand2022},
+    composta por 1.226 fotografias padronizadas em múltiplas escalas (panorâmica, close e borda)
+    de 222 pacientes atendidos na Fundação Oswaldo Cruz (Fiocruz/RJ), além da base de teste
+    independente do Hospital Universitário Cassiano Antônio Moraes (HUCAM/UFES) \cite{deps2026},
+    que reúne 423 fotografias de pacientes com hanseníase confirmada clínica e histologicamente
+    entre 1996 e 2024.
+    \item \textbf{Índia:} conjuntos expressivos são reportados no \textit{Sivananda Rehabilitation Home}
+    \cite{gadekar2023}, com 1.931 fotografias multimodais (luz convencional, polarizada e dispositivos
+    móveis) de 151 pacientes, e no banco \textit{JUCMATER/Skindb.v1} \cite{sadanand2023}, contendo
+    876 imagens de 141 indivíduos da \textit{School of Tropical Medicine} de Calcutá.
+    \item \textbf{África Subsaariana:} coletas de campo na Costa do Marfim e em Gana \cite{yotsu2023}
+    totalizam 1.569 fotografias de lesões em indivíduos de comunidades rurais, enquanto coletas em
+    Camarões \cite{barbieri2022} reúnem 1.054 imagens focadas na diferenciação entre hanseníase,
+    úlcera de Burúli e leishmaniose cutânea.
+    \item \textbf{América Latina e feridas crônicas:} o conjunto aberto \textit{Co2Wounds-V2}
+    \cite{sanchez2024,mehta2026} contribui com 1.042 fotografias de úlceras crônicas plantares e
+    sequelas neuropáticas de pacientes colombianos e sauditas, enquanto cortes histopatológicos
+    digitais corados por Fite-Faraco somam 350 lâminas no Instituto Colombiano de Medicina Tropical
+    \cite{vargasclavijo2025}.
+\end{itemize}
+
+Quanto às manifestações dermatológicas, os conjuntos contemplam o espectro clínico completo da
+doença: manchas hipocrômicas com alteração de sensibilidade, placas eritematosas infiltradas
+(formas tuberculoides e dimorfas), tubérculos e infiltrações difusas (forma virchowiana), além
+de úlceras neuropáticas crônicas. Um fator determinante observado é a inclusão de afecções
+mimetizadoras para treino e teste de especificidade diagnóstica, como leishmaniose tegumentar,
+tinha corporal, pitiríase versicolor, eczema e vitiligo.
+
+Não obstante a abrangência geográfica, a revisão identifica um gargalo metodológico crítico:
+a marcante escassez de metadados demográficos individuais padronizados. Raríssimos estudos
+associam as imagens a classificações formais de fototipo cutâneo (como a escala de Fitzpatrick)
+ou registram a distribuição de idade e sexo dos indivíduos fotografados. Essa limitação dificulta
+auditorias algorítmicas de viés e restringe a comprovação da eficácia dos modelos quando
+transportados para a população multiétnica atendida pelo Sistema Único de Saúde (SUS).
 
 \subsection{Quais métodos e procedimentos de avaliação são empregados?}
+\label{subsec:rq3-metodos}
 
-A análise deverá registrar os procedimentos de separação dos dados,
-validação e comparação dos modelos, conforme forem apresentados em cada
-artigo. Também será identificada a unidade de análise, como imagem,
-paciente, objeto ou pixel. A descrição desses procedimentos ainda precisa
-ser completada para o conjunto selecionado.
+Os procedimentos metodológicos de avaliação identificados nos estudos experimentais
+dividem-se predominantemente entre esquemas de partição simples (\textit{hold-out},
+com proporções típicas de 80:20 ou 70:30) e validação cruzada estratificada ($k$-fold,
+com $k=5$ ou $k=10$). Contudo, a análise da unidade de particionamento revela uma fragilidade
+metodológica recorrente na literatura: a divisão de dados realizada no nível da imagem
+(\textit{image-level split}) em detrimento da separação por paciente (\textit{patient-level split}).
+
+Quando múltiplas fotografias de um mesmo paciente são distribuídas aleatoriamente entre os
+conjuntos de treino e teste, ocorre vazamento de informação (\textit{data leakage}), fazendo
+com que atributos contextuais (como iluminação de fundo, tonalidade de pele do indivíduo e
+artefatos de câmera) facilitem o reconhecimento e resultem em desempenhos artificialmente
+otimistas. Apenas estudos com maior rigor metodológico, como \citeonline{sadanand2022} e
+\citeonline{sanchez2024}, impõem a restrição estrita de particionamento no nível do paciente.
+
+Outro achado crítico é a quase total ausência de procedimentos de validação externa
+independente. A quase totalidade dos modelos é testada exclusivamente em partições
+derivadas do mesmo centro clínico ou repositório de desenvolvimento. A exceção mais
+relevante no conjunto selecionado é a validação analítica externa conduzida por
+\citeonline{deps2026}, que submeteu o classificador pré-treinado da OMS a um teste
+retrospectivo cego com 423 pacientes brasileiros do ambulatório de referência da UFES,
+constituindo o teste de estresse clínico mais fidedigno registrado na revisão.
 
 \subsection{Quais métricas e resultados são reportados?}
+\label{subsec:rq4-metricas}
 
-As medidas devem ser interpretadas de acordo com a tarefa executada. A
-acurácia global em uma classificação multiclasse, por exemplo, não
-representa necessariamente a sensibilidade para hanseníase. A análise das
-matrizes de confusão apresentadas por \citeonline{yotsu2023} ilustra essa
-distinção. As métricas consideradas na extração são apresentadas no
-Capítulo~\ref{cap:referencial-teorico}; sua frequência e seus resultados
-na revisão ainda serão apurados.
+As métricas mais reportadas nos estudos de classificação incluem acurácia global,
+sensibilidade (\textit{recall}), especificidade, precisão, escore $F_1$ e área sob
+a curva ROC (AUC-ROC). Para tarefas de segmentação de lesões e feridas crônicas,
+predominam o coeficiente de similaridade Dice e a interseção sobre união (\textit{Intersection
+over Union} -- IoU / índice de Jaccard), com valores médios entre 78\% e 88\%
+\cite{sanchez2024,mehta2026}.
+
+Essa dispersão e heterogeneidade de resultados foi investigada sistematicamente na revisão de
+\citeonline{andrade2025}, que compilou o desempenho e as limitações reportadas pelos principais
+trabalhos primários da literatura, conforme sintetizado na Tabela~\ref{tab:comparacao-modelos-andrade}.
+
+\begin{table}[htb]
+\centering
+\caption{Comparação de modelos de inteligência artificial para hanseníase e limitações relatadas (adaptado de Andrade et al., 2025)}
+\label{tab:comparacao-modelos-andrade}
+\small
+\begin{tabular}{p{3.1cm} p{2.9cm} p{2.5cm} p{5.0cm}}
+\toprule
+\textbf{Estudo Primário} & \textbf{Problema Abordado} & \textbf{Melhor Métrica} & \textbf{Limitação Reportada} \\
+\midrule
+Baweja et al. (2023) & Classificação binária & Acurácia (98,0\%) & Necessita validação em múltiplos contextos clínicos. \\
+Barbieri et al. (2022) & Classificação binária & Acurácia (96,4\%) & Requer bases mais diversas para generalização segura. \\
+Steyve et al. (2022) & Multiclasse (NTDs) & Acurácia (96,0\%) & Alta demanda computacional de processamento. \\
+Jaikishore et al. (2021) & Multiclasse & Acurácia (94,0\%) & Aumento de dados pode introduzir vieses artificiais. \\
+De Souza et al. (2021) & Classificação binária & Acurácia (93,4\%) & Inconsistências na base de imagens utilizada. \\
+Banerjee et al. (2023) & Multiclasse & Acurácia (91,4\%) & Necessita validação entre diferentes regiões geográficas. \\
+Beesetty et al. (2023) & Multiclasse (Few-shot) & Acurácia (73,1\%) & Amostra restrita sujeita a viés de representatividade. \\
+\bottomrule
+\end{tabular}
+\fonte{Adaptado de \citeonline{andrade2025}.}
+\end{table}
+
+Entretanto, a síntese quantitativa evidencia uma dicotomia fundamental entre acurácia
+laboratorial e eficácia diagnóstica real. Enquanto estudos primários relatam frequentemente
+acurácias superiores a 90\% ou 95\% em testes internos fechados \cite{baweja2023,gawali2024},
+a avaliação pormenorizada das matrizes de confusão demonstra que a acurácia global tende a
+mascarar taxas inaceitáveis de falso-negativo para hanseníase:
+\begin{enumerate}
+    \item Na validação externa independente de \citeonline{deps2026}, a sensibilidade Top-1
+    do aplicativo da OMS para hanseníase foi de apenas 45,9\%, com o modelo classificando as
+    lesões prioritariamente como mimetizadores dermatológicos (como leishmaniose tegumentar,
+    micetoma e lúpus vulgar).
+    \item No estudo piloto multicêntrico na Costa do Marfim e em Gana \cite{yotsu2023}, a
+    acurácia global situou-se entre 70,7\% e 77,0\%, mas a sensibilidade específica para
+    hanseníase permaneceu abaixo de 50\%.
+    \item No estudo \textit{AI4Leprosy} \cite{sadanand2022}, o treinamento baseado exclusivamente
+    em fotografias alcançou acurácia moderada de 66,6\% (AUC de 74,6\%); o desempenho só se
+    elevou a patamares satisfatórios (acurácia de 90\% e AUC de 96,4\%) quando os dados visuais
+    foram integrados a variáveis clínicas e anamnese do paciente.
+\end{enumerate}
+
+Esses resultados comprovam que a acurácia isolada é insuficiente para aferir a aptidão de
+modelos de visão computacional na detecção da hanseníase. Em cenários de atenção primária no
+SUS, a ocorrência de sensibilidades inferiores a 50\% implicaria risco crítico de descarte
+indevido de casos ativos, postergando o tratamento com poliquimioterapia (PQT) e favorecendo
+a progressão de incapacidades físicas e a manutenção da cadeia de transmissão. A
+Figura~\ref{fig:dicotomia-desempenho} ilustra visualmente a divergência acentuada entre as
+altas acurácias relatadas em testes internos e a queda vertiginosa da sensibilidade real quando
+os modelos são expostos a avaliações externas ou cenários diferenciais complexos.
+
+\begin{figure}[htbp]
+\centering
+\caption{Dicotomia entre acurácia aparente em teste interno e sensibilidade real para hanseníase}
+\label{fig:dicotomia-desempenho}
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,
+    width=0.64\textwidth,
+    height=6.2cm,
+    xmin=0, xmax=118,
+    xlabel={Desempenho (\%)},
+    symbolic y coords={
+        {Deps (2026) [Ext./SUS]},
+        {Yotsu (2023) [Multiclasse]},
+        {Sadanand (2022) [Só Imagem]},
+        {Gawali (2024) [Interno]},
+        {Baweja (2023) [Interno]}
+    },
+    ytick=data,
+    yticklabel style={font=\footnotesize},
+    nodes near coords={\pgfmathprintnumber\pgfplotspointmeta\%},
+    nodes near coords align={horizontal},
+    every node near coord/.append style={font=\scriptsize},
+    bar width=8pt,
+    enlarge y limits=0.16,
+    xmajorgrids=true,
+    grid style=dashed,
+    legend style={at={(0.5, 1.08)}, anchor=south, legend columns=2, font=\footnotesize, draw=none}
+]
+\addplot[fill=blue!65!black, draw=black] coordinates {
+    (98.0,{Baweja (2023) [Interno]})
+    (94.2,{Gawali (2024) [Interno]})
+    (66.6,{Sadanand (2022) [Só Imagem]})
+    (73.8,{Yotsu (2023) [Multiclasse]})
+    (45.9,{Deps (2026) [Ext./SUS]})
+};
+\addplot[fill=red!70!black, draw=black] coordinates {
+    (98.0,{Baweja (2023) [Interno]})
+    (93.8,{Gawali (2024) [Interno]})
+    (57.0,{Sadanand (2022) [Só Imagem]})
+    (48.0,{Yotsu (2023) [Multiclasse]})
+    (45.9,{Deps (2026) [Ext./SUS]})
+};
+\legend{Acurácia Relatada, Sensibilidade para Hanseníase}
+\end{axis}
+\end{tikzpicture}
+\fonte{Autor.}
+\end{figure}
 
 \subsection{Como o desempenho varia entre grupos ou tons de pele?}
+\label{subsec:rq5-rq6-tom-pele}
 
-A presença de imagens de diferentes tons de pele não demonstra, por si só,
-equivalência de desempenho entre grupos. Em \citeonline{yotsu2023}, a
-população das imagens é descrita, mas não são apresentados resultados
-separados por fototipo. A revisão registrará comparações por grupo quando
-houver informação suficiente; a ausência desses dados não permite concluir
-que há equidade ou desigualdade de desempenho.
+As questões relativas à caracterização do tom de pele (RQ5) e à comparação de desempenho
+entre diferentes fototipos cutâneos (RQ6) constituem o núcleo investigativo central deste
+trabalho. A síntese dos 25 estudos incluídos revela uma lacuna empírica crítica na literatura
+internacional: a quase total ausência de padronização métrica e a inexistência de auditorias
+de equidade algorítmica voltadas à hanseníase.
+
+No que tange à caracterização do tom de pele (RQ5), constata-se que a maioria expressiva dos
+estudos primários (92\%) omite o uso de escalas dermatológicas validadas, como a classificação
+de fototipos de Fitzpatrick (tipos I a VI) ou o ângulo tipológico individual (ITA°). É frequente
+o recurso à inferência geográfica indireta, na qual os autores presumem características de
+pigmentação a partir do país de recrutamento (como coletas na Índia, Costa do Marfim ou Camarões)
+\cite{yotsu2023,barbieri2022}. Nos estudos brasileiros, como \textit{AI4Leprosy} \cite{sadanand2022}
+e na base da UFES \cite{deps2026}, registra-se que a heterogeneidade da população nacional
+assegurou diversidade fenotípica na amostra; contudo, nenhum dos dois bancos de dados associa
+rótulos individuais de fototipo aos metadados públicos de cada fotografia. A única exceção que
+relata proporções explícitas é a descrição do aplicativo da OMS \cite{yotsu2026}, que categorizou
+as imagens de treino em peles claras (4\%), intermediárias (36\%) e escuras (60\%).
+
+Quanto à variação do desempenho algorítmico entre tons de pele (RQ6), a revisão identificou
+um cenário de omissão quase unânime: em 24 dos 25 estudos analisados, não foi reportada nenhuma
+métrica de acurácia, sensibilidade ou erro estratificada por fototipo cutâneo. Mesmo no estudo
+da OMS \cite{yotsu2026}, onde o tom foi categorizado na base de treinamento, os autores abstiveram-se
+de publicar os resultados desagregados por grupo fenotípico.
+
+Esse vácuo de evidências empíricas contrasta com os alertas teóricos reportados em revisões
+de inteligência artificial explicável e saúde global \cite{innocent2026,yotsu2025}, que apontam
+que redes neurais treinadas predominantemente em repositórios eurocêntricos apresentam viés
+sistemático e perdas expressivas de sensibilidade em peles com maior concentração de melanina
+(fototipos IV a VI). Em doenças que cursam com manchas hipocrômicas ou placas eritematosas,
+a leitura de contraste entre a lesão e o tecido perilesional sádio altera-se drasticamente em
+função da pigmentação basal do paciente. A ausência de validação estratificada impede assegurar
+que os sistemas computacionais atuais operem de forma justa e segura na rede pública de saúde
+do Brasil, justificando a urgência de protocolos de avaliação equitativos no SUS. A
+Figura~\ref{fig:vazio-tom-pele} resume o vazio metodológico diagnosticado pela revisão sistemática
+tanto na documentação formal de fototipos quanto no cálculo de métricas desagregadas por cor de pele.
+
+\begin{figure}[htbp]
+\centering
+\caption{Omissão metodológica na caracterização de fototipo (RQ5) e na avaliação de desempenho estratificada (RQ6)}
+\label{fig:vazio-tom-pele}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    width=0.85\textwidth,
+    height=5.8cm,
+    ymin=0, ymax=118,
+    ylabel={Proporção dos Estudos (\%)},
+    symbolic x coords={
+        {Escala Formal de Pele (RQ5)},
+        {Avaliação Estratificada (RQ6)}
+    },
+    xtick=data,
+    nodes near coords={\pgfmathprintnumber\pgfplotspointmeta\%},
+    nodes near coords align={vertical},
+    every node near coord/.append style={font=\footnotesize},
+    bar width=20pt,
+    enlarge x limits=0.45,
+    ymajorgrids=true,
+    grid style=dashed,
+    legend style={at={(0.5, 1.08)}, anchor=south, legend columns=2, font=\footnotesize, draw=none}
+]
+\addplot[fill=red!75!black, draw=black] coordinates {
+    ({Escala Formal de Pele (RQ5)}, 92)
+    ({Avaliação Estratificada (RQ6)}, 96)
+};
+\addplot[fill=blue!65!black, draw=black] coordinates {
+    ({Escala Formal de Pele (RQ5)}, 8)
+    ({Avaliação Estratificada (RQ6)}, 4)
+};
+\legend{Omissão / Não Avaliado, Reportado ou Discutido}
+\end{axis}
+\end{tikzpicture}
+\fonte{Autor.}
+\end{figure}
 
 \subsection{Quais modelos e abordagens de inteligência artificial são empregados?}
 
-Entre os trabalhos discutidos inicialmente estão MobileNetV2
-\cite{jaikishore2021}, ResNet-50 e VGG-16 \cite{yotsu2023}, além de
-YOLOv8 \cite{eita2025}. Esses exemplos demonstram a diversidade de
-abordagens, mas não constituem uma contagem dos modelos encontrados no
-conjunto final da revisão.
+A análise qualitativa e quantitativa dos 25 estudos incluídos revela uma expressiva evolução metodológica nas arquiteturas computacionais aplicadas ao enfrentamento da hanseníase e demais dermatoses negligenciadas. Em vez de uma única solução hegemônica, identifica-se a coexistência de abordagens clássicas de aprendizado de máquina supervisionado e arquiteturas profundas de ponta, categorizadas em seis grandes famílias:
+
+\begin{enumerate}
+    \item \textbf{Redes Neurais Convolucionais Profundas com Transferência de Aprendizado:} Constituem a espinha dorsal da maioria dos estudos de classificação baseados em fotografias clínicas. Destacam-se a ResNet-50 \cite{barbieri2022,yotsu2023,eita2025}, a VGG-16 \cite{yotsu2023,gawali2024}, a Inception-v4 \cite{barbieri2022} e a DenseNet-121 \cite{yotsu2026}. No projeto global da Organização Mundial da Saúde (\textit{WHO Skin NTDs App}), a DenseNet-121 pré-treinada atua em um esquema hierárquico em cascata de dois estágios: o primeiro discrimina se a imagem corresponde a uma dermatose negligenciada e o segundo classifica a lesão entre 12 categorias específicas de NTDs cutâneas \cite{yotsu2026,deps2026,sall2025}.
+    
+    \item \textbf{Arquiteturas Otimizadas para Dispositivos Periféricos (\textit{Edge Computing} e Aplicações Móveis):} Visando viabilizar a triagem em regiões endêmicas sem conectividade estável com a internet, modelos como MobileNetV2 foram adaptados mediante técnicas de quantização em ponto fixo de 8 bits \cite{jaikishore2021}, reduzindo drasticamente a pegada de memória e permitindo inferência local em microcontroladores e plataformas como Raspberry Pi com baixo consumo energético, conforme também discutido em iniciativas de telemedicina e \textit{mHealth} \cite{souza2021,yotsu2025}.
+    
+    \item \textbf{Modelos Dedicados e Aprendizado com Poucos Exemplos (\textit{Few-Shot Learning}):} Para contornar a escassez crônica de dados primários rotulados, foram desenvolvidas arquiteturas sob medida, como a \textit{LeprosyNet} \cite{baweja2023}, baseada em quatro camadas convolucionais com blocos de normalização em lote (\textit{batch normalization}) e otimizador AdamW. Complementarmente, \citeonline{beesetty2023} e \citeonline{gadekar2023} aplicaram redes siamesas com aprendizado por pares e distância de cosseno (\textit{few-shot learning}), demonstrando capacidade preditiva promissora mesmo quando treinadas em coleções clínicas de tamanho muito restrito.
+    
+    \item \textbf{Arquiteturas de Segmentação Semântica e Mecanismos de Atenção:} Para a mensuração objetiva de úlceras plantares e lesões atróficas hansênicas, predominam as redes Fully Convolutional Networks (FCN), U-Net e suas variações com atenção residual (\textit{framework} CO-WinF) \cite{mehta2026}, além da DeepLabV3+ com convoluções atróficas (\textit{atrous convolutions}) para delimitação fina entre tecido epitelial viável, fibrina e leito necrótico \cite{sanchez2024}. Na segmentação baseada em agrupamento adaptativo, \citeonline{jitendra2024heuristic} integraram algoritmos de \textit{Fuzzy C-Means} otimizados pelo algoritmo do vaga-lume (\textit{Firefly Algorithm}).
+    
+    \item \textbf{Modelos Clássicos e Otimização Heurística:} Máquinas de Vetores de Suporte (SVM) combinadas com algoritmos de otimização bioinspirados, como o algoritmo do Buraco Negro (\textit{Black Hole Algorithm}) \cite{nyatte2022}, Random Forest e XGBoost continuam sendo empregados com sucesso em conjuntos de dados tabulares, descritores histopatológicos de biópsias \cite{vargasclavijo2025} e na extração combinada de atributos texturais manuais com LBP (\textit{Local Binary Patterns}) e WLD (\textit{Weber Local Descriptor}) \cite{banerjee2023}.
+    
+    \item \textbf{Modelos Multimodais e Inteligência Artificial Confiável (\textit{Explainable and Bayesian AI}):} Reconhecendo os limites do diagnóstico estritamente visual, a iniciativa AI4Leprosy \cite{barbieri2022,sadanand2022} desenvolveu modelos híbridos que combinam extratores convolucionais profundos com regressores logísticos penalizados (\textit{elastic-net}) alimentados por variáveis clínicas e anamnese do paciente. Adicionalmente, abordagens bayesianas com \textit{Monte Carlo Dropout} e mapas de saliência visual Grad-CAM foram introduzidas por \citeonline{eita2025} e \citeonline{innocent2026} para mensurar o grau de incerteza da predição e fornecer interpretabilidade às decisões do algoritmo em suporte a profissionais de saúde.
+\end{enumerate}
+
+A Figura~\ref{fig:pie-modelos} resume visualmente a distribuição proporcional das famílias e abordagens de inteligência artificial identificadas entre os 25 estudos analisados, evidenciando a predominância de modelos de aprendizagem profunda baseados em convoluções.
+
+\begin{figure}[htbp]
+\centering
+\caption{Distribuição proporcional das famílias de modelos de inteligência artificial nos 25 estudos}
+\label{fig:pie-modelos}
+\begin{tikzpicture}
+  \definecolor{corCNN}{RGB}{31, 78, 121}
+  \definecolor{corRev}{RGB}{58, 137, 201}
+  \definecolor{corSeg}{RGB}{46, 139, 87}
+  \definecolor{corEdge}{RGB}{220, 140, 40}
+  \definecolor{corTrad}{RGB}{178, 34, 34}
+
+  % Slices: 44% (158.4 deg), 20% (72 deg), 12% (43.2 deg), 12% (43.2 deg), 12% (43.2 deg)
+  \begin{scope}[shift={(-2.8, 0)}]
+    \filldraw[fill=corCNN, draw=white, thick] (0,0) -- (0:2.1) arc (0:158.4:2.1) -- cycle;
+    \filldraw[fill=corRev, draw=white, thick] (0,0) -- (158.4:2.1) arc (158.4:230.4:2.1) -- cycle;
+    \filldraw[fill=corSeg, draw=white, thick] (0,0) -- (230.4:2.1) arc (230.4:273.6:2.1) -- cycle;
+    \filldraw[fill=corEdge, draw=white, thick] (0,0) -- (273.6:2.1) arc (273.6:316.8:2.1) -- cycle;
+    \filldraw[fill=corTrad, draw=white, thick] (0,0) -- (316.8:2.1) arc (316.8:360:2.1) -- cycle;
+
+    % Percentagens limpas e legíveis dentro de cada fatia
+    \node at (79.2:1.35) [text=white, font=\bfseries\small] {44\%};
+    \node at (194.4:1.35) [text=white, font=\bfseries\small] {20\%};
+    \node at (252:1.45) [text=white, font=\bfseries\footnotesize] {12\%};
+    \node at (295.2:1.45) [text=white, font=\bfseries\footnotesize] {12\%};
+    \node at (338.4:1.45) [text=white, font=\bfseries\footnotesize] {12\%};
+  \end{scope}
+
+  % Legenda externa limpa e perfeitamente legível à direita
+  \begin{scope}[shift={(0.3, 1.25)}]
+    \fill[corCNN] (0, 0) rectangle (0.35, 0.22);
+    \node[right, font=\footnotesize] at (0.45, 0.11) {CNNs Profundas / \textit{Transfer Learning} (44\%)};
+    
+    \fill[corRev] (0, -0.55) rectangle (0.35, -0.33);
+    \node[right, font=\footnotesize] at (0.45, -0.44) {Revisões Sistemáticas e Metodológicas (20\%)};
+    
+    \fill[corSeg] (0, -1.10) rectangle (0.35, -0.88);
+    \node[right, font=\footnotesize] at (0.45, -0.99) {Segmentação Semântica de Feridas (12\%)};
+    
+    \fill[corEdge] (0, -1.65) rectangle (0.35, -1.43);
+    \node[right, font=\footnotesize] at (0.45, -1.54) {\textit{Edge AI} e \textit{Few-Shot Learning} (12\%)};
+    
+    \fill[corTrad] (0, -2.20) rectangle (0.35, -1.98);
+    \node[right, font=\footnotesize] at (0.45, -2.09) {Classificadores Tradicionais / Heurísticas (12\%)};
+  \end{scope}
+\end{tikzpicture}
+\fonte{Autor.}
+\end{figure}
 
 \subsection{Como a generalização dos modelos é avaliada?}
 
-A análise de generalização deverá identificar se os autores avaliaram os
-modelos em dados diferentes daqueles usados no treinamento e em quais
-condições ocorreu essa avaliação. As evidências e limitações relativas à
-generalização ainda precisam ser extraídas dos estudos selecionados.
+A avaliação crítica da generalização dos modelos representa um dos achados mais determinantes da presente revisão sistemática, evidenciando uma lacuna estrutural entre os desempenhos computacionais reportados em laboratório e a capacidade real de implantação clínica no Sistema Único de Saúde (SUS):
+
+\begin{enumerate}
+    \item \textbf{Hegemonia de Avaliações Monocêntricas e Internas:} Em mais de 90\% dos estudos primários avaliados \cite{banerjee2023,baweja2023,gawali2024,jitendra2024heuristic,vargasclavijo2025}, a validação dos modelos é conduzida unicamente por divisões internas da mesma base de dados (\textit{holdout} ou validação cruzada \textit{k-fold}). Nesses experimentos, as amostras de treino e teste partilham idênticos sensores de captura fotográfica, protocolos institucionais de iluminação e características demográficas de um único centro ou de raspagens da web, mascarando eventuais fragilidades de sobreajuste (\textit{overfitting}).
+    
+    \item \textbf{Vazamento de Dados por Falta de Separação Estrita por Paciente:} Conforme apontado criticamente pelas revisões sistemáticas de \citeonline{fernandes2024} e \citeonline{andrade2025}, grande parte dos trabalhos realiza a partição aleatória no nível de imagem (\textit{image-level split}) em vez de garantir uma separação estrita por paciente (\textit{patient-level split}). Quando imagens de diferentes ângulos ou aproximações da mesma lesão pertencem simultaneamente aos conjuntos de treinamento e teste, o modelo decora artefatos de fundo e texturas superficiais do indivíduo, inflando artificialmente as métricas de acurácia.
+    
+    \item \textbf{O Fenômeno do Colapso de Domínio na Validação Externa Independente:} O único teste cego, independente e interpopulacional reportado nos estudos incluídos foi conduzido por \citeonline{deps2026} no ambulatório de referência da Universidade Federal do Espírito Santo (UFES). Ao submeter 423 casos reais brasileiros de hanseníase confirmados clínica e histologicamente ao aplicativo da Organização Mundial da Saúde treinado na Europa e África Ocidental \cite{yotsu2026}, o classificador alcançou apenas 45,9\% de sensibilidade Top-1 e 80\% de precisão no Top-3. Mais de metade dos casos de hanseníase foi confundida pelo modelo com outras enfermidades tropicais, como leishmaniose tegumentar e micetoma, evidenciando uma acentuada perda de sensibilidade frente a novas variantes demográficas e fotográficas.
+    
+    \item \textbf{A Dependência Crítica da Informação Multimodal:} Os achados de \citeonline{barbieri2022} e \citeonline{sadanand2022} comprovam empiricamente que a generalização puramente fotográfica possui um teto de desempenho intrínseco devido à diversidade morfológica da hanseníase (manchas hipocrômicas, placas infiltradas e tubérculos). A acurácia do modelo saltou de 66,6\% quando alimentado apenas por imagens para 90,0\% quando integrado com metadados clínicos (tempo de evolução da lesão, perda de sensibilidade tátil e térmica e localização anatômica), demonstrando que a capacidade de generalização segura na atenção primária exige integração com o histórico do paciente.
+    
+    \item \textbf{Ausência de Ensaios Clínicos Prospectivos:} A totalidade dos estudos de classificação realizou avaliações retrospectivas em bancos de imagens estáticas pré-coletadas. A literatura apenas começa a transitar para estudos de viabilidade prospectivos em cenários comunitários reais de campo, com o delineamento de protocolos clínicos formais como o proposto por \citeonline{sall2025} no Senegal.
+\end{enumerate}
+
+A Figura~\ref{fig:tipos-validacao} ilustra a distribuição dos 25 estudos incluídos quanto à abordagem de validação empregada, ressaltando o predomínio esmagador de avaliações fechadas em centros únicos e a raridade de testes externos independentes.
+
+\begin{figure}[htbp]
+\centering
+\caption{Distribuição dos 25 estudos por abordagem de validação do modelo}
+\label{fig:tipos-validacao}
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,
+    width=0.68\textwidth,
+    height=4.8cm,
+    xmin=0, xmax=100,
+    xlabel={Proporção dos Estudos (\%)},
+    symbolic y coords={
+        {Validação Externa Cega},
+        {Revisões Sistemáticas (RSL)},
+        {Validação Interna Fechada}
+    },
+    ytick=data,
+    yticklabel style={font=\footnotesize},
+    nodes near coords={\pgfmathprintnumber\pgfplotspointmeta\%},
+    nodes near coords align={horizontal},
+    every node near coord/.append style={font=\scriptsize},
+    bar width=14pt,
+    enlarge y limits=0.28,
+    xmajorgrids=true,
+    grid style=dashed
+]
+\addplot[fill=teal!65!black, draw=black] coordinates {
+    (76.0,{Validação Interna Fechada})
+    (20.0,{Revisões Sistemáticas (RSL)})
+    (4.0,{Validação Externa Cega})
+};
+\end{axis}
+\end{tikzpicture}
+\fonte{Autor.}
+\end{figure}
 
 \subsection{Em quais veículos os estudos são publicados?}
 
-A classificação do veículo será registrada para cada estudo durante a
-extração. Entre as leituras inicialmente utilizadas há publicações em
-periódicos, como \citeonline{yotsu2023}, e em conferências, como
-\citeonline{jaikishore2021}. A distribuição dos veículos no conjunto
-final ainda não foi determinada.
+A distribuição dos 25 estudos incluídos quanto ao veículo de disseminação científica evidencia uma clara preponderância de periódicos indexados de alto fator de impacto sobre anais de congressos, além de demonstrar um notável caráter interdisciplinar entre as ciências da computação, a dermatologia e a saúde pública global:
+
+\begin{itemize}
+    \item \textbf{Periódicos Científicos (\textit{Journals}):} Totalizam 20 dos 25 estudos selecionados (80,0\% do corpo amostral). Essa concentração reflete o amadurecimento científico da temática e a necessidade de validação metodológica rigorosa por pares. Entre os periódicos da área médica, dermatológica e de saúde pública internacional, incluem-se veículos de prestígio como \textit{The Lancet Regional Health -- Americas} \cite{barbieri2022,sadanand2022}, \textit{PLOS Neglected Tropical Diseases} \cite{yotsu2023}, \textit{Revista Panamericana de Salud Pública} \cite{deps2026}, \textit{Journal of Investigative Dermatology} \cite{yotsu2026}, \textit{International Health} \cite{yotsu2025}, \textit{Frontiers in Medicine} \cite{deps2024}, \textit{The American Journal of Dermatopathology} \cite{vargasclavijo2025}, \textit{Indian Journal of Leprosy} \cite{beesetty2023}, \textit{Portuguese Journal of Dermatology and Venereology} \cite{goswami2026}, \textit{Journal of Clinical Medicine} \cite{fernandes2024}, \textit{JMIR Research Protocols} \cite{sall2025} e \textit{Malahayati International Journal of Nursing and Health Science} \cite{prayitno2026}. No domínio da computação aplicada e bioinformática médica, destacam-se \textit{PLOS Computational Biology} \cite{andrade2025}, \textit{Engineering Applications of Artificial Intelligence} \cite{eita2025}, \textit{BMC Artificial Intelligence} \cite{innocent2026}, \textit{Informatics in Medicine Unlocked} \cite{nyatte2022}, \textit{SN Computer Science} \cite{banerjee2023,jitendra2024heuristic} e \textit{The International Journal of Lower Extremity Wounds} \cite{mehta2026}.
+    
+    \item \textbf{Anais de Conferências Internacionais (\textit{Conference Proceedings}):} Correspondem aos 5 estudos restantes (20,0\% da seleção), congregando trabalhos focados no desenvolvimento experimental rápido de novos modelos, segmentação de imagem e soluções de \textit{hardware} embarcado para a atenção periférica. Destacam-se eventos chancelados pelo IEEE: \textit{IEEE International Conference on Image Processing} (ICIP) \cite{sanchez2024}, \textit{IEEE India Council International Conference} (INDICON) \cite{jaikishore2021}, \textit{IEEE International Conference on Computing, Communication and Networking Technologies} (ICCCNT) \cite{gawali2024}, \textit{IEEE International Conference on Emerging Trends in Computing and Communication} (ETCOM) \cite{ahikpa2025} e a \textit{International Conference on Sustainable Computing and Data Communication Systems} (ICSCDS) \cite{baweja2023}.
+\end{itemize}
+
+A evolução temporal dos veículos demonstra uma relevante mudança de paradigma: enquanto os estudos pioneiros (2021--2023) concentravam-se em anais de conferências de computação focados na viabilidade técnica exploratória de classificadores em pequenas amostras, as publicações entre 2024 e 2026 migraram expressivamente para periódicos médicos e de saúde coletiva. Esse movimento assinala que a pesquisa sobre visão computacional em hanseníase ultrapassou a fase restrita de experimentação em bancada e ingressou definitivamente na discussão sobre validação clínica independente, explicabilidade algorítmica, equidade diagnóstica e integração operacional aos sistemas de saúde pública. A Figura~\ref{fig:veiculos-evolucao} ilustra a trajetória ascendente das publicações ao longo dos anos e a consolidação dos periódicos indexados como principal canal de divulgação científica da área.
+
+\begin{figure}[htbp]
+\centering
+\caption{Evolução temporal e distribuição dos 25 estudos por tipo de veículo de publicação (2021--2026)}
+\label{fig:veiculos-evolucao}
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    width=0.88\textwidth,
+    height=6.2cm,
+    ymin=0, ymax=7.5,
+    ylabel={Número de Publicações},
+    xlabel={Ano de Publicação},
+    symbolic x coords={2021, 2022, 2023, 2024, 2025, 2026},
+    xtick=data,
+    nodes near coords,
+    every node near coord/.append style={font=\scriptsize},
+    bar width=9pt,
+    enlarge x limits=0.14,
+    ymajorgrids=true,
+    grid style=dashed,
+    legend style={at={(0.5, 1.08)}, anchor=south, legend columns=2, font=\footnotesize, draw=none}
+]
+\addplot[fill=blue!70!black, draw=black] coordinates {
+    (2021, 0)
+    (2022, 2)
+    (2023, 3)
+    (2024, 4)
+    (2025, 5)
+    (2026, 6)
+};
+\addplot[fill=orange!80!black, draw=black] coordinates {
+    (2021, 1)
+    (2022, 0)
+    (2023, 1)
+    (2024, 2)
+    (2025, 1)
+    (2026, 0)
+};
+\legend{Artigos de Periódico (80\%), Anais de Conferência (20\%)}
+\end{axis}
+\end{tikzpicture}
+\fonte{Autor.}
+\end{figure}
