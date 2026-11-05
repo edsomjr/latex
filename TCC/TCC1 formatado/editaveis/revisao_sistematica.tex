@@ -88,7 +88,7 @@ A formulação da estratégia de busca orientou-se pela adaptação dos elemento
 \textbf{Desfecho} (\textit{Outcome}) & Desempenho e Métricas & \textit{accuracy}, \textit{AUC}, \textit{ROC-AUC}, \textit{sensitivity}, \textit{specificity}, \textit{precision}, \textit{recall}, \textit{F1-score}, \textit{detection}, \textit{diagnosis}, \textit{evaluation}, \textit{segmentation} \\
 \bottomrule
 \end{tabular}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{table}
 
 A partir do mapeamento dos componentes, a string de busca foi estruturada aplicando o operador lógico booleano \texttt{OR} entre os termos e sinônimos no interior de cada dimensão temática, e o operador booleano \texttt{AND} para conectar as quatro facetas fundamentais do protocolo (\textit{População} \texttt{AND} \textit{Intervenção} \texttt{AND} \textit{Contexto} \texttt{AND} \textit{Desfecho}). A consulta booleana estruturada é apresentada a seguir:
@@ -129,7 +129,7 @@ O Quadro~\ref{qua:prompt-consensus} reproduz integralmente a solicitação subme
   xleftmargin=0.5em,
   xrightmargin=0.5em
 ]{editaveis/prompt-consensus.txt}
-\vspace{-0.2cm}\noindent\footnotesize\textbf{Fonte:} Autor.\vspace{0.4cm}
+\vspace{-0.2cm}\noindent\footnotesize\textbf{Fonte:} Autores.\vspace{0.4cm}
 
 \subsection{Consultas apresentadas pelo Consensus}
 
@@ -180,7 +180,7 @@ significa que ela atende aos critérios da revisão.
 
 Para conferir rigor metodológico, reprodutibilidade e transparência à revisão sistemática da literatura, o processo de identificação, deduplicação, triagem por título e resumo, avaliação de elegibilidade e extração foi conduzido por meio de um fluxo de trabalho assistido por ferramentas de inteligência artificial especializadas, articuladas sob contínuo julgamento crítico e validação por pares da dupla de pesquisadores.
 
-A Figura~\ref{fig:fluxo-metodologico-ia} ilustra o fluxo metodológico integrado, evidenciando as seis etapas da revisão, os volumes documentais em cada transição e a atuação específica de cada ferramenta de apoio (\textit{Consensus}, \textit{Claude}, \textit{JevReviewer}, \textit{ChatGPT} e \textit{Evidentia Review}).
+A Figura~\ref{fig:fluxo-metodologico-ia} ilustra o fluxo metodológico integrado, evidenciando as seis etapas da revisão, os volumes documentais em cada transição e a atuação específica de cada ferramenta de apoio (\textit{Consensus}, \textit{Claude}, \textit{JevReviewer} e \textit{Evidentia Review}).
 
 \begin{figure}[htbp]
 \centering
@@ -265,7 +265,6 @@ $\rightarrow$ Restam \textbf{118 registros únicos} para triagem.};
 \footnotesize Avaliação preditiva acelerada por IA associada ao julgamento crítico por pares da dupla.};
 
 \node[tool] (t4) at (s4 -| t1) {\textbf{JevReviewer}: predição e 5 \textit{fail scores}\\
-\textbf{ChatGPT}: apoio semântico a casos limítrofes\\
 \textbf{Evidentia Review} (decisão por pares):\\
 $\bullet$ 91 excluídos \quad $\bullet$ 1 intermediário\\
 $\bullet$ \textbf{26 selecionados para texto integral}};
@@ -305,7 +304,7 @@ $\bullet$ Respostas aprofundadas para RQ1 a RQ8};
 \end{tikzpicture}
 \caption{Fluxo metodológico da Revisão Sistemática da Literatura assistido por ferramentas de inteligência artificial}
 \label{fig:fluxo-metodologico-ia}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
 
 \subsection{Busca e identificação dos registros}
@@ -405,9 +404,7 @@ intermediário no Evidentia, tinha sugestão de exclusão pelo Jev. Assim,
 as sugestões automáticas são distintas das decisões de triagem. A data de
 execução, o modelo, a configuração completa e a versão da ferramenta não
 foram identificados; os cinco critérios exibidos acima, por sua vez, estão
-registrados nas avaliações disponíveis. Houve também discussão de exemplos de títulos e resumos com
-o ChatGPT para apoiar a aplicação dos critérios; não é possível determinar
-quantas decisões foram influenciadas por esse apoio.
+registrados nas avaliações disponíveis.
 
 Os estados intermediários da triagem registram, em uma etapa, 12 inclusões,
 32 exclusões, 15 decisões intermediárias e 59 registros sem decisão. Em
@@ -469,7 +466,7 @@ culminou na seleção definitiva de 25 estudos para extração e síntese.
 \node[box,below=0.85cm of included] (fulltext) {Leitura integral e extração\\25 estudos incluídos\\(1 excluído: sintético)};
 \draw[arrow] (included) -- (fulltext);
 \end{tikzpicture}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
 
 \begin{table}[htb]
@@ -492,7 +489,7 @@ Excluído após leitura integral (escopo sintético de imagem) & 1 \\
 Estudos incluídos definitivamente com extração completa & 25 \\
 \bottomrule
 \end{tabular}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{table}
 
 O formulário de extração no sistema Evidentia reúne os 25 estudos incluídos
@@ -761,7 +758,7 @@ os modelos são expostos a avaliações externas ou cenários diferenciais compl
 \legend{Acurácia Relatada, Sensibilidade para Hanseníase}
 \end{axis}
 \end{tikzpicture}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
 
 \subsection{Como o desempenho varia entre grupos ou tons de pele?}
@@ -839,7 +836,7 @@ tanto na documentação formal de fototipos quanto no cálculo de métricas desa
 \legend{Omissão / Não Avaliado, Reportado ou Discutido}
 \end{axis}
 \end{tikzpicture}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
 
 \subsection{Quais modelos e abordagens de inteligência artificial são empregados?}
@@ -907,7 +904,7 @@ A Figura~\ref{fig:pie-modelos} resume visualmente a distribuição proporcional 
     \node[right, font=\footnotesize] at (0.45, -2.09) {Classificadores Tradicionais / Heurísticas (12\%)};
   \end{scope}
 \end{tikzpicture}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
 
 \subsection{Como a generalização dos modelos é avaliada?}
@@ -961,7 +958,7 @@ A Figura~\ref{fig:tipos-validacao} ilustra a distribuição dos 25 estudos inclu
 };
 \end{axis}
 \end{tikzpicture}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
 
 \subsection{Em quais veículos os estudos são publicados?}
@@ -1017,5 +1014,5 @@ A evolução temporal dos veículos demonstra uma relevante mudança de paradigm
 \legend{Artigos de Periódico (80\%), Anais de Conferência (20\%)}
 \end{axis}
 \end{tikzpicture}
-\fonte{Autor.}
+\fonte{Autores.}
 \end{figure}
