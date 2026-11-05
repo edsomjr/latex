@@ -46,8 +46,9 @@ cutâneas; a intervenção, por modelos e arquiteturas de aprendizado de
 máquina; e o resultado, por termos de avaliação, métricas e tarefas de
 identificação. O \textit{prompt} preservado não apresenta um campo
 separado de comparação. As perguntas e a relação completa de termos,
-incluindo sinônimos e asteriscos, são reproduzidas no
-Apêndice~\ref{ap:prompt-consensus}.
+incluindo sinônimos e asteriscos, foram consolidadas no \textit{prompt}
+estruturado submetido à plataforma Consensus, apresentado na
+Subseção~\ref{subsec:prompt-consensus} (Quadro~\ref{qua:prompt-consensus}).
 
 A Figura~\ref{fig:pico-pai} apresenta a representação PICO de
 \citeonline{pai2004}, originalmente voltada à formulação de questões
@@ -107,6 +108,29 @@ A partir do mapeamento dos componentes, a string de busca foi estruturada aplica
 }
 \end{center}
 
+\subsection{Prompt estruturado submetido à plataforma Consensus}
+\label{subsec:prompt-consensus}
+
+Diferentemente dos motores de busca acadêmicos convencionais baseados exclusivamente na correspondência estrita de operadores booleanos, a plataforma Consensus emprega inteligência artificial para recuperação semântica em grafos de citações e literatura biomédica. Por essa razão, a formulação submetida à ferramenta integrou a questão norteadora principal, as oito perguntas secundárias da revisão e a totalidade dos termos e sinônimos delimitados na matriz PICOC em um \textit{prompt} estruturado em língua inglesa.
+
+O Quadro~\ref{qua:prompt-consensus} reproduz integralmente a solicitação submetida à plataforma Consensus, preservando a sintaxe original, a estrutura das facetas conceituais e os operadores de truncamento aplicados aos termos técnicos.
+
+\lstinputlisting[
+  caption={Prompt estruturado em linguagem natural submetido à plataforma Consensus},
+  label={qua:prompt-consensus},
+  basicstyle=\scriptsize\ttfamily,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=flexible,
+  keepspaces=true,
+  frame=single,
+  rulecolor=\color{black!30},
+  backgroundcolor=\color{black!2},
+  xleftmargin=0.5em,
+  xrightmargin=0.5em
+]{editaveis/prompt-consensus.txt}
+\vspace{-0.2cm}\noindent\footnotesize\textbf{Fonte:} Autor.\vspace{0.4cm}
+
 \subsection{Consultas apresentadas pelo Consensus}
 
 Na busca de 25 de setembro de 2026, o Consensus apresentou uma sequência
@@ -152,6 +176,138 @@ significa que ela atende aos critérios da revisão.
 
 
 \section{Realização da busca e seleção dos artigos}
+\label{sec:execucao-busca-selecao}
+
+Para conferir rigor metodológico, reprodutibilidade e transparência à revisão sistemática da literatura, o processo de identificação, deduplicação, triagem por título e resumo, avaliação de elegibilidade e extração foi conduzido por meio de um fluxo de trabalho assistido por ferramentas de inteligência artificial especializadas, articuladas sob contínuo julgamento crítico e validação por pares da dupla de pesquisadores.
+
+A Figura~\ref{fig:fluxo-metodologico-ia} ilustra o fluxo metodológico integrado, evidenciando as seis etapas da revisão, os volumes documentais em cada transição e a atuação específica de cada ferramenta de apoio (\textit{Consensus}, \textit{Claude}, \textit{JevReviewer}, \textit{ChatGPT} e \textit{Evidentia Review}).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  stage/.style={
+    draw=black!75,
+    fill=white,
+    thick,
+    rounded corners=3pt,
+    text width=6.4cm,
+    font=\small,
+    inner sep=6pt
+  },
+  tool/.style={
+    draw=black!30,
+    fill=blue!5,
+    rounded corners=2pt,
+    text width=5.2cm,
+    font=\scriptsize,
+    inner sep=5pt
+  },
+  excl/.style={
+    draw=red!70,
+    fill=red!5,
+    rounded corners=2pt,
+    text width=5.2cm,
+    font=\scriptsize,
+    inner sep=5pt
+  },
+  finalstage/.style={
+    draw=black!75,
+    fill=blue!8,
+    line width=1.1pt,
+    rounded corners=3pt,
+    text width=6.4cm,
+    font=\small,
+    inner sep=6pt
+  },
+  mainarrow/.style={
+    -{Stealth[length=2.5mm]},
+    line width=1.2pt,
+    draw=black!80
+  },
+  conn/.style={
+    -{Stealth[length=1.8mm]},
+    draw=black!60,
+    dashed,
+    thick
+  }
+]
+
+% 1. Protocolo
+\node[stage] (s1) {\textbf{1. Planejamento e Protocolo}\\
+\footnotesize Definição da questão principal, 8 RQs secundárias, matriz PICOC e critérios de elegibilidade (CI01--05 e CE01--05).};
+
+\node[tool, right=0.6cm of s1] (t1) {\textbf{Evidentia Review} (\textit{Gestão})\\
+Cadastro estruturado do protocolo, formulários de extração e governança do processo.};
+
+% Headers
+\node[font=\bfseries\small, above=0.25cm of s1] (h1) {Etapas Metodológicas da RSL};
+\node[font=\bfseries\small, above=0.25cm of t1] (h2) {Ferramentas de IA e Desdobramentos};
+
+% 2. Busca e Identificação
+\node[stage, below=0.45cm of s1] (s2) {\textbf{2. Busca e Identificação Inicial}\\
+\footnotesize Execução de buscas especializadas com prompt semântico estruturado em língua inglesa.};
+
+\node[tool] (t2) at (s2 -| t1) {\textbf{Consensus} (100 reg., 98 com DOI)\\
+$\rightarrow$ Busca semântica e grafo biomédico\\
+\textbf{Claude} (30 reg. complementares)\\
+\textbf{Total Bruto: 130 registros}};
+
+% 3. Deduplicação
+\node[stage, below=0.45cm of s2] (s3) {\textbf{3. Deduplicação e Pré-Triagem}\\
+\footnotesize Resolução de redundâncias bibliográficas via cruzamento automatizado por DOI e títulos.};
+
+\node[excl] (t3) at (s3 -| t1) {\textbf{12 duplicatas removidas}\\
+\textit{Aplicação do critério CE01 (Duplicatas)}\\
+$\rightarrow$ Restam \textbf{118 registros únicos} para triagem.};
+
+% 4. Triagem Título/Resumo
+\node[stage, below=0.45cm of s3] (s4) {\textbf{4. Triagem por Título e Resumo}\\
+\footnotesize Avaliação preditiva acelerada por IA associada ao julgamento crítico por pares da dupla.};
+
+\node[tool] (t4) at (s4 -| t1) {\textbf{JevReviewer}: predição e 5 \textit{fail scores}\\
+\textbf{ChatGPT}: apoio semântico a casos limítrofes\\
+\textbf{Evidentia Review} (decisão por pares):\\
+$\bullet$ 91 excluídos \quad $\bullet$ 1 intermediário\\
+$\bullet$ \textbf{26 selecionados para texto integral}};
+
+% 5. Leitura na Íntegra
+\node[stage, below=0.45cm of s4] (s5) {\textbf{5. Avaliação de Elegibilidade}\\
+\footnotesize Leitura minuciosa de 26 artigos integrais e checagem de conformidade com os critérios.};
+
+\node[excl] (t5) at (s5 -| t1) {\textbf{1 estudo excluído}\\
+\textit{Aplicação do critério CE04 (GenAI exclusiva)}\\
+$\rightarrow$ Joerg et al. (2025): dados puramente sintéticos, sem pacientes ou imagens clínicas.};
+
+% 6. Extração e Síntese
+\node[finalstage, below=0.45cm of s5] (s6) {\textbf{6. Extração Padronizada e Síntese}\\
+\footnotesize Preenchimento estruturado de \textbf{18 campos padronizados} sobre os \textbf{25 estudos definitivos}.};
+
+\node[tool, draw=green!60!black, fill=green!6] (t6) at (s6 -| t1) {\textbf{Evidentia Review \& Síntese Final}\\
+Matriz de dados consolidada:\\
+$\bullet$ Extração de modelos, métricas e fototipos\\
+$\bullet$ Respostas aprofundadas para RQ1 a RQ8};
+
+% Downward main arrows
+\draw[mainarrow] (s1) -- (s2);
+\draw[mainarrow] (s2) -- (s3);
+\draw[mainarrow] (s3) -- (s4);
+\draw[mainarrow] (s4) -- (s5);
+\draw[mainarrow] (s5) -- (s6);
+
+% Horizontal connections
+\draw[conn] (t1) -- (s1);
+\draw[conn] (t2) -- (s2);
+\draw[conn] (s3) -- (t3);
+\draw[conn] (t4) -- (s4);
+\draw[conn] (s5) -- (t5);
+\draw[conn] (t6) -- (s6);
+
+\end{tikzpicture}
+\caption{Fluxo metodológico da Revisão Sistemática da Literatura assistido por ferramentas de inteligência artificial}
+\label{fig:fluxo-metodologico-ia}
+\fonte{Autor.}
+\end{figure}
+
 \subsection{Busca e identificação dos registros}
 
 O protocolo da revisão foi organizado no Evidentia a partir da questão de
