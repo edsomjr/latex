@@ -21,7 +21,14 @@ interpretadas como a execução de um experimento controlado.
 O objetivo, o protocolo e os critérios foram organizados no Evidentia. A
 questão principal é: como avaliar o desempenho de modelos de visão
 computacional aplicados à identificação de padrões associados à hanseníase
-em imagens de pele, no contexto da rede pública de saúde do Brasil? A
+em imagens de pele, no contexto da rede pública de saúde do Brasil?
+
+As questões secundárias desdobram a questão principal em aspectos necessários
+à avaliação dos modelos: técnicas e abordagens utilizadas, dados e populações,
+procedimentos, métricas, desempenho entre grupos e generalização. A
+identificação dos veículos de publicação complementa a caracterização dos
+estudos. Conforme \citeonline{kitchenham2007}, as questões de pesquisa
+orientam a definição dos dados a serem extraídos e sintetizados na revisão. A
 investigação foi detalhada nas seguintes questões secundárias:
 
 \begin{enumerate}
@@ -845,15 +852,15 @@ A análise qualitativa e quantitativa dos 25 estudos incluídos revela uma expre
 
 \begin{enumerate}
     \item \textbf{Redes Neurais Convolucionais Profundas com Transferência de Aprendizado:} Constituem a espinha dorsal da maioria dos estudos de classificação baseados em fotografias clínicas. Destacam-se a ResNet-50 \cite{barbieri2022,yotsu2023,eita2025}, a VGG-16 \cite{yotsu2023,gawali2024}, a Inception-v4 \cite{barbieri2022} e a DenseNet-121 \cite{yotsu2026}. No projeto global da Organização Mundial da Saúde (\textit{WHO Skin NTDs App}), a DenseNet-121 pré-treinada atua em um esquema hierárquico em cascata de dois estágios: o primeiro discrimina se a imagem corresponde a uma dermatose negligenciada e o segundo classifica a lesão entre 12 categorias específicas de NTDs cutâneas \cite{yotsu2026,deps2026,sall2025}.
-    
+
     \item \textbf{Arquiteturas Otimizadas para Dispositivos Periféricos (\textit{Edge Computing} e Aplicações Móveis):} Visando viabilizar a triagem em regiões endêmicas sem conectividade estável com a internet, modelos como MobileNetV2 foram adaptados mediante técnicas de quantização em ponto fixo de 8 bits \cite{jaikishore2021}, reduzindo drasticamente a pegada de memória e permitindo inferência local em microcontroladores e plataformas como Raspberry Pi com baixo consumo energético, conforme também discutido em iniciativas de telemedicina e \textit{mHealth} \cite{souza2021,yotsu2025}.
-    
+
     \item \textbf{Modelos Dedicados e Aprendizado com Poucos Exemplos (\textit{Few-Shot Learning}):} Para contornar a escassez crônica de dados primários rotulados, foram desenvolvidas arquiteturas sob medida, como a \textit{LeprosyNet} \cite{baweja2023}, baseada em quatro camadas convolucionais com blocos de normalização em lote (\textit{batch normalization}) e otimizador AdamW. Complementarmente, \citeonline{beesetty2023} e \citeonline{gadekar2023} aplicaram redes siamesas com aprendizado por pares e distância de cosseno (\textit{few-shot learning}), demonstrando capacidade preditiva promissora mesmo quando treinadas em coleções clínicas de tamanho muito restrito.
-    
+
     \item \textbf{Arquiteturas de Segmentação Semântica e Mecanismos de Atenção:} Para a mensuração objetiva de úlceras plantares e lesões atróficas hansênicas, predominam as redes Fully Convolutional Networks (FCN), U-Net e suas variações com atenção residual (\textit{framework} CO-WinF) \cite{mehta2026}, além da DeepLabV3+ com convoluções atróficas (\textit{atrous convolutions}) para delimitação fina entre tecido epitelial viável, fibrina e leito necrótico \cite{sanchez2024}. Na segmentação baseada em agrupamento adaptativo, \citeonline{jitendra2024heuristic} integraram algoritmos de \textit{Fuzzy C-Means} otimizados pelo algoritmo do vaga-lume (\textit{Firefly Algorithm}).
-    
+
     \item \textbf{Modelos Clássicos e Otimização Heurística:} Máquinas de Vetores de Suporte (SVM) combinadas com algoritmos de otimização bioinspirados, como o algoritmo do Buraco Negro (\textit{Black Hole Algorithm}) \cite{nyatte2022}, Random Forest e XGBoost continuam sendo empregados com sucesso em conjuntos de dados tabulares, descritores histopatológicos de biópsias \cite{vargasclavijo2025} e na extração combinada de atributos texturais manuais com LBP (\textit{Local Binary Patterns}) e WLD (\textit{Weber Local Descriptor}) \cite{banerjee2023}.
-    
+
     \item \textbf{Modelos Multimodais e Inteligência Artificial Confiável (\textit{Explainable and Bayesian AI}):} Reconhecendo os limites do diagnóstico estritamente visual, a iniciativa AI4Leprosy \cite{barbieri2022,sadanand2022} desenvolveu modelos híbridos que combinam extratores convolucionais profundos com regressores logísticos penalizados (\textit{elastic-net}) alimentados por variáveis clínicas e anamnese do paciente. Adicionalmente, abordagens bayesianas com \textit{Monte Carlo Dropout} e mapas de saliência visual Grad-CAM foram introduzidas por \citeonline{eita2025} e \citeonline{innocent2026} para mensurar o grau de incerteza da predição e fornecer interpretabilidade às decisões do algoritmo em suporte a profissionais de saúde.
 \end{enumerate}
 
@@ -890,16 +897,16 @@ A Figura~\ref{fig:pie-modelos} resume visualmente a distribuição proporcional 
   \begin{scope}[shift={(0.3, 1.25)}]
     \fill[corCNN] (0, 0) rectangle (0.35, 0.22);
     \node[right, font=\footnotesize] at (0.45, 0.11) {CNNs Profundas / \textit{Transfer Learning} (44\%)};
-    
+
     \fill[corRev] (0, -0.55) rectangle (0.35, -0.33);
     \node[right, font=\footnotesize] at (0.45, -0.44) {Revisões Sistemáticas e Metodológicas (20\%)};
-    
+
     \fill[corSeg] (0, -1.10) rectangle (0.35, -0.88);
     \node[right, font=\footnotesize] at (0.45, -0.99) {Segmentação Semântica de Feridas (12\%)};
-    
+
     \fill[corEdge] (0, -1.65) rectangle (0.35, -1.43);
     \node[right, font=\footnotesize] at (0.45, -1.54) {\textit{Edge AI} e \textit{Few-Shot Learning} (12\%)};
-    
+
     \fill[corTrad] (0, -2.20) rectangle (0.35, -1.98);
     \node[right, font=\footnotesize] at (0.45, -2.09) {Classificadores Tradicionais / Heurísticas (12\%)};
   \end{scope}
@@ -913,13 +920,13 @@ A avaliação crítica da generalização dos modelos representa um dos achados 
 
 \begin{enumerate}
     \item \textbf{Hegemonia de Avaliações Monocêntricas e Internas:} Em mais de 90\% dos estudos primários avaliados \cite{banerjee2023,baweja2023,gawali2024,jitendra2024heuristic,vargasclavijo2025}, a validação dos modelos é conduzida unicamente por divisões internas da mesma base de dados (\textit{holdout} ou validação cruzada \textit{k-fold}). Nesses experimentos, as amostras de treino e teste partilham idênticos sensores de captura fotográfica, protocolos institucionais de iluminação e características demográficas de um único centro ou de raspagens da web, mascarando eventuais fragilidades de sobreajuste (\textit{overfitting}).
-    
+
     \item \textbf{Vazamento de Dados por Falta de Separação Estrita por Paciente:} Conforme apontado criticamente pelas revisões sistemáticas de \citeonline{fernandes2024} e \citeonline{andrade2025}, grande parte dos trabalhos realiza a partição aleatória no nível de imagem (\textit{image-level split}) em vez de garantir uma separação estrita por paciente (\textit{patient-level split}). Quando imagens de diferentes ângulos ou aproximações da mesma lesão pertencem simultaneamente aos conjuntos de treinamento e teste, o modelo decora artefatos de fundo e texturas superficiais do indivíduo, inflando artificialmente as métricas de acurácia.
-    
+
     \item \textbf{O Fenômeno do Colapso de Domínio na Validação Externa Independente:} O único teste cego, independente e interpopulacional reportado nos estudos incluídos foi conduzido por \citeonline{deps2026} no ambulatório de referência da Universidade Federal do Espírito Santo (UFES). Ao submeter 423 casos reais brasileiros de hanseníase confirmados clínica e histologicamente ao aplicativo da Organização Mundial da Saúde treinado na Europa e África Ocidental \cite{yotsu2026}, o classificador alcançou apenas 45,9\% de sensibilidade Top-1 e 80\% de precisão no Top-3. Mais de metade dos casos de hanseníase foi confundida pelo modelo com outras enfermidades tropicais, como leishmaniose tegumentar e micetoma, evidenciando uma acentuada perda de sensibilidade frente a novas variantes demográficas e fotográficas.
-    
+
     \item \textbf{A Dependência Crítica da Informação Multimodal:} Os achados de \citeonline{barbieri2022} e \citeonline{sadanand2022} comprovam empiricamente que a generalização puramente fotográfica possui um teto de desempenho intrínseco devido à diversidade morfológica da hanseníase (manchas hipocrômicas, placas infiltradas e tubérculos). A acurácia do modelo saltou de 66,6\% quando alimentado apenas por imagens para 90,0\% quando integrado com metadados clínicos (tempo de evolução da lesão, perda de sensibilidade tátil e térmica e localização anatômica), demonstrando que a capacidade de generalização segura na atenção primária exige integração com o histórico do paciente.
-    
+
     \item \textbf{Ausência de Ensaios Clínicos Prospectivos:} A totalidade dos estudos de classificação realizou avaliações retrospectivas em bancos de imagens estáticas pré-coletadas. A literatura apenas começa a transitar para estudos de viabilidade prospectivos em cenários comunitários reais de campo, com o delineamento de protocolos clínicos formais como o proposto por \citeonline{sall2025} no Senegal.
 \end{enumerate}
 
@@ -967,7 +974,7 @@ A distribuição dos 25 estudos incluídos quanto ao veículo de disseminação 
 
 \begin{itemize}
     \item \textbf{Periódicos Científicos (\textit{Journals}):} Totalizam 20 dos 25 estudos selecionados (80,0\% do corpo amostral). Essa concentração reflete o amadurecimento científico da temática e a necessidade de validação metodológica rigorosa por pares. Entre os periódicos da área médica, dermatológica e de saúde pública internacional, incluem-se veículos de prestígio como \textit{The Lancet Regional Health -- Americas} \cite{barbieri2022,sadanand2022}, \textit{PLOS Neglected Tropical Diseases} \cite{yotsu2023}, \textit{Revista Panamericana de Salud Pública} \cite{deps2026}, \textit{Journal of Investigative Dermatology} \cite{yotsu2026}, \textit{International Health} \cite{yotsu2025}, \textit{Frontiers in Medicine} \cite{deps2024}, \textit{The American Journal of Dermatopathology} \cite{vargasclavijo2025}, \textit{Indian Journal of Leprosy} \cite{beesetty2023}, \textit{Portuguese Journal of Dermatology and Venereology} \cite{goswami2026}, \textit{Journal of Clinical Medicine} \cite{fernandes2024}, \textit{JMIR Research Protocols} \cite{sall2025} e \textit{Malahayati International Journal of Nursing and Health Science} \cite{prayitno2026}. No domínio da computação aplicada e bioinformática médica, destacam-se \textit{PLOS Computational Biology} \cite{andrade2025}, \textit{Engineering Applications of Artificial Intelligence} \cite{eita2025}, \textit{BMC Artificial Intelligence} \cite{innocent2026}, \textit{Informatics in Medicine Unlocked} \cite{nyatte2022}, \textit{SN Computer Science} \cite{banerjee2023,jitendra2024heuristic} e \textit{The International Journal of Lower Extremity Wounds} \cite{mehta2026}.
-    
+
     \item \textbf{Anais de Conferências Internacionais (\textit{Conference Proceedings}):} Correspondem aos 5 estudos restantes (20,0\% da seleção), congregando trabalhos focados no desenvolvimento experimental rápido de novos modelos, segmentação de imagem e soluções de \textit{hardware} embarcado para a atenção periférica. Destacam-se eventos chancelados pelo IEEE: \textit{IEEE International Conference on Image Processing} (ICIP) \cite{sanchez2024}, \textit{IEEE India Council International Conference} (INDICON) \cite{jaikishore2021}, \textit{IEEE International Conference on Computing, Communication and Networking Technologies} (ICCCNT) \cite{gawali2024}, \textit{IEEE International Conference on Emerging Trends in Computing and Communication} (ETCOM) \cite{ahikpa2025} e a \textit{International Conference on Sustainable Computing and Data Communication Systems} (ICSCDS) \cite{baweja2023}.
 \end{itemize}
 
