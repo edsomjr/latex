@@ -451,6 +451,9 @@ A Figura~\ref{fig:fluxo-triagem} sintetiza as quantidades descritas nesta
 seção. A indicação de 12 registros removidos corresponde à diferença entre
 130 e 118, decorrente da deduplicação das fontes de identificação. O processo
 culminou na seleção definitiva de 25 estudos para extração e síntese.
+Dos 91 registros excluídos na triagem, 67 não abordavam hanseníase, 23 não
+tinham o motivo de exclusão especificado e 1 havia sido publicado antes de
+2020.
 
 \begin{figure}[htbp]
 \centering
@@ -464,7 +467,7 @@ culminou na seleção definitiva de 25 estudos para extração e síntese.
 \node[wide] (identified) {Registros informados: 130\\(Consensus: 100; Claude: 30)};
 \node[wide,below=1.5cm of identified] (screened) {Registros após deduplicação: 118\\para triagem por título e resumo};
 \draw[arrow] (identified) -- node[right=3mm,align=left,font=\scriptsize,text width=4cm] {12 registros removidos\\(duplicatas / pré-triagem)} (screened);
-\node[box,below=1.15cm of screened,xshift=-4.3cm] (excluded) {Excluídos\\91 registros};
+\node[box,text width=4.6cm,below=1.15cm of screened,xshift=-4.7cm] (excluded) {Registros excluídos: 91\\Não aborda hanseníase: 67\\Nenhum motivo\\especificado: 23\\Publicado antes de 2020: 1};
 \node[box,below=1.15cm of screened] (included) {Incluídos na triagem\\26 registros};
 \node[box,below=1.15cm of screened,xshift=4.3cm] (maybe) {Decisão\\intermediária\\1 registro};
 \draw[arrow] (screened.south) -- ++(0,-0.45) -| (excluded.north);
