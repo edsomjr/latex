@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.2)  8 NOV 2026 16:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.2)  8 NOV 2026 17:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1081,7 +1081,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-<figuras/gqm.png, id=305, 473.77pt x 162.6075pt>
+<figuras/gqm.png, id=303, 473.77pt x 162.6075pt>
 File: figuras/gqm.png Graphic file (type png)
 <use figuras/gqm.png>
 Package pdftex.def Info: figuras/gqm.png  used on input line 33.
@@ -1097,12 +1097,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) h
                                                   \__shipout_drop_firstpage_...
 l.52 
       <./figuras/gqm.png>]
-<figuras/fluxo-atividades.jpg, id=328, 770.88pt x 328.97906pt>
+<figuras/fluxo-atividades.jpg, id=326, 770.88pt x 328.97906pt>
 File: figuras/fluxo-atividades.jpg Graphic file (type jpg)
 <use figuras/fluxo-atividades.jpg>
 Package pdftex.def Info: figuras/fluxo-atividades.jpg  used on input line 83.
 (pdftex.def)             Requested size: 455.0pt x 194.17125pt.
-<figuras/cronograma-etapa1.png, id=329, 1111.15125pt x 480.29437pt>
+<figuras/cronograma-etapa1.png, id=327, 1111.15125pt x 480.29437pt>
 File: figuras/cronograma-etapa1.png Graphic file (type png)
 <use figuras/cronograma-etapa1.png>
 Package pdftex.def Info: figuras/cronograma-etapa1.png  used on input line 91.
@@ -1148,7 +1148,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) ha
                                                   \__shipout_drop_firstpage_...
 l.41 
      ]
-<figuras/estrategia-busca-pico.png, id=383, 526.96875pt x 363.3575pt>
+<figuras/estrategia-busca-pico.png, id=381, 526.96875pt x 363.3575pt>
 File: figuras/estrategia-busca-pico.png Graphic file (type png)
 <use figuras/estrategia-busca-pico.png>
 Package pdftex.def Info: figuras/estrategia-busca-pico.png  used on input line 48.
@@ -1191,7 +1191,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) ha
 l.148 
       ]
 editaveis/revisao.tex:189: ignored error: Infinite glue shrinkage found in box being split [22]
-<figuras/processo-selecao.png, id=490, 237.88875pt x 492.84125pt>
+<figuras/processo-selecao.png, id=488, 237.88875pt x 492.84125pt>
 File: figuras/processo-selecao.png Graphic file (type png)
 <use figuras/processo-selecao.png>
 Package pdftex.def Info: figuras/processo-selecao.png  used on input line 198.
@@ -1208,51 +1208,43 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) h
                                                   \__shipout_drop_firstpage_...
 l.214 
        <./figuras/processo-selecao.png>]
-<figuras/estudos-por-ano.png, id=515, 1927.2pt x 903.375pt>
+<figuras/estudos-por-ano.png, id=513, 1927.2pt x 903.375pt>
 File: figuras/estudos-por-ano.png Graphic file (type png)
 <use figuras/estudos-por-ano.png>
 Package pdftex.def Info: figuras/estudos-por-ano.png  used on input line 219.
 (pdftex.def)             Requested size: 318.49861pt x 149.28477pt.
-
-Underfull \vbox (badness 2050) has occurred while \output is active []
-
  [25
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.250 
+l.232 
        <./figuras/estudos-por-ano.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 257.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 241.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.284 
-      ]
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
+ [26]
+Underfull \hbox (badness 10000) in paragraph at lines 285--285
 []|\T1/lmr/m/n/10.95 GPT (Ope-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--304
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 []|\T1/lmr/m/n/10.95 Claude 3.5 Son-net,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--304
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 \T1/lmr/m/n/10.95 Claude 3.7 Son-net,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--306
+Underfull \hbox (badness 10000) in paragraph at lines 290--290
 []|\T1/lmr/m/n/10.95 Qwen (Ali-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
 []|\T1/lmr/m/n/10.95 Não in-for-
  []
 
@@ -1260,25 +1252,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--307
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.311 
+l.295 
       ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.321 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.337 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.337 
+l.321 
       ]
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
+Underfull \hbox (badness 10000) in paragraph at lines 342--342
 []|\T1/lmr/m/n/10.95 Refinamento ite-ra-tivo do
  []
 
@@ -1286,42 +1278,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 358--358
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.11}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.373 A
+l.357 A
         Tabela~\ref{tab:entradas} apresenta os artefatos fornecidos aos mode...]
-Underfull \hbox (badness 4132) in paragraph at lines 391--391
+Underfull \hbox (badness 4132) in paragraph at lines 375--375
 []|\T1/lmr/m/n/10.95 Requisitos, his-tó-rias ou CA
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 398--398
+Underfull \hbox (badness 2409) in paragraph at lines 382--382
 []|\T1/lmr/m/it/10.95 Prompt \T1/lmr/m/n/10.95 com re-cu-pe-ra-ção de
  []
 
 [30
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.392 
+      ] [31
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.408 
-      ] [31
+l.428 
+      ] [32
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.444 
-      ] [32
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.14}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.499 
+l.483 
       ]
-Underfull \hbox (badness 1152) in paragraph at lines 512--512
+Underfull \hbox (badness 1152) in paragraph at lines 496--496
 []|\T1/lmr/m/n/10.95 Compreensibilidade 4,21; re-le-vân-cia 3,99;
  []
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 519--519
+Underfull \hbox (badness 3815) in paragraph at lines 503--503
 []|$\OMS/lmsy/m/n/10.95 ^^X$\T1/lmr/m/n/10.95 0,97 (GPT), $\OMS/lmsy/m/n/10.95 ^^X$\T1/lmr/m/n/10.95 0,87 (Llama-2), $\OMS/lmsy/m/n/10.95 ^^X$\T1/lmr/m/n/10.95 0,72
  []
 
@@ -1329,42 +1321,42 @@ Underfull \hbox (badness 3815) in paragraph at lines 519--519
 Underfull \vbox (badness 1603) has occurred while \output is active []
 
  [33
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.513 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.529 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.16}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.529 
+l.513 
       {C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Underfull \hbox (badness 1033) in paragraph at lines 546--546
+Underfull \hbox (badness 1033) in paragraph at lines 530--530
 []|\T1/lmr/m/n/10.95 Generalização li-mi-tada (do-mí-nio
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--549
+Underfull \hbox (badness 10000) in paragraph at lines 533--533
 []|\T1/lmr/m/n/10.95 Dependência do mo-delo, do
  []
 
 
-Underfull \hbox (badness 4048) in paragraph at lines 554--554
+Underfull \hbox (badness 4048) in paragraph at lines 538--538
 []|\T1/lmr/m/n/10.95 Replicação li-mi-tada (da-dos ou
  []
 
 [34
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.17}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.561 A
+l.545 A
        lguns estudos descrevem problemas especÃ­ficos dos CA: excesso de cri...]
-Underfull \hbox (badness 1348) in paragraph at lines 572--572
+Underfull \hbox (badness 1348) in paragraph at lines 556--556
 []|\T1/lmr/m/n/10.95 Apenas men-ções, sem se-ção
  []
 
 ) (editaveis/planejamento.tex [35
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.18}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.2 \chapter
@@ -1380,19 +1372,23 @@ Overfull \vbox (27.80295pt too high) has occurred while \output is active []
 
  [37]
 Cap\'{\i }tulo 5.
-) (tcc.bbl (tcc.brf)
-\tf@brf=\write6
-\openout6 = `tcc.brf'.
+)
+Underfull \vbox (badness 3547) has occurred while \output is active []
 
  [38
 
 ]
-bibitemlist
-[39
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [40])
-No file tcc.ind.
-[41]
+ [39] (tcc.bbl (tcc.brf)
+\tf@brf=\write6
+\openout6 = `tcc.brf'.
+
+ [40]
+bibitemlist
+[41
+
+] [42]) (tcc.ind) [43]
 \tf@lof=\write7
 \openout7 = `tcc.lof'.
 
@@ -1410,20 +1406,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 029F9E79416C73AA93E75984CB74D838;2662.
+(rerunfilecheck)             Checksum: 9859F138007C10DEB4C40D0F27DFCAC2;2716.
  ) 
 Here is how much of TeX's memory you used:
- 29469 strings out of 467871
- 541983 string characters out of 5418377
- 974195 words of memory out of 5000000
+ 29473 strings out of 467871
+ 542049 string characters out of 5418377
+ 974114 words of memory out of 5000000
  57525 multiletter control sequences out of 15000+600000
  726567 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,13n,111p,1485b,824s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbo10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on tcc.pdf (42 pages, 1322765 bytes).
+Output written on tcc.pdf (44 pages, 1328608 bytes).
 PDF statistics:
- 990 PDF objects out of 1000 (max. 8388607)
- 197 named destinations out of 1000 (max. 500000)
+ 998 PDF objects out of 1000 (max. 8388607)
+ 198 named destinations out of 1000 (max. 500000)
  628 words of extra memory for PDF output out of 10000 (max. 10000000)
 

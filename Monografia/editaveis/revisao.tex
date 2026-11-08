@@ -226,29 +226,13 @@ O valor de 2026 considera apenas as publicações disponíveis até a execução
 \subsection{QP2 -- Em que veículos os estudos foram publicados e em que contexto foram conduzidos?}
 \label{sec:qp2}
 
-A Tabela~\ref{tab:veiculo} apresenta a distribuição dos 25 estudos por tipo de veículo e contexto, com a numeração da Tabela~\ref{tab:artigos}. Quanto ao veículo, 16 estudos (64\%) foram publicados em conferências, 7 (28\%) em periódicos e 2 (8\%) são \textit{preprints} no arXiv, sem veículo de publicação informado. Nenhum estudo foi publicado em \textit{workshop}. A predominância de conferências é compatível com o caráter recente do tema. As publicações também estão dispersas: os 23 estudos publicados aparecem em 21 veículos diferentes, e somente IEEE Access e FSE Companion se repetem, com dois estudos cada.
+Quanto ao veículo, dos 25 estudos incluídos, 16 (64\%) foram publicados em anais de conferências, 7 (28\%) em revistas acadêmicas (periódicos) e 2 (8\%) são \textit{preprints} no arXiv, sem veículo de publicação informado. A predominância de conferências é compatível com o caráter recente do tema, já que esses canais divulgam resultados mais rapidamente do que as revistas.
 
-\begin{table}[H]
-  \centering
-  \caption{Estudos por tipo de veículo e contexto}
-  \label{tab:veiculo}
-  \small
-  \begin{tabular}{|p{0.22\textwidth}|p{0.48\textwidth}|c|c|}
-    \hline
-    \textbf{Categoria} & \textbf{Estudos} & \textbf{Total} & \textbf{\%} \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Tipo de veículo}} \\ \hline
-    Conferência & 2, 4, 6, 9, 10, 11, 13 e 18, 15, 19, 20, 21, 22, 23, 24, 25, 26 & 16 & 64\% \\ \hline
-    Periódico & 1, 3, 5, 7, 14, 16, 17 & 7 & 28\% \\ \hline
-    \textit{Preprint} & 8, 12 & 2 & 8\% \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Contexto}} \\ \hline
-    Academia & 1, 5, 10, 11, 13 e 18, 14, 17, 19, 21, 23, 24, 26 & 12 & 48\% \\ \hline
-    Misto & 2, 3, 6, 7, 8, 9, 12, 15, 16, 20, 22, 25 & 12 & 48\% \\ \hline
-    Indústria & 4 & 1 & 4\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+Quanto ao contexto, os estudos foram classificados pelo ambiente em que foram conduzidos. \citeonline{wohlin2000} caracterizam o contexto de um estudo por dimensões como problema real \textit{versus} problema de brinquedo e profissionais \textit{versus} estudantes. Com base nisso, para definir o contexto, foram observados dois aspectos: a origem dos dados usados como entrada e o perfil de quem avaliou os resultados. Um estudo foi classificado como industrial quando usa dados reais de empresa e é avaliado por profissionais de software ou implantado em produção. Foi classificado como acadêmico quando usa dados públicos, de código aberto, sintéticos ou criados pelos autores e é avaliado por estudantes, pelos próprios autores, por um LLM ou não tem avaliação humana. Os estudos que combinam um aspecto de cada grupo foram classificados como mistos. Dados sintéticos foram tratados como não reais mesmo quando escritos por profissionais de uma empresa ou baseados em um projeto industrial.
 
-Quanto ao contexto, 12 estudos (48\%) foram conduzidos na academia, 12 (48\%) em contexto misto e apenas 1 (4\%) na indústria. Foram classificados como mistos os estudos com participação da academia e da indústria na autoria, nos dados ou na avaliação. Essa participação nem sempre significa aplicação em projetos reais: o estudo 15 usa \textit{tickets} sintéticos, e o estudo 16, dados públicos. Já o estudo 4 relata a implantação em produção em uma empresa. Assim, a maior parte das evidências ainda não vem do uso em ambientes reais de desenvolvimento, o que limita sua aplicabilidade prática na indústria.
+Com esse critério, 14 estudos (56\%) foram conduzidos em contexto acadêmico, 6 (24\%) em contexto misto e 5 (20\%) em contexto industrial. Entre os acadêmicos, 8 estudos (32\% do total) não tiveram avaliação humana formal, pois os resultados foram avaliados de forma automática, por um LLM ou apenas pelos próprios autores, e 3 (12\% do total) foram conduzidos em disciplinas, com estudantes como participantes. Nos mistos, a avaliação contou com profissionais, mas os dados eram públicos, adaptados, sintéticos ou de origem não informada. Entre os industriais, 2 estudos (8\%) relatam o uso da solução em produção.
+
+Assim, apenas 5 estudos (20\%) trazem evidências obtidas com dados e profissionais da indústria, enquanto 8 (32\%) não tiveram avaliação humana formal. A maior parte das evidências ainda vem de dados públicos ou criados para o estudo, o que limita a aplicabilidade prática dos resultados na indústria.
 
 % ---------------------------------------------------------------------------
 \subsection{QP3 -- Que tipos de estudo empírico são adotados?}
