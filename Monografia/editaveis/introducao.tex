@@ -1,42 +1,105 @@
 \chapter[Introdução]{Introdução}
-\label{introduc}
+\label{cap:introducao}
 
-\section{Contextualização e Justificativa}
+Este capítulo apresenta a introdução do estudo e detalha a metodologia adotada. Nele, percorremos desde a definição do problema e as questões de pesquisa até a estrutura geral do documento. Além disso, para alinhar o entendimento, estabelecemos a base teórica dos principais conceitos abordados no trabalho, como Histórias de Usuário, Critérios de Aceitação e Modelos de Linguagem de Grande Porte.
 
-	Conforme apontado em \cite{graphicsprog}, em jogos os gráficos são um fator tão importante que podem determinar o seu sucesso ou fracasso. O aspecto visual é um dos pontos principais na hora da compra, juntamente com o \textit{gameplay} (maneira que o jogador interage com o jogo). Assim, os gráficos estão progredindo na direção próxima dos efeitos visuais dos filmes, porém o poder computacional para atingir tal meta ainda há de ser atingido.
+\section{Contexto}
+\label{sec:contexto}
 
-	 Neste contexto, o desempenho gráfico é um fator chave para o desempenho total de um sistema, principalmente na área de jogos, que também possui outros pontos que consomem recursos, como inteligência artificial, \textit{networking}, áudio, detecção de eventos de entrada e resposta, física, entre outros. E isto faz com que o desenvolvimento de efeitos visuais mais complexos se tornem mais difíceis ainda.
+Em métodos ágeis, os requisitos costumam ser expressos como histórias de usuário, descrições breves de uma funcionalidade sob a perspectiva de quem a utiliza \cite{zhang2024}. Segundo \citeonline{cohn2004}, uma história tem três aspectos: a descrição escrita, as conversas que detalham seu conteúdo e os testes que registram esses detalhes e permitem determinar quando ela está completa. Nesse último aspecto estão os critérios de aceitação (CA), condições que um sistema deve atender para cumprir a história e ser aceito pelo usuário \cite{wang2025}. Os CA tornam a história mais concreta e menos ambígua \cite{zhang2024}.
 
-	O recente crescimento do desempenho de dispositivos móveis tornou-os capazes de suportar aplicações cada vez mais complexas. Além disso, segundo \cite{teapot}, dispositivos como \textit{smartphones} e \textit{tablets} têm sido amplamente adotados, emergindo como uma das tecnologias mais rapidamente propagadas. Dentro deste contexto, segundo o CEO da \textit{Apple}, Tim Cook\footnote{\textit{http://www.theverge.com/2014/6/2/5772344/apple-wwdc-2014-stats-update}}, mais de 800 milhões de aparelhos utilizando a plataforma \textit{iOS} já foram vendidos e a ativação diária de aparelhos na plataforma \textit{Android}, de acordo com \cite{android2013}, é de aproximadamente 1,5 milhões, sendo uns dos sistemas operacionais para dispositivos móveis mais utilizados.
+Uma forma de registrar esses critérios é o \textit{Behavior-Driven Development} (BDD), introduzido por \citeonline{north2006}, que propôs descrever os CA como cenários no modelo \textit{Given-When-Then}. Nessa técnica ágil, os requisitos são especificados em linguagem natural semiestruturada, compreensível por todas as partes interessadas, e os cenários também podem ser executados como casos de teste para verificar o comportamento do software \cite{binamungu2023}. Esses cenários costumam ser escritos em \textit{Gherkin}, linguagem de domínio específico usada em BDD \cite{hassani2026}. Por usar uma linguagem natural restrita, o \textit{Gherkin} é acessível a usuários não técnicos e favorece a automação posterior \cite{ferreira2025}.
 
-	 Porém, de acordo com \cite{x3d}, a renderização gráfica para dispositivos móveis ainda é um desafio devido a limitações, quando comparada à renderização em um computador,  relacionadas a CPU (\textit{Central Processing Unit}), desempenho dos aceleradores gráficos e consumo de energia. Os autores \cite{teapot} mostram estudos prévios que evidenciam que os maiores consumidores de energia em um \textit{smartphone} são a  GPU (\textit{Graphics Processing Unit}) e a tela, sendo a GPU responsável por realizar o processo de renderização.
+O lançamento do ChatGPT, no fim de 2022, marcou a adoção em larga escala dos modelos de linguagem de grande porte (LLMs), e esse movimento alcançou a engenharia de requisitos. Entre os 238 artigos revisados por \citeonline{cheng2026}, o volume anual passou de 4 em 2022 para 23 em 2023 e 113 em 2024. No caso dos testes de aceitação, porém, o uso de LLMs ainda é pouco explorado \cite{ferreira2025}. É nesse cenário que se insere este trabalho, voltado à geração de CA em \textit{Gherkin} com apoio de LLMs.
 
-	Assim, é possível analisar o desempenho do processo de renderização feito pela GPU -- no qual diferentes \textit{shaders} (responsáveis pela criação dos efeitos visuais) são aplicados -- por meio da complexidade assintótica. Além disso, a análise do desempenho dos \textit{shaders} é uma área pouco explorada, tornando o tema abordado neste trabalho relevante. 
+\section{Problema}
+\label{sec:problema}
 
-	Então, o tema consiste no desenvolvimento de \textit{shaders} aplicados em objetos tridimensionais -- com número de polígonos variável -- que permitam a coleta de medições relacionadas ao desempenho de um dispositivo em relação à renderização feita pela GPU. Desta forma, é possível variar a quantidade de polígonos de um objeto e traçar um gráfico da quantidade de polígonos \textit{versus} métrica de desempenho, utilizando um determinado \textit{shader}. E assim, é possível identificar qual curva melhor aproxima e, consequentemente, determinar a complexidade assintótica do \textit{shader} em um determinado dispositivo.  
+Escrever CA manualmente exige compreender os requisitos e o contexto do sistema, além de consumir tempo para garantir precisão e clareza. A tarefa fica mais difícil com ambiguidades, falta de detalhes nas histórias de usuário e mudanças na especificação \cite{wang2025}. Quando os CA são ambíguos ou pouco claros, a comunicação entre os envolvidos se prolonga e, nos piores casos, há reprojeto e retrabalho de desenvolvimento \cite{rawson2025}.
 
-\section{Objetivos Gerais}
+Os LLMs surgem como alternativa, pois geram texto sem exigir conjuntos rotulados de histórias com CA, que são escassos, e podem reduzir o esforço humano inicial \cite{li2024}. No entanto, a evidência sobre essa alternativa ainda é heterogênea. Os estudos usam entradas, técnicas e métricas diferentes, e, entre os 25 analisados na revisão deste trabalho, apenas 2 comparam os CA gerados com um gabarito.
 
-O objetivo geral deste trabalho é a análise da complexidade assintótica de \textit{shaders} para diferentes dispositivos móveis, tanto para todo o processo de renderização quanto para somente parte dele (\textit{vertex} e \textit{fragment shaders}).
+Assim, ainda não se sabe com que nível de acurácia os LLMs geram CA em \textit{Gherkin} a partir da documentação de histórias de usuário, nem quais fatores influenciam esse resultado.
 
-\section{Objetivos Específicos}
+\section{Questão de pesquisa}
+\label{sec:questao-pesquisa}
 
-Os objetivos específicos do trabalho são:
+A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \textit{Goal Question Metric} (GQM) \cite{basili1994}. Como ilustrado na Figura~\ref{fig:gqm}, o GQM propõe uma organização hierárquica e \textit{top-down}, desdobrando objetivos gerais em perguntas específicas e métricas quantitativas. Ao adaptar essa estrutura para o escopo desta pesquisa (Tabela~\ref{tab:gqm}), chegou-se à questão principal.
+
+\begin{figure}[H]
+  \centering
+  \caption{Abordagem GQM}
+  \label{fig:gqm}
+  \includegraphics[width=0.75\textwidth]{figuras/gqm.png}
+  \fonte{Adaptado de \citeonline{basili1994}}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{GQM adaptado}
+  \label{tab:gqm}
+  \begin{tabular}{|p{0.28\textwidth}|p{0.62\textwidth}|}
+    \hline
+    \textbf{Característica} & \textbf{Valor} \\ \hline
+    Analisar & documentação de histórias de usuário \\ \hline
+    Com o propósito de & caracterizar a geração automática dos critérios de aceitação escritos em formato \textit{Gherkin} \\ \hline
+    Com respeito à & acurácia dos critérios de aceitação gerados com apoio de grandes modelos de linguagem \\ \hline
+    Do ponto de vista de & pesquisadores \\ \hline
+    No contexto de & aplicações web desenvolvidas com métodos ágeis disponíveis em repositórios de código fonte aberto \\ \hline
+  \end{tabular}
+  \fonte{Adaptado de \citeonline{basili1994}}
+\end{table}
+
+Considerando essa perspectiva, definimos a seguinte questão principal de pesquisa deste estudo:
+
+\begin{center}
+\textbf{\textit{Como os grandes modelos de linguagem têm apoiado a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário, e com que nível de acurácia?}}
+\end{center}
+
+\section{Objetivos}
+\label{sec:objetivos}
+
+\subsection{Objetivo geral}
+% {aqui vai o objetivo geral em uma frase, derivado do GQM, porque é o que a conclusão vai responder}
+
+\subsection{Objetivos específicos}
+% {aqui vão 3 a 5 objetivos verificáveis (ex.: conduzir revisão sistemática; identificar modelos, técnicas, entradas e métricas usados; mapear limitações; planejar o estudo empírico), porque cada um vira atividade do cronograma e é retomado na conclusão}
+
+\section{Estrutura do trabalho}
+\label{sec:estrutura}
+% {aqui vai um parágrafo dizendo o que cada capítulo apresenta, porque orienta a leitura; escrever depois dos capítulos}
+
+\section{Cronograma e fluxo de atividades}
+\label{sec:cronograma}
+
+\subsection{Atividades da primeira etapa}
+
+Esta subseção detalha as atividades realizadas na primeira etapa do trabalho. A Figura~\ref{fig:fluxo} apresenta o fluxo dessas atividades, e a Figura~\ref{fig:cronograma}, o cronograma correspondente.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Fluxo de atividades da primeira etapa}
+  \label{fig:fluxo}
+  \includegraphics[width=\textwidth]{figuras/fluxo-atividades.jpg}
+  \fonte{Autores}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Cronograma da primeira etapa}
+  \label{fig:cronograma}
+  \includegraphics[width=\textwidth]{figuras/cronograma-etapa1.png}
+  \fonte{Autores}
+\end{figure}
 
 \begin{itemize}
- \item Configurar os ambientes de desenvolvimento para a plataforma \textit{Android} e \textit{iOS};
- \item Implementar os \textit{shaders} para a plataforma \textit{Android} e \textit{iOS};
-\item Procurar ferramentas de coleta da medição de desempenho para o \textit{device} utilizado;
-\item Identificar qual métrica será utilizada para a análise de complexidade;
-\item Coletar as medições estabelecidas;
-\item Automatizar o cálculo dos ajustes das curvas e plotagem dos gráficos;
-\item Estimar a complexidade assintótica de \textit{shaders}, de acordo com as curvas obtidas.
+  \item \textbf{Contextualização sobre Engenharia de Software Experimental:} nesta etapa, foi realizado um estudo sobre a utilização do método científico na Engenharia de Software, explorando diferentes estratégias empíricas, como revisão sistemática da literatura, \textit{surveys}, estudos de caso e experimentos \cite{wohlin2000,kitchenham2007}.
+  \item \textbf{Definição do GQM:} adaptação da abordagem \textit{Goal Question Metric} \cite{basili1994} para definir o objetivo do trabalho, apresentado na Tabela~\ref{tab:gqm}, e derivar a questão principal de pesquisa, as suas subquestões e por fim as medidas a serem avaliadas.
+  \item \textbf{Elaboração do protocolo de revisão da literatura:} definição e adaptação do protocolo com base nas diretrizes de \citeonline{kitchenham2007}. No protocolo, foi definida a \textit{string} de busca, com base na estrutura PICOC, que amplia os critérios usados na área da medicina \cite{pai2004}. Por meio dele, também foram definidos os critérios de inclusão e exclusão e o método de análise e extração dos dados.
+  \item \textbf{Seleção dos artigos:} execução da busca na Scopus, remoção de duplicatas e triagem por título e resumo, com os critérios do protocolo da revisão. Estudos adicionais também foram incluídos manualmente a fim de complementar o estudo.
+  \item \textbf{Leitura do material selecionado:} leitura completa dos estudos selecionados e extração dos dados com o formulário definido no protocolo de revisão. Os dados extraídos foram conferidos com o texto de cada estudo.
+  \item \textbf{Definição da proposta de solução:} planejamento do experimento a ser executado na segunda etapa, com base nas lacunas identificadas na revisão. % no doc: {experimento ou estudo de caso}; o orientador indicou experimento em 06/11/2026
+  \item \textbf{Escrita da monografia:} redação deste documento, conforme a estrutura apresentada na Seção~\ref{sec:estrutura}.
+  \item \textbf{Revisão da monografia:} correções e ajustes solicitados pelo orientador.
+  \item \textbf{Apresentação da monografia:} preparação do material e apresentação do trabalho à banca examinadora.
 \end{itemize}
-
-\section{Organização do Trabalho}
-
-	No próximo capítulo serão apresentados os conceitos teóricos necessários para o entendimento do trabalho, como, por exemplo, definição de \textit{shaders} e sua função no processo de renderização, a biblioteca gráfica utilizada,  a fundamentação teórica matemática para implementação dos \textit{shaders}, complexidade assintótica, método dos mínimos quadrados, entre outros. 
-
-	No desenvolvimento, os passos seguidos ao longo do trabalho são descritos, enfatizando como foi feita a configuração do ambiente, quais equipamentos foram utilizados, como foram feitas as implementações dos \textit{shaders} e a automatização dos cálculos e plotagem dos gráficos.
-
-	Nos resultados são descritos os resultados obtidos através da análise da complexidade assintótica dos \textit{shaders} implementados, seguido das conclusões do trabalho realizado, onde são apresentadas as contribuições obtidas.   
