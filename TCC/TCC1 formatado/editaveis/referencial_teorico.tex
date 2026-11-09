@@ -119,7 +119,7 @@ como possível apoio à triagem. Seu desempenho em uma base de imagens não
 demonstra, isoladamente, que o sistema possa estabelecer um diagnóstico ou
 melhorar o atendimento em um serviço de saúde. Por isso, é necessário
 relacionar os resultados reportados à tarefa realizada, aos dados utilizados
-e à forma de validação \cite{fernandes2024}.
+e à forma de validação \estudo{E01}.
 
 \section{Inteligência artificial e visão computacional}
 
@@ -139,11 +139,11 @@ Na classificação, o modelo atribui uma categoria à imagem; na detecção,
 identifica e localiza objetos ou lesões; na segmentação, associa regiões ou
 pixels a classes de interesse. Essas saídas respondem a perguntas diferentes
 e devem ser avaliadas com medidas apropriadas à tarefa
-\cite{yotsu2023,eita2025,sanchez2024}.
+\estudo{E05,E21,E23}.
 
-Por exemplo, \citeonline{yotsu2023} investigaram a classificação de doenças
-tropicais com manifestações cutâneas, enquanto \citeonline{sanchez2024}
-estudaram a segmentação de feridas em imagens de pessoas com hanseníase.
+Por exemplo, \estudo{E05} investigou a classificação de doenças
+tropicais com manifestações cutâneas, enquanto \estudo{E21}
+estudou a segmentação de feridas em imagens de pessoas com hanseníase.
 Delimitar uma ferida e identificar a doença em uma imagem são objetivos
 distintos; assim, um resultado de segmentação não deve ser apresentado como
 medida de diagnóstico da hanseníase.
@@ -294,7 +294,7 @@ os dados usados no desenvolvimento e aqueles usados na avaliação. Além do
 valor de uma métrica, é necessário identificar o conjunto avaliado, a unidade
 de análise e as classes consideradas. Em uma aplicação multiclasse, por
 exemplo, uma medida global não descreve necessariamente o desempenho para
-cada doença \cite{yotsu2023}.
+cada doença \estudo{E05}.
 
 A generalização diz respeito ao comportamento do modelo em dados diferentes
 dos utilizados no seu desenvolvimento. Evidências obtidas em uma população
@@ -302,5 +302,5 @@ ou conjunto específico devem ser interpretadas considerando suas condições
 de aquisição e composição. Para a análise por tons de pele, é necessário
 verificar se as características dos grupos são descritas e se as medidas
 são apresentadas separadamente; a simples presença de um grupo nas imagens
-não demonstra desempenho equivalente entre grupos \cite{yotsu2023,eita2025}.
+não demonstra desempenho equivalente entre grupos \estudo{E05,E23}.
 Esses aspectos orientam a extração das evidências na revisão.

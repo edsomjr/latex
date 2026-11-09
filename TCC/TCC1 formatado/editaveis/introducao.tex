@@ -14,7 +14,7 @@ do Brasil.
 A hanseníase integra o grupo das doenças tropicais negligenciadas e
 constitui um desafio para a identificação oportuna de casos e o
 acompanhamento das pessoas afetadas. Em sua revisão da literatura,
-\citeonline{fernandes2024} destacam que o diagnóstico se baseia
+\estudo{E01} destaca que o diagnóstico se baseia
 principalmente na avaliação clínica e que a semelhança com outras
 condições dermatológicas pode dificultar o reconhecimento da doença.
 Nesse contexto, a investigação de recursos computacionais de apoio à
@@ -25,21 +25,21 @@ interesse.
 
 A análise automatizada de imagens dermatológicas tem sido investigada
 por meio de técnicas de aprendizado de máquina e aprendizado profundo.
-\citeonline{fernandes2024} identificaram 21 estudos sobre inteligência
-artificial no apoio ao diagnóstico da hanseníase e observaram que a
+\estudo{E01} identificou 21 estudos sobre inteligência
+artificial no apoio ao diagnóstico da hanseníase e observou que a
 maior parte utilizava imagens de lesões cutâneas e tarefas de
 classificação multiclasse. A inclusão da hanseníase em sistemas voltados
 a diferentes doenças indica que os resultados dessas propostas devem ser
 interpretados tanto em relação ao conjunto de classes quanto ao
 reconhecimento específico da doença.
 
-Entre os estudos experimentais, \citeonline{jaikishore2021}
-desenvolveram uma abordagem baseada em MobileNetV2 para classificar
+Entre os estudos experimentais, \estudo{E24}
+desenvolveu uma abordagem baseada em MobileNetV2 para classificar
 imagens de eczema, sarampo, hanseníase e pele saudável, incorporando o
-modelo a um protótipo Android. \citeonline{yotsu2023}, por sua vez,
-avaliaram ResNet-50 e VGG-16 na classificação de cinco doenças tropicais
+modelo a um protótipo Android. \estudo{E05}, por sua vez,
+avaliou ResNet-50 e VGG-16 na classificação de cinco doenças tropicais
 negligenciadas com manifestações cutâneas. Em outra linha de
-investigação, \citeonline{eita2025} propuseram um sistema baseado em YOLOv8
+investigação, \estudo{E23} propôs um sistema baseado em YOLOv8
 para localizar e classificar lesões de diferentes condições, incluindo
 hanseníase, com uso de mapas de saliência para apoiar a interpretação
 das predições. Esses trabalhos ilustram abordagens distintas de análise
@@ -47,8 +47,8 @@ de imagens, com diferentes requisitos de dados, saídas e procedimentos
 de avaliação.
 
 O campo também compreende tarefas relacionadas ao acompanhamento de
-manifestações e complicações da doença. \citeonline{sanchez2024}
-apresentaram o CO2Wounds-V2, um conjunto de fotografias de feridas
+manifestações e complicações da doença. \estudo{E21}
+apresentou o CO2Wounds-V2, um conjunto de fotografias de feridas
 crônicas de pacientes com hanseníase, acompanhado de experimentos de
 segmentação semântica. Nesse caso, a tarefa consiste em delimitar
 regiões de ferida nas imagens, e não em determinar se o paciente
@@ -57,13 +57,13 @@ literatura e evitar que medidas de segmentação sejam interpretadas como
 evidências de desempenho diagnóstico.
 
 A caracterização das populações representadas nos dados também integra a
-avaliação dos modelos. \citeonline{yotsu2023} utilizaram fotografias
+avaliação dos modelos. \estudo{E05} utilizou fotografias
 coletadas em Costa do Marfim e Gana, descrevendo a população como
 composta por pessoas de pele escura, com fototipos de Fitzpatrick IV ou
 superiores. O estudo oferece evidências diretamente relacionadas à
 análise de imagens de pele escura, mas não apresenta comparação de
-desempenho entre os diferentes fototipos. \citeonline{eita2025} também
-reconhecem limitações na diversidade dos dados e apontam a ampliação da
+desempenho entre os diferentes fototipos. \estudo{E23} também
+reconhece limitações na diversidade dos dados e aponta a ampliação da
 representação de pessoas com tons de pele mais escuros como uma direção
 de trabalho futuro.
 
@@ -87,10 +87,10 @@ composição dos conjuntos de dados e nas métricas utilizadas. Classificar
 uma imagem entre doenças, localizar uma lesão e segmentar uma ferida
 produzem resultados com significados distintos. Consequentemente, uma
 comparação baseada apenas nos maiores valores publicados pode
-desconsiderar diferenças essenciais entre os experimentos \cite{yotsu2023,sanchez2024,eita2025}.
+desconsiderar diferenças essenciais entre os experimentos \estudo{E05,E21,E23}.
 
 Além disso, medidas agregadas podem não representar adequadamente o
-desempenho referente à hanseníase. No estudo de \citeonline{yotsu2023}, a
+desempenho referente à hanseníase. No estudo de \estudo{E05}, a
 Task 2 apresentou acurácias globais de 77\% e 80\% nos dois cenários
 avaliados. Entretanto, a leitura da diagonal correspondente à hanseníase
 nas matrizes de confusão indica proporções de classificação correta de
@@ -103,10 +103,10 @@ desempenho global do sistema.
 A relação entre os resultados obtidos e os tons de pele constitui outra
 dimensão do problema. A presença de imagens de pele escura em um
 conjunto de dados não demonstra que o modelo apresente comportamento
-equivalente entre diferentes tons. No estudo de \citeonline{yotsu2023}, a
+equivalente entre diferentes tons. No estudo de \estudo{E05}, a
 população é caracterizada por um intervalo de fototipos, mas não são
-fornecidos resultados separados por esses grupos. Já \citeonline{eita2025}
-reconhecem limitações de representatividade e a necessidade de ampliar a
+fornecidos resultados separados por esses grupos. Já \estudo{E23}
+reconhece limitações de representatividade e a necessidade de ampliar a
 diversidade dos dados. Essas observações sustentam a necessidade de
 examinar a caracterização populacional e a avaliação por grupos, sem
 permitir concluir, a partir dessas evidências isoladas, que todos os
@@ -116,8 +116,8 @@ Também permanece necessário distinguir a avaliação computacional da
 avaliação em contexto assistencial. O desenvolvimento de um aplicativo
 ou a obtenção de resultados em conjuntos de imagens não comprova sua
 contribuição para o atendimento em serviços de saúde. Enquanto
-\citeonline{jaikishore2021} apresentam um protótipo de
-aplicação móvel, \citeonline{eita2025} situam os estudos prospectivos com
+\estudo{E24} apresenta um protótipo de
+aplicação móvel, \estudo{E23} situa os estudos prospectivos com
 dermatologistas entre as atividades futuras. Assim, a relevância dessas
 propostas para a rede pública exige considerar o alcance e os limites
 dos procedimentos de validação relatados.

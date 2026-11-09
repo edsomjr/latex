@@ -20,6 +20,27 @@
 \pgfplotsset{compat=1.18}
 \usepackage{pgf-pie}
 
+\usepackage{etoolbox}
+% Citações por identificador (ID) com hiperligação interna para a linha da tabela de estudos
+% (\hypertarget{estudo:ID}{ID}). Aceita vários IDs: \estudo{E05,E06}.
+\makeatletter
+\DeclareRobustCommand{\estudo}[1]{%
+  \begingroup
+  \def\estudo@sep{}%
+  \def\do##1{\estudo@sep\hyperlink{estudo:##1}{##1}\def\estudo@sep{, }}%
+  \docsvlist{#1}%
+  \endgroup}
+\makeatother
+% Referencias: sem a linha "Nenhuma citacao no texto." quando a entrada so e citada por \estudo ou \nocite
+% (o backref nao reconhece \estudo{}); as demais entradas mantem "Citado na(s) pagina(s)".
+\renewcommand*{\backrefalt}[4]{%
+  \ifcase #1 %
+  \or
+    Citado na página #2.%
+  \else
+    Citado #1 vezes nas páginas #2.%
+  \fi}
+
 \newcounter{none}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \ifpdf
@@ -43,5 +64,9 @@
 \bookmarksetup{startatroot}
 \postextual
 \bibliography{referencias_tcc}
+\begin{apendicesenv}
+\partapendices
+\input{editaveis/apendices}
 \input{editaveis/notas}
+\end{apendicesenv}
 \end{document}
