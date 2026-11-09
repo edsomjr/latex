@@ -7,8 +7,8 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{11}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Contexto}{11}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Problema}{12}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Questão de pesquisa}{12}{section.1.3}%
+\contentsline {section}{\numberline {1.2}Problema}{11}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Questão de pesquisa}{11}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Objetivos}{13}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Objetivo geral}{13}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Objetivos específicos}{13}{subsection.1.4.2}%
@@ -16,60 +16,59 @@
 \contentsline {section}{\numberline {1.6}Cronograma e fluxo de atividades}{13}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}Atividades da primeira etapa}{13}{subsection.1.6.1}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Referencial teórico}}{16}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Engenharia de Software Experimental}{16}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Paradigma GQM}{16}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Revisão sistemática da literatura}{16}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Experimento}{16}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Histórias de usuário e critérios de aceitação}{16}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Histórias de usuário}{16}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Critérios de aceitação}{16}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Modelos de linguagem de grande porte}{16}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Métodos ágeis e engenharia de requisitos ágil}{16}{section.2.4}%
-\contentsline {section}{\numberline {2.5}\textit {Behavior-Driven Development} e \textit {Gherkin}}{16}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Técnicas de apoio à geração com LLMs}{16}{section.2.6}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Referencial teórico}}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Engenharia de Software Experimental}{15}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Paradigma GQM}{15}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Revisão sistemática da literatura}{15}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Experimento}{15}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Histórias de usuário e critérios de aceitação}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Histórias de usuário}{15}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Critérios de aceitação}{15}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Modelos de linguagem de grande porte}{15}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Métodos ágeis e engenharia de requisitos ágil}{15}{section.2.4}%
+\contentsline {section}{\numberline {2.5}\textit {Behavior-Driven Development} e \textit {Gherkin}}{15}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Técnicas de apoio à geração com LLMs}{15}{section.2.6}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Revisão Estruturada da Literatura}}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Protocolo}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Questões de pesquisa}{17}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}\textit {String} de busca}{18}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Critérios de seleção}{19}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Extração e síntese dos dados}{20}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}Seleção dos artigos}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Resultados}{24}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}QP1 -- Quantos estudos foram publicados por ano do total selecionado?}{25}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}QP2 -- Em que veículos os estudos foram publicados e em que contexto foram conduzidos?}{25}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}QP3 -- Que tipos de estudo empírico são adotados?}{26}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}QP4 -- Quais modelos de linguagem são mais utilizados na geração de critérios de aceitação?}{27}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}QP5 -- Quais técnicas são mais empregadas para apoiar a geração?}{28}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}QP6 -- Quais artefatos são fornecidos como entrada?}{29}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}QP7 -- Quais mecanismos automáticos de verificação ou refinamento dos critérios gerados?}{31}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}QP8 -- Quais métricas de avaliação são mais comumente usadas para avaliar os critérios de aceitação gerados?}{32}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}QP9 -- Quais limitações e desafios são mais relatados nos estudos sobre geração de critérios de aceitação com LLMs?}{34}{subsection.3.3.9}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Revisão Estruturada da Literatura}}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Protocolo}{16}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Questões de pesquisa}{16}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}\textit {String} de busca}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Critérios de seleção}{18}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Extração e síntese dos dados}{19}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Seleção dos artigos}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Resultados}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}QP1 -- Quantos estudos foram publicados por ano do total selecionado?}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}QP2 -- Em que veículos os estudos foram publicados e em que contexto foram conduzidos?}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}QP3 -- Que tipos de estudo empírico são adotados?}{25}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}QP4 -- Quais modelos de linguagem são mais utilizados na geração de critérios de aceitação?}{26}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}QP5 -- Quais técnicas são mais empregadas para apoiar a geração?}{27}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}QP6 -- Quais artefatos são fornecidos como entrada?}{28}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}QP7 -- Quais mecanismos automáticos de verificação ou refinamento dos critérios gerados?}{30}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}QP8 -- Quais métricas de avaliação são mais comumente usadas para avaliar os critérios de aceitação gerados?}{31}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}QP9 -- Quais limitações e desafios são mais relatados nos estudos sobre geração de critérios de aceitação com LLMs?}{33}{subsection.3.3.9}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Planejamento do Experimento}}{37}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Definição do escopo do experimento}{37}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Objetivo}{37}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Questão de pesquisa}{37}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Trabalhos relacionados}{37}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Planejamento}{37}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Contexto}{37}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Variáveis do experimento}{37}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Formulação das hipóteses}{37}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Desenho do experimento}{37}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Teste de normalidade}{37}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.2.6}Teste de hipóteses}{37}{subsection.4.2.6}%
-\contentsline {subsection}{\numberline {4.2.7}Instrumentação}{37}{subsection.4.2.7}%
-\contentsline {subsection}{\numberline {4.2.8}Procedimento de aplicação dos instrumentos}{37}{subsection.4.2.8}%
-\contentsline {subsection}{\numberline {4.2.9}Validade do experimento}{37}{subsection.4.2.9}%
-\contentsline {subsection}{\numberline {4.2.10}Análise complementar}{37}{subsection.4.2.10}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Planejamento do Experimento}}{36}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Definição do escopo do experimento}{36}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Objetivo}{36}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Questão de pesquisa}{36}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Trabalhos relacionados}{36}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Planejamento}{36}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Contexto}{36}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Variáveis do experimento}{36}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Formulação das hipóteses}{36}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Desenho do experimento}{36}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Teste de normalidade}{36}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Teste de hipóteses}{36}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}Instrumentação}{36}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {4.2.8}Procedimento de aplicação dos instrumentos}{36}{subsection.4.2.8}%
+\contentsline {subsection}{\numberline {4.2.9}Validade do experimento}{36}{subsection.4.2.9}%
+\contentsline {subsection}{\numberline {4.2.10}Análise complementar}{36}{subsection.4.2.10}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{38}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Atividades concluídas}{38}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Resultados obtidos}{38}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Uso de inteligência artificial}{38}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Próximos passos}{38}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Cronograma da segunda etapa}{38}{section.5.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Atividades concluídas}{37}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Resultados obtidos}{37}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Próximos passos}{37}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Cronograma da segunda etapa}{37}{section.5.4}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.23}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{40}{section*.23}%
