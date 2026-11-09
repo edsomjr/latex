@@ -124,7 +124,7 @@ Os dados dos artigos selecionados foram extraídos com o formulário da Tabela~\
     Ano de publicação & Forma de fornecimento \\
     Tipo de veículo & Formato de saída \\
     Contexto & Mecanismo de verificação/refinamento \\
-    Tipo de estudo & Referencial de comparação \\
+    Tipo de estudo (declarado e estratégia empírica) & Referencial de comparação \\
     Participantes & Métricas utilizadas \\
     Modelo(s) de linguagem & Dimensão avaliada \\
     Hospedagem do modelo & Tipo de medida \\
@@ -238,35 +238,13 @@ Assim, apenas 5 estudos (20\%) trazem evidências obtidas com dados e profission
 \subsection{QP3 -- Que tipos de estudo empírico são adotados?}
 \label{sec:qp3}
 
-\todo[inline]{Orientador (06/11): reclassificar pelos critérios de \citeonline{wohlin2000}; só é experimento com H0/H1, variáveis e teste estatístico. Separar estudos com e sem validação empírica. O número deve ser coerente com o de estudos que declaram ameaças à validade (QP9).}
+Para responder a esta questão, não bastou repetir o que cada artigo diz sobre si mesmo. Os estudos foram classificados pela estratégia empírica que de fato adotam, seguindo \citeonline{wohlin2000}. O livro descreve três estratégias. A \textit{survey} aplica questionários ou entrevistas a uma amostra representativa de uma população definida. O estudo de caso acompanha um projeto ou uma atividade real enquanto ela acontece. Já o experimento exige que os tratamentos sejam atribuídos de forma aleatória, que as hipóteses nula (H0) e alternativa (H1) sejam formuladas ainda no planejamento e que os resultados passem por um teste estatístico; quando não há atribuição aleatória, fala-se em quase-experimento. Abordagens como \textit{design science}, prova de conceito e estudo de viabilidade não aparecem entre essas estratégias, por isso esses estudos foram classificados pela forma como avaliaram seus resultados.
 
-A Tabela~\ref{tab:tipo-estudo} apresenta os tipos de estudo adotados e o perfil dos participantes, com a numeração da Tabela~\ref{tab:artigos}. Os experimentos predominam, com 12 estudos (48\%), seguidos por 5 estudos de caso (20\%), 3 pesquisas em \textit{design science} (12\%), 2 quase-experimentos (8\%), 2 avaliações com especialistas (8\%) e 1 prova de conceito (4\%). As categorias seguem o termo usado pelos autores, agrupado na síntese. Nenhum estudo adota \textit{survey} como estratégia única; o estudo 2 combina experimento e \textit{survey}.
+Quando se olha apenas para o que os autores declaram, o experimento é o tipo mais comum, citado por 13 estudos (52\%). Em seguida vêm 4 estudos (16\%) que não nomeiam o método, 3 (12\%) que se apresentam como \textit{design science} e 2 (8\%) como estudo de caso, além de 1 quase-experimento, 1 prova de conceito e 1 estudo de viabilidade. O quadro muda quando os critérios do livro são aplicados: apenas 2 estudos (8\%) adotam de fato uma estratégia empírica. Os dois são estudos de caso conduzidos na indústria, um com um sistema implantado em produção \cite{baker2026} e outro com uma ferramenta usada por uma empresa durante dois meses \cite{ferreira2025}. Mesmo nesses casos, os resultados dizem respeito ao contexto observado e são mais difíceis de generalizar do que os de um experimento. Os demais 23 estudos (92\%) não se enquadram em nenhuma das estratégias.
 
-\begin{table}[H]
-  \centering
-  \caption{Tipos de estudo e perfil dos participantes}
-  \label{tab:tipo-estudo}
-  \small
-  \begin{tabular}{|p{0.3\textwidth}|p{0.4\textwidth}|c|c|}
-    \hline
-    \textbf{Categoria} & \textbf{Estudos} & \textbf{Total} & \textbf{\%} \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Tipo de estudo}} \\ \hline
-    Experimento & 1, 2, 7, 10, 11, 14, 15, 16, 19, 21, 24, 26 & 12 & 48\% \\ \hline
-    Estudo de caso & 4, 6, 9, 12, 17 & 5 & 20\% \\ \hline
-    \textit{Design science} & 3, 20, 25 & 3 & 12\% \\ \hline
-    Quase-experimento & 5, 23 & 2 & 8\% \\ \hline
-    Questionário com profissionais & 8, 22 & 2 & 8\% \\ \hline
-    Prova de conceito & 13 e 18 & 1 & 4\% \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Perfil dos participantes}} \\ \hline
-    Profissionais da indústria & 3, 4, 6, 7, 8, 9, 22, 25 & 8 & 32\% \\ \hline
-    Estudantes & 5, 21, 23, 24, 26 & 5 & 20\% \\ \hline
-    Profissionais e estudantes & 1, 2, 14, 20 & 4 & 16\% \\ \hline
-    Sem participantes em avaliação formal & 10, 11, 12, 13 e 18, 15, 16, 17, 19 & 8 & 32\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+Os motivos variam. A maior parte, 14 estudos (56\%), compara técnicas, modelos ou \textit{prompts}, mas nenhum deles formula H0 e H1 no planejamento, apenas 4 aplicam teste estatístico e só 1 sorteia a distribuição dos participantes entre os tratamentos. Outros 4 (16\%) avaliam as saídas por questionário, mas com pessoas convidadas por conveniência e sem uma população definida, o que não caracteriza uma \textit{survey}. Há ainda 2 estudos (8\%) que se dizem estudos de caso sem acompanhar um projeto em andamento. Em outras palavras, muitos estudos usam o vocabulário da pesquisa empírica sem adotar o desenho que lhe dá sustentação.
 
-Oito estudos (32\%) não têm participantes em avaliação formal, e cinco deles são experimentos com avaliação automática ou por LLM. Entre os 16 estudos que informam ou permitem estimar o número de participantes, os valores variam de 2 a 208 pessoas, e 12 deles têm até 21 pessoas. Apenas os estudos 1, 2 e 21 têm 40 participantes ou mais, e o estudo 4 não informa a quantidade. Assim, embora os experimentos predominem, a evidência empírica ainda se apoia em amostras pequenas ou em avaliações sem participação humana, o que limita a generalização dos resultados. A presença de participantes também não significa que os CA tenham sido avaliados diretamente, ponto tratado na QP8.
+As amostras também costumam ser pequenas. Dos 16 estudos que informam ou permitem estimar o número de participantes, 12 trabalham com até 21 pessoas, e somente 3 chegam a 40 ou mais. Assim, a literatura ainda não oferece um experimento, no sentido de \citeonline{wohlin2000}, que compare técnicas de geração de CA com hipóteses e teste estatístico.
 
 % ---------------------------------------------------------------------------
 \subsection{QP4 -- Quais modelos de linguagem são mais utilizados na geração de critérios de aceitação?}
