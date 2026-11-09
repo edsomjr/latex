@@ -330,45 +330,13 @@ Seis estudos usam sistemas multiagentes, geralmente com papéis especializados, 
 \subsection{QP6 -- Quais artefatos são fornecidos como entrada?}
 \label{sec:qp6}
 
-\todo[inline]{Orientador (06/11): deixar explícito que todo \textit{ticket} contém uma história de usuário, e que ``documentos de domínio'' são estudos que usaram exclusivamente esse tipo de entrada.}
+Esta questão considera os 24 estudos que geram ou refinam CA, já que um dos estudos apenas avalia histórias de usuário e não gera critérios \cite{ma2026}. Em cada estudo, foram observados três aspectos: a entrada primária, isto é, o artefato a partir do qual os CA são gerados; os artefatos de contexto fornecidos junto com ela; e a forma como esse conteúdo chega ao modelo.
 
-A Tabela~\ref{tab:entradas} apresenta os artefatos fornecidos aos modelos, com a numeração da Tabela~\ref{tab:artigos}. A análise considera os 24 estudos que geram ou refinam CA. O estudo 26, que apenas avalia, recebe histórias de usuário do conjunto NFDI4Cat.
+A entrada primária mais comum é a história de usuário, usada por 11 estudos (46\%), quase metade do total, o que é esperado, já que os CA complementam as histórias. Nessa categoria também estão os estudos que partem de \textit{tickets}, pois todos os \textit{tickets} usados são do tipo história no Jira: além da própria história, eles trazem campos como descrição, detalhes do épico e CA já existentes \cite{baker2026,huang2026}. Outros 7 estudos (29\%) partem de requisitos ou especificações em linguagem natural, escritos em texto livre e sem uma técnica de documentação formal, como em ``Customer should be able to upload an image while registering a complaint'' \cite{rotar2025}. Três estudos (13\%) usam exclusivamente documentos ou artefatos de domínio, isto é, materiais que descrevem o domínio ou o produto como um todo, e não requisitos isolados, sem nenhuma história associada: disposições legais \cite{hassani2026}, documentos de \textit{design} de jogos \cite{khelifa2026} e fotos de quadros de \textit{EventStorming} \cite{jurgelaitis2026}. Por fim, 2 estudos (8\%) partem de \textit{feedback} de usuários e 1 (4\%), de casos de uso.
 
-\begin{table}[H]
-  \centering
-  \caption{Artefatos de entrada e forma de fornecimento}
-  \label{tab:entradas}
-  \small
-  \begin{tabular}{|p{0.33\textwidth}|p{0.37\textwidth}|c|c|}
-    \hline
-    \textbf{Categoria} & \textbf{Estudos} & \textbf{Total} & \textbf{\%} \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Entrada primária}} \\ \hline
-    História de usuário ou \textit{ticket} & 4, 6, 7, 8, 9, 10, 13 e 18, 15, 16, 22, 25 & 11 & 46\% \\ \hline
-    Requisito ou especificação em linguagem natural & 1, 2, 3, 12, 17, 20, 21 & 7 & 29\% \\ \hline
-    Documentos ou artefatos de domínio & 5, 14, 19 & 3 & 13\% \\ \hline
-    \textit{Feedback} de usuários & 23, 24 & 2 & 8\% \\ \hline
-    Caso de uso & 11 & 1 & 4\% \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Artefatos contextuais}} \\ \hline
-    Documentação ou descrição do sistema ou domínio & 3, 4, 5, 6, 8, 12, 13 e 18, 14, 17, 22, 23, 24, 25 & 13 & 54\% \\ \hline
-    Requisitos, histórias ou CA existentes & 3, 13 e 18, 17, 22 & 4 & 17\% \\ \hline
-    Código-fonte & 4, 13 e 18 & 2 & 8\% \\ \hline
-    Artefatos visuais & 6, 12 & 2 & 8\% \\ \hline
-    \textit{Issues} de repositórios públicos & 22 & 1 & 4\% \\ \hline
-    Nenhum artefato do sistema & 1, 2, 7, 9, 10, 11, 15, 16, 19, 20, 21 & 11 & 46\% \\ \hline
-    \multicolumn{4}{|l|}{\textbf{Forma de fornecimento}} \\ \hline
-    \textit{Prompt} direto & 2, 4, 5, 7, 8, 9, 10, 11, 14, 15, 16, 19, 20, 21, 23, 24, 25 & 17 & 71\% \\ \hline
-    \textit{Prompt} com recuperação de contexto & 1, 3, 13 e 18, 17, 22 & 5 & 21\% \\ \hline
-    \textit{Prompt} com entrada multimodal & 12 & 1 & 4\% \\ \hline
-    Recuperação com entrada multimodal & 6 & 1 & 4\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+Quanto ao contexto, 11 estudos (46\%) entregam apenas a entrada primária, acompanhada de instruções ou exemplos genéricos, e 5 deles geram os CA somente a partir da história ou do \textit{ticket}. Os outros 13 (54\%) fornecem algum artefato sobre o sistema ou o domínio, como descrição do produto, glossário, documento de \textit{design} funcional ou detalhes do épico; desses, 4 incluem requisitos, histórias ou CA já existentes e 2, código-fonte. Esses estudos diferem na forma como o contexto chega ao modelo. Em 7, ele é colocado diretamente no \textit{prompt}. Em 4, ele é recuperado antes da geração, cada um de um jeito. \citeonline{rotar2025} usam RAG para recuperar histórias já existentes da aplicação, com seus CA, que servem de exemplo para a geração. \citeonline{rawson2025} buscam requisitos relacionados em um índice, por busca lexical, e deixam o próprio LLM escolher os arquivos de código relevantes a partir de resumos. \citeonline{avasiloaie2025} indexam dados locais do projeto em vetores e os recuperam por \textit{embeddings}, sem informar o conteúdo dessa base. Já \citeonline{schwedt2025} usam um LLM para decidir quais \textit{issues} de repositórios públicos do mesmo domínio correspondem a cada história, e só essas entram no \textit{prompt} de geração. Os 2 restantes fornecem artefatos visuais a um modelo multimodal: um fluxograma \cite{zyberaj2026} e telas da interface, recuperadas junto com a documentação \cite{wang2025}. A recuperação aparece ainda em um estudo sem artefatos do sistema, que busca exemplos parecidos em um repositório (\textit{memory pool}) por similaridade de Jaccard, embora esse repositório tenha ficado vazio nos experimentos \cite{zhang2025}. No total, 17 estudos (71\%) inserem todo o conteúdo diretamente no \textit{prompt}, 5 (21\%) recuperam parte dele e 2 (8\%) combinam texto e imagem.
 
-A entrada primária mais comum é a história de usuário, em 11 estudos (46\%), seguida de requisitos ou especificações em linguagem natural, em 7 (29\%). Os demais partem de documentos de domínio, como disposições legais (5) e documentos de \textit{design} de jogos (19), de \textit{feedback} de usuários (23 e 24) ou de casos de uso (11).
-
-Quanto ao contexto, 13 estudos (54\%) fornecem algum artefato sobre o sistema ou o domínio, enquanto 11 (46\%) entregam apenas a entrada primária, acompanhada de instruções ou exemplos genéricos. Cinco estudos (7, 9, 10, 15 e 16) geram a saída somente a partir da história ou do \textit{ticket}. Artefatos visuais são raros: apenas o estudo 6 usa telas da interface, e o estudo 12, um fluxograma.
-
-A maioria dos estudos (71\%) fornece a entrada diretamente no \textit{prompt}, sem recuperação de contexto ou entrada multimodal. Portanto, a integração de contexto do sistema, sobretudo visual, ainda é pouco explorada na geração de CA.
+Assim, a geração de CA ainda parte, na maioria dos casos, apenas do texto da história ou do requisito, e a integração de contexto do sistema, sobretudo visual, é pouco explorada.
 
 % ---------------------------------------------------------------------------
 \subsection{QP7 -- Quais mecanismos automáticos de verificação ou refinamento dos critérios gerados?}
