@@ -1,0 +1,233 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Avasiloaie et al. 2025]{avasiloaie2025}
+\abntrefinfo{Avasiloaie et al.}{AVASILOAIE et al.}{2025}
+{AVASILOAIE, A.-P. et al. Transforming user story definition: from
+  deterministic to {AI}-powered automation.
+\emph{Romanian Journal of Information Technology and Automatic Control}, v.~35,
+  n.~2, p. 59--72, 2025.}
+
+\bibitem[Baker et al. 2026]{baker2026}
+\abntrefinfo{Baker et al.}{BAKER et al.}{2026}
+{BAKER, P. et al. Industrial deployment of an {AI} multi-agent system for
+  requirements-driven code verification. In:  \emph{34th ACM International
+  Conference on the Foundations of Software Engineering (FSE Companion '26)}.
+  Montreal: ACM, 2026. p. 485--495.}
+
+\bibitem[Basili, Caldiera e Rombach 1994]{basili1994}
+\abntrefinfo{Basili, Caldiera e Rombach}{BASILI; CALDIERA; ROMBACH}{1994}
+{BASILI, V.~R.; CALDIERA, G.; ROMBACH, H.~D. The goal question metric approach.
+  In:  MARCINIAK, J.~J. (Ed.). \emph{Encyclopedia of Software Engineering}.
+  [S.l.]: Wiley, 1994. v.~1, p. 528--532.}
+
+\bibitem[Binamungu e Maro 2023]{binamungu2023}
+\abntrefinfo{Binamungu e Maro}{BINAMUNGU; MARO}{2023}
+{BINAMUNGU, L.~P.; MARO, S. Behaviour driven development: a systematic mapping
+  study.
+\emph{Journal of Systems and Software}, v.~203, p. 111749, 2023.}
+
+\bibitem[Brockenbrough, Feild e Salinas 2025]{brockenbrough2025}
+\abntrefinfo{Brockenbrough, Feild e Salinas}{BROCKENBROUGH; FEILD;
+  SALINAS}{2025}
+{BROCKENBROUGH, A.; FEILD, H.; SALINAS, D. Exploring {LLMs} impact on
+  student-created user stories and acceptance testing in software development.
+  In:  \emph{Proceedings of the 56th ACM Technical Symposium on Computer
+  Science Education V. 2 (SIGCSE TS)}. Pittsburgh: ACM, 2025. p. 1401--1402.}
+
+\bibitem[Brockenbrough e Salinas 2024]{brockenbrough2024}
+\abntrefinfo{Brockenbrough e Salinas}{BROCKENBROUGH; SALINAS}{2024}
+{BROCKENBROUGH, A.; SALINAS, D. Using generative {AI} to create user stories in
+  the software engineering classroom. In:  \emph{36th International Conference
+  on Software Engineering Education and Training (CSEE\&T)}. [S.l.]: IEEE,
+  2024.}
+
+\bibitem[Cheng et al. 2026]{cheng2026}
+\abntrefinfo{Cheng et al.}{CHENG et al.}{2026}
+{CHENG, H. et al. Generative {AI} for requirements engineering: a systematic
+  literature review.
+\emph{Software: Practice and Experience}, v.~56, n.~2, p. 141--170, 2026.}
+
+\bibitem[Cohn 2004]{cohn2004}
+\abntrefinfo{Cohn}{COHN}{2004}
+{COHN, M. \emph{User stories applied: for agile software development}. Boston:
+  Addison-Wesley, 2004.}
+
+\bibitem[{ELSEVIER} 2026]{elsevier2026}
+\abntrefinfo{{ELSEVIER}}{{ELSEVIER}}{2026}
+{{ELSEVIER}. \emph{Scopus}. Elsevier, 2026.
+Dispon{\'\i}vel em: \url{https://www.scopus.com}. Acesso em: 5 nov. 2026.}
+
+\bibitem[Ferreira et al. 2025]{ferreira2025}
+\abntrefinfo{Ferreira et al.}{FERREIRA et al.}{2025}
+{FERREIRA, M. et al. Acceptance test generation with large language models: an
+  industrial case study. In:  \emph{IEEE/ACM International Conference on
+  Automation of Software Test (AST)}. Ottawa: IEEE, 2025. p. 1--11.}
+
+\bibitem[Hassani, Sabetzadeh e Amyot 2026]{hassani2026}
+\abntrefinfo{Hassani, Sabetzadeh e Amyot}{HASSANI; SABETZADEH; AMYOT}{2026}
+{HASSANI, S.; SABETZADEH, M.; AMYOT, D. From law to {Gherkin}: a human-centred
+  quasi-experiment on the quality of {LLM}-generated behavioral specifications
+  from food-safety regulations.
+\emph{Information and Software Technology}, v.~195, p. 108122, 2026.}
+
+\bibitem[Huang, Chew e Wang 2026]{huang2026}
+\abntrefinfo{Huang, Chew e Wang}{HUANG; CHEW; WANG}{2026}
+{HUANG, D.; CHEW, S.; WANG, Z. {CMAS4G2}: a locally deployed cooperative
+  multi-agent system for {Gherkin} acceptance test generation. In:
+  \emph{Pacific-Asia Conference on Knowledge Discovery and Data Mining
+  (PAKDD)}. [S.l.]: Springer, 2026.  (Lecture Notes in Artificial Intelligence,
+  v. 16603), p. 156--167.}
+
+\bibitem[Jurgelaitis et al. 2026]{jurgelaitis2026}
+\abntrefinfo{Jurgelaitis et al.}{JURGELAITIS et al.}{2026}
+{JURGELAITIS, M. et al. From {EventStorming} artifacts to user stories: a
+  semi-automated requirements extraction approach.
+\emph{IEEE Access}, v.~14, p. 134943--134956, 2026.}
+
+\bibitem[Karimi, Tiwari e Rathore 2026]{karimi2026}
+\abntrefinfo{Karimi, Tiwari e Rathore}{KARIMI; TIWARI; RATHORE}{2026}
+{KARIMI, M.~A.; TIWARI, S.; RATHORE, S.~S. An analysis of student perceptions
+  and learning impact of large language models in requirements engineering
+  education. In:  \emph{34th ACM International Conference on the Foundations of
+  Software Engineering (FSE Companion '26)}. Montreal: ACM, 2026. p. 978--988.}
+
+\bibitem[Karpurapu et al. 2024]{karpurapu2024}
+\abntrefinfo{Karpurapu et al.}{KARPURAPU et al.}{2024}
+{KARPURAPU, S. et al. Comprehensive evaluation and insights into the use of
+  large language models in the automation of behavior-driven development
+  acceptance test formulation.
+\emph{IEEE Access}, v.~12, p. 58715--58721, 2024.}
+
+\bibitem[Khelifa, Bouchard e Imbeau 2026]{khelifa2026}
+\abntrefinfo{Khelifa, Bouchard e Imbeau}{KHELIFA; BOUCHARD; IMBEAU}{2026}
+{KHELIFA, W.; BOUCHARD, B.; IMBEAU, G. Automated generation and refinement of
+  agile user stories from game design documents using large language models.
+  In:  \emph{9th International Conference on Software Engineering and
+  Information Management (ICSIM)}. Yokohama: ACM, 2026. p. 104--113.}
+
+\bibitem[Kitchenham e Charters 2007]{kitchenham2007}
+\abntrefinfo{Kitchenham e Charters}{KITCHENHAM; CHARTERS}{2007}
+{KITCHENHAM, B.; CHARTERS, S. \emph{Guidelines for performing systematic
+  literature reviews in software engineering}.
+Keele; Durham, 2007. Version 2.3.}
+
+\bibitem[Li et al. 2024]{li2024}
+\abntrefinfo{Li et al.}{LI et al.}{2024}
+{LI, Y. et al. {SimAC}: simulating agile collaboration to generate acceptance
+  criteria in user story elaboration.
+\emph{Automated Software Engineering}, v.~31, p.~55, 2024.}
+
+\bibitem[Lotfi e Nafil 2025]{lotfi2025}
+\abntrefinfo{Lotfi e Nafil}{LOTFI; NAFIL}{2025}
+{LOTFI, S.; NAFIL, K. Automated assessment and enhancement of user story
+  quality using large language models in agile development. In:
+  \emph{International Conference on Intelligent Systems: Theories and
+  Applications (SITA)}. [S.l.]: IEEE, 2025.}
+
+\bibitem[Ma et al. 2026]{ma2026}
+\abntrefinfo{Ma et al.}{MA et al.}{2026}
+{MA, Z. et al. {SCLAT}: an {LLM}-interpretable user story quality evaluation
+  framework. In:  \emph{IEEE 50th Annual Computers, Software, and Applications
+  Conference (COMPSAC)}. [S.l.]: IEEE, 2026. p. 406--415.}
+
+\bibitem[Matveeva et al. 2025]{matveeva2025}
+\abntrefinfo{Matveeva et al.}{MATVEEVA et al.}{2025}
+{MATVEEVA, L.~I. et al. Comparison of methods for automated {BDD} scenario
+  generation with {NLP} and {AI}. In:  \emph{5th International Conference on
+  Electrical, Computer, Communications and Mechatronics Engineering (ICECCME)}.
+  Zanzibar: IEEE, 2025.}
+
+\bibitem[North 2006]{north2006}
+\abntrefinfo{North}{NORTH}{2006}
+{NORTH, D. \emph{Introducing {BDD}}. 2006. Better Software.
+Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
+  em: 4 nov. 2026.}
+
+\bibitem[Pai et al. 2004]{pai2004}
+\abntrefinfo{Pai et al.}{PAI et al.}{2004}
+{PAI, M. et al. Systematic reviews and meta-analyses: an illustrated,
+  step-by-step guide.
+\emph{The National Medical Journal of India}, v.~17, n.~2, p. 86--95, 2004.}
+
+\bibitem[Rahman et al. 2024]{rahman2024}
+\abntrefinfo{Rahman et al.}{RAHMAN et al.}{2024}
+{RAHMAN, T. et al. Take loads off your developers: automated user story
+  generation using large language model. In:  \emph{IEEE International
+  Conference on Software Maintenance and Evolution (ICSME)}. [S.l.]: IEEE,
+  2024. p. 791--800.}
+
+\bibitem[Rawson e Reddivari 2025]{rawson2025framework}
+\abntrefinfo{Rawson e Reddivari}{RAWSON; REDDIVARI}{2025a}
+{RAWSON, J.; REDDIVARI, S. A {ChatGPT}-powered prompt engineering framework for
+  generating software acceptance criteria. In:  \emph{ACM Southeast Conference
+  (ACMSE)}. Cape Girardeau: ACM, 2025. p. 282--287.}
+
+\bibitem[Rawson e Reddivari 2025]{rawson2025}
+\abntrefinfo{Rawson e Reddivari}{RAWSON; REDDIVARI}{2025b}
+{RAWSON, J.; REDDIVARI, S. A {ChatGPT}-powered tool for automating
+  context-aware acceptance criteria generation for user stories. In:
+  \emph{IEEE International Conference on Information Reuse and Integration and
+  Data Science (IRI)}. [S.l.]: IEEE, 2025. p. 325--330.}
+
+\bibitem[Rotar e Zhang 2025]{rotar2025}
+\abntrefinfo{Rotar e Zhang}{ROTAR; ZHANG}{2025}
+{ROTAR, C.; ZHANG, Q. A design science research approach to large language
+  model-based agents for requirements specification ({LLMBA4RS}) in low-code
+  applications.
+\emph{Requirements Engineering}, v.~30, p. 399--422, 2025.}
+
+\bibitem[Schwedt e Ströder 2025]{schwedt2025}
+\abntrefinfo{Schwedt e Ströder}{SCHWEDT; STRöDER}{2025}
+{SCHWEDT, S.; STRöDER, T. From bugs to benefits: improving user stories by
+  leveraging crowd knowledge with {CrUISE-AC}. In:  \emph{IEEE/ACM 47th
+  International Conference on Software Engineering (ICSE)}. [S.l.]: IEEE, 2025.
+  p. 1385--1395.}
+
+\bibitem[Spijkman et al. 2025]{spijkman2025}
+\abntrefinfo{Spijkman et al.}{SPIJKMAN et al.}{2025}
+{SPIJKMAN, T. et al. {LLM}-assisted requirements engineering in agile {MDD}:
+  industry insights and validation. In:  \emph{IEEE 33rd International
+  Requirements Engineering Conference (RE)}. [S.l.]: IEEE, 2025. p. 366--376.}
+
+\bibitem[Wang et al. 2025]{wang2025}
+\abntrefinfo{Wang et al.}{WANG et al.}{2025}
+{WANG, F. et al. Multi-modal requirements data-based acceptance criteria
+  generation using {LLMs}. In:  \emph{40th IEEE/ACM International Conference on
+  Automated Software Engineering (ASE)}. Seoul: IEEE, 2025. p. 3334--3345.}
+
+\bibitem[Weerakoon et al. 2026]{weerakoon2026}
+\abntrefinfo{Weerakoon et al.}{WEERAKOON et al.}{2026}
+{WEERAKOON, O. et al. Enhancing agile workflows with {AI}-driven,
+  sustainability-aware requirements engineering: a design science approach. In:
+   \emph{16th International Conference on Software Business (ICSOB)}.
+  Stuttgart: Springer, 2026.  (Lecture Notes in Business Information
+  Processing, v.~574), p. 212--229.}
+
+\bibitem[Wohlin et al. 2000]{wohlin2000}
+\abntrefinfo{Wohlin et al.}{WOHLIN et al.}{2000}
+{WOHLIN, C. et al. \emph{Experimentation in software engineering: an
+  introduction}. New York: Springer Science+Business Media, 2000.}
+
+\bibitem[Zhang et al. 2025]{zhang2025}
+\abntrefinfo{Zhang et al.}{ZHANG et al.}{2025}
+{ZHANG, S. et al. Empowering agile-based generative software development
+  through human-{AI} teamwork.
+\emph{ACM Transactions on Software Engineering and Methodology}, v.~34, n.~6,
+  p.~156, 2025.}
+
+\bibitem[Zhang et al. 2024]{zhang2024}
+\abntrefinfo{Zhang et al.}{ZHANG et al.}{2024}
+{ZHANG, Z. et al. \emph{{LLM}-based agents for automating the enhancement of
+  user story quality: an early report}. 2024. ArXiv:2403.09442.}
+
+\bibitem[Zyberaj et al. 2026]{zyberaj2026}
+\abntrefinfo{Zyberaj et al.}{ZYBERAJ et al.}{2026}
+{ZYBERAJ, D. et al. \emph{{Req2Road}: a {GenAI} pipeline for {SDV} test
+  artifact generation and on-vehicle execution}. 2026. ArXiv:2602.15591.}
+
+\end{thebibliography}

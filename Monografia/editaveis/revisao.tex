@@ -238,11 +238,11 @@ Assim, apenas 5 estudos (20\%) trazem evidências obtidas com dados e profission
 \subsection{QP3 -- Que tipos de estudo empírico são adotados?}
 \label{sec:qp3}
 
-Para responder a esta questão, não bastou repetir o que cada artigo diz sobre si mesmo. Os estudos foram classificados pela estratégia empírica que de fato adotam, seguindo \citeonline{wohlin2000}. O livro descreve três estratégias. A \textit{survey} aplica questionários ou entrevistas a uma amostra representativa de uma população definida. O estudo de caso acompanha um projeto ou uma atividade real enquanto ela acontece. Já o experimento exige que os tratamentos sejam atribuídos de forma aleatória, que as hipóteses nula (H0) e alternativa (H1) sejam formuladas ainda no planejamento e que os resultados passem por um teste estatístico; quando não há atribuição aleatória, fala-se em quase-experimento. Abordagens como \textit{design science}, prova de conceito e estudo de viabilidade não aparecem entre essas estratégias, por isso esses estudos foram classificados pela forma como avaliaram seus resultados.
+Para responder a esta questão, não bastou repetir o que cada artigo diz sobre si mesmo. Os estudos foram classificados pela estratégia empírica que de fato adotam. Um estudo com validação empírica segue um protocolo, o que permite reproduzi-lo, e gera evidência sobre seus resultados, por isso eles são mais confiáveis do que os de um estudo sem essa validação. \citeonline{wohlin2000} descrevem três estratégias empíricas. A \textit{survey} aplica questionários ou entrevistas a uma amostra representativa de uma população definida. O estudo de caso acompanha um projeto ou uma atividade real enquanto ela acontece. Já o experimento exige que os tratamentos sejam atribuídos de forma aleatória, que as hipóteses nula (H0) e alternativa (H1) sejam formuladas ainda no planejamento e que os resultados passem por um teste estatístico; quando não há atribuição aleatória, fala-se em quase-experimento. Abordagens como \textit{design science}, prova de conceito e estudo de viabilidade não aparecem entre essas estratégias, por isso esses estudos foram classificados pela forma como avaliaram seus resultados.
 
-Quando se olha apenas para o que os autores declaram, o experimento é o tipo mais comum, citado por 13 estudos (52\%). Em seguida vêm 4 estudos (16\%) que não nomeiam o método, 3 (12\%) que se apresentam como \textit{design science} e 2 (8\%) como estudo de caso, além de 1 quase-experimento, 1 prova de conceito e 1 estudo de viabilidade. O quadro muda quando os critérios do livro são aplicados: apenas 2 estudos (8\%) adotam de fato uma estratégia empírica. Os dois são estudos de caso conduzidos na indústria, um com um sistema implantado em produção \cite{baker2026} e outro com uma ferramenta usada por uma empresa durante dois meses \cite{ferreira2025}. Mesmo nesses casos, os resultados dizem respeito ao contexto observado e são mais difíceis de generalizar do que os de um experimento. Os demais 23 estudos (92\%) não se enquadram em nenhuma das estratégias.
+Quando se olha apenas para o que os autores declaram, o experimento é o tipo mais comum, citado por 13 estudos (52\%). Em seguida vêm 4 estudos (16\%) que não nomeiam o método, 3 (12\%) que se apresentam como \textit{design science} e 2 (8\%) como estudo de caso, além de 1 quase-experimento, 1 prova de conceito e 1 estudo de viabilidade. O quadro muda quando os critérios de \citeonline{wohlin2000} são aplicados: apenas 2 estudos (8\%) adotam de fato uma estratégia empírica. Os dois são estudos de caso conduzidos na indústria, um com um sistema implantado em produção \cite{baker2026} e outro com uma ferramenta usada por uma empresa durante dois meses \cite{ferreira2025}. Mesmo nesses casos, os resultados dizem respeito ao contexto observado e são mais difíceis de generalizar do que os de um experimento. Os demais 23 estudos (92\%) não se enquadram em nenhuma das estratégias.
 
-Os motivos variam. A maior parte, 14 estudos (56\%), compara técnicas, modelos ou \textit{prompts}, mas nenhum deles formula H0 e H1 no planejamento, apenas 4 aplicam teste estatístico e só 1 sorteia a distribuição dos participantes entre os tratamentos. Outros 4 (16\%) avaliam as saídas por questionário, mas com pessoas convidadas por conveniência e sem uma população definida, o que não caracteriza uma \textit{survey}. Há ainda 2 estudos (8\%) que se dizem estudos de caso sem acompanhar um projeto em andamento. Em outras palavras, muitos estudos usam o vocabulário da pesquisa empírica sem adotar o desenho que lhe dá sustentação.
+Os motivos variam. A maior parte, 14 estudos (56\%), compara técnicas, modelos ou \textit{prompts}, mas nenhum deles formula H0 e H1 no planejamento, apenas 4 aplicam teste estatístico e só 1 sorteia a distribuição dos participantes entre os tratamentos. O estudo que mais se aproxima de um experimento é um quase-experimento declarado, que compara especificações geradas por dois LLMs e testa estatisticamente a hipótese nula, mas a apresenta apenas na análise dos resultados, sem formulá-la no planejamento nem definir a hipótese alternativa \cite{hassani2026}. Outros 4 (16\%) avaliam as saídas por questionário, mas com pessoas convidadas por conveniência e sem uma população definida, o que não caracteriza uma \textit{survey}. Há ainda 2 estudos (8\%) que se dizem estudos de caso sem acompanhar um projeto em andamento, e 3 (12\%) não medem os resultados com nenhum instrumento definido, como métrica, questionário ou gabarito, limitando-se a exemplos ilustrativos ou a \textit{feedback} informal. Em outras palavras, muitos estudos usam o vocabulário da pesquisa empírica sem adotar o desenho que lhe dá sustentação.
 
 As amostras também costumam ser pequenas. Dos 16 estudos que informam ou permitem estimar o número de participantes, 12 trabalham com até 21 pessoas, e somente 3 chegam a 40 ou mais. Assim, a literatura ainda não oferece um experimento, no sentido de \citeonline{wohlin2000}, que compare técnicas de geração de CA com hipóteses e teste estatístico.
 
@@ -493,48 +493,12 @@ Como métricas, escalas e amostras diferem, os resultados não podem ser compara
 \subsection{QP9 -- Quais limitações e desafios são mais relatados nos estudos sobre geração de critérios de aceitação com LLMs?}
 \label{sec:qp9}
 
-\todo[inline]{Orientador (06/11): o número de estudos que declaram ameaças à validade (9) deve ser coerente com o de estudos com validação empírica (QP3). Definir o critério de ``apenas menções''.}
+As limitações e os desafios relatados pelos estudos foram agrupados por tema e se dividem em dois grupos: os da forma como os estudos foram conduzidos e avaliados e os da própria geração de CA com LLMs. Como um mesmo estudo pode relatar mais de um tema, os totais ultrapassam 25.
 
-A Tabela~\ref{tab:limitacoes} agrupa por tema as limitações e os desafios relatados nos 25 estudos, com a numeração da Tabela~\ref{tab:artigos}. Como um estudo pode relatar mais de um tema, os totais ultrapassam 25.
+A limitação mais frequente é a dificuldade de generalizar os resultados, relatada por 21 estudos (84\%). Os próprios autores reconhecem que trabalharam com um único domínio ou caso, com amostras pequenas e com poucos dados reais, o que é coerente com o predomínio do contexto acadêmico (Seção~\ref{sec:qp2}) e com as amostras pequenas observadas na Seção~\ref{sec:qp3}. A própria avaliação também aparece como limitação em 16 estudos (64\%), seja porque os CA não foram avaliados diretamente, seja porque a avaliação ficou a cargo apenas de um LLM ou se restringiu à sintaxe. \citeonline{li2024} observam ainda que não existe uma métrica específica para a qualidade de CA, o que ajuda a explicar a variedade de métricas vista na Seção~\ref{sec:qp8}. Além disso, 4 estudos (16\%) admitem que a replicação é limitada, porque os dados ou os \textit{prompts} não foram publicados.
 
-\begin{table}[H]
-  \centering
-  \caption{Limitações e desafios por tema}
-  \label{tab:limitacoes}
-  \small
-  \begin{tabular}{|p{0.36\textwidth}|p{0.36\textwidth}|c|c|}
-    \hline
-    \textbf{Tema} & \textbf{Estudos} & \textbf{Total} & \textbf{\%} \\ \hline
-    Generalização limitada (domínio ou caso único, amostra pequena, poucos dados reais) & 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 e 18, 14, 16, 19, 20, 21, 22, 23, 25, 26 & 21 & 84\% \\ \hline
-    Alucinação, inconsistência ou conteúdo irrelevante & 2, 3, 4, 5, 6, 7, 8, 11, 14, 19, 20, 21, 22, 24, 25 & 15 & 60\% \\ \hline
-    Avaliação limitada dos CA ou dos resultados & 1, 2, 4, 5, 6, 10, 12, 13 e 18, 14, 15, 16, 19, 21, 22 & 14 & 56\% \\ \hline
-    Dependência do modelo, do \textit{prompt} ou dos parâmetros & 2, 3, 4, 5, 7, 8, 11, 19, 24, 25, 26 & 11 & 44\% \\ \hline
-    Custo, escala e limites técnicos & 3, 8, 9, 11, 13 e 18, 14, 15, 19, 20, 22, 25 & 11 & 44\% \\ \hline
-    Dependência da qualidade da entrada ou do contexto & 3, 7, 9, 10, 11, 12, 13 e 18, 19, 20 & 9 & 36\% \\ \hline
-    Necessidade de revisão humana & 5, 8, 12, 15, 16, 17, 21, 24, 25 & 9 & 36\% \\ \hline
-    Adoção, confiança e privacidade & 4, 7, 16, 17, 20, 21, 25 & 7 & 28\% \\ \hline
-    Replicação limitada (dados ou \textit{prompts} não públicos) & 4, 5, 6, 9, 25 & 5 & 20\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+Quanto à qualidade das saídas, 16 estudos (64\%) relatam alucinação, inconsistência ou conteúdo irrelevante. Alguns descrevem problemas próprios dos CA, como o excesso de critérios de pouco valor \cite{rotar2025}, critérios redundantes ou extensos demais \cite{wang2025,li2024}, falhas em casos de borda e em entradas negativas \cite{wang2025,zyberaj2026}, critérios fora do escopo da história \cite{spijkman2025} e critérios ausentes ou genéricos \cite{brockenbrough2024}. Os resultados também variam conforme as escolhas feitas na geração: 12 estudos (48\%) apontam dependência do modelo, do \textit{prompt} ou dos parâmetros, isto é, os CA mudam conforme o LLM usado, a forma como a instrução e os exemplos são escritos ou configurações como a temperatura, e 11 (44\%) apontam dependência da qualidade da entrada ou do contexto fornecido.
 
-A limitação mais relatada é a generalização, presente em 21 estudos (84\%), o que é coerente com o predomínio de amostras pequenas e de estudos em um único domínio. Em seguida, 15 estudos (60\%) relatam alucinação, inconsistência ou conteúdo irrelevante, e 14 (56\%) apontam limitações na própria avaliação, como a ausência de avaliação dos CA, o uso exclusivo de LLM como juiz ou a verificação apenas da sintaxe.
+No uso prático, 11 estudos (44\%) relatam custo, escala ou limites técnicos, e 6 (24\%) mencionam barreiras de adoção, confiança e privacidade. Outros 10 estudos (40\%) destacam a necessidade de revisão humana, o que indica que os CA gerados ainda funcionam como apoio ao trabalho dos analistas, e não como substituto.
 
-Alguns estudos descrevem problemas específicos dos CA: excesso de critérios de pouco valor (3), CA redundantes ou extensos (6 e 7), falhas em casos de borda e entradas negativas (6 e 12), CA fora do escopo (25) e critérios ausentes ou genéricos (24). Nove estudos (36\%) relatam dependência da qualidade da entrada, e outros nove destacam a necessidade de revisão humana, o que indica que os CA gerados ainda funcionam como apoio, e não como substituição do trabalho dos analistas.
-
-\begin{table}[H]
-  \centering
-  \caption{Declaração de ameaças à validade}
-  \label{tab:ameacas-declaradas}
-  \small
-  \begin{tabular}{|p{0.32\textwidth}|p{0.38\textwidth}|c|c|}
-    \hline
-    \textbf{Situação} & \textbf{Estudos} & \textbf{Total} & \textbf{\%} \\ \hline
-    Ameaças declaradas & 2, 5, 6, 7, 9, 10, 21, 25, 26 & 9 & 36\% \\ \hline
-    Apenas menções, sem seção própria & 1, 3, 4, 11, 12, 16, 20, 22, 23 & 9 & 36\% \\ \hline
-    Nenhuma ameaça declarada & 8, 13 e 18, 14, 15, 17, 19, 24 & 7 & 28\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
-
-Apenas 9 estudos (36\%) declaram ameaças à validade de forma explícita (Tabela~\ref{tab:ameacas-declaradas}). Entre eles, predominam as ameaças à validade externa (8 estudos), seguidas das de construto (5), internas (4) e de conclusão (3). O estudo 7 observa ainda que não existe uma métrica específica para a qualidade de CA, o que reforça a heterogeneidade identificada na QP8.
+Em síntese, as limitações mais relatadas dizem respeito menos à geração em si e mais à forma como ela é avaliada: resultados difíceis de generalizar, avaliações que não medem os CA diretamente e dados e procedimentos nem sempre disponíveis para replicação. Somadas à dependência do modelo, do \textit{prompt} e da entrada, elas mostram que a geração de CA com LLMs ainda depende de revisão humana para ser usada na prática.
