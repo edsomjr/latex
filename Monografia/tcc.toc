@@ -41,7 +41,7 @@
 \contentsline {subsection}{\numberline {3.3.2}QP2 -- Em que veículos os estudos foram publicados e em que contexto foram conduzidos?}{25}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}QP3 -- Que tipos de estudo empírico são adotados?}{26}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}QP4 -- Quais modelos de linguagem são mais utilizados na geração de critérios de aceitação?}{27}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}QP5 -- Quais técnicas são mais empregadas para apoiar a geração?}{29}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.5}QP5 -- Quais técnicas são mais empregadas para apoiar a geração?}{28}{subsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.3.6}QP6 -- Quais artefatos são fornecidos como entrada?}{29}{subsection.3.3.6}%
 \contentsline {subsection}{\numberline {3.3.7}QP7 -- Quais mecanismos automáticos de verificação ou refinamento dos critérios gerados?}{31}{subsection.3.3.7}%
 \contentsline {subsection}{\numberline {3.3.8}QP8 -- Quais métricas de avaliação são mais comumente usadas para avaliar os critérios de aceitação gerados?}{32}{subsection.3.3.8}%
@@ -71,3 +71,5 @@
 \contentsline {section}{\numberline {5.4}Próximos passos}{38}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Cronograma da segunda etapa}{38}{section.5.5}%
 \vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.23}%
