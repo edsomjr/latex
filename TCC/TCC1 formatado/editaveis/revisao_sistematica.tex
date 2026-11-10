@@ -44,28 +44,22 @@ investigação foi detalhada nas seguintes questões secundárias:
 
 \section{Estruturação da estratégia de busca}
 
-Para estruturar a solicitação de busca, foram utilizados os componentes
-registrados como população, contexto, intervenção e resultado do PICOC.
-A população foi representada por termos de visão computacional,
-inteligência artificial, redes neurais e aprendizado de máquina e profundo;
-o contexto, por hanseníase e classificação ou segmentação de lesões
-cutâneas; a intervenção, por modelos e arquiteturas de aprendizado de
-máquina; e o resultado, por termos de avaliação, métricas e tarefas de
-identificação. O \textit{prompt} preservado não apresenta um campo
-separado de comparação. As perguntas e a relação completa de termos,
-incluindo sinônimos e asteriscos, foram consolidadas no \textit{prompt}
-estruturado submetido à plataforma Consensus, apresentado na
-Subseção~\ref{subsec:prompt-consensus} (Quadro~\ref{qua:prompt-consensus}).
+Para estruturar a estratégia de busca da revisão, adotou-se o modelo PICOC
+(\textit{Population, Intervention, Comparison, Outcome, Context}) \cite{kitchenham2007},
+que adapta a formulação clínica clássica do PICO \cite{pai2004} às particularidades da engenharia
+de software e dos sistemas computacionais aplicados à saúde. Na condução desta revisão, os
+componentes do PICOC foram definidos na ordem canônica do protocolo:
+\begin{enumerate}
+\item \textbf{População (\textit{Population})}: compreende a população tecnológica e metodológica sob investigação, representada por termos de visão computacional, inteligência artificial, redes neurais e aprendizado de máquina e profundo;
+\item \textbf{Intervenção (\textit{Intervention})}: compreende os modelos, arquiteturas e algoritmos específicos de aprendizado de máquina empregados na análise e processamento das imagens cutâneas (tais como redes neurais convolucionais, \textit{Transformers} e modelos de segmentação);
+\item \textbf{Comparação (\textit{Comparison})}: \textbf{não aplicável}. Diferentemente de ensaios clínicos com grupos de controle fixos, esta revisão sistemática possui finalidade exploratória e descritiva, voltada a mapear de forma abrangente o estado da arte e todas as abordagens existentes de visão computacional voltadas à hanseníase. Dessa forma, a busca não foi condicionada a um grupo de controle, linha de base comparativa ou algoritmo específico de referência, acolhendo quaisquer configurações reportadas nos estudos primários;
+\item \textbf{Resultado (\textit{Outcome})}: abrange os termos associados à avaliação empírica de desempenho, métricas quantitativas diagnósticas (como acurácia, sensibilidade, especificidade, precisão, revocação e área sob a curva ROC) e tarefas de detecção, classificação ou segmentação;
+\item \textbf{Contexto (\textit{Context})}: delimita o domínio temático e clínico da aplicação, abrangendo a hanseníase (\textit{leprosy, Hansen's disease}) e a análise dermatológica de lesões cutâneas.
+\end{enumerate}
 
-A Figura~\ref{fig:pico-pai} apresenta a representação PICO de
-\citeonline{pai2004}, originalmente voltada à formulação de questões
-clínicas. Nela, \textit{patient}, \textit{intervention}, \textit{comparison}
-e \textit{outcome} correspondem, respectivamente, a paciente ou população,
-intervenção, comparação e resultado. O PICOC acrescenta o contexto a esses
-componentes. No procedimento deste trabalho, o \textit{prompt} utilizou
-população, intervenção, contexto e resultado, sem campo específico de
-comparação; a figura apresenta o modelo conceitual PICO e não afirma que
-uma busca booleana exatamente igual à ilustrada foi executada.
+As perguntas de pesquisa e a relação completa de termos, incluindo sinônimos e operadores de truncamento, foram consolidadas no \textit{prompt} estruturado submetido à plataforma Consensus, apresentado na Subseção~\ref{subsec:prompt-consensus} (Quadro~\ref{qua:prompt-consensus}).
+
+A Figura~\ref{fig:pico-pai} apresenta a representação conceitual clássica do modelo PICO de \citeonline{pai2004}, originalmente concebida no contexto de revisões sistemáticas em saúde. Nela, os componentes de \textit{population/patient}, \textit{intervention}, \textit{comparison} e \textit{outcome} são ilustrados como círculos cujas interseções concentram os estudos mais relevantes da busca. Para manter a coerência terminológica com o modelo PICOC adotado nesta revisão, o termo original em língua inglesa (\textit{patient}) foi traduzido e adaptado como \textbf{População}. O modelo PICOC estende essa formulação clássica ao incorporar formalmente o componente de \textbf{Contexto}. No procedimento deste trabalho, a busca orientou-se pelas facetas de População, Intervenção, Resultado e Contexto, explicitando-se o componente de Comparação como não aplicável; a figura ilustra o modelo conceitual PICO e não afirma que uma busca booleana estrita idêntica à esquematizada foi executada.
 
 \begin{figure}[htbp]
 \centering
@@ -78,27 +72,28 @@ uma busca booleana exatamente igual à ilustrada foi executada.
 \subsection{Definição dos componentes PICOC e string de busca}
 \label{subsec:picoc-string-busca}
 
-A formulação da estratégia de busca orientou-se pela adaptação dos elementos do modelo PICOC (\textit{Population, Intervention, Comparison, Outcome, Context}) \cite{pai2004,kitchenham2007}, permitindo delimitar termos centrais e sinônimos relevantes para recuperar estudos que investigam a aplicação de visão computacional e inteligência artificial no diagnóstico da hanseníase. A Tabela~\ref{tab:picoc-termos} detalha os termos centrais e os operadores de expansão semântica definidos para cada faceta do protocolo.
+A formulação da estratégia de busca orientou-se pela adaptação dos elementos do modelo PICOC (\textit{Population, Intervention, Comparison, Outcome, Context}) \cite{pai2004,kitchenham2007}, permitindo delimitar termos centrais e sinônimos relevantes para recuperar estudos que investigam a aplicação de visão computacional e inteligência artificial no diagnóstico da hanseníase. A Tabela~\ref{tab:picoc-termos} detalha os termos centrais e os operadores de expansão semântica definidos para cada faceta do protocolo na ordem do modelo PICOC, formalizando a não aplicabilidade do componente de Comparação.
 
 \begin{table}[htb]
 \centering
 \caption{Componentes do modelo PICOC adaptado e termos de busca}
 \label{tab:picoc-termos}
 \small
-\begin{tabular}{p{2.6cm} p{3.0cm} p{8.4cm}}
+\begin{tabular}{p{2.6cm} p{3.2cm} p{8.2cm}}
 \toprule
 \textbf{Elemento} & \textbf{Termo Central} & \textbf{Sinônimos e Termos Relacionados} \\
 \midrule
-\textbf{População} & \textit{Computer Vision} / IA & \textit{artificial intelligence}, \textit{CNN}, \textit{convolutional neural network*}, \textit{deep learning}, \textit{machine learning}, \textit{neural network*} \\
-\textbf{Intervenção} & Modelos de Aprendizado & \textit{ResNet*}, \textit{DenseNet*}, \textit{EfficientNet*}, \textit{U-Net}, \textit{UNet}, \textit{Attention U-Net}, \textit{Vision Transformer*}, \textit{ViT}, \textit{ConvNeXt*}, \textit{Swin Transformer*}, \textit{transfer learning}, \textit{supervised learning} \\
-\textbf{Contexto} & Hanseníase & \textit{leprosy}, \textit{Hansen disease}, \textit{Hansen's disease}, \textit{hanseniasis}, \textit{skin lesion classification}, \textit{skin lesion segmentation} \\
-\textbf{Desfecho} (\textit{Outcome}) & Desempenho e Métricas & \textit{accuracy}, \textit{AUC}, \textit{ROC-AUC}, \textit{sensitivity}, \textit{specificity}, \textit{precision}, \textit{recall}, \textit{F1-score}, \textit{detection}, \textit{diagnosis}, \textit{evaluation}, \textit{segmentation} \\
+\textbf{População} (\textit{Population}) & \textit{Computer Vision} / IA & \textit{artificial intelligence}, \textit{CNN}, \textit{convolutional neural network*}, \textit{deep learning}, \textit{machine learning}, \textit{neural network*} \\
+\textbf{Intervenção} (\textit{Intervention}) & Modelos de Aprendizado & \textit{ResNet*}, \textit{DenseNet*}, \textit{EfficientNet*}, \textit{U-Net}, \textit{UNet}, \textit{Attention U-Net}, \textit{Vision Transformer*}, \textit{ViT}, \textit{ConvNeXt*}, \textit{Swin Transformer*}, \textit{transfer learning}, \textit{supervised learning} \\
+\textbf{Comparação} (\textit{Comparison}) & Não aplicável & Não aplicável ao escopo da revisão (mapeamento abrangente sem restrição a grupo de controle ou modelo de referência específico) \\
+\textbf{Resultado} (\textit{Outcome}) & Desempenho e Métricas & \textit{accuracy}, \textit{AUC}, \textit{ROC-AUC}, \textit{sensitivity}, \textit{specificity}, \textit{precision}, \textit{recall}, \textit{F1-score}, \textit{detection}, \textit{diagnosis}, \textit{evaluation}, \textit{segmentation} \\
+\textbf{Contexto} (\textit{Context}) & Hanseníase & \textit{leprosy}, \textit{Hansen disease}, \textit{Hansen's disease}, \textit{hanseniasis}, \textit{skin lesion classification}, \textit{skin lesion segmentation} \\
 \bottomrule
 \end{tabular}
 \fonte{Autores.}
 \end{table}
 
-A partir do mapeamento dos componentes, a string de busca foi estruturada aplicando o operador lógico booleano \texttt{OR} entre os termos e sinônimos no interior de cada dimensão temática, e o operador booleano \texttt{AND} para conectar as quatro facetas fundamentais do protocolo (\textit{População} \texttt{AND} \textit{Intervenção} \texttt{AND} \textit{Contexto} \texttt{AND} \textit{Desfecho}). A consulta booleana estruturada é apresentada a seguir:
+A partir do mapeamento dos componentes, a string de busca foi estruturada aplicando o operador lógico booleano \texttt{OR} entre os termos e sinônimos no interior de cada dimensão temática, e o operador booleano \texttt{AND} para conectar as quatro facetas fundamentais do protocolo (\textit{População} \texttt{AND} \textit{Intervenção} \texttt{AND} \textit{Resultado} \texttt{AND} \textit{Contexto}). A consulta booleana estruturada é apresentada a seguir:
 
 \begin{center}
 \fbox{
@@ -106,11 +101,11 @@ A partir do mapeamento dos componentes, a string de busca foi estruturada aplica
 \footnotesize\ttfamily
 ( "Computer Vision" OR "artificial intelligence" OR "CNN" OR "convolutional neural network*" OR "deep learning" OR "machine learning" OR "neural network*" ) \\
 \textbf{AND} \\
-( "leprosy" OR "Hansen disease" OR "Hansen's disease" OR "hanseniasis" OR "skin lesion classification" OR "skin lesion segmentation" ) \\
-\textbf{AND} \\
 ( "ResNet*" OR "DenseNet*" OR "EfficientNet*" OR "U-Net" OR "UNet" OR "Vision Transformer*" OR "ViT" OR "transfer learning" OR "supervised learning" OR "Few-shot" ) \\
 \textbf{AND} \\
-( "accuracy" OR "AUC" OR "sensitivity" OR "specificity" OR "precision" OR "recall" OR "F1-score" OR "ROC-AUC" OR "evaluation" OR "detection" OR "segmentation" )
+( "accuracy" OR "AUC" OR "sensitivity" OR "specificity" OR "precision" OR "recall" OR "F1-score" OR "ROC-AUC" OR "evaluation" OR "detection" OR "segmentation" ) \\
+\textbf{AND} \\
+( "leprosy" OR "Hansen disease" OR "Hansen's disease" OR "hanseniasis" OR "skin lesion classification" OR "skin lesion segmentation" )
 \end{minipage}
 }
 \end{center}
