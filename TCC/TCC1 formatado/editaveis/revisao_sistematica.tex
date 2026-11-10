@@ -462,21 +462,23 @@ de cada exclusão.
 \caption{Fluxo de identificação, triagem e inclusão dos estudos}
 \label{fig:fluxo-triagem}
 \begin{tikzpicture}[
-  box/.style={draw,rounded corners=2pt,align=center,text width=3.6cm,minimum height=1.0cm,inner sep=5pt,font=\small},
-  wide/.style={box,text width=7.6cm},
+  box/.style={draw,rounded corners=2pt,align=center,minimum height=1.05cm,inner sep=5pt,font=\small},
+  wide/.style={box,text width=7.8cm},
   arrow/.style={-{Stealth[length=2.3mm]},thick}
 ]
 \node[wide] (identified) {Registros informados: 130\\(Consensus: 100; Claude: 30)};
-\node[wide,below=1.5cm of identified] (screened) {Registros após deduplicação: 118\\para triagem por título e resumo};
-\draw[arrow] (identified) -- node[right=3mm,align=left,font=\scriptsize,text width=4cm] {12 registros removidos\\(duplicatas / pré-triagem)} (screened);
-\node[box,text width=4.6cm,below=1.15cm of screened,xshift=-4.7cm] (excluded) {Registros excluídos: 91\\Não aborda hanseníase: 67\\Nenhum motivo\\especificado: 24};
-\node[box,below=1.15cm of screened] (included) {Incluídos na triagem\\26 registros};
-\node[box,below=1.15cm of screened,xshift=4.3cm] (maybe) {Decisão\\intermediária\\1 registro};
+\node[wide,below=1.3cm of identified] (screened) {Registros após deduplicação: 118\\para triagem por título e resumo};
+\draw[arrow] (identified) -- node[right=3mm,align=left,font=\scriptsize,text width=4.2cm] {12 registros removidos\\(duplicatas / pré-triagem)} (screened);
+
+\node[box,text width=4.5cm,below=1.2cm of screened,xshift=-4.8cm] (excluded) {Registros excluídos: 91\\Não aborda hanseníase: 67\\Nenhum motivo especificado: 24\\[2pt]\footnotesize(e 1 decisão intermediária)};
+\node[box,text width=3.6cm,below=1.2cm of screened] (included) {Incluídos na triagem\\26 registros};
 \draw[arrow] (screened.south) -- ++(0,-0.45) -| (excluded.north);
 \draw[arrow] (screened.south) -- (included.north);
-\draw[arrow] (screened.south) -- ++(0,-0.45) -| (maybe.north);
-\node[box,below=0.85cm of included] (fulltext) {Leitura integral e extração\\25 estudos incluídos\\(1 selecionado e não extraído)};
-\draw[arrow] (included) -- (fulltext);
+
+\node[box,text width=3.8cm,below=1.5cm of included] (fulltext) {Leitura integral\\e extração\\25 estudos incluídos};
+\node[box,text width=4.6cm,below=1.5cm of included,xshift=4.8cm] (not_extracted) {1 selecionado e não extraído\\[2pt]Exclusão em texto completo\\(``Não aborda hanseníase'')};
+\draw[arrow] (included.south) -- (fulltext.north);
+\draw[arrow] (included.south) -- ++(0,-0.65) -| (not_extracted.north);
 \end{tikzpicture}
 \fonte{Autores.}
 \end{figure}
