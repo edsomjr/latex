@@ -231,46 +231,178 @@ Brasil.
 Este trabalho adota uma revisão estruturada da literatura para identificar e
 analisar evidências sobre a avaliação de modelos de visão computacional
 aplicados à identificação de padrões associados à hanseníase em imagens de
-pele. A revisão compreende a definição das questões de pesquisa, da estratégia
-de busca, dos critérios de seleção e do formulário de extração de dados.
+pele. A Figura~\ref{fig:percurso-metodologico} apresenta o percurso da
+revisão, do problema de pesquisa à síntese das evidências.
 
-A condução abrange a identificação dos registros, a remoção de duplicatas, a
-triagem por título e resumo, a avaliação dos textos completos e a síntese das
-evidências dos estudos incluídos. Esses procedimentos, os critérios aplicados
-e o fluxo de seleção dos estudos são detalhados no Capítulo~3.
+\begin{figure}[htbp]
+\centering
+\small
+\begin{tikzpicture}[
+  node distance=0.7cm and 0.6cm,
+  etapa/.style={draw=black, thick, rounded corners=4pt, fill=white,
+    text width=2.3cm, minimum height=1.25cm, align=center, font=\footnotesize, inner sep=3pt},
+  inicio/.style={circle, fill=black, minimum size=0.45cm, inner sep=0pt},
+  seta/.style={-{Stealth[length=2.2mm]}, thick}
+]
+\node[inicio] (ini) {};
+\node[etapa, right=0.55cm of ini] (a1) {Problema e questão de pesquisa (GQM)};
+\node[etapa, right=of a1] (a2) {Protocolo da revisão};
+\node[etapa, right=of a2] (a3) {Busca};
+\node[etapa, right=of a3] (a4) {Triagem};
+\node[etapa, below=of a4] (b5) {Leitura integral};
+\node[etapa, left=of b5] (b6) {Extração};
+\node[etapa, left=of b6] (b7) {Síntese};
+\node[circle, draw=black, thick, minimum size=0.6cm, inner sep=0pt, left=0.55cm of b7] (fim) {};
+\fill (fim.center) circle (0.2cm);
+\draw[seta] (ini) -- (a1);
+\draw[seta] (a1) -- (a2);
+\draw[seta] (a2) -- (a3);
+\draw[seta] (a3) -- (a4);
+\draw[seta] (a4) -- (b5);
+\draw[seta] (b5) -- (b6);
+\draw[seta] (b6) -- (b7);
+\draw[seta] (b7) -- (fim);
+\end{tikzpicture}
+\caption{Fluxo de atividades da revisão estruturada da literatura}
+\label{fig:percurso-metodologico}
+\fonte{Elaboração própria.}
+\end{figure}
+
+\subsection{Classificação do estudo}
+
+A classificação segue as dimensões do Capítulo~2 de \citeonline{wohlin2024}.
+
+\begin{itemize}
+\item \textbf{Finalidade descritiva} \cite[p.~11--13]{wohlin2024}. A pesquisa
+descritiva descreve um fenômeno ou as características de um problema, e sua
+questão costuma começar com ``o quê'' ou ``como'' \cite[p.~12]{wohlin2024}.
+A questão norteadora começa com ``Como'', e os objetivos específicos 1 a 4
+pedem caracterizar, identificar, sistematizar e examinar o que os estudos
+reportam.
+
+\item \textbf{Abordagem mista} \cite[p.~13]{wohlin2024}. A extração reúne
+dados quantitativos (como número de imagens e métricas) e qualitativos (como
+tarefa, modelo e população). O Capítulo~\ref{cap:revisao-literatura} combina
+contagens e tabelas com síntese descritiva.
+
+\item \textbf{Coleta por estudo de literatura estruturado}
+\cite[p.~16--17]{wohlin2024}. A revisão tem questões de pesquisa, protocolo,
+estratégia de busca, critérios explícitos de seleção e formulário de extração,
+características que \citeonline[p.~4]{kitchenham2007} apontam como diferenciais
+da revisão sistemática em relação à revisão convencional.
+
+\item \textbf{Análise descritiva e por classificação}
+\cite[p.~18]{wohlin2024}. Os estudos são resumidos por contagens e tabelas e
+classificados por tarefa, modelo e procedimento de avaliação.
+\end{itemize}
+
+\subsection{Etapas e atividades da revisão}
+
+A Tabela~\ref{tab:etapas-metodologia} lista as atividades realizadas na revisão
+e indica onde cada uma é apresentada.
+
+\begin{table}[htb]
+\centering
+\caption{Atividades realizadas na revisão estruturada}
+\label{tab:etapas-metodologia}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{5.6cm} >{\raggedright\arraybackslash}p{6.0cm}}
+\toprule
+\textbf{Atividade} & \textbf{Descrição} & \textbf{Onde está} \\
+\midrule
+Problema e questão de pesquisa & Definição do problema, da questão norteadora (GQM adaptado) e dos objetivos & Capítulo~1 \\
+Protocolo da revisão & Questões de pesquisa, estratégia de busca (PICOC), critérios de seleção e formulário de extração & Capítulo~\ref{cap:revisao-literatura}, seções ``Planejamento e protocolo'' e ``Estruturação da estratégia de busca''; subseções ``Critérios de seleção'' e ``Extração e síntese das evidências''; Figura~\ref{fig:fluxo-metodologico-ia} \\
+Busca & Execução da busca e identificação dos registros & Capítulo~\ref{cap:revisao-literatura}, seção ``Realização da busca e seleção dos artigos'' \\
+Triagem & Seleção por título e resumo, com os critérios do protocolo & Mesma seção; Figura~\ref{fig:fluxo-triagem} \\
+Leitura integral & Leitura dos textos completos e confirmação da elegibilidade & Mesma seção \\
+Extração & Preenchimento do formulário de extração dos estudos incluídos & Subseção ``Extração e síntese das evidências'' \\
+Síntese & Síntese das evidências por questão de pesquisa & Seção ``Resultados da revisão'' \\
+\bottomrule
+\end{tabular}
+\fonte{Elaboração própria.}
+\end{table}
+
+\subsection{Evidências da revisão e elementos do escopo e do planejamento}
+
+As evidências reunidas na revisão estruturada (Capítulo~\ref{cap:revisao-literatura})
+organizam-se em consonância com as etapas de definição do escopo (\textit{Scoping}, Capítulo~8)
+e de planejamento (\textit{Planning}, Capítulo~9) do processo experimental de \citeonline{wohlin2024},
+apresentado no Capítulo~\ref{cap:referencial-teorico} (Figura~\ref{fig:processo-experimento}):
+
+\begin{itemize}
+\item \textbf{Definição do escopo (\textit{Scoping}, Capítulo~8)} \cite[p.~109--114]{wohlin2024}:
+o escopo é formalizado por um modelo de objetivo estruturado em cinco elementos fundamentais:
+objeto de estudo, propósito, foco de qualidade, perspectiva e contexto \cite[p.~109--110]{wohlin2024}.
+No presente trabalho, o modelo GQM adaptado (Quadro da Seção~\ref{gqm-adaptado-e-questuxe3o-de-pesquisa})
+cumpre essa função, delimitando os modelos de visão computacional (objeto) voltados a avaliar o desempenho
+diagnóstico (propósito), focando a identificação de manifestações da hanseníase (foco), sob a perspectiva
+de pesquisadores e da atenção à saúde, no contexto da triagem na rede pública do Brasil.
+
+\item \textbf{Planejamento experimental (\textit{Planning}, Capítulo~9)} \cite[p.~115--144]{wohlin2024}:
+o planejamento operacionaliza o escopo em sete dimensões: seleção do contexto (Seção~9.1),
+formulação de hipóteses (Seção~9.2), seleção de variáveis dependentes e independentes (Seção~9.3),
+seleção de sujeitos e populações (Seção~9.4), desenho experimental (Seção~9.5), instrumentação
+(Seção~9.6) e avaliação de ameaças à validade (Seções~9.7 e 9.8).
+\end{itemize}
+
+A Tabela~\ref{tab:planejamento-wohlin} relaciona cada um desses elementos ao que a revisão
+reúne e aos limites das evidências identificadas na literatura. A correspondência dá-se por analogia:
+os sujeitos descritos por Wohlin correspondem aqui aos conjuntos de dados e às amostras demográficas de imagens
+clínicas de lesões, enquanto os objetos experimentais correspondem aos modelos e algoritmos de visão
+computacional sob avaliação.
+
+\begin{table}[htb]
+\centering
+\caption{Elementos do escopo e do planejamento experimental e evidências da revisão}
+\label{tab:planejamento-wohlin}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}p{6.5cm}}
+\toprule
+\textbf{Elemento (seção; página)} & \textbf{O que a revisão reúne} & \textbf{Limite das evidências} \\
+\midrule
+Escopo (8.1; p.~109--110) & GQM adaptado: objeto, propósito, foco, perspectiva e contexto & ``Foco'' e ``contexto'' descrevem domínio e cenário de uso \\
+Contexto e sujeitos (9.1 e 9.4; p.~115 e 118) & Contexto do GQM (rede pública de saúde do Brasil); conjuntos de dados e populações usados nos estudos & Poucos estudos caracterizam o tom de pele da base \\
+Variáveis (9.3; p.~118) & Modelos e abordagens identificados; métricas e procedimentos reportados & Em dois estudos, o desempenho para a hanseníase é bem inferior ao indicador global ou ao Top-5 (Subseção~\ref{subsec:rq4-metricas}) \\
+Desenho (9.5; p.~119) & Procedimentos de avaliação dos estudos (divisão dos dados e validação) & A maior parte dos estudos que desenvolvem modelos não informa a unidade da divisão dos dados, e poucos testam em outra base (Subseção~\ref{subsec:rq3-metodos}) \\
+Validade (9.7 e 9.8; p.~128 a 138) & Lacunas da evidência (separação por paciente, generalização e tom de pele) & Nenhum estudo com dados reporta, no texto principal, desempenho por tom de pele (Subseção~\ref{subsec:rq5-rq6-tom-pele}) \\
+\bottomrule
+\end{tabular}
+\fonte{Elaboração própria, com os elementos dos capítulos 8 e 9 de \citeonline{wohlin2024}.}
+\end{table}
 
 \section{Organização do trabalho}
 
 Este trabalho está organizado em três capítulos. O primeiro apresenta o
-contexto, o problema de pesquisa, a questão norteadora e os objetivos. O
-segundo reúne os fundamentos sobre pesquisa empírica, hanseníase, visão
-computacional e avaliação de modelos. O terceiro descreve o planejamento,
-a busca e a seleção dos estudos da revisão de literatura, bem como os
-procedimentos previstos para a extração e a síntese das evidências. Ao
-final, são apresentadas as referências e os apêndices.
+contexto, o problema de pesquisa, a questão norteadora, os objetivos e a
+metodologia. O segundo reúne os fundamentos sobre pesquisa empírica,
+hanseníase, visão computacional e avaliação de modelos. O terceiro apresenta a
+revisão estruturada da literatura: o planejamento e o protocolo, a estratégia
+de busca, a seleção dos estudos, a extração e a síntese das evidências e os
+resultados, organizados pelas questões de pesquisa. Ao final, são apresentadas
+as referências e os apêndices.
 
 \section{Cronograma e fluxo de atividades}
 
-O trabalho está organizado em etapas que compreendem o planejamento da
-pesquisa, a revisão da literatura e a análise das evidências obtidas. O
-fluxo apresentado a seguir descreve a sequência das atividades; as datas,
-a duração de cada etapa e eventuais atividades experimentais posteriores
-devem ser definidas com a orientação.
+Esta seção apresenta as atividades realizadas, em forma de fluxo na
+Figura~\ref{fig:percurso-metodologico}.
 
-\subsection{Atividades da primeira etapa}
+\begin{itemize}
+\item \textbf{Definição do problema, da questão de pesquisa e dos objetivos:}
+formulação do problema e da questão norteadora, com o GQM adaptado, e dos
+objetivos geral e específicos.
+\item \textbf{Elaboração do protocolo da revisão:} definição das questões de
+pesquisa, da estratégia de busca (PICOC), dos critérios de inclusão e exclusão
+e do formulário de extração.
+\item \textbf{Busca dos registros:} execução da busca e identificação dos
+registros.
+\item \textbf{Triagem:} seleção por título e resumo, com os critérios do
+protocolo.
+\item \textbf{Leitura integral:} leitura dos textos completos e confirmação da
+elegibilidade.
+\item \textbf{Extração:} preenchimento do formulário de extração dos estudos
+incluídos.
+\item \textbf{Síntese:} síntese das evidências por questão de pesquisa.
+\end{itemize}
 
-Na primeira etapa, foram estabelecidos o problema, a questão de pesquisa e os
-objetivos; estruturado o protocolo da revisão; e realizada a identificação e
-a triagem inicial dos estudos. Em seguida, realizou-se a leitura integral
-dos registros selecionados, a confirmação de sua elegibilidade, a extração
-das informações e a síntese dos resultados. O estado da triagem e as
-pendências são apresentados no Capítulo~\ref{cap:revisao-literatura}.
-
-\subsection{Atividades da segunda etapa}
-
-A continuidade do trabalho dependerá dos resultados da revisão e das
-definições acordadas com a orientação. Entre as atividades a planejar estão
-o aprofundamento da análise das evidências e a definição de procedimentos
-para uma avaliação futura de modelos no contexto de apoio à triagem. A
-realização de experimentos, a disponibilidade de dados e os prazos dessa
-etapa ainda precisam ser estabelecidos.
+O fluxo de seleção e os resultados são apresentados no
+Capítulo~\ref{cap:revisao-literatura}.
