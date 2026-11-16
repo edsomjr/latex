@@ -270,6 +270,10 @@ Cinco estudos comparam estratégias de \textit{prompt} entre si. \citeonline{kar
 
 Ao redor do \textit{prompt}, 6 estudos (25\%) organizam a geração em sistemas multiagentes, em que vários agentes com papéis diferentes trocam resultados entre si. Em \citeonline{rotar2025}, por exemplo, um agente analista de negócio escreve a história e os CA, e agentes revisores de interface e de desenvolvimento os complementam. Em \citeonline{huang2026}, um supervisor coordena um agente que valida o \textit{ticket} e outro que gera os cenários. Isso é diferente do que fazem \citeonline{li2024}, em que um único modelo apenas assume papéis diferentes em sequência, sem agentes independentes. Outros 6 estudos (25\%) recuperam contexto antes da geração, com RAG ou mecanismos parecidos, já descritos na Seção~\ref{sec:qp6}, e 2 (8\%) usam entrada multimodal, com telas da interface ou fluxogramas. Metade dos estudos (12) não usa nenhum desses recursos e depende apenas das estratégias de \textit{prompt}.
 
+O formato de saída, registrado no formulário de extração, mostra como os CA são escritos. Para essa análise, foram separadas três ideias que costumam aparecer juntas. O BDD é uma prática de desenvolvimento. O \textit{Gherkin} é uma linguagem com palavras-chave como \texttt{Feature}, \texttt{Scenario}, \texttt{Given}, \texttt{When} e \texttt{Then}, que ferramentas como o Cucumber conseguem ler e executar. Já a estrutura \textit{Given-When-Then} pode ser escrita em texto livre, sem essa sintaxe. Com essa distinção, 8 estudos (33\%) geram os CA em \textit{Gherkin}, citados a seguir conforme a técnica que usam, e 4 (17\%) usam apenas a estrutura \textit{Given-When-Then} \cite{baker2026,wang2025,avasiloaie2025,khelifa2026}. Em dois desses quatro, os autores chamam a saída de \textit{Gherkin}, embora ela não siga a sintaxe da linguagem \cite{wang2025,avasiloaie2025}. Outros 8 estudos (33\%) escrevem os CA como uma lista de frases em linguagem natural, e 4 (17\%) não mostram o formato.
+
+Entre os 8 estudos que geram \textit{Gherkin}, 4 dependem apenas de estratégias de \textit{prompt} \cite{hassani2026,ferreira2025,matveeva2025,karpurapu2024}, 2 recuperam contexto antes da geração \cite{zhang2025,schwedt2025}, 1 usa um sistema multiagente \cite{huang2026} e 1, entrada multimodal \cite{zyberaj2026}. Só 2 comparam estratégias entre si, ambos \textit{zero-shot} e \textit{few-shot} \cite{matveeva2025,karpurapu2024}, e nenhum compara a geração com e sem recuperação de contexto. O único estudo da revisão que faz essa comparação gera os CA em \textit{Given-When-Then} sem \textit{Gherkin} \cite{wang2025}. Nele, três LLMs julgaram quanto dos objetivos de teste definidos pela equipe cada história cobria, e a cobertura média foi de 46\% sem RAG e de 71\% com RAG textual e visual, sem hipóteses formuladas nem teste estatístico.
+
 Assim, a geração de CA ainda se apoia principalmente na forma de escrever o \textit{prompt}, e recursos como agentes, recuperação de contexto e entrada multimodal aparecem em uma minoria dos estudos. Além disso, poucos estudos comparam estratégias entre si, o que deixa em aberto qual delas produz CA melhores.
 
 % ---------------------------------------------------------------------------
@@ -283,6 +287,8 @@ A entrada mais comum é a história de usuário, usada por 11 estudos (46\%), qu
 Quanto ao contexto, 11 estudos (46\%) entregam ao modelo apenas a entrada primária, acompanhada de instruções ou exemplos genéricos, e 5 deles geram os CA somente a partir da história ou do \textit{ticket}. Os outros 13 (54\%) fornecem algum artefato sobre o sistema ou o domínio, como a descrição do produto, um glossário, o documento de \textit{design} funcional ou os detalhes do épico. Desses, 4 incluem também requisitos, histórias ou CA que já existiam, e 2 incluem código-fonte.
 
 O que diferencia esses 13 estudos é a forma como o contexto chega ao modelo. Em 7 deles, o contexto é colocado diretamente no \textit{prompt}. Em outros 4, ele é recuperado antes da geração, e cada estudo faz isso de um jeito. \citeonline{rotar2025} usam RAG para recuperar histórias que já existem na aplicação, com seus CA, e elas servem de exemplo para a geração. \citeonline{rawson2025} buscam requisitos relacionados em um índice, por busca lexical, e deixam o próprio LLM escolher os arquivos de código relevantes a partir de resumos. \citeonline{avasiloaie2025} indexam dados locais do projeto em vetores e os recuperam por \textit{embeddings}, mas não informam o que há nessa base. Já \citeonline{schwedt2025} usam um LLM para decidir quais \textit{issues} de repositórios públicos do mesmo domínio correspondem a cada história, e só essas entram no \textit{prompt}. Os 2 estudos restantes fornecem artefatos visuais a um modelo multimodal: um envia um fluxograma \cite{zyberaj2026}, e o outro recupera telas da interface junto com a documentação \cite{wang2025}. A recuperação aparece também em um estudo sem artefatos do sistema, que busca exemplos parecidos em um repositório (\textit{memory pool}) por similaridade de Jaccard, embora esse repositório tenha ficado vazio nos experimentos \cite{zhang2025}. No total, 17 estudos (71\%) colocam todo o conteúdo diretamente no \textit{prompt}, 5 (21\%) recuperam parte dele e 2 (8\%) combinam texto e imagem.
+
+Olhando apenas para os 8 estudos que geram \textit{Gherkin} (Seção~\ref{sec:qp5}), 4 partem de histórias de usuário ou de \textit{tickets} \cite{ferreira2025,huang2026,karpurapu2024,schwedt2025}, que é o mesmo caminho desta pesquisa, 2 partem de requisitos em linguagem natural \cite{zhang2025,zyberaj2026}, 1 de disposições legais \cite{hassani2026} e 1 de casos de uso \cite{matveeva2025}. Dos 4 que partem de histórias, 3 geram os cenários apenas a partir da história ou do \textit{ticket}, sem nenhum artefato do sistema \cite{ferreira2025,huang2026,karpurapu2024}, e o quarto acrescenta \textit{issues} de repositórios públicos do mesmo domínio e uma breve descrição desse domínio \cite{schwedt2025}. Nenhum deles fornece ao modelo a documentação ou os protótipos do próprio projeto. A exceção, fora desse grupo, é \citeonline{wang2025}, que parte de histórias reais do Jira e recupera a documentação do domínio e telas da interface do próprio sistema, mas gera os CA em \textit{Given-When-Then} sem a sintaxe do \textit{Gherkin}. Entre os outros estudos que usam \textit{Given-When-Then}, um parte de \textit{tickets} com uma rubrica da organização e detalhes do épico, sem documentação do projeto \cite{baker2026}, outro recupera por RAG dados locais do projeto, mas não informa o conteúdo dessa base \cite{avasiloaie2025}, e o terceiro parte de documentos de \textit{design} de jogos, sem contexto adicional \cite{khelifa2026}.
 
 Assim, na maioria dos casos, os CA ainda são gerados apenas a partir do texto da história ou do requisito, e o uso de contexto do sistema, sobretudo visual, é pouco explorado.
 
@@ -302,84 +308,25 @@ Só três estudos medem o efeito desses mecanismos sobre os CA, e cada um usa um
 \subsection{QP8 -- Quais métricas de avaliação são mais comumente usadas para avaliar os critérios de aceitação gerados?}
 \label{sec:qp8}
 
-\todo[inline]{listar as métricas de fato, por estudo (nome, fórmula ou escala e interpretação). Tipo de medida, instrumento e dimensão não respondem à QP.}
+Esta questão considera os 24 estudos que geram ou refinam CA. Antes de listar as métricas, é preciso dizer o que se entende por métrica. Segundo \citeonline{wohlin2000}, uma medida associa um atributo de uma entidade a um valor, por meio de uma escala. Completude, relevância e clareza, portanto, são atributos dos CA, e só viram métrica quando o estudo informa como o valor é calculado e como deve ser interpretado. Com esse critério, 8 estudos não medem os CA, mas outra coisa, como a história inteira, o código gerado ou a ferramenta, e 1 apenas inspeciona os critérios de forma qualitativa. Os 15 restantes medem os CA diretamente, e suas métricas podem ser agrupadas em quatro tipos, conforme a forma de cálculo.
 
-A análise considera os 25 estudos incluídos. Conforme a Tabela~\ref{tab:tipo-medida}, 15 estudos (60\%) medem os CA diretamente com alguma métrica, 1 (4\%) faz apenas inspeção qualitativa e 9 (36\%) usam medidas substitutas, que avaliam a história inteira, o \textit{software} ou a ferramenta. Dos 15 estudos com medida direta, 2 (11 e 16) avaliam somente a sintaxe.
+O primeiro tipo compara os CA gerados com um gabarito escrito por pessoas, e é o que mais se aproxima de uma medida de acurácia. Nele aparecem a completude e a validade, que equivalem ao \textit{recall} e à precisão. A completude mostra quanto do gabarito aparece na saída, e a validade mostra quanto do que foi gerado está no gabarito \cite{li2024}. O Acc@Hit e o Acc@Cor seguem a mesma lógica. Os CA do gabarito são divididos em objetivos de teste, isto é, em cada condição verificável contida em um critério, e três LLMs julgam quais deles foram cobertos. O Acc@Hit conta os objetivos cobertos ao menos em parte, e o Acc@Cor, só os cobertos por inteiro \cite{wang2025}. O mesmo estudo compara ainda o texto gerado com o gabarito por medidas de similaridade, como a similaridade de cosseno entre as representações vetoriais das frases e o ROUGE e o BLEU, que contam palavras e sequências de palavras em comum.
 
-\begin{table}[H]
-  \centering
-  \caption{Tipo de medida}
-  \label{tab:tipo-medida}
-  \small
-  \begin{tabular}{|p{0.25\textwidth}|p{0.45\textwidth}|c|c|}
-    \hline
-    \textbf{Tipo de medida} & \textbf{Estudos} & \textbf{Total} & \textbf{\%} \\ \hline
-    Direta, com métrica & 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 16, 22, 23, 24, 25 & 15 & 60\% \\ \hline
-    Direta, só qualitativa & 13 e 18 & 1 & 4\% \\ \hline
-    Substituta & 1, 2, 10, 14, 17, 19, 20, 21, 26 & 9 & 36\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+O segundo tipo olha apenas a forma do \textit{Gherkin}, sem avaliar o conteúdo. Um estudo calcula a acurácia de validação, que é a proporção de arquivos sem erro no Gherkin-lint \cite{karpurapu2024}, e outro conta os erros apontados por essa mesma ferramenta \cite{matveeva2025}. Há também quem meça quantos requisitos viraram cenários executáveis sem nenhuma modificação \cite{zyberaj2026} e quantos cenários saíram estruturalmente válidos \cite{huang2026}.
 
-O estudo 26 não gera CA. Ele avalia a detecção de defeitos em histórias de usuário. Nos atributos cuja definição cita CA ou cenários de aceitação, a taxa de detecção variou de 87,5\% a 100\%, mas esses valores se referem à história inteira.
+O terceiro tipo usa um LLM como juiz. Em um estudo, o LLM dá uma nota de 0 a 100 à cobertura dos cenários em relação aos CA de entrada \cite{huang2026}. Em outro, a própria ferramenta que sugere os critérios dá uma nota de 0 a 10 ao campo de CA, seguindo uma rubrica da organização que é descrita só em parte \cite{baker2026}.
 
-A Tabela~\ref{tab:instrumentos} detalha os 15 estudos com medida direta. O julgamento humano, por escalas ou aprovação de cada CA, é o instrumento mais usado (10 estudos). Métricas automáticas são menos frequentes: 4 estudos verificam a sintaxe, 3 usam LLM como juiz, e apenas 2 comparam a saída com um gabarito (6 e 7). Quanto às dimensões, predominam completude ou cobertura (7 estudos), seguidas de relevância e corretude sintática (4 cada).
+O quarto tipo, o mais frequente, depende de pessoas. Alguns estudos usam escalas de cinco pontos em que cada ponto tem um significado definido, para avaliar atributos como relevância, corretude, completude, clareza e testabilidade \cite{wang2025,hassani2026,zhang2024}. Na escala Likert de \citeonline{wang2025}, por exemplo, 1 indica que o CA falha claramente no atributo avaliado, e 5, que o atende de forma excelente. Outros estudos decidem sobre cada critério e calculam proporções, como a de CA aprovados por especialistas \cite{schwedt2025}, a de CA considerados corretos e relevantes \cite{spijkman2025}, a de cenários considerados úteis no uso real \cite{ferreira2025} e a de histórias com informação suficiente para escrever um teste \cite{brockenbrough2025,brockenbrough2024}. Nesses julgamentos, a referência é a própria história e o conhecimento do avaliador, e não um conjunto de CA esperado, o que diferencia essas notas das métricas que comparam a saída com um gabarito. A concordância entre os avaliadores, quando medida, aparece pelo kappa de Cohen e pelo AC1 de Gwet \cite{li2024,schwedt2025}.
 
-\begin{table}[H]
-  \centering
-  \caption{Instrumentos e dimensões nos estudos com medida direta}
-  \label{tab:instrumentos}
-  \small
-  \begin{tabular}{|p{0.35\textwidth}|p{0.4\textwidth}|c|}
-    \hline
-    \textbf{Categoria} & \textbf{Estudos} & \textbf{Total} \\ \hline
-    \multicolumn{3}{|l|}{\textbf{Instrumento}} \\ \hline
-    Julgamento humano & 3, 5, 6, 7, 8, 9, 22, 23, 24, 25 & 10 \\ \hline
-    Verificação sintática & 11, 12, 15, 16 & 4 \\ \hline
-    LLM como juiz & 4, 6, 15 & 3 \\ \hline
-    Comparação com gabarito & 6, 7 & 2 \\ \hline
-    Esforço de correção humana & 11, 12 & 2 \\ \hline
-    \multicolumn{3}{|l|}{\textbf{Dimensão}} \\ \hline
-    Completude ou cobertura & 3, 4, 5, 6, 7, 8, 15 & 7 \\ \hline
-    Relevância & 5, 6, 22, 25 & 4 \\ \hline
-    Corretude sintática & 11, 12, 15, 16 & 4 \\ \hline
-    Corretude do conteúdo & 6, 7, 25 & 3 \\ \hline
-    Testabilidade & 8, 23, 24 & 3 \\ \hline
-    Utilidade percebida & 5, 9, 25 & 3 \\ \hline
-    Compreensibilidade & 5, 6 & 2 \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+Três estudos, no entanto, atribuem notas ou percentuais sem dizer como são calculados ou o que significam, e por isso não foram tratados como métricas. Em \citeonline{rotar2025}, a completude dos CA é avaliada de 1 a 5, mas o enunciado da pergunta está só no material suplementar, e não fica claro se os avaliadores compararam os CA com o requisito ou com o que esperavam encontrar. Em \citeonline{ferreira2025}, a qualidade recebe uma nota de 0 a 10 sem explicação do que ela mede, e em \citeonline{matveeva2025}, o percentual de ajustes manuais não informa o que conta como ajuste.
 
-\begin{table}[H]
-  \centering
-  \caption{Principais resultados sobre os CA}
-  \label{tab:resultados-ca}
-  \small
-  \begin{tabular}{|c|p{0.36\textwidth}|p{0.46\textwidth}|}
-    \hline
-    \textbf{Estudo} & \textbf{Métrica} & \textbf{Resultado} \\ \hline
-    3 & Completude dos CA, escala até 5 & 4,50 e 4,43 \\ \hline
-    4 & Nota do campo de CA, 0 a 10 & 3,68 para 7,68, com adoção humana \\ \hline
-    5 & Avaliações nas duas categorias superiores & 91,7\% a 100\%, por critério \\ \hline
-    6 & Hit e Cor por caso, melhor configuração & 79,10\% e 17,72\% (Gemini, Urial, após polimento) \\ \hline
-    6 & Especialistas, escala até 5 & Compreensibilidade 4,21; relevância 3,99; corretude 3,94; cobertura 3,89 \\ \hline
-    7 & Completude e validade contra gabarito & 60,60\% e 51,29\% \\ \hline
-    8 & CA mensuráveis e suficientes, escala até 5 & 3,83 a 4,08 e 3,75 a 3,92 \\ \hline
-    9 & Qualidade e utilidade percebidas & 8/10; 62 de 65 respostas úteis (95\%) \\ \hline
-    11 & Erros de sintaxe e ajustes manuais & \textit{Zero-shot}: 21 e 100\%; \textit{few-shot}: 7 e 20\% \\ \hline
-    12 & \textit{Gherkin} executável sem modificação & 32 de 36 requisitos (89\%) \\ \hline
-    15 & Cobertura, por LLM como juiz & 74,73\% a 91,57\% \\ \hline
-    16 & Arquivos sem erro de sintaxe, \textit{few-shot} & $\sim$0,97 (GPT), $\sim$0,87 (Llama-2), $\sim$0,72 (PaLM-2) \\ \hline
-    22 & CA aceitos por especialistas & 82\% (\textit{e-commerce}) e 80\% (CMS) \\ \hline
-    23 & Nota de CA, 0 a 1, sem $\rightarrow$ com LLM & $\sim$0,33 $\rightarrow$ $\sim$0,61 \\ \hline
-    24 & História com DoD testável, sem $\rightarrow$ com IA & 32\% $\rightarrow$ 58\% \\ \hline
-    25 & CA corretos e relevantes & 61,6\% e 61,5\% \\ \hline
-  \end{tabular}
-  \fonte{Autores}
-\end{table}
+Além das métricas sobre os CA, \citeonline{wang2025} avaliam a etapa de recuperação do RAG com métricas de ranqueamento, como Precision@K, Recall@K, F1@K e NDCG@K. Elas medem quantos dos documentos recuperados são relevantes e em que posição aparecem, e não a qualidade dos CA.
 
-Como métricas, escalas e amostras diferem, os resultados não podem ser comparados diretamente nem agregados em um único nível de acurácia. Ainda assim, avaliações por percepção tendem a apresentar valores altos, enquanto medidas de conteúdo mais específicas apontam resultados moderados: 51,29\% de validade no estudo 7, 61,6\% de CA corretos no estudo 25 e, no estudo 6, 17,72\% de corretude por caso, após o polimento. A heterogeneidade das avaliações e a raridade de gabaritos são lacunas relevantes para o estudo empírico deste trabalho.
+Embora não gerem CA, \citeonline{ma2026} propõem um conjunto de atributos de qualidade para histórias de usuário, e parte deles trata diretamente dos CA. Esses atributos verificam se os critérios seguem o modelo \textit{Given-When-Then}, se trazem cenários em \textit{Gherkin}, se cobrem casos de sucesso, de falha e de borda e se são objetivos o bastante para servir de base à verificação da história. Eles não são métricas, mas podem servir de critério para julgar os CA gerados.
+
+Entre os 8 estudos que geram \textit{Gherkin} (Seção~\ref{sec:qp5}), 4 medem a sintaxe ou a execução dos cenários \cite{karpurapu2024,matveeva2025,zyberaj2026,huang2026}, e um deles também usa um LLM como juiz da cobertura \cite{huang2026}. Outros 3 dependem de pessoas, que avaliam os cenários por escala \cite{hassani2026} ou decidem se cada um é aprovado ou útil \cite{schwedt2025,ferreira2025}. O último não avalia os cenários diretamente, pois mede o código gerado a partir deles \cite{zhang2025}. Nenhum desses estudos compara os cenários gerados com um gabarito. Entre os 4 que usam apenas a estrutura \textit{Given-When-Then}, só \citeonline{wang2025} fazem essa comparação, com o Acc@Hit e o Acc@Cor. Outro usa a nota atribuída pela própria ferramenta \cite{baker2026}, e os dois restantes medem apenas a história, sem avaliar os CA \cite{avasiloaie2025,khelifa2026}.
+
+Em síntese, o julgamento humano é o tipo de métrica mais usado, seguido da verificação da sintaxe do \textit{Gherkin}, e poucos estudos medem a acurácia dos CA contra um gabarito.
 
 % ---------------------------------------------------------------------------
 \subsection{QP9 -- Quais limitações e desafios são mais relatados nos estudos sobre geração de critérios de aceitação com LLMs?}

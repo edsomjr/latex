@@ -8,10 +8,18 @@ Este capítulo apresenta a introdução do estudo e detalha a metodologia adotad
 
 Em métodos ágeis, os requisitos costumam ser expressos como histórias de usuário, descrições breves de uma funcionalidade sob a perspectiva de quem a utiliza \cite{zhang2024}. Segundo \citeonline{cohn2004}, uma história tem três aspectos: a descrição escrita, as conversas que detalham seu conteúdo e os testes que registram esses detalhes e permitem determinar quando ela está completa. Nesse último aspecto estão os critérios de aceitação (CA), condições que um sistema deve atender para cumprir a história e ser aceito pelo usuário \cite{wang2025}. Os CA tornam a história mais concreta e menos ambígua \cite{zhang2024}.
 
+Uma forma de registrar esses critérios é o \textit{Behavior-Driven Development} (BDD), introduzido por \citeonline{north2006}, que propôs descrever os CA como cenários no modelo \textit{Given-When-Then}. Nessa técnica ágil, os requisitos são especificados em linguagem natural semiestruturada, compreensível por todas as partes interessadas, e os cenários também podem ser executados como casos de teste para verificar o comportamento do software \cite{binamungu2023}. Esses cenários costumam ser escritos em \textit{Gherkin}, linguagem de domínio específico usada em BDD \cite{hassani2026}. Por usar uma linguagem natural restrita, o \textit{Gherkin} é acessível a usuários não técnicos e favorece a automação posterior \cite{ferreira2025}.
+
+O lançamento do ChatGPT, no fim de 2022, marcou a adoção em larga escala dos modelos de linguagem de grande porte (LLMs), e esse movimento alcançou a engenharia de requisitos. Entre os 238 artigos revisados por \citeonline{cheng2026}, o volume anual passou de 4 em 2022 para 23 em 2023 e 113 em 2024. No caso dos testes de aceitação, porém, o uso de LLMs ainda é pouco explorado \cite{ferreira2025}. É nesse cenário que se insere este trabalho, voltado à geração de CA em \textit{Gherkin} com apoio de LLMs.
+
 \section{Problema}
 \label{sec:problema}
 
 Escrever CA manualmente exige compreender os requisitos e o contexto do sistema, além de consumir tempo para garantir precisão e clareza. A tarefa fica mais difícil com ambiguidades, falta de detalhes nas histórias de usuário e mudanças na especificação \cite{wang2025}. Quando os CA são ambíguos ou pouco claros, a comunicação entre os envolvidos se prolonga e, nos piores casos, há reprojeto e retrabalho de desenvolvimento \cite{rawson2025}.
+
+Os LLMs surgem como alternativa, pois geram texto sem exigir conjuntos rotulados de histórias com CA, que são escassos, e podem reduzir o esforço humano inicial \cite{li2024}. No entanto, a evidência sobre essa alternativa ainda é heterogênea. Os estudos usam entradas, técnicas e métricas diferentes, e, entre os 25 analisados na revisão deste trabalho, apenas 2 comparam os CA gerados com um gabarito.
+
+Assim, ainda não se sabe com que nível de acurácia os LLMs geram CA em \textit{Gherkin} a partir da documentação de histórias de usuário, nem quais fatores influenciam esse resultado.
 
 \section{Questão de pesquisa}
 \label{sec:questao-pesquisa}

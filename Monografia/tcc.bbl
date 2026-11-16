@@ -25,6 +25,12 @@
   In:  MARCINIAK, J.~J. (Ed.). \emph{Encyclopedia of Software Engineering}.
   [S.l.]: Wiley, 1994. v.~1, p. 528--532.}
 
+\bibitem[Binamungu e Maro 2023]{binamungu2023}
+\abntrefinfo{Binamungu e Maro}{BINAMUNGU; MARO}{2023}
+{BINAMUNGU, L.~P.; MARO, S. Behaviour driven development: a systematic mapping
+  study.
+\emph{Journal of Systems and Software}, v.~203, p. 111749, 2023.}
+
 \bibitem[Brockenbrough, Feild e Salinas 2025]{brockenbrough2025}
 \abntrefinfo{Brockenbrough, Feild e Salinas}{BROCKENBROUGH; FEILD;
   SALINAS}{2025}
@@ -135,6 +141,12 @@ Keele; Durham, 2007. Version 2.3.}
   generation with {NLP} and {AI}. In:  \emph{5th International Conference on
   Electrical, Computer, Communications and Mechatronics Engineering (ICECCME)}.
   Zanzibar: IEEE, 2025.}
+
+\bibitem[North 2006]{north2006}
+\abntrefinfo{North}{NORTH}{2006}
+{NORTH, D. \emph{Introducing {BDD}}. 2006. Better Software.
+Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
+  em: 4 nov. 2026.}
 
 \bibitem[Pai et al. 2004]{pai2004}
 \abntrefinfo{Pai et al.}{PAI et al.}{2004}
