@@ -1,12 +1,12 @@
 \chapter[Revisão Estruturada da Literatura]{Revisão Estruturada da Literatura}
 \label{cap:revisao}
 
-Este capítulo tem como objetivo expor o protocolo usado para filtrar, selecionar, extrair e analisar os dados necessários para responder às questões de pesquisa deste estudo. Também são apresentados a condução da busca e os resultados levantados. A busca foi realizada na base Scopus \cite{elsevier2026}, por indexar publicações de diversas editoras da área de engenharia de software e permitir buscas estruturadas, o que contribui para manter o rigor da revisão.
+Este capítulo tem como objetivo expor o protocolo usado para filtrar, selecionar, extrair e analisar os dados necessários para responder às questões de pesquisa (QP) deste estudo. Também são apresentados a condução da busca e os resultados levantados. A busca foi realizada na base Scopus \cite{elsevier2026}, por indexar publicações de diversas editoras da área de engenharia de software e permitir buscas estruturadas, o que contribui para manter o rigor da revisão.
 
 \section{Protocolo}
 \label{sec:protocolo}
 
-O protocolo utilizado foi estruturado com base no modelo de revisão sistemática da literatura de \citeonline{kitchenham2007}. O registro prévio dos métodos reduz o viés dos pesquisadores e permite replicar e auditar o estudo, de modo que a aplicação do mesmo protocolo tenda a levar a resultados muito próximos.
+O protocolo desta revisão estruturada foi elaborado com base nas diretrizes de \citeonline{kitchenham2007}. O registro prévio dos métodos reduz o viés dos pesquisadores e permite replicar e auditar o estudo, de modo que a aplicação do mesmo protocolo tenda a levar a resultados muito próximos.
 
 \subsection{Questões de pesquisa}
 \label{sec:qps}
@@ -39,7 +39,7 @@ A Tabela~\ref{tab:qps} apresenta as questões secundárias de pesquisa que a rev
 
 A busca em bases acadêmicas exige uma estratégia definida, pois uma \textit{string} mal construída pode retornar muitos estudos sem relação com o tema ou poucos estudos para responder às questões de pesquisa.
 
-O escopo da revisão foi delimitado com a estrutura PICOC \cite{kitchenham2007}, derivada do PICO, usado na área da medicina \cite{pai2004}. A \textit{string} de busca foi construída a partir de três desses elementos: \textbf{População}, \textbf{Intervenção} e \textbf{Resultado}, conforme a Tabela~\ref{tab:picoc}. A \textbf{Comparação} não foi incluída por se tratar de uma revisão de caracterização, e o \textbf{Contexto} foi aplicado apenas pelo período, restrito a publicações a partir de 2022 (PUBYEAR $>$ 2021). A Figura~\ref{fig:estrategia-busca} ilustra a estratégia de busca.
+O escopo da revisão foi delimitado com a estrutura PICOC \cite{kitchenham2007}, derivada do PICO (\textit{Population, Intervention, Comparison, Outcome}), usado na área da medicina \cite{pai2004}. A \textit{string} de busca foi construída a partir de três desses elementos: \textbf{População}, \textbf{Intervenção} e \textbf{Resultado}, conforme a Tabela~\ref{tab:picoc}. A \textbf{Comparação} não foi incluída por se tratar de uma revisão de caracterização, e o \textbf{Contexto} foi aplicado apenas pelo período, restrito a publicações a partir de 2022 (PUBYEAR $>$ 2021). A Figura~\ref{fig:estrategia-busca} ilustra a estratégia de busca.
 
 \begin{figure}[H]
   \centering
@@ -70,9 +70,9 @@ Os termos de cada bloco foram combinados com o operador OR, e os blocos, com o o
 
 A \textit{string} foi aplicada a título, resumo e palavras-chave (TITLE-ABS-KEY). O bloco de Intervenção inclui nomes de modelos, pois parte dos estudos cita o produto utilizado, como o ChatGPT, em vez de termos gerais como LLM. O bloco de \textbf{Resultado} inclui termos sobre histórias de usuário e testes de aceitação, pois os CA costumam aparecer como parte desses artefatos, e não como objeto principal do estudo. A pertinência dos estudos foi verificada depois, nos critérios de elegibilidade. A \textit{string} foi calibrada em testes na Scopus: o bloco de \textbf{Resultado} foi ampliado com os termos \textit{acceptance test} e \textit{test scenarios} para recuperar mais estudos, e o termo \textit{Given-When-Then} foi retirado por não trazer resultados adicionais. A versão final recuperou os dois artigos usados como referência na calibração \cite{ferreira2025,wang2025} e foi executada em 23/09/2026, conforme apresentado a seguir.
 
-\begin{center}
+\begin{lstlisting}[numbers=none, breaklines=true, columns=fullflexible, frame=single]
 ( TITLE-ABS-KEY ( ( "software" OR "agile" ) AND ( "large language model" OR "LLM" OR "LLMs" OR "generative AI" OR "generative artificial intelligence" OR "ChatGPT" OR "GPT-4" OR "Copilot" OR "multimodal" OR "multi-modal" OR "language models" OR "claude" OR "gemini" OR "llama" OR "prompt" OR "deepseek" OR "qwen" OR "kimi" OR "grok" ) AND ( "acceptance criteria" OR "acceptance criterion" OR "user story" OR "user stories" OR "Gherkin" OR "behavior-driven development" OR "BDD" OR "acceptance test" OR "test scenarios" ) ) AND PUBYEAR > 2021 )
-\end{center}
+\end{lstlisting}
 
 \subsection{Critérios de seleção}
 \label{sec:criterios}
@@ -220,7 +220,7 @@ A Figura~\ref{fig:por-ano} apresenta a distribuição dos 25 estudos incluídos 
   \fonte{Autores}
 \end{figure}
 
-O valor de 2026 considera apenas as publicações disponíveis até a execução da busca, em 23/09/2026. Por isso, a diferença em relação a 2025 não indica queda no interesse pelo tema. A distribuição também é coerente com o crescimento observado por \citeonline{cheng2026} na engenharia de requisitos, em que o volume anual de artigos sobre IA generativa passou de 4 em 2022 para 113 em 2024. Na contagem, relatos do mesmo estudo foram considerados uma única vez e, nos artigos de conferência, adotou-se o ano do evento.
+O valor de 2026 considera apenas as publicações disponíveis até a execução da busca, em 23/09/2026. Por isso, a diferença em relação a 2025 não indica queda no interesse pelo tema. A distribuição também é coerente com o crescimento observado por \citeonline{cheng2026} na engenharia de requisitos, em que o volume anual de artigos sobre inteligência artificial (IA) generativa passou de 4 em 2022 para 113 em 2024. Na contagem, relatos do mesmo estudo foram considerados uma única vez e, nos artigos de conferência, adotou-se o ano do evento.
 
 % ---------------------------------------------------------------------------
 \subsection{QP2 -- Em que veículos os estudos foram publicados e em que contexto foram conduzidos?}
@@ -268,7 +268,7 @@ Entre as estratégias de \textit{prompt}, a mais comum é atribuir um papel ou u
 
 Cinco estudos comparam estratégias de \textit{prompt} entre si. \citeonline{karpurapu2024} e \citeonline{matveeva2025} comparam \textit{zero-shot} e \textit{few-shot}, e o segundo também acrescenta ao \textit{prompt} regras de escrita do \textit{Gherkin}. \citeonline{li2024} variam o número de exemplos fornecidos ao modelo. \citeonline{rahman2024} comparam sua estratégia de refinamento e raciocínio (\textit{Refine-and-Thought}) com um \textit{prompt} único, e \citeonline{khelifa2026} comparam \textit{Chain-of-Thought}, \textit{Refine-and-Thought} e uma combinação das duas.
 
-Ao redor do \textit{prompt}, 6 estudos (25\%) organizam a geração em sistemas multiagentes, em que vários agentes com papéis diferentes trocam resultados entre si. Em \citeonline{rotar2025}, por exemplo, um agente analista de negócio escreve a história e os CA, e agentes revisores de interface e de desenvolvimento os complementam. Em \citeonline{huang2026}, um supervisor coordena um agente que valida o \textit{ticket} e outro que gera os cenários. Isso é diferente do que fazem \citeonline{li2024}, em que um único modelo apenas assume papéis diferentes em sequência, sem agentes independentes. Outros 6 estudos (25\%) recuperam contexto antes da geração, com RAG ou mecanismos parecidos, já descritos na Seção~\ref{sec:qp6}, e 2 (8\%) usam entrada multimodal, com telas da interface ou fluxogramas. Metade dos estudos (12) não usa nenhum desses recursos e depende apenas das estratégias de \textit{prompt}.
+Ao redor do \textit{prompt}, 6 estudos (25\%) organizam a geração em sistemas multiagentes, em que vários agentes com papéis diferentes trocam resultados entre si. Em \citeonline{rotar2025}, por exemplo, um agente analista de negócio escreve a história e os CA, e agentes revisores de interface e de desenvolvimento os complementam. Em \citeonline{huang2026}, um supervisor coordena um agente que valida o \textit{ticket} e outro que gera os cenários. Isso é diferente do que fazem \citeonline{li2024}, em que um único modelo apenas assume papéis diferentes em sequência, sem agentes independentes. Outros 6 estudos (25\%) recuperam contexto antes da geração, com geração aumentada por recuperação (\textit{Retrieval-Augmented Generation}, RAG) ou mecanismos parecidos, já descritos na Seção~\ref{sec:qp6}, e 2 (8\%) usam entrada multimodal, com telas da interface ou fluxogramas. Metade dos estudos (12) não usa nenhum desses recursos e depende apenas das estratégias de \textit{prompt}.
 
 O formato de saída, registrado no formulário de extração, mostra como os CA são escritos. Para essa análise, foram separadas três ideias que costumam aparecer juntas. O BDD é uma prática de desenvolvimento. O \textit{Gherkin} é uma linguagem com palavras-chave como \texttt{Feature}, \texttt{Scenario}, \texttt{Given}, \texttt{When} e \texttt{Then}, que ferramentas como o Cucumber conseguem ler e executar. Já a estrutura \textit{Given-When-Then} pode ser escrita em texto livre, sem essa sintaxe. Com essa distinção, 8 estudos (33\%) geram os CA em \textit{Gherkin}, citados a seguir conforme a técnica que usam, e 4 (17\%) usam apenas a estrutura \textit{Given-When-Then} \cite{baker2026,wang2025,avasiloaie2025,khelifa2026}. Em dois desses quatro, os autores chamam a saída de \textit{Gherkin}, embora ela não siga a sintaxe da linguagem \cite{wang2025,avasiloaie2025}. Outros 8 estudos (33\%) escrevem os CA como uma lista de frases em linguagem natural, e 4 (17\%) não mostram o formato.
 
@@ -320,7 +320,7 @@ O quarto tipo, o mais frequente, depende de pessoas. Alguns estudos usam escalas
 
 Três estudos, no entanto, atribuem notas ou percentuais sem dizer como são calculados ou o que significam, e por isso não foram tratados como métricas. Em \citeonline{rotar2025}, a completude dos CA é avaliada de 1 a 5, mas o enunciado da pergunta está só no material suplementar, e não fica claro se os avaliadores compararam os CA com o requisito ou com o que esperavam encontrar. Em \citeonline{ferreira2025}, a qualidade recebe uma nota de 0 a 10 sem explicação do que ela mede, e em \citeonline{matveeva2025}, o percentual de ajustes manuais não informa o que conta como ajuste.
 
-Além das métricas sobre os CA, \citeonline{wang2025} avaliam a etapa de recuperação do RAG com métricas de ranqueamento, como Precision@K, Recall@K, F1@K e NDCG@K. Elas medem quantos dos documentos recuperados são relevantes e em que posição aparecem, e não a qualidade dos CA.
+Além das métricas sobre os CA, \citeonline{wang2025} avaliam a etapa de recuperação do RAG com métricas de ranqueamento, como Precision@K, Recall@K, F1@K e nDCG@K. Elas medem quantos dos documentos recuperados são relevantes e em que posição aparecem, e não a qualidade dos CA.
 
 Embora não gerem CA, \citeonline{ma2026} propõem um conjunto de atributos de qualidade para histórias de usuário, e parte deles trata diretamente dos CA. Esses atributos verificam se os critérios seguem o modelo \textit{Given-When-Then}, se trazem cenários em \textit{Gherkin}, se cobrem casos de sucesso, de falha e de borda e se são objetivos o bastante para servir de base à verificação da história. Eles não são métricas, mas podem servir de critério para julgar os CA gerados.
 
