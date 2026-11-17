@@ -1,7 +1,7 @@
 \chapter[Introdução]{Introdução}
 \label{cap:introducao}
 
-Este capítulo apresenta a introdução do estudo e detalha a metodologia adotada. Nele, percorremos desde a definição do problema e as questões de pesquisa até a estrutura geral do documento. Além disso, para alinhar o entendimento, estabelecemos a base teórica dos principais conceitos abordados no trabalho, como Histórias de Usuário, Critérios de Aceitação e Modelos de Linguagem de Grande Porte.
+Este capítulo apresenta o contexto em que o trabalho se insere, o problema investigado, a questão de pesquisa, formulada com o apoio da abordagem \textit{Goal Question Metric}, e os objetivos geral e específicos. Ao final, descreve a estrutura do documento e as atividades realizadas na primeira etapa, com o respectivo cronograma. Os conceitos de histórias de usuário, critérios de aceitação, \textit{Behavior-Driven Development} e modelos de linguagem de grande porte são introduzidos brevemente aqui e detalhados no Capítulo~\ref{cap:referencial}.
 
 \section{Contexto}
 \label{sec:contexto}
@@ -17,14 +17,20 @@ O lançamento do ChatGPT, no fim de 2022, marcou a adoção em larga escala dos 
 
 Escrever CA manualmente exige compreender os requisitos e o contexto do sistema, além de consumir tempo para garantir precisão e clareza. A tarefa fica mais difícil com ambiguidades, falta de detalhes nas histórias de usuário e mudanças na especificação \cite{wang2025}. Quando os CA são ambíguos ou pouco claros, a comunicação entre os envolvidos se prolonga e, nos piores casos, há reprojeto e retrabalho de desenvolvimento \cite{rawson2025}.
 
-Os LLMs surgem como alternativa, pois geram texto sem exigir conjuntos rotulados de histórias com CA, que são escassos, e podem reduzir o esforço humano inicial \cite{li2024}. No entanto, a evidência sobre essa alternativa ainda é heterogênea. Os estudos usam entradas, técnicas e métricas diferentes, e, entre os 25 analisados na revisão deste trabalho, apenas 2 comparam os CA gerados com um gabarito.
+No caso do BDD, o esforço se repete na escrita dos cenários. Gerá-los manualmente demanda tempo e está sujeito a ambiguidades na comunicação entre equipes técnicas e não técnicas, o que motiva a busca por formas de automatizar essa etapa \cite{matveeva2025}.
 
-Assim, ainda não se sabe com que nível de acurácia os LLMs geram CA em \textit{Gherkin} a partir da documentação de histórias de usuário, nem quais fatores influenciam esse resultado.
+Os LLMs surgem como alternativa, pois geram texto sem exigir conjuntos rotulados de histórias com CA, que são escassos, e podem reduzir o esforço humano inicial \cite{li2024}. Os critérios gerados, porém, nem sempre são confiáveis. Há relatos de omissões e alucinações, e as omissões são consideradas o risco mais grave quando o domínio é crítico \cite{hassani2026}. Também aparecem critérios redundantes, genéricos ou abstratos demais \cite{wang2025}, critérios extensos e informações irrelevantes \cite{li2024} e falhas na cobertura de casos de borda e de entradas negativas \cite{wang2025,zyberaj2026}.
+
+Parte desses problemas decorre da falta de contexto. Sem conhecimento específico do projeto, o modelo falha diante de histórias vagas \cite{li2024}, e testes gerados chegam a falhar porque a história e os cenários de entrada não trazem informações essenciais do sistema \cite{ferreira2025}. A qualidade dos cenários depende, assim, da clareza e da completude da entrada \cite{matveeva2025}. Para reduzir alucinações e omissões, há propostas que fornecem ao modelo dados do próprio projeto, como a documentação do domínio e as telas da interface, recuperados antes da geração \cite{wang2025}.
+
+Avaliar o que foi gerado também é um desafio. Não existe uma métrica específica para a qualidade de CA \cite{li2024}, e muitas avaliações verificam apenas a sintaxe do \textit{Gherkin} \cite{karpurapu2024,huang2026} ou dependem da percepção de avaliadores, sem um gabarito de referência \cite{hassani2026}. Mesmo as métricas de similaridade textual, como o BLEU e o ROUGE, mostram-se insuficientes para distinguir a qualidade de diferentes configurações de geração \cite{wang2025}.
+
+Assim, ainda não se sabe com que nível de acurácia os LLMs geram CA em \textit{Gherkin} a partir da documentação de histórias de usuário, nem se fornecer ao modelo o contexto do próprio projeto, como a documentação e os protótipos de interface, altera esse resultado.
 
 \section{Questão de pesquisa}
 \label{sec:questao-pesquisa}
 
-A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \textit{Goal Question Metric} (GQM) \cite{basili1994}. Como ilustrado na Figura~\ref{fig:gqm}, o GQM propõe uma organização hierárquica e \textit{top-down}, desdobrando objetivos gerais em perguntas específicas e métricas quantitativas. Ao adaptar essa estrutura para o escopo desta pesquisa (Tabela~\ref{tab:gqm}), chegou-se à questão principal.
+A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \textit{Goal Question Metric} (GQM) \cite{basili1994}. Como ilustrado na Figura~\ref{fig:gqm}, o GQM propõe uma organização hierárquica e \textit{top-down}, desdobrando objetivos gerais em perguntas específicas e métricas quantitativas. A adaptação dessa estrutura ao escopo desta pesquisa resultou no objetivo apresentado na Tabela~\ref{tab:gqm}.
 
 \begin{figure}[H]
   \centering
@@ -38,36 +44,55 @@ A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \
   \centering
   \caption{GQM adaptado}
   \label{tab:gqm}
+  \small
   \begin{tabular}{|p{0.28\textwidth}|p{0.62\textwidth}|}
     \hline
     \textbf{Característica} & \textbf{Valor} \\ \hline
     Analisar & documentação de histórias de usuário \\ \hline
     Com o propósito de & caracterizar a geração automática dos critérios de aceitação escritos em formato \textit{Gherkin} \\ \hline
-    Com respeito à & acurácia dos critérios de aceitação gerados com apoio de grandes modelos de linguagem \\ \hline
+    Com respeito à & acurácia dos critérios de aceitação gerados com apoio de LLMs \\ \hline
     Do ponto de vista de & pesquisadores \\ \hline
     No contexto de & aplicações web desenvolvidas com métodos ágeis disponíveis em repositórios de código fonte aberto \\ \hline
   \end{tabular}
   \fonte{Adaptado de \citeonline{basili1994}}
 \end{table}
 
-Considerando essa perspectiva, definimos a seguinte questão principal de pesquisa deste estudo:
+Com base nesse objetivo, foi definida a seguinte questão principal de pesquisa:
 
 \begin{center}
-\textbf{\textit{Como os grandes modelos de linguagem têm apoiado a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário, e com que nível de acurácia?}}
+\textbf{\textit{Como os modelos de linguagem de grande porte têm apoiado a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário, e com que nível de acurácia?}}
 \end{center}
 
 \section{Objetivos}
 \label{sec:objetivos}
 
 \subsection{Objetivo geral}
-% {aqui vai o objetivo geral em uma frase, derivado do GQM, porque é o que a conclusão vai responder}
+
+O objetivo geral deste trabalho é avaliar a acurácia de cenários em \textit{Gherkin} gerados por LLMs a partir da documentação de histórias de usuário de aplicações \textit{web} desenvolvidas com métodos ágeis, comparando a geração com e sem a recuperação de contexto do próprio projeto por geração aumentada por recuperação (\textit{Retrieval-Augmented Generation}, RAG).
 
 \subsection{Objetivos específicos}
-% {aqui vão 3 a 5 objetivos verificáveis (ex.: conduzir revisão estruturada; identificar modelos, técnicas, entradas e métricas usados; mapear limitações; planejar o estudo empírico), porque cada um vira atividade do cronograma e é retomado na conclusão}
+
+Para alcançar o objetivo geral, foram definidos os seguintes objetivos específicos:
+
+\begin{itemize}
+  \item caracterizar, por meio de uma revisão estruturada da literatura, os modelos, as técnicas, os artefatos de entrada, as métricas de avaliação e as limitações relatados nos estudos sobre geração de CA com LLMs;
+  \item planejar um quase-experimento que compare a geração de cenários em \textit{Gherkin} com e sem RAG, com base nas lacunas e nas métricas identificadas na revisão;
+  \item preparar a base do estudo, com histórias de usuário e cenários BDD de referência (gabarito) de projetos de código aberto;
+  \item executar a geração dos cenários com diferentes LLMs, com e sem RAG, e medir sua acurácia em relação ao gabarito, isto é, a proporção dos objetivos de teste do gabarito cobertos pelos cenários gerados, como em \citeonline{wang2025};
+  \item analisar os resultados, verificar as hipóteses formuladas no planejamento e apresentar a conclusão resultante.
+\end{itemize}
 
 \section{Estrutura do trabalho}
 \label{sec:estrutura}
-% {aqui vai um parágrafo dizendo o que cada capítulo apresenta, porque orienta a leitura; escrever depois dos capítulos}
+
+Além desta introdução, o trabalho está organizado da seguinte forma:
+
+\begin{itemize}
+  \item \textbf{Capítulo~\ref{cap:referencial} -- Referencial teórico:} apresenta os conceitos que fundamentam o trabalho: Engenharia de \textit{Software} Experimental, com o GQM, a revisão estruturada e o experimento; histórias de usuário e CA; LLMs; métodos ágeis; BDD e \textit{Gherkin}; e técnicas de apoio à geração com LLMs;
+  \item \textbf{Capítulo~\ref{cap:revisao} -- Revisão estruturada da literatura:} descreve o protocolo da revisão, baseado nas diretrizes de \citeonline{kitchenham2007}, a seleção dos 25 estudos (26 relatos) e as respostas às questões secundárias de pesquisa;
+  \item \textbf{Capítulo~\ref{cap:planejamento} -- Planejamento:} apresenta o escopo, o contexto, as variáveis, as hipóteses, o desenho, a instrumentação, o procedimento de execução e as ameaças à validade do quase-experimento a ser executado na segunda etapa;
+  \item \textbf{Capítulo~\ref{cap:conclusao} -- Conclusão:} resume as atividades concluídas e os resultados da primeira etapa e apresenta os próximos passos e o cronograma da segunda etapa.
+\end{itemize}
 
 \section{Cronograma e fluxo de atividades}
 \label{sec:cronograma}
@@ -76,7 +101,7 @@ Considerando essa perspectiva, definimos a seguinte questão principal de pesqui
 
 Esta subseção detalha as atividades realizadas na primeira etapa do trabalho. A Figura~\ref{fig:fluxo} apresenta o fluxo dessas atividades, e a Figura~\ref{fig:cronograma}, o cronograma correspondente.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \caption{Fluxo de atividades da primeira etapa}
   \label{fig:fluxo}
@@ -84,7 +109,7 @@ Esta subseção detalha as atividades realizadas na primeira etapa do trabalho. 
   \fonte{Autores}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \caption{Cronograma da primeira etapa}
   \label{fig:cronograma}
@@ -98,8 +123,10 @@ Esta subseção detalha as atividades realizadas na primeira etapa do trabalho. 
   \item \textbf{Elaboração do protocolo de revisão da literatura:} definição e adaptação do protocolo com base nas diretrizes de \citeonline{kitchenham2007}. No protocolo, foi definida a \textit{string} de busca, com base na estrutura PICOC (\textit{Population, Intervention, Comparison, Outcome, Context}), que amplia os critérios usados na área da medicina \cite{pai2004}. Por meio dele, também foram definidos os critérios de inclusão e exclusão e o método de análise e extração dos dados.
   \item \textbf{Seleção dos artigos:} execução da busca na Scopus, remoção de duplicatas e triagem por título e resumo, com os critérios do protocolo da revisão. Estudos adicionais também foram incluídos manualmente a fim de complementar o estudo.
   \item \textbf{Leitura do material selecionado:} leitura completa dos estudos selecionados e extração dos dados com o formulário definido no protocolo de revisão. Os dados extraídos foram conferidos com o texto de cada estudo.
-  \item \textbf{Definição da proposta de solução:} planejamento do experimento a ser executado na segunda etapa, com base nas lacunas identificadas na revisão. % no doc: {experimento ou estudo de caso}; o orientador indicou experimento em 06/11/2026
+  \item \textbf{Definição da proposta de solução:} planejamento do quase-experimento a ser executado na segunda etapa, com base nas lacunas identificadas na revisão.
   \item \textbf{Escrita da monografia:} redação deste documento, conforme a estrutura apresentada na Seção~\ref{sec:estrutura}.
   \item \textbf{Revisão da monografia:} correções e ajustes solicitados pelo orientador.
   \item \textbf{Apresentação da monografia:} preparação do material e apresentação do trabalho à banca examinadora.
 \end{itemize}
+
+As atividades da segunda etapa e o respectivo cronograma são apresentados no Capítulo~\ref{cap:conclusao}.
