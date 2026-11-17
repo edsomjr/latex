@@ -8,33 +8,36 @@
 
 \begin{document}
 
-\frenchspacing 
+% desabilita páginas em branco entre capítulos
+\let\cleardoublepage\clearpage
+
+\frenchspacing
 \imprimircapa
 \imprimirfolhaderosto*
 
 %\input{fixos/fichaCatalografica}
 \input{fixos/folhaDeAprovacao}
+\input{editaveis/dedicatoria}
+\input{editaveis/agradecimentos}
+\input{editaveis/epigrafe}
 \input{editaveis/resumo}
 \input{editaveis/abstract}
 \input{fixos/listasAutomaticas}
 \input{editaveis/abreviaturas}
-%\input{editaveis/simbolos}
 \input{fixos/indiceAutomatico}
 
 \textual
 
 \input{editaveis/introducao}
 \input{editaveis/referencial}
-
-\input{editaveis/metodologia}
-\input{editaveis/resultados}
+\input{editaveis/revisao}
+\input{editaveis/planejamento}
 \input{editaveis/conclusao}
 
-\bookmarksetup{startatroot} 
+\bookmarksetup{startatroot}
 \postextual
 \bibliography{bibliografia}
-\input{editaveis/anexos}
+% \input{editaveis/anexos}
 \printindex
 
 \end{document}
-

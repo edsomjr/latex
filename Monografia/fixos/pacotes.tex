@@ -1,4 +1,5 @@
-\documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+% !TEX root = ../tcc.tex
+\documentclass[12pt,openany,a4paper,english,brazilian]{abntex2}
 
 \usepackage{cmap}	
 \usepackage{lmodern}	
@@ -16,6 +17,11 @@
 \usepackage{listings}
 \usepackage{enumerate}
 \usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[portuguese,colorinlistoftodos]{todonotes}
+\setlength{\marginparwidth}{2cm}
 \lstset{
            basicstyle=\ttfamily\small,
            keywordstyle=\color{blue}\ttfamily,
@@ -24,7 +30,6 @@
 	aboveskip=1pt,
 	belowskip=1pt,
 	numbers = left,
-	emph={uniform, varying, precision, mediump, samplerCube, vec3, vec4, mat4, sampler2D,attribute,mat3},emphstyle={\color{blue}\bfseries}
  }
 
 
