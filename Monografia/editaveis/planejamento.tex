@@ -12,6 +12,7 @@ A revisão da literatura identificou o frequente uso de RAG para a geração de 
 Nesse contexto, o objetivo desse experimento é investigar empiricamente se há diferença de acurácia entre os critérios de aceitação em formato Gherkin gerados com RAG e sem RAG.
 
 \subsection{Questão de pesquisa}
+\label{sec:quest-de-pesq}
 Com o propósito de responder à questão principal de pesquisa, apresentada na Seção~\ref{sec:questao-pesquisa} (\textit{Como os modelos de linguagem de grande porte têm apoiado a geração
 automática de critérios de aceitação em formato Gherkin a partir da
 documentação de histórias de usuário, e com que nível de acurácia?}) foi usada a metodologia GQM \cite{basili1994}. Essa abordagem permitiu decompor a questão principal em perguntas específicas de pesquisa, associando a cada uma delas,  métricas para guiar a avaliação.
@@ -42,9 +43,9 @@ documentação de histórias de usuário, e com que nível de acurácia?}) foi u
 % Objetos experimentais, população e amostra (histórias do CAPJu).
 O experimento será conduzido no contexto de dois projetos de aplicações web desenvolvidos com métodos ágeis no âmbito da disciplina Engenharia de Produto de Software da Universidade de Brasília, em semestres distintos: o MeasureSoftGram, desenvolvido no semestre 2026/2 \cite{measuresoftgram2026doc}, e o CAPJu, desenvolvido no semestre 2023/1 \cite{capju2023doc}. Para ambos os projetos, serão utilizados os artefatos disponibilizados em seus respectivos repositórios, incluindo documentações, histórias de usuário e protótipos.
 
-Além do repositório original do CAPJu \cite{capju2023doc}, será utilizado um segundo repositório, que reúne cenários de aceitação escritos em Gherkin por Gustavo França Boa Sorte e Leandro de Almeida Oliveira \cite{capju2026cenarios}. Esses cenários foram elaborados com base nas histórias de usuário do projeto, disponibilizadas no repositório original. Assim, para o CAPJu, serão considerados tanto os artefatos do repositório original quanto os cenários Gherkin derivados das histórias de usuário.
+Além do repositório original do CAPJu \cite{capju2023doc}, será utilizado um segundo repositório, que reúne cenários de aceitação escritos em Gherkin por Gustavo França Boa Sorte e Leandro de Almeida Oliveira. Esses cenários foram elaborados com base nas histórias de usuário do projeto, disponibilizadas no repositório do Trabalho de Conclusão de Curso dos anteriormente citados \cite{capju2026cenarios} . Assim, para o CAPJu, serão considerados tanto os artefatos do repositório original quanto os cenários Gherkin derivados das histórias de usuário.
 
-A escolha desses projetos baseia-se na disponibilidade de histórias de usuário com critérios de aceitação descritos em BDD e cuja validação pelos usuários seja conhecida. Essa característica é importante porque permite utilizar os critérios de aceitação previamente definidos e validados como referência para avaliar os cenários Gherkin gerados. Como são escassos os dados públicos que reúnem essas características, foram selecionados projetos cujos artefatos estão disponíveis e cuja origem e validação podem ser rastreadas. Dessa forma, a seleção caracteriza uma amostragem por conveniência, cujas limitações são discutidas na subseção de ameaças à validade deste trabalho.
+A escolha desses projetos baseia-se na disponibilidade de histórias de usuário com critérios de aceitação descritos em BDD e cuja validação pelos usuários seja conhecida. Essa característica é importante porque permite utilizar os critérios de aceitação previamente definidos e validados como referência para avaliar os cenários Gherkin gerados. Como são escassos os dados públicos que reúnem essas características, foram selecionados projetos cujos artefatos estão disponíveis e cuja origem e validação podem ser rastreadas. Dessa forma, a seleção caracteriza uma amostragem por conveniência, cujas limitações são discutidas na seção~\ref{sec:validade} de ameaças à validade deste trabalho.
 
 \textbf{Unidades experimentais:} histórias de usuário dos dois projetos, submetidas aos tratamentos com e sem RAG para a geração de critérios de aceitação em formato Gherkin.
 
@@ -72,9 +73,9 @@ O \textit{pipeline} será de implementação própria, inspirado na arquitetura 
 
 A etapa de recuperação será composta por dois módulos: a recuperação textual (\textit{T-RAG}), que retornará os cinco trechos da documentação mais relevantes via ICRALM, e a recuperação visual (\textit{V-RAG}), que extrairá as capturas de tela da interface associadas via DSE \cite{wang2025}. No tratamento com RAG, o campo de contexto do \textit{template} será preenchido com as informações e imagens recuperadas. Já no tratamento sem RAG, esse campo será mantido vazio, enquanto os demais elementos do \textit{template} permanecerão idênticos.
 
-Ambos os tratamentos utilizarão o mesmo modelo de linguagem para a geração (\textit{e.g.}, Gemini) \cite{wang2025}, o mesmo \textit{template} de \textit{prompt} e os mesmos parâmetros de geração, com temperatura fixada em zero. Dessa forma, o conteúdo do campo de contexto constituirá a única diferença entre os tratamentos.
+Ambos os tratamentos utilizarão o mesmo modelo de linguagem para a geração (\textit{e.g.}, Gemini) \cite{wang2025}, o mesmo \textit{template} de \textit{prompt} e os mesmos parâmetros de geração, com temperatura fixada em zero. Dessa forma, o conteúdo do campo de contexto será a única diferença entre os tratamentos.
 
-O tratamento sem RAG equivalerá ao cenário de ablação \textit{w/o RAG} de \citeonline{wang2025}, no qual o \textit{template} é preservado, mas o contexto de fundo é removido.
+O tratamento sem RAG equivalerá ao cenário \textit{w/o RAG} de \citeonline{wang2025}, no qual o \textit{template} é preservado, mas o contexto de fundo é removido.
 
 \subsubsection*{Variável independente}
 % TODO
@@ -111,7 +112,7 @@ As variáveis controladas correspondem aos fatores mantidos rigorosamente consta
 \subsection{Formulação das hipóteses}
 % H0 e H1, nível de significância.
 
-Com o objetivo de responder à Questão Específica 1 e avaliar estatisticamente o impacto da inclusão de RAG na geração de critérios de aceitação em formato Gherkin, as hipóteses são formuladas sobre a diferença pareada entre os tratamentos. Para cada história de usuário $j$, sejam
+Com o objetivo de responder à Questão Específica 1 da seção~\ref{sec:questao-pesquisa} e avaliar estatisticamente o impacto da inclusão de RAG na geração de critérios de aceitação em formato Gherkin, as hipóteses são formuladas sobre a diferença pareada entre os tratamentos. Para cada história de usuário $j$, sejam
 \[
 d_j^{\mathrm{Hit}} = \mathrm{Acc@Hit}_{j,\mathrm{Com\ RAG}} - \mathrm{Acc@Hit}_{j,\mathrm{Sem\ RAG}}
 \quad \mathrm{e} \quad
@@ -151,7 +152,7 @@ as diferenças entre as taxas obtidas com e sem RAG, e sejam $\mu_d^{\mathrm{Hit
     \]
 \end{itemize}
 
-Caso a hipótese nula seja rejeitada, o sinal da diferença média indica qual dos tratamentos obteve maior cobertura. Quando a normalidade das diferenças for rejeitada e o teste de Wilcoxon for utilizado, a hipótese nula é avaliada de forma análoga, verificando se a distribuição das diferenças é centrada em zero.
+Caso a hipótese nula seja rejeitada, o sinal da diferença média indica qual dos tratamentos obteve maior cobertura. Quando a normalidade das diferenças for rejeitada e o teste de Wilcoxon for utilizado, a hipótese nula é avaliada de forma análoga, verificando se a distribuição das diferenças é zero.
 
 % TODO: decidir se haverá correção para múltiplos testes (duas métricas primárias: Acc@Hit e Acc@Cor), por exemplo Holm-Bonferroni.
 
@@ -162,7 +163,7 @@ Para a avaliação das hipóteses, estabelece-se o nível de significância de $
 \subsection{Desenho do experimento}
 % {aqui vão os tratamentos e a forma de alocação, porque determina como os dados serão comparados}
 % Um fator, dois tratamentos, comparação pareada.
-O experimento caracteriza-se como um \textbf{experimento orientado à tecnologia} (\textit{technology-oriented experiment}), conforme a classificação apresentada por \citeonline{wohlin2000}. Nesse tipo de estudo, não há participação de sujeitos humanos, e o foco está na avaliação comparativa de técnicas, ferramentas ou algoritmos aplicados a artefatos de \textit{software} — neste caso, a geração de critérios de aceitação em formato Gherkin a partir de histórias de usuário.
+O experimento caracteriza-se como um \textbf{experimento orientado à tecnologia} (\textit{technology-oriented experiment}), conforme a classificação apresentada por \citeonline{wohlin2000}. Nesse tipo de estudo, não há participação de sujeitos humanos, e o foco está na avaliação comparativa de técnicas, ferramentas ou algoritmos aplicados a artefatos de \textit{software}. Neste caso, a geração de critérios de aceitação em formato Gherkin a partir de histórias de usuário.
 
 O desenho experimental adotado é o \textbf{\textit{paired comparison design}} (desenho de comparação pareada) \cite{wohlin2000}, indicado para experimentos com um fator e dois tratamentos. Nele, cada unidade experimental (\textit{User Story}) recebe os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}), e a comparação é feita sobre a diferença entre as medidas pareadas. A ordem de aplicação dos tratamentos é atribuída aleatoriamente a cada história. Como as chamadas aos modelos são independentes e não há sujeitos humanos que possam aprender com a primeira execução, a aleatorização não tem a função de controlar efeitos de aprendizado. Ela evita que um dos tratamentos seja executado sistematicamente antes do outro, por exemplo, diante de eventuais mudanças de disponibilidade ou de versão dos serviços dos modelos durante a coleta.
 
@@ -224,7 +225,7 @@ A instrumentação do experimento compreende o conjunto de artefatos, ferramenta
 \subsection{Procedimento de aplicação dos instrumentos}
 % {aqui vão os passos de execução em ordem, porque a etapa do TCC2 vai seguir esse roteiro}
 
-O procedimento de aplicação dos instrumentos descreve o roteiro cronológico e automatizado de execução do experimento a ser realizado no TCC2. O fluxo organiza-se em sete etapas sequenciais, garantindo a rastreabilidade dos dados e o controle estrito das variáveis experimentais:
+O procedimento de aplicação dos instrumentos descreve o roteiro cronológico e automatizado de execução do experimento a ser realizado no Trabalho de Conclusão de Curso 2. O fluxo organiza-se em sete etapas sequenciais, garantindo a rastreabilidade dos dados e o controle estrito das variáveis experimentais:
 
 \begin{enumerate}
     \item \textbf{Preparação da Base de Conhecimento e Indexação (Pré-processamento)}:
@@ -275,6 +276,8 @@ O procedimento de aplicação dos instrumentos descreve o roteiro cronológico e
 \end{enumerate}
 
 \subsection{Validade do experimento}
+\label{sec:validade}
+
 
 Conforme recomendado pelas diretrizes de Engenharia de Software Experimental \cite{wohlin2000}, o planejamento do experimento deve identificar ativamente as potenciais ameaças à validade dos resultados e estabelecer estratégias de mitigação para cada categoria.
 
@@ -293,7 +296,7 @@ A validade de construto avalia se as métricas utilizadas mensuram adequadamente
 
     \item \textbf{Mitigação}: O comitê é composto por três juízes, nenhum dos quais decide sozinho. Além disso, o mesmo gerador é utilizado nos dois tratamentos, de modo que um eventual viés tende a afetar de forma semelhante as gerações Com RAG e Sem RAG, comprometendo mais o nível absoluto de acurácia do que a diferença pareada entre os tratamentos, que é o foco do experimento.
 
-    \item \textbf{Ameaça}: As métricas \textit{Acc@Hit} e \textit{Acc@Cor} medem a cobertura dos objetivos atômicos do gabarito. Critérios gerados que não correspondem a nenhum desses objetivos, inclusive critérios inventados pelo modelo, não alteram o valor das métricas. Do mesmo modo, critérios válidos que não constem no gabarito não são reconhecidos como acertos, já que o gabarito não é necessariamente exaustivo.
+    \item \textbf{Ameaça}: As métricas \textit{Acc@Hit} e \textit{Acc@Cor} medem a cobertura dos objetivos atômicos do gabarito. Critérios gerados que não correspondem a nenhum desses objetivos, inclusive critérios inventados pelo modelo, não alteram o valor das métricas. Do mesmo modo, critérios válidos que não constem no gabarito não são reconhecidos como acertos, já que o gabarito não contém, necessariamente, todos os critérios de aceitação válidos possíveis.
 
     \item \textbf{Mitigação}: A limitação é reconhecida e considerada na interpretação dos resultados, que se referem à capacidade de cobrir o gabarito, e não à ausência de critérios inventados. A análise qualitativa complementar (Seção~\ref{sec:analise-complementar}) examina modos de falha, incluindo alucinações.
     % TODO: considerar amostrar a análise qualitativa de alucinações em todas as histórias, e não apenas nas de baixa pontuação.
@@ -320,7 +323,7 @@ A validade externa diz respeito à capacidade de generalização dos achados par
 \begin{itemize}
     \item \textbf{Ameaça}: A amostra é por conveniência e limitada a 50 histórias de usuário ($N = 50$), oriundas de apenas dois projetos acadêmicos de uma mesma disciplina, o que pode restringir a generalização dos achados para projetos de grande porte, sistemas em produção ou com padrões de documentação distintos.
 
-    \item \textbf{Mitigação}: Os artefatos dos projetos selecionados estão consolidados, pois se tratam de projetos acadêmicos encerrados, e sua origem e validação podem ser rastreadas. A generalização dos resultados permanece limitada a esse contexto; a replicação em outros domínios e projetos é viabilizada pela disponibilização pública do \textit{pipeline} de automação, dos \textit{templates} de \textit{prompt} e dos \textit{scripts} de avaliação em repositório de artefatos.
+    \item \textbf{Mitigação}: Os artefatos dos projetos selecionados estão consolidados, pois se tratam de projetos acadêmicos encerrados, e sua origem e validação podem ser rastreadas. A generalização dos resultados permanece limitada a esse contexto. A replicação em outros domínios e projetos é viabilizada pela disponibilização pública do \textit{pipeline} de automação, dos \textit{templates} de \textit{prompt} e dos \textit{scripts} de avaliação em repositório de artefatos.
 \end{itemize}
 
 \subsubsection*{Validade de conclusão}
