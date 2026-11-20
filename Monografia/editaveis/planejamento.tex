@@ -6,14 +6,33 @@
 \label{sec:escopo}
 
 \subsection{Objetivo}
-% {aqui vai o objetivo do estudo no template GQM, define o que será medido}
-% (analisar / com o propósito de / com respeito à / do ponto de vista de / no contexto de)
+
+A revisão da literatura identificou o frequente uso de RAG para a geração de histórias de usuário e critérios de aceitação \cite{rawson2025, rawson2025framework, rotar2025}. Porém, nessa revisão, poucos estudos fizeram a comparação entre a geração com e sem RAG \cite{wang2025}.
+
+Nesse contexto, o objetivo desse experimento é investigar empiricamente se há diferença de acurácia entre os critérios de aceitação em formato Gherkin gerados com RAG e sem RAG.
 
 \subsection{Questão de pesquisa}
-% {aqui vão as questões do estudo empírico, guiam a coleta e a análise}
+Com o propósito de responder à questão principal de pesquisa, apresentada na Seção~\ref{sec:questao-pesquisa} (\textit{Como os modelos de linguagem de grande porte têm apoiado a geração
+automática de critérios de aceitação em formato Gherkin a partir da
+documentação de histórias de usuário, e com que nível de acurácia?}) foi usada a metodologia GQM \cite{basili1994}. Essa abordagem permitiu decompor a questão principal em perguntas específicas de pesquisa, associando a cada uma delas,  métricas para guiar a avaliação.
+
+\begin{itemize}
+    \item \textbf{Questão Específica 1}: 
+    Existe diferença entre a acurácia dos critérios de aceitação em formato Gherkin gerados com \textit{RAG} e aqueles gerados sem RAG?
+
+    Para a avaliação da acurácia, os critérios de aceitação do gabarito serão segmentados em unidades menores, chamados \textit{objetivos de teste atômicos}, cada um com o seu próprio resultado verificável.
+    
+    \begin{itemize}
+        \item \textbf{Métrica 1.1 (Acc@Hit):} Proporção de \textit{objetivos de teste atômicos} de cada história de usuário que são ao menos parcialmente cobertos pelos critérios de aceitação gerados.  
+        \item \textbf{Métrica 1.2 (Acc@Cor):} Proporção de \textit{objetivos de teste atômicos} de cada história de usuário que são totalmente cobertos pelos critérios de aceitação gerados.
+    \end{itemize}
+\end{itemize}
 
 \subsection{Trabalhos relacionados}
 % {aqui vão os estudos da revisão mais próximos do nosso e a diferença deles para o nosso, porque posiciona a contribuição}
+%\cite{wohlin2000}
+%\cite{wang2025}
+%fazer por último
 
 \section{Planejamento}
 \label{sec:planejamento}
@@ -21,55 +40,319 @@
 \subsection{Contexto}
 % {aqui vão os projetos open source web ágeis escolhidos, os critérios de seleção e as histórias de usuário usadas, porque o contexto do GQM exige esse cenário}
 % Objetos experimentais, população e amostra (histórias do CAPJu).
+O experimento será conduzido no contexto de dois projetos de aplicações web desenvolvidos com métodos ágeis no âmbito da disciplina Engenharia de Produto de Software da Universidade de Brasília, em semestres distintos: o MeasureSoftGram, desenvolvido no semestre 2026/2 [refmeasuresoftgram], e o CAPJu, desenvolvido no semestre 2023/1 [refcapju]. Para ambos os projetos, serão utilizados os artefatos disponibilizados em seus respectivos repositórios, incluindo documentações, histórias de usuário e protótipos.
+
+Além do repositório original do CAPJu, será utilizado um segundo repositório, que reúne cenários de aceitação escritos em Gherkin por Gustavo França Boa Sorte e Leandro de Almeida Oliveira [refcenarioscapju]. Esses cenários foram elaborados com base nas histórias de usuário do projeto, disponibilizadas no repositório original. Assim, para o CAPJu, serão considerados tanto os artefatos do repositório original quanto os cenários Gherkin derivados das histórias de usuário.
+
+A escolha desses projetos baseia-se na disponibilidade de histórias de usuário com critérios de aceitação descritos em BDD e cuja validação pelos usuários seja conhecida. Essa característica é importante porque permite utilizar os critérios de aceitação previamente definidos e validados como referência para avaliar os cenários Gherkin gerados. Como são escassos os dados públicos que reúnem essas características, foram selecionados projetos cujos artefatos estão disponíveis e cuja origem e validação podem ser rastreadas. Dessa forma, a seleção caracteriza uma amostragem por conveniência, cujas limitações são discutidas na subseção de ameaças à validade deste trabalho.
+
+\textbf{Unidades experimentais:} histórias de usuário dos dois projetos, submetidas aos tratamentos com e sem RAG para a geração de critérios de aceitação em formato Gherkin.
+
+\textbf{População:} histórias de usuário de aplicações web desenvolvidas com métodos ágeis que possuam documentação de domínio e critérios de aceitação previamente definidos e validados.
+
+\textbf{Amostra:} 50 histórias de usuário, sendo 27 do MeasureSoftGram e 23 do CAPJu.
+
+No MeasureSoftGram, os critérios de aceitação estão descritos no formato Given-When-Then, mas não estão organizados em arquivos Gherkin. Portanto, esses critérios serão transcritos para a sintaxe Gherkin, preservando seu conteúdo original e realizando apenas as adaptações estruturais necessárias. A conformidade sintática dos arquivos resultantes será verificada por meio do framework Python Behave. Os cenários gerados pelos modelos, tanto no tratamento com RAG quanto no tratamento sem RAG, também passarão por essa verificação, de modo que eventuais problemas de sintaxe sejam identificados separadamente da avaliação de acurácia. Esta última será realizada com base no conteúdo dos critérios gerados, enquanto a verificação com o Behave avaliará sua conformidade com a sintaxe Gherkin.
+
+Os critérios de aceitação utilizados como gabarito em cada projeto serão decompostos em objetivos de teste atômicos, seguindo a abordagem apresentada por \cite{wang2025}. Esses objetivos serão utilizados como unidades de referência para a avaliação da cobertura dos critérios gerados. As histórias de usuário serão submetidas a prompts padronizados em dois tratamentos: com RAG e sem RAG. Para cada história, os resultados dos dois tratamentos serão avaliados em relação ao mesmo gabarito, permitindo a comparação da acurácia nas duas condições experimentais.
 
 \subsection{Variáveis do experimento}
 % {aqui vão as variáveis independentes (ex.: LLM, técnica de prompting), dependentes (ex.: acurácia dos critérios) e as hipóteses nula e alternativa, porque definem o que o experimento testa}
 
 \subsubsection*{Fator experimental}
 % Estratégia de contexto, com dois níveis (sem RAG e com RAG).
+O experimento possui um único fator: \textbf{Uso de RAG na geração de critérios de aceitação em Gherkin}. O fator possui dois níveis (tratamentos), que correspondem a duas configurações do mesmo \textit{pipeline} de geração.
+
+\begin{enumerate} 
+    \item \textbf{Sem RAG}: o modelo recebe o \textit{prompt} padronizado e a história de usuário; 
+    \item \textbf{Com RAG}: o modelo recebe o mesmo \textit{prompt} e a mesma história, acrescidos das informações de domínio recuperadas da base de conhecimento do projeto. 
+\end{enumerate}
+
+O \textit{pipeline} será de implementação própria, inspirado na arquitetura RAGcceptance\~M2RE \cite{wang2025}, e será organizado em duas etapas: recuperação e geração. O \textit{prompt} será adaptado a partir da técnica de \textit{prompting} que obteve o melhor desempenho em \citeonline{wang2025} (a estrutura \textit{Urial}), consistindo em um \textit{template} fixo com campos destinados à história de usuário e ao contexto do projeto.
+
+A etapa de recuperação será composta por dois módulos: a recuperação textual (\textit{T-RAG}), que retornará os cinco trechos da documentação mais relevantes via ICRALM, e a recuperação visual (\textit{V-RAG}), que extrairá as capturas de tela da interface associadas via DSE \cite{wang2025}. No tratamento com RAG, o campo de contexto do \textit{template} será preenchido com as informações e imagens recuperadas. Já no tratamento sem RAG, esse campo será mantido vazio, enquanto os demais elementos do \textit{template} permanecerão idênticos.
+
+Ambos os tratamentos utilizarão o mesmo modelo de linguagem para a geração (\textit{e.g.}, Gemini) \cite{wang2025}, o mesmo \textit{template} de \textit{prompt} e os mesmos parâmetros de geração, com temperatura fixada em zero. Dessa forma, o conteúdo do campo de contexto constituirá a única diferença entre os tratamentos.
+
+O tratamento sem RAG equivalerá ao cenário de ablação \textit{w/o RAG} de \citeonline{wang2025}, no qual o \textit{template} é preservado, mas o contexto de fundo é removido.
 
 \subsubsection*{Variável independente}
 % TODO
+A variável independente corresponde ao \textbf{tratamento aplicado}, isto é, a estratégia de geração de critérios de aceitação em Gherkin utilizada (\textbf{Sem RAG} ou \textbf{Com RAG}), conforme os dois níveis definidos no fator experimental.
 
 \subsubsection*{Variáveis dependentes}
 % Acurácia (Acc@Hit e Acc@Cor); similaridade como medida complementar.
 
+A variável dependente primária refere-se à \textbf{acurácia dos critérios de aceitação em Gherkin gerados}, mensurada por meio da cobertura dos objetivos atômicos do gabarito de referência (\textit{LLM-as-a-Judge}). Para cada objetivo atômico ($T_i$) derivado do gabarito de uma história de usuário, o comitê de LLMs juízas atribui o nível de cobertura em \textit{Full Coverage}, \textit{Partial Coverage} ou \textit{Not Covered} \cite{wang2025}. Os níveis \textit{Full Coverage} e \textit{Not Covered} só são atribuídos quando há consenso unânime entre os juízes; na ausência de unanimidade, o objetivo é classificado como \textit{Partial Coverage}. A partir dessa classificação, são operacionalizadas duas métricas centrais de acurácia, calculadas por história de usuário:
+\begin{itemize} 
+    \item \textbf{Taxa de Cobertura de Atendimento (\textit{Acc@Hit})}: proporção de objetivos atômicos da história de usuário que obtiveram ao menos cobertura parcial ($Hit = 1$); 
+    \item \textbf{Taxa de Cobertura de Exatidão (\textit{Acc@Cor})}: proporção de objetivos atômicos da história de usuário que obtiveram cobertura total ($Correctness = 1$). 
+\end{itemize} 
+Com base nessas métricas, serão calculadas as seguintes medidas estatísticas por tratamento: 
+\begin{itemize} 
+    \item \textbf{Média} e \textbf{mediana} das taxas de cobertura (\textit{Acc@Hit} e \textit{Acc@Cor}) por história de usuário; 
+    \item \textbf{Variância} e \textbf{desvio padrão} das distribuições de acurácia entre as histórias de usuário em cada tratamento. 
+\end{itemize}
+
+A similaridade semântica vetorial entre os critérios gerados e os critérios do gabarito será calculada como medida complementar e reportada de forma descritiva, conforme a Seção~\ref{sec:analise-complementar}.
+
 \subsubsection*{Variáveis controladas}
 % LLM e versão, temperatura, prompt, corpus, top-k.
+As variáveis controladas correspondem aos fatores mantidos rigorosamente constantes em ambos os tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}), com o objetivo de isolar o efeito da inclusão das informações de domínio e evitar vieses no experimento: 
+\begin{itemize} 
+    \item \textbf{Modelo de LLM gerador e versão}: utilização da mesma versão do modelo de linguagem gerador (\textit{e.g.}, Gemini 2 Flash) para executar a geração de ambas as configurações de uma mesma história de usuário; 
+    \item \textbf{Parâmetros de geração}: fixação dos hiperparâmetros de inferência em ambos os tratamentos, especificamente com temperatura igual a zero ($temperatura = 0$) e $top\_p = 0.1$, reduzindo a aleatoriedade e a variabilidade das respostas, o que favorece a reprodutibilidade dos resultados (embora não garanta saídas idênticas entre execuções);
+    \item \textbf{Estrutura do \textit{template} de \textit{prompt}}: uso da mesma estrutura de \textit{prompt} padronizada (adaptada da técnica \textit{Urial}), mantendo-se rigorosamente idênticos o papel da IA, as instruções de formato Gherkin e o espaço para a história de usuário; 
+    \item \textbf{Corpus da base de conhecimento}: utilização da mesma base de documentos textuais e visuais do projeto para indexação e busca; 
+    \item \textbf{Quantidade de trechos recuperados}: fixação em cinco para a quantidade de trechos da documentação e telas retornados pelo módulo de recuperação no tratamento Com RAG; 
+    \item \textbf{Comitê e avaliação (\textit{LLM-as-a-Judge})}: utilização do mesmo painel de LLMs juízas (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash), submetido ao mesmo algoritmo de julgamento ponto a ponto e à exigência de consenso unânime para classificar as saídas de ambos os tratamentos.
+\end{itemize}
 
 \subsection{Formulação das hipóteses}
 % H0 e H1, nível de significância.
 
+Com o objetivo de responder à Questão Específica 1 e avaliar estatisticamente o impacto da inclusão de RAG na geração de critérios de aceitação em formato Gherkin, as hipóteses são formuladas sobre a diferença pareada entre os tratamentos. Para cada história de usuário $j$, sejam
+\[
+d_j^{\mathrm{Hit}} = \mathrm{Acc@Hit}_{j,\mathrm{Com\ RAG}} - \mathrm{Acc@Hit}_{j,\mathrm{Sem\ RAG}}
+\quad \mathrm{e} \quad
+d_j^{\mathrm{Cor}} = \mathrm{Acc@Cor}_{j,\mathrm{Com\ RAG}} - \mathrm{Acc@Cor}_{j,\mathrm{Sem\ RAG}}
+\]
+as diferenças entre as taxas obtidas com e sem RAG, e sejam $\mu_d^{\mathrm{Hit}}$ e $\mu_d^{\mathrm{Cor}}$ as respectivas médias populacionais dessas diferenças \cite{wohlin2000}.
+
+\subsubsection*{1. Hipóteses para a Taxa de Cobertura de Atendimento (\textit{Acc@Hit})}
+
+\begin{itemize}
+    \item \textbf{$H_{0,\mathrm{Hit}}$ (Hipótese Nula)}: a geração \textbf{Com RAG} e a geração \textbf{Sem RAG} não diferem quanto à taxa de cobertura de atendimento (\textit{Acc@Hit}).
+
+    \[
+    H_{0,\mathrm{Hit}}: \mu_d^{\mathrm{Hit}} = 0
+    \]
+
+    \item \textbf{$H_{1,\mathrm{Hit}}$ (Hipótese Alternativa)}: a geração \textbf{Com RAG} e a geração \textbf{Sem RAG} diferem quanto à taxa de cobertura de atendimento (\textit{Acc@Hit}).
+
+    \[
+    H_{1,\mathrm{Hit}}: \mu_d^{\mathrm{Hit}} \neq 0
+    \]
+\end{itemize}
+
+\subsubsection*{2. Hipóteses para a Taxa de Cobertura de Exatidão (\textit{Acc@Cor})}
+
+\begin{itemize}
+    \item \textbf{$H_{0,\mathrm{Cor}}$ (Hipótese Nula)}: a geração \textbf{Com RAG} e a geração \textbf{Sem RAG} não diferem quanto à taxa de cobertura de exatidão (\textit{Acc@Cor}).
+
+    \[
+    H_{0,\mathrm{Cor}}: \mu_d^{\mathrm{Cor}} = 0
+    \]
+
+    \item \textbf{$H_{1,\mathrm{Cor}}$ (Hipótese Alternativa)}: a geração \textbf{Com RAG} e a geração \textbf{Sem RAG} diferem quanto à taxa de cobertura de exatidão (\textit{Acc@Cor}).
+
+    \[
+    H_{1,\mathrm{Cor}}: \mu_d^{\mathrm{Cor}} \neq 0
+    \]
+\end{itemize}
+
+Caso a hipótese nula seja rejeitada, o sinal da diferença média indica qual dos tratamentos obteve maior cobertura. Quando a normalidade das diferenças for rejeitada e o teste de Wilcoxon for utilizado, a hipótese nula é avaliada de forma análoga, verificando se a distribuição das diferenças é centrada em zero.
+
+% TODO: decidir se haverá correção para múltiplos testes (duas métricas primárias: Acc@Hit e Acc@Cor), por exemplo Holm-Bonferroni.
+
+\subsubsection*{Nível de Significância e Testes Estatísticos}
+
+Para a avaliação das hipóteses, estabelece-se o nível de significância de $\alpha = 0{,}05$ (nível de confiança de 95\%), padrão em Engenharia de Software Experimental \cite{wohlin2000}. A hipótese nula correspondente será rejeitada caso o valor-p (\textit{p-value}) calculado a partir dos testes de hipótese seja inferior a $\alpha$ ($p < 0{,}05$). 
+
 \subsection{Desenho do experimento}
 % {aqui vão os tratamentos e a forma de alocação, porque determina como os dados serão comparados}
 % Um fator, dois tratamentos, comparação pareada.
+O experimento caracteriza-se como um \textbf{experimento orientado à tecnologia} (\textit{technology-oriented experiment}), conforme a classificação apresentada por \citeonline{wohlin2000}. Nesse tipo de estudo, não há participação de sujeitos humanos, e o foco está na avaliação comparativa de técnicas, ferramentas ou algoritmos aplicados a artefatos de \textit{software} — neste caso, a geração de critérios de aceitação em formato Gherkin a partir de histórias de usuário.
+
+O desenho experimental adotado é o \textbf{\textit{paired comparison design}} (desenho de comparação pareada) \cite{wohlin2000}, indicado para experimentos com um fator e dois tratamentos. Nele, cada unidade experimental (\textit{User Story}) recebe os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}), e a comparação é feita sobre a diferença entre as medidas pareadas. A ordem de aplicação dos tratamentos é atribuída aleatoriamente a cada história. Como as chamadas aos modelos são independentes e não há sujeitos humanos que possam aprender com a primeira execução, a aleatorização não tem a função de controlar efeitos de aprendizado. Ela evita que um dos tratamentos seja executado sistematicamente antes do outro, por exemplo, diante de eventuais mudanças de disponibilidade ou de versão dos serviços dos modelos durante a coleta.
+
+A Tabela~\ref{tab:pareado-exemplo} apresenta um exemplo ilustrativo da ordem aleatorizada de execução dos tratamentos sobre uma amostra de histórias de usuário.
+
+\begin{table}[H]
+\centering
+\caption{Exemplo ilustrativo da ordem aleatória de aplicação dos tratamentos às histórias de usuário (\textit{paired comparison design})}
+\label{tab:pareado-exemplo}
+\begin{tabular}{c|c|c}
+\hline
+\textbf{Unidade experimental (História de Usuário)} & \textbf{Trat. 1 (Sem RAG)} & \textbf{Trat. 2 (Com RAG)} \\
+\hline
+1 & 2 & 1 \\
+2 & 1 & 2 \\
+3 & 2 & 1 \\
+4 & 1 & 2 \\
+5 & 2 & 1 \\
+\hline
+\end{tabular}
+
+\vspace{0.3em}
+\small{Legenda: Os valores nas células indicam a ordem de execução do tratamento para a história correspondente. Tratamentos: 1 = Sem RAG (\textit{baseline}), 2 = Com RAG (tratamento proposto).}
+\end{table}
 
 \subsection{Teste de normalidade}
+
+Antes da comparação estatística entre os tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}), será avaliado o pressuposto de normalidade das diferenças pareadas entre os tratamentos ($d_j^{\mathrm{Hit}}$ e $d_j^{\mathrm{Cor}}$), calculadas para cada história de usuário, por meio do teste de Shapiro-Wilk. Esse teste é adequado para amostras de pequeno a médio porte, como o conjunto de 50 pares do presente experimento. % TODO: incluir referência para a adequação do Shapiro-Wilk a amostras desse tamanho.
+
+Em Engenharia de Software Experimental, é frequente que dados de qualidade e acurácia de requisitos apresentem assimetria ou não atendam aos pressupostos exigidos por testes paramétricos \cite{wohlin2000}. Caso a hipótese de normalidade seja rejeitada ($p < 0{,}05$), o estudo seguirá a abordagem de testes não paramétricos para amostras pareadas, utilizando o \textbf{teste de postos sinalizados de Wilcoxon} (\textit{Wilcoxon signed-rank test}), acompanhado da medição do tamanho do efeito (\textit{effect size}) por meio do $r$ de Rosenthal. Caso contrário, será utilizado o \textbf{teste $t$ pareado}, acompanhado do $d$ de Cohen.
 
 \subsection{Teste de hipóteses}
 % {aqui vão as métricas e os métodos de análise (estatística descritiva, testes), porque a escolha deve vir antes da coleta}
 % Teste t pareado ou Wilcoxon.
 
+A análise estatística principal será conduzida no nível da história de usuário (\textit{case-level}), que é a unidade experimental sobre a qual as hipóteses foram formuladas e à qual ambos os tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}) são aplicados. Para cada história serão calculadas as diferenças pareadas $d_j^{\mathrm{Hit}}$ e $d_j^{\mathrm{Cor}}$. Se a normalidade dessas diferenças não for rejeitada, será utilizado o \textbf{teste $t$ pareado}; caso contrário, será utilizado o \textbf{teste de postos sinalizados de Wilcoxon} (\textit{Wilcoxon signed-rank test}) \cite{wohlin2000}. Ambos são indicados para comparar duas medições pareadas sobre as mesmas unidades experimentais.
+
+Os resultados no nível do objetivo atômico (\textit{point-level}) serão reportados de forma descritiva, por meio da contagem de objetivos cobertos em cada tratamento, e não serão utilizados para testar as hipóteses, pois objetivos atômicos derivados de uma mesma história não constituem observações independentes.
+
 \subsection{Instrumentação}
 % {aqui vão as ferramentas, os prompts, o gabarito de referência e os scripts, porque permite reproduzir o estudo}
+
+A instrumentação do experimento compreende o conjunto de artefatos, ferramentas de \textit{software}, \textit{templates} de \textit{prompt}, gabarito de referência e \textit{scripts} de automação desenvolvidos para viabilizar a execução dos tratamentos e a coleta dos dados, garantindo a reprodutibilidade completa do estudo. Os instrumentos utilizam-se da seguinte estrutura:
+
+\begin{itemize}
+    \item \textbf{Gabarito de Referência e Base de Conhecimento}: Conjunto de histórias de usuário (\textit{User Stories}) reais selecionadas do projeto, acompanhadas de seus respectivos critérios de aceitação em formato Gherkin (\textit{ground truth}), que, no caso do MeasureSoftGram, resultam da transcrição dos critérios originais descritos em \textit{Given-When-Then}. Para a etapa de avaliação, os cenários em Gherkin do gabarito serão desdobrados em uma lista de objetivos de teste atômicos ($T_i$), preservando a semântica condicional (\textit{Given-When-Then}). A base de conhecimento é constituída pelos documentos textuais e capturas de tela da interface do usuário (\textit{UI}) indexados para a recuperação de domínio;
+
+    \item \textbf{Ferramentas de \textit{Software} e Modelos}: Infraestrutura desenvolvida em linguagem Python (versão 3.12) para orquestração do \textit{pipeline}. Para a etapa de geração, utiliza-se a API da LLM geradora (\textit{e.g.}, Gemini 2 Flash). Para a etapa de avaliação (\textit{LLM-as-a-Judge}), utilizam-se as APIs dos três modelos componentes do comitê de juízes (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash) \cite{wang2025};
+
+    \item \textbf{\textit{Templates} de \textit{Prompt}}: \textit{Template} de \textit{prompt} padronizado e fixo adaptado da estrutura \textit{Urial} \cite{wang2025}. O \textit{template} especifica o papel da IA, as regras de sintaxe Gherkin e contém lacunas demarcadas para a injeção da história de usuário (\texttt{\{INPUT\_USER\_STORY\}}) e do contexto recuperado (\texttt{\{INPUT\_BACKGROUND\}}). No tratamento Sem RAG, o marcador de contexto é mantido vazio, enquanto no tratamento Com RAG ele é preenchido com os cinco trechos recuperados;
+
+    \item \textbf{\textit{Scripts} de Automação e Recuperação}: \textit{Scripts} responsáveis pela extração e vetorização dos artefatos da base de conhecimento, pela busca por similaridade e pela execução pareada das chamadas à LLM geradora para cada história de usuário sob a ordem aleatorizada definida no desenho de comparação pareada;
+
+    \item \textbf{\textit{Scripts} de Avaliação e Análise Estatística}: \textit{Scripts} em Python desenvolvidos para operacionalizar o algoritmo de julgamento \textit{LLM-as-a-Judge}. Os \textit{scripts} enviam cada objetivo atômico $T_i$ juntamente com a resposta gerada ao painel de juízes, registram o consenso de cobertura (\textit{Full}, \textit{Partial} ou \textit{Not Covered}), computam as métricas \textit{Acc@Hit}, \textit{Acc@Cor} e similaridade semântica, e executam o teste de normalidade e os testes de hipóteses (Shapiro-Wilk, teste $t$ pareado e Wilcoxon);
+
+    \item \textbf{Behave}: \textit{framework} Python para BDD, utilizado para verificar a conformidade sintática dos arquivos Gherkin, tanto dos critérios do MeasureSoftGram transcritos para essa sintaxe quanto dos cenários gerados pelos modelos nos dois tratamentos. Os resultados dessa verificação são registrados separadamente da avaliação de acurácia, que se baseia no conteúdo dos critérios.
+\end{itemize}
 
 \subsection{Procedimento de aplicação dos instrumentos}
 % {aqui vão os passos de execução em ordem, porque a etapa do TCC2 vai seguir esse roteiro}
 
+O procedimento de aplicação dos instrumentos descreve o roteiro cronológico e automatizado de execução do experimento a ser realizado no TCC2. O fluxo organiza-se em sete etapas sequenciais, garantindo a rastreabilidade dos dados e o controle estrito das variáveis experimentais:
+
+\begin{enumerate}
+    \item \textbf{Preparação da Base de Conhecimento e Indexação (Pré-processamento)}:
+    \begin{itemize}
+        \item Coleta e estruturação das histórias de usuário (\textit{User Stories}) e de suas documentações correlatas (textos e capturas de tela da interface de usuário);
+        \item Indexação vetorial da base de conhecimento, utilizando o modelo ICRALM para a recuperação de trechos de texto (\textit{T-RAG}) e o modelo DSE para a recuperação de capturas de tela (\textit{V-RAG}) \cite{wang2025}.
+    \end{itemize}
+
+    \item \textbf{Atomização do Gabarito em Gherkin}:
+    \begin{itemize}
+        \item Transcrição dos critérios de aceitação do MeasureSoftGram, descritos em \textit{Given-When-Then}, para a sintaxe Gherkin, preservando o conteúdo original e verificando a conformidade sintática dos arquivos resultantes com o \textit{Behave};
+        \item Desdobramento manual/estruturado dos critérios de aceitação do gabarito de cada história de usuário em uma lista de objetivos de teste atômicos ($T_i$), preservando a integridade condicional da regra de negócio (\textit{Given-When-Then});
+        \item Armazenamento dos objetivos atômicos em banco de dados estruturado para servir de referência na fase de avaliação.
+    \end{itemize}
+
+    \item \textbf{Randomização da Ordem dos Tratamentos}:
+    \begin{itemize}
+        \item Aplicação do algoritmo de aleatorização para determinar a ordem de execução dos dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}) para cada história de usuário, conforme o desenho de comparação pareada (\textit{paired comparison design}) exemplificado na Tabela~\ref{tab:pareado-exemplo};
+        \item Registro da ordem de execução em repositório de controle, para garantir a rastreabilidade da execução.
+    \end{itemize}
+
+    \item \textbf{Execução dos Tratamentos e Geração dos Gherkins}:
+    \begin{itemize}
+        \item \textit{Tratamento Com RAG}: Para a história de usuário sob execução, o módulo de recuperação extrai os cinco trechos textuais e visuais mais relevantes da base de conhecimento. O contexto recuperado é injetado no \textit{template} de \textit{prompt} (adaptado do modelo \textit{Urial}), e a requisição é enviada à LLM geradora (\textit{e.g.}, Gemini 2 Flash) com temperatura fixada em 0;
+        \item \textit{Tratamento Sem RAG}: O mesmo \textit{template} de \textit{prompt} e história de usuário são submetidos à mesma LLM geradora com os mesmos hiperparâmetros, mantendo-se o campo de contexto estritamente vazio;
+        \item Armazenamento das respostas com os cenários em Gherkin gerados para ambos os tratamentos em arquivos JSON identificados por ID da história e tratamento.
+    \end{itemize}
+
+    \item \textbf{Verificação Sintática dos Cenários Gerados (\textit{Behave})}:
+    \begin{itemize}
+        \item Verificação da conformidade com a sintaxe Gherkin dos cenários gerados em cada tratamento, por meio do \textit{Behave};
+        \item Registro do resultado da verificação separadamente da avaliação de acurácia.
+    \end{itemize}
+
+    \item \textbf{Avaliação Automática via Comitê de LLMs Juízas (\textit{LLM-as-a-Judge})}:
+    \begin{itemize}
+        \item Para cada objetivo atômico $T_i$ de cada história de usuário, os \textit{scripts} enviam o objetivo e a resposta completa gerada pelo tratamento ao painel de juízes (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash);
+        \item Coleta dos pareceres individuais de cada juiz e aplicação do critério de consenso: as classificações \textit{Full Coverage} e \textit{Not Covered} só são atribuídas quando todos os juízes concordam, e, na ausência de unanimidade, o objetivo é classificado como \textit{Partial Coverage};
+        \item Mapeamento do resultado para as variáveis binárias de atendimento ($Hit$ e $Correctness$) por objetivo atômico.
+    \end{itemize}
+
+    \item \textbf{Cálculo de Métricas e Análise Estatística}:
+    \begin{itemize}
+        \item Agregação dos dados para o cálculo das taxas \textit{Acc@Hit} e \textit{Acc@Cor} a nível de caso/história (\textit{Case-level}) e da similaridade semântica, além da contagem descritiva de objetivos cobertos a nível de ponto (\textit{Point-level});
+        \item Aplicação do teste de normalidade de Shapiro-Wilk sobre as diferenças pareadas entre os tratamentos;
+        \item Execução do teste de hipóteses pareado a nível de caso (teste $t$ pareado ou teste de Wilcoxon, conforme a normalidade das diferenças) ao nível de significância de $\alpha = 0{,}05$, seguido do cálculo do tamanho do efeito ($d$ de Cohen para o teste $t$ pareado ou $r$ de Rosenthal para o teste de Wilcoxon).
+    \end{itemize}
+\end{enumerate}
+
 \subsection{Validade do experimento}
-% {aqui vão as ameaças por tipo e as mitigações, porque é parte obrigatória do planejamento}
+
+Conforme recomendado pelas diretrizes de Engenharia de Software Experimental \cite{wohlin2000}, o planejamento do experimento deve identificar ativamente as potenciais ameaças à validade dos resultados e estabelecer estratégias de mitigação para cada categoria.
 
 \subsubsection*{Validade de construto}
-% {aqui vai se as medidas representam de fato a qualidade dos critérios, porque é o principal risco em métricas de texto}
+
+A validade de construto avalia se as métricas utilizadas mensuram adequadamente o conceito abstrato de acurácia dos critérios de aceitação em Gherkin.
+
+\begin{itemize}
+    \item \textbf{Ameaça}: Métricas estatísticas de superfície tradicionais (como ROUGE, BLEU e Levenshtein) falham em capturar a semântica de regras de negócio em formato Gherkin. Por outro lado, o uso de juízes baseados em LLMs pode introduzir viés de alinhamento, sensibilidade ao \textit{prompt} ou incoerência de avaliação.
+
+    \item \textbf{Mitigação}: Adota-se uma abordagem complementar de métricas. O processo de avaliação \textit{LLM-as-a-Judge} é operacionalizado sobre objetivos de teste atômicos ($T_i$) obtidos a partir da desestruturação prévia do gabarito. Para mitigar vieses individuais dos modelos, emprega-se um comitê diversificado de três LLMs juízas (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash) submetidas a um critério de \textbf{consenso unânime} para as classificações \textit{Full Coverage} e \textit{Not Covered}, além do cálculo da similaridade semântica por \textit{embeddings}, reportada de forma complementar. Como a ausência de unanimidade resulta em \textit{Partial Coverage}, a métrica \textit{Acc@Hit} tende a ser mais permissiva que a \textit{Acc@Cor}, o que é considerado na interpretação dos resultados.
+    % TODO: decidir se haverá validação do comitê de juízes por avaliação humana de uma subamostra; se não, declarar a ausência como limitação.
+
+    \item \textbf{Ameaça}: Viés de preferência por texto próprio, pois o modelo gerador pode coincidir com um dos modelos do comitê de juízes (como o Gemini).
+    % TODO: definir o modelo gerador (hoje aparece como e.g.).
+
+    \item \textbf{Mitigação}: O comitê é composto por três juízes, nenhum dos quais decide sozinho. Além disso, o mesmo gerador é utilizado nos dois tratamentos, de modo que um eventual viés tende a afetar de forma semelhante as gerações Com RAG e Sem RAG, comprometendo mais o nível absoluto de acurácia do que a diferença pareada entre os tratamentos, que é o foco do experimento.
+
+    \item \textbf{Ameaça}: As métricas \textit{Acc@Hit} e \textit{Acc@Cor} medem a cobertura dos objetivos atômicos do gabarito. Critérios gerados que não correspondem a nenhum desses objetivos, inclusive critérios inventados pelo modelo, não alteram o valor das métricas. Do mesmo modo, critérios válidos que não constem no gabarito não são reconhecidos como acertos, já que o gabarito não é necessariamente exaustivo.
+
+    \item \textbf{Mitigação}: A limitação é reconhecida e considerada na interpretação dos resultados, que se referem à capacidade de cobrir o gabarito, e não à ausência de critérios inventados. A análise qualitativa complementar (Seção~\ref{sec:analise-complementar}) examina modos de falha, incluindo alucinações.
+    % TODO: considerar amostrar a análise qualitativa de alucinações em todas as histórias, e não apenas nas de baixa pontuação.
+
+    \item \textbf{Ameaça}: Parte do gabarito é produzida pelos autores, uma vez que os critérios do MeasureSoftGram serão transcritos para a sintaxe Gherkin, enquanto os cenários do CAPJu foram elaborados por terceiros, o que pode introduzir vieses de redação ou omissões.
+
+    \item \textbf{Mitigação}: A transcrição preserva o conteúdo original dos critérios, realizando apenas as adaptações estruturais necessárias, e a conformidade sintática é verificada com o \textit{Behave}.
+\end{itemize}
 
 \subsubsection*{Validade interna}
-% {aqui vão fatores que podem distorcer causa e efeito (ex.: não determinismo dos LLMs), porque afeta a confiança nos resultados}
+
+A validade interna refere-se ao grau de confiança de que os efeitos observados nas variáveis dependentes foram causados exclusivamente pela manipulação da variável independente (\textbf{Uso de RAG}), e não por fatores de confusão.
+
+\begin{itemize}
+    \item \textbf{Ameaça}: O não-determinismo inerente à geração por modelos de linguagem de grande porte, variações de contexto e eventuais mudanças de disponibilidade ou de versão dos serviços durante a coleta.
+
+    \item \textbf{Mitigação}: Fixação dos hiperparâmetros de inferência com temperatura zerada ($\mathrm{temperatura} = 0$) e $top\_p = 0{,}1$ em todas as execuções do gerador e dos juízes, o que reduz a variabilidade das respostas, embora não garanta saídas idênticas entre execuções. Adota-se o desenho de comparação pareada, no qual cada história de usuário recebe ambos os tratamentos com o mesmo modelo gerador e a mesma estrutura de \textit{prompt} (\textit{Urial}), e a ordem de aplicação é aleatorizada para evitar que um dos tratamentos seja executado sistematicamente antes do outro.
+\end{itemize}
 
 \subsubsection*{Validade externa}
-% {aqui vai até onde os resultados generalizam para outros projetos e modelos, porque o contexto é restrito a apps web open source}
+
+A validade externa diz respeito à capacidade de generalização dos achados para outros contextos, modelos e sistemas de \textit{software}.
+
+\begin{itemize}
+    \item \textbf{Ameaça}: A amostra é por conveniência e limitada a 50 histórias de usuário ($N = 50$), oriundas de apenas dois projetos acadêmicos de uma mesma disciplina, o que pode restringir a generalização dos achados para projetos de grande porte, sistemas em produção ou com padrões de documentação distintos.
+
+    \item \textbf{Mitigação}: Os artefatos dos projetos selecionados estão consolidados, pois se tratam de projetos acadêmicos encerrados, e sua origem e validação podem ser rastreadas. A generalização dos resultados permanece limitada a esse contexto; a replicação em outros domínios e projetos é viabilizada pela disponibilização pública do \textit{pipeline} de automação, dos \textit{templates} de \textit{prompt} e dos \textit{scripts} de avaliação em repositório de artefatos.
+\end{itemize}
 
 \subsubsection*{Validade de conclusão}
-% TODO
+
+A validade de conclusão aborda a relação estatística entre a variável independente e os resultados, garantindo a adequação dos testes aplicados e o poder de inferência.
+
+\begin{itemize}
+    \item \textbf{Ameaça}: Risco de baixo poder estatístico (\textit{statistical power}) ou de violação dos pressupostos distributivos decorrente da limitação do tamanho amostral em 50 histórias de usuário ($N = 50$), o que poderia induzir a erros de Tipo I (falsos positivos) ou Tipo II (falsos negativos).
+
+    \item \textbf{Mitigação}: O desenho de comparação pareada atua como mitigador primário, pois cada uma das 50 histórias de usuário recebe ambos os tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}), gerando 50 pares de comparação direta (100 execuções de geração no total) e isolando a variabilidade inerente a cada história. A inferência é conduzida no nível da história, uma vez que os objetivos atômicos de uma mesma história não são observações independentes. Para verificar a normalidade das diferenças pareadas, adota-se o \textbf{teste de Shapiro-Wilk}, adequado para amostras de pequeno a médio porte. Caso a normalidade seja rejeitada, utiliza-se o teste de Wilcoxon; caso contrário, o teste $t$ pareado, sob o nível de significância de $\alpha = 0{,}05$, complementados pelo cálculo do tamanho do efeito (\textit{effect size}, via $r$ de Rosenthal para o teste de Wilcoxon e $d$ de Cohen para o teste $t$ pareado) para avaliar a relevância prática das diferenças observadas.
+\end{itemize}
 
 \subsection{Análise complementar}
+\label{sec:analise-complementar}
 % Medidas complementares (ex.: similaridade de cosseno), de caráter exploratório.
+
+Além da verificação das hipóteses primárias centradas nas taxas de cobertura (\textit{Acc@Hit} e \textit{Acc@Cor}), será realizada uma análise complementar de caráter descritivo e exploratório, sem testes de hipóteses. O objetivo desta análise é proporcionar uma visão multidimensional sobre a estrutura dos critérios gerados e os tipos de erro recorrentes em cada tratamento:
+
+\begin{enumerate}
+    \item \textbf{Similaridade Semântica Vetorial}: similaridade de cosseno calculada entre os \textit{embeddings} dos critérios em Gherkin gerados e os critérios do gabarito da respectiva história de usuário \cite{wang2025}. Essa medida será reportada de forma descritiva (média e mediana por tratamento), sem hipótese estatística associada, pois a análise estatística isolada de medidas automáticas não considera o contexto dos critérios \cite{wang2025};
+
+    \item \textbf{Métricas Estatísticas e Lexicais Secundárias}: Com o intuito de avaliar a sobreposição sintática e a similaridade estrutural entre os critérios em Gherkin gerados e o gabarito de referência, serão calculadas as seguintes métricas quantitativas automáticas \cite{wang2025}:
+    \begin{itemize}
+        \item \textbf{ROUGE (ROUGE-1, ROUGE-2 e ROUGE-L)}: para medir a sobreposição de unigramas, bigramas e da maior sequência comum de palavras (\textit{Longest Common Subsequence});
+        \item \textbf{BLEU}: para calcular a precisão de n-gramas com penalização por brevidade (\textit{brevity penalty});
+        \item \textbf{Distância de Levenshtein}: para mensurar a menor quantidade de edições de caracteres necessárias para alinhar os cenários gerados ao gabarito.
+    \end{itemize}
+
+    \item \textbf{Análise Qualitativa de Modos de Falha e Alucinações}: Inspeção qualitativa sobre a amostra de cenários em que foram registradas baixas pontuações pelos juízes (\textit{Not Covered} ou \textit{Partial Coverage}), categorizando as falhas em três frentes principais:
+    \begin{itemize}
+        \item \textit{Alucinação de Regras}: introdução de pré-condições ou asserções falsas não fundamentadas na história ou na documentação;
+        \item \textit{Omissão de Fluxos de Exceção}: ausência de critérios que cubram caminhos negativos e restrições de interface;
+        \item \textit{Redundância e Verbosidade}: geração de critérios duplicados ou paráfrases de uma mesma condição.
+    \end{itemize}
+\end{enumerate}
