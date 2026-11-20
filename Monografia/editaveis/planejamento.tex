@@ -34,6 +34,13 @@ documentação de histórias de usuário, e com que nível de acurácia?}) foi u
 %\cite{wohlin2000}
 %\cite{wang2025}
 %fazer por último
+Os trabalhos que fundamentam este estudo são de duas naturezas: referências metodológicas, que orientaram o planejamento do experimento, e o estudo de \citeonline{wang2025}, que serviu de base para a definição dos tratamentos e da avaliação.
+
+O livro de \citeonline{wohlin2000}, que sistematiza o processo de experimentação em Engenharia de \textit{Software}, foi a principal referência metodológica, orientando a escolha do desenho experimental, a formulação das hipóteses, a seleção dos testes estatísticos e a discussão das ameaças à validade. Para derivar a pergunta específica de pesquisa e suas métricas a partir do objetivo, foi adotada a metodologia GQM \cite{basili1994}.
+
+O estudo de \citeonline{wang2025} propõe a arquitetura RAGcceptance M2RE para a geração de critérios de aceitação, que combina recuperação textual e visual, e inclui uma ablação sem RAG. Dele foram adaptados o \textit{pipeline} de recuperação e geração, o \textit{template} de \textit{prompt}, a decomposição do gabarito em objetivos atômicos e o comitê de LLMs juízas. Diferentemente desse estudo, em que a comparação com e sem RAG é um dos componentes da avaliação de uma arquitetura proposta, este trabalho toma o uso de RAG como único fator experimental, mantendo constantes o modelo, o \textit{prompt}, os parâmetros de geração e a base de conhecimento, e avalia a diferença entre os tratamentos por meio de um teste de hipóteses pareado.
+
+Em síntese, esses trabalhos forneceram a base metodológica e o ponto de partida para a definição dos tratamentos. 
 
 \section{Planejamento}
 \label{sec:planejamento}
